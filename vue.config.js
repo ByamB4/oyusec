@@ -1,7 +1,7 @@
 // Github page
 module.exports = {
   productionSourceMap: false,
-  publicPath: process.env.NODE_ENV === "production" ? "/oyusec/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
 };
 
 // Development
