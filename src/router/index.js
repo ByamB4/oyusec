@@ -20,7 +20,7 @@ export default new VueRouter({
           name: "Cryptography",
           path: "/crypto",
           props: {
-            urlp: "cryptography",
+            urlp: "cryptotography",
           },
           component: () => import("@/views/pages/Cryptography"),
         },
