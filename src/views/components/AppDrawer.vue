@@ -17,16 +17,20 @@
             </v-avatar>
           </v-col>
           <v-col class="mt-4" cols="6">
-            <v-icon size="35">{{ mdiShieldStar }}</v-icon>
-            <span>{{ profile.score }}</span>
+            <v-icon size="35" v-text="mdiShieldStar"></v-icon>
+            <span v-text="profile.score"></span>
           </v-col>
         </v-row>
       </template>
       <template v-if="!isLogged">
         <v-row>
           <v-col class="mt-4" cols="12">
-            <v-icon size="40" class="ml-4 mt-n2">{{ mdiShieldStar }}</v-icon>
-            <span class="ml-5">OyuSec</span>
+            <v-icon
+              size="40"
+              class="ml-4 mt-n2"
+              v-text="mdiShieldStar"
+            ></v-icon>
+            <span class="ml-5" v-text="this.$store.state.appname"></span>
           </v-col>
         </v-row>
       </template>
@@ -39,13 +43,14 @@
         exact
       >
         <v-list-item-icon>
-          <v-icon :color="color">{{ icon }}</v-icon>
+          <v-icon :color="color" v-text="icon"></v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title class="f-11 font-weight-bold">{{
-            text
-          }}</v-list-item-title>
+          <v-list-item-title
+            class="f-11 font-weight-bold"
+            v-text="text"
+          ></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <template v-if="!isLogged">
@@ -55,7 +60,7 @@
         >
           <v-list-item link>
             <v-list-item-icon>
-              <v-icon color="orange darken-2">{{ mdiGoogle }}</v-icon>
+              <v-icon color="orange darken-2" v-text="mdiGoogle"></v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>

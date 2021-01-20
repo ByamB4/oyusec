@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color: #0c1221">
+  <v-app>
     <AppBar />
 
     <AppDrawer />
@@ -18,9 +18,6 @@ export default {
     AppView: () => import("./components/AppView"),
     AppFooter: () => import("./components/AppFooter"),
   },
-  data: () => ({
-    expandOnHover: false,
-  }),
 };
 </script>
 <style lang="sass">

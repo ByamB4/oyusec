@@ -1,7 +1,7 @@
 <template>
   <v-app-bar absolute app flat height="50" class="bg-dark">
     <v-app-bar-nav-icon @click="setDrawer(!drawer)">
-      <v-icon>{{ mdiMenu }}</v-icon>
+      <v-icon v-text="mdiMenu"></v-icon>
     </v-app-bar-nav-icon>
     <v-toolbar-title
       v-text="$route.name"

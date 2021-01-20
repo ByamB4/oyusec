@@ -158,6 +158,9 @@ export default {
   components: {
     Editor,
   },
+
+  props: ["purl"],
+
   data() {
     return {
       submitLoading: false,
@@ -172,7 +175,7 @@ export default {
       snackbar: false,
       statusText: "",
       statusIcon: "",
-      url: REMOTE + "/ctf/cryptography/",
+      url: REMOTE + `/ctf/${this.purl}/`,
       header: {
         Authorization: "JWT " + this.$store.state.token,
       },
@@ -185,6 +188,7 @@ export default {
   },
 
   async created() {
+    console.log(this.$route.params);
     if (this.$store.state.isLogged) {
       axios
         .get(this.url, {

@@ -9,6 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    appname: 'OyuSec',
     googleSignInParams: {
       client_id:
         "803463525682-7pbrl3t6b4l0nb78v759168o7nil9g0v.apps.googleusercontent.com",

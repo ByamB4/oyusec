@@ -19,26 +19,41 @@ export default new VueRouter({
         {
           name: "Cryptography",
           path: "/crypto",
+          props: {
+            urlp: "cryptography",
+          },
           component: () => import("@/views/pages/Cryptography"),
         },
         {
           name: "Forensics",
           path: "/forensics",
+          props: {
+            urlp: "forensics",
+          },
           component: () => import("@/views/pages/Forensics"),
         },
         {
           name: "Binary exploitation",
           path: "/pwn",
+          props: {
+            urlp: "pwn",
+          },
           component: () => import("@/views/pages/Binary"),
         },
         {
           name: "Miscellaneous",
           path: "/misc",
+          props: {
+            urlp: "misc",
+          },
           component: () => import("@/views/pages/Misc"),
         },
         {
           name: "Programming",
           path: "/programming",
+          props: {
+            urlp: "programming",
+          },
           component: () => import("@/views/pages/Programming"),
         },
         {
@@ -49,6 +64,9 @@ export default new VueRouter({
         {
           name: "Web exploitation",
           path: "/web",
+          props: {
+            urlp: "web",
+          },
           component: () => import("@/views/pages/Web"),
         },
         {
