@@ -154,19 +154,18 @@ export default {
           access_token: resp.getAuthResponse(true).access_token,
         })
         .then((resp) => {
-          this.$store.commit("setUser", resp.data);
+          this.$store.commit("SET_USER", resp.data);
           this.syncProfile();
         });
     },
     async syncProfile() {
-      axios
-        .get(`${REMOTE}/profile/${this.$store.state.user.slug}`)
-        .then((resp) => {
-          this.$store.commit("setProfile", resp.data);
-        });
+      const resp = await axios.get(
+        `${REMOTE}/profile/${this.$store.state.user.slug}`
+      );
+      this.$store.commit("SET_PROFILE", resp.data);
     },
     logOut() {
-      this.$store.commit("logoutUser");
+      this.$store.commit("REMOTE_USER");
     },
   },
 };

@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 set -e
-yarn run build
 cd dist
 echo "<!-- developed by: ByamB4 -->\n$(cat index.html)" > index.html
 git init

@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    appname: 'OyuSec',
+    appname: "OyuSec",
     googleSignInParams: {
       client_id:
         "803463525682-7pbrl3t6b4l0nb78v759168o7nil9g0v.apps.googleusercontent.com",
@@ -33,15 +33,16 @@ export default new Vuex.Store({
     SET_DRAWER(state, payload) {
       state.drawer = payload;
     },
-    setUser(state, data) {
+
+    SET_USER(state, data) {
       state.user = data.user;
       state.token = data.token;
       state.isLogged = true;
     },
-    setProfile(state, data) {
+    SET_PROFILE(state, data) {
       state.profile = data;
     },
-    logoutUser(state) {
+    REMOTE_USER(state) {
       state.isLogged = false;
       state.user = {};
       state.profile = {};

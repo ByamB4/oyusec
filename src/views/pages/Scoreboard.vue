@@ -1,171 +1,69 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col cols="11">
-        <v-data-table
-          style="background-color:#062a4e"
-          :headers="headers"
-          :items="desserts"
-          disable-sort
-          disable-filtering
-          disable-pagination
-          hide-default-footer
-          class="elevation-1"
-        >
-          <template v-slot:item.actions="{ item }">
-            <v-icon small class="mr-2" @click="editItem(item)">
-              {{ mdiPencil }}
-            </v-icon>
-            <v-icon small @click="deleteItem(item)">
-              {{ mdiDelete }}
-            </v-icon>
-          </template>
-          <template v-slot:no-data>
-            <v-btn color="primary" @click="initialize">
-              Reset
-            </v-btn>
-          </template>
-        </v-data-table>
+      <v-col cols="11" class="mt-5">
+        <div v-if="loading">
+          <v-skeleton-loader
+            v-for="ind in 5"
+            :key="ind"
+            type="list-item-avatar"
+            class="mt-3"
+            transition
+          ></v-skeleton-loader>
+        </div>
+        <div v-else>
+          <v-simple-table class="font-monts">
+            <thead>
+              <tr class="bg-dark ">
+                <th class="text-center white--text" style="width:10%">
+                  RANK
+                </th>
+                <th class="text-left white--text" style="width: 50%">
+                  USER
+                </th>
+                <th class="text-center white--text" style="width: 20%">
+                  SCORE
+                </th>
+                <th class="text-center white--text" style="width: 20%">
+                  FIRST BLOOD
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(user, ind) in users" :key="ind" class="bg-dark">
+                <td class="text-center">{{ ind + 1 }}</td>
+                <td>{{ user.fullname }}</td>
+                <td class="text-center">{{ user.score }}</td>
+                <td class="text-center">{{ user.first_blood }}</td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
-import { mdiPencil, mdiDelete } from "@mdi/js";
+import axios from "axios";
+import { REMOTE } from "@/store/variables";
 
 export default {
   data: () => ({
-    mdiPencil: mdiPencil,
-    mdiDelete: mdiDelete,
-    dialog: false,
-    dialogDelete: false,
-    headers: [
-      {
-        text: "Dessert (100g serving)",
-        align: "start",
-        sortable: false,
-        value: "name",
-      },
-      { text: "Calories", value: "calories" },
-      { text: "Fat (g)", value: "fat" },
-      { text: "Carbs (g)", value: "carbs" },
-      { text: "Protein (g)", value: "protein" },
-      { text: "Actions", value: "actions", sortable: false },
-    ],
-    desserts: [],
-    editedIndex: -1,
-    editedItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
-    defaultItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
+    users: [],
+    loading: true,
   }),
 
-  computed: {
-    formTitle() {
-      return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
+  mounted() {
+    this.getData();
   },
-
-  watch: {
-    dialog(val) {
-      val || this.close();
-    },
-    dialogDelete(val) {
-      val || this.closeDelete();
-    },
-  },
-
-  created() {
-    this.initialize();
-  },
-
   methods: {
-    initialize() {
-      this.desserts = [
-        {
-          name: "Frozen Yogurt",
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-        },
-        {
-          name: "Eclair",
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-        },
-        {
-          name: "Cupcake",
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-        },
-        {
-          name: "Gingerbread",
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-        },
-        {
-          name: "Jelly bean",
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-        },
-        {
-          name: "Lollipop",
-          calories: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0,
-        },
-        {
-          name: "Honeycomb",
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-        },
-        {
-          name: "Donut",
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-        },
-        {
-          name: "KitKat",
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-        },
-      ];
+    async getData() {
+      const resp = await axios.get(`${REMOTE}/ctf/scoreboard/`);
+      this.users = resp.data;
+      this.loading = false;
     },
   },
 };
 </script>
 
-<style lang=""></style>
+<style scoped></style>

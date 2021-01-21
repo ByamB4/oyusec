@@ -6,7 +6,7 @@
           <div class="text-center">
             <v-icon size="50">{{ mdiEmoticonSadOutline }}</v-icon>
             <span class="font-roboto font-weight-bold f-20"
-              >No challenges found</span
+              >Бодлого олдсонгүй</span
             >
           </div>
         </template>
@@ -22,7 +22,7 @@
         <div v-if="challs">
           <v-expansion-panels tile>
             <v-expansion-panel
-              class="mt-1"
+              class="mt-2"
               v-for="(cll, index) in challs"
               :key="cll.id"
             >
@@ -68,11 +68,11 @@
                     >
                       <v-chip small class="ml-1" color="primary">
                         <span class="font-weight-bold"
-                          >Solves {{ cll.sol_count }}</span
+                          >Бодсон {{ cll.sol_count }}</span
                         >
                       </v-chip>
                       <v-chip small class="ml-1" color="success">
-                        <span class="font-weight-bold">Pts {{ cll.val }}</span>
+                        <span class="font-weight-bold">Оноо {{ cll.val }}</span>
                       </v-chip>
                     </v-col>
                   </v-row>
@@ -92,10 +92,10 @@
                 >
                   <div>
                     <v-form @submit.prevent="checkFlag(index)" class="mt-4">
-                      <v-row>
-                        <v-col xs="6" sm="8" md="10" lg="10" xl="11">
+                      <v-row justify="center" class="font-monts f-15">
+                        <v-col cols="5">
                           <v-text-field
-                            placeholder="Enter your flag"
+                            placeholder="oyusec{.*}"
                             :loading="submitLoading"
                             v-model="flag"
                             autofocus
@@ -103,7 +103,7 @@
                             trim
                           ></v-text-field>
                         </v-col>
-                        <v-col xs="6" sm="4" md="2" lg="2" xl="1">
+                        <v-col cols="2">
                           <v-btn
                             type="submit"
                             depressed
@@ -111,7 +111,7 @@
                             color="primary"
                             :loading="submitLoading"
                           >
-                            Submit
+                            Шалгах
                           </v-btn>
                         </v-col>
                       </v-row>
@@ -125,13 +125,20 @@
       </v-col>
 
       <div class="text-center">
-        <v-snackbar v-model="snackbar" color="red" timeout="5000" bottom>
+        <v-snackbar
+          v-model="snackbar"
+          :color="statusColor"
+          timeout="5000"
+          bottom
+        >
           <v-icon size="25">{{ statusIcon }}</v-icon>
-          <span class="f-17 ml-3">{{ statusText }}</span>
+          <span class="f-17 ml-3 font-weight-bold font-monts">{{
+            statusText
+          }}</span>
 
           <template v-slot:action="{ attrs }">
             <v-btn text v-bind="attrs" @click="snackbar = false">
-              Close
+              Хаах
             </v-btn>
           </template>
         </v-snackbar>
@@ -161,10 +168,10 @@ export default {
 
   data() {
     return {
-      submitLoading: false,
       mdiEmoticonSadOutline: mdiEmoticonSadOutline,
       mdiShieldStarOutline: mdiShieldStarOutline,
       mdiShieldStar: mdiShieldStar,
+      submitLoading: false,
       loading: true,
       noChalls: false,
       id: "",
@@ -173,10 +180,11 @@ export default {
       snackbar: false,
       statusText: "",
       statusIcon: "",
+      statusColor: "",
       header: {
         Authorization: "JWT " + this.$store.state.token,
       },
-      url: REMOTE + "/ctf/cryptography",
+      url: REMOTE + "/ctf/cryptography/",
     };
   },
 
@@ -187,71 +195,53 @@ export default {
 
   async created() {
     if (this.$store.state.isLogged) {
-      axios
-        .get(this.url, {
-          headers: this.header,
-        })
-        .then(
-          (resp) => {
-            this.challs = resp.data;
-            this.loading = false;
-            if (this.challs.length === 0) {
-              this.noChalls = true;
-            }
-          },
-          (error) => {
-            console.log(error);
-            if (error.response.status == 401) {
-              this.$store.commit("logoutUser");
-            }
-          }
-        );
+      const resp = await axios.get(this.url, { headers: this.header });
+      this.challs = resp.data;
+      this.loading = false;
+      if (this.challs.length === 0) {
+        this.noChalls = true;
+      }
+      // if (resp.status == 401) {
+      //   this.$store.commit("REMOVE_USER");
+      // }
     } else {
-      axios.get(this.url).then((resp) => {
-        console.log(resp.data);
-        this.challs = resp.data;
-        this.loading = false;
-        if (this.challs.length === 0) {
-          this.noChalls = true;
-        }
-      });
+      const resp = await axios.get(this.url);
+      this.challs = resp.data;
+      this.loading = false;
+      if (this.challs.length === 0) {
+        this.noChalls = true;
+      }
     }
   },
 
   methods: {
     async checkFlag(chall) {
       this.submitLoading = true;
-      axios
-        .post(
-          this.url,
-          {
-            id: this.id,
-            flag: this.flag,
-          },
-          { headers: this.header }
-        )
-        .then((resp) => {
-          console.log(resp.data);
-          if (resp.data.result == "correct") {
-            this.statusText = "Correct flag";
-            this.statusIcon = mdiFire;
-            this.challs[chall]["status"] = "solved";
-            this.syncProfile();
-          } else {
-            this.statusText = "Incorrect flag";
-            this.statusIcon = mdiEmoticonSadOutline;
-          }
-          this.snackbar = true;
-          this.submitLoading = false;
-        });
+      const resp = await axios.post(
+        this.url,
+        { id: this.id, flag: this.flag },
+        { headers: this.header }
+      );
+      if (resp.data.result == "correct") {
+        this.statusText = "Зөв байна";
+        this.statusIcon = mdiFire;
+        this.statusColor = "green";
+        this.challs[chall]["status"] = "solved";
+        this.syncProfile();
+      } else {
+        this.statusText = "Буруу байна";
+        this.statusColor = "red";
+        this.statusIcon = mdiEmoticonSadOutline;
+      }
+      this.snackbar = true;
+      this.submitLoading = false;
     },
 
     async syncProfile() {
-      axios
-        .get(`${REMOTE}/profile/${this.$store.state.user.slug}`)
-        .then((resp) => {
-          this.$store.commit("setProfile", resp.data);
-        });
+      const resp = await axios.get(
+        `${REMOTE}/profile/${this.$store.state.user.slug}`
+      );
+      this.$store.commit("SET_PROFILE", resp.data);
     },
 
     toggleActive(id) {
