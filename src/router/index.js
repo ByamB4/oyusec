@@ -74,6 +74,7 @@ export default new VueRouter({
           path: "/scoreboard",
           component: () => import("@/views/pages/Scoreboard"),
         },
+        { path: "*", component: () => import("@/errors/PageNotFound") },
       ],
     },
   ],

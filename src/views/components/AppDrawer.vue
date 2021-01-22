@@ -9,31 +9,21 @@
     class="font-press bg-dark"
   >
     <v-sheet class="bg-dark">
-      <template v-if="isLogged">
-        <v-row align="center">
-          <v-col class="ml-3 mt-4" cols="4">
-            <v-avatar size="72">
-              <v-img :src="user.photo" key="webpages:Enabled"></v-img>
-            </v-avatar>
-          </v-col>
-          <v-col class="mt-4" cols="6">
-            <v-icon size="35" v-text="mdiShieldStar"></v-icon>
-            <span v-text="profile.score"></span>
-          </v-col>
-        </v-row>
-      </template>
-      <template v-if="!isLogged">
-        <v-row>
+      <v-row>
+        <router-link to="/">
           <v-col class="mt-4" cols="12">
             <v-icon
               size="40"
               class="ml-4 mt-n2"
               v-text="mdiShieldStar"
             ></v-icon>
-            <span class="ml-5" v-text="this.$store.state.appname"></span>
+            <span
+              class="ml-5 white--text"
+              v-text="this.$store.state.appname"
+            ></span>
           </v-col>
-        </v-row>
-      </template>
+        </router-link>
+      </v-row>
     </v-sheet>
     <v-list dark flat rounded>
       <v-list-item
@@ -65,13 +55,13 @@
 
             <v-list-item-content>
               <v-list-item-title class="f-12 font-weight-medium"
-                >Log In</v-list-item-title
+                >Нэвтрэх</v-list-item-title
               >
             </v-list-item-content>
           </v-list-item>
         </g-signin-button>
       </template>
-      <template v-if="isLogged">
+      <template v-else>
         <v-list-item @click="logOut">
           <v-list-item-icon>
             <v-icon color="red">{{ mdiLogin }}</v-icon>
@@ -79,7 +69,7 @@
 
           <v-list-item-content>
             <v-list-item-title class="f-12 font-weight-medium"
-              >Log out</v-list-item-title
+              >Гарах</v-list-item-title
             >
           </v-list-item-content>
         </v-list-item>
@@ -134,8 +124,6 @@ export default {
   }),
 
   computed: {
-    ...mapState(["user"]),
-    ...mapState(["profile"]),
     ...mapState(["isLogged"]),
     drawer: {
       get() {
@@ -148,15 +136,12 @@ export default {
   },
 
   methods: {
-    async googleSuccess(resp) {
-      axios
-        .post(`${REMOTE}/auth/`, {
-          access_token: resp.getAuthResponse(true).access_token,
-        })
-        .then((resp) => {
-          this.$store.commit("SET_USER", resp.data);
-          this.syncProfile();
-        });
+    async googleSuccess(gdata) {
+      const resp = await axios.post(`${REMOTE}/auth/`, {
+        access_token: gdata.getAuthResponse(true).access_token,
+      });
+      this.$store.commit("SET_USER", resp.data);
+      this.syncProfile();
     },
     async syncProfile() {
       const resp = await axios.get(

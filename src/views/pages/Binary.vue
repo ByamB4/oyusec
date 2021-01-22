@@ -6,7 +6,7 @@
           <div class="text-center">
             <v-icon size="50">{{ mdiEmoticonSadOutline }}</v-icon>
             <span class="font-roboto font-weight-bold f-20"
-              >No challenges found</span
+              >Бодлого олдсонгүй</span
             >
           </div>
         </template>
@@ -20,9 +20,9 @@
           ></v-skeleton-loader>
         </div>
         <div v-if="challs">
-          <v-expansion-panels tile>
+          <v-expansion-panels tile popout>
             <v-expansion-panel
-              class="mt-1"
+              class="mt-2"
               v-for="(cll, index) in challs"
               :key="cll.id"
             >
@@ -68,11 +68,11 @@
                     >
                       <v-chip small class="ml-1" color="primary">
                         <span class="font-weight-bold"
-                          >Solves {{ cll.sol_count }}</span
+                          >Бодсон {{ cll.sol_count }}</span
                         >
                       </v-chip>
                       <v-chip small class="ml-1" color="success">
-                        <span class="font-weight-bold">Pts {{ cll.val }}</span>
+                        <span class="font-weight-bold">Оноо {{ cll.val }}</span>
                       </v-chip>
                     </v-col>
                   </v-row>
@@ -82,7 +82,6 @@
                 <div class="mt-5 challenge">
                   <Editor mode="viewer" v-model="cll.desc" />
                 </div>
-                <div>Flag: {{ cll.flag }}</div>
                 <template
                   v-if="
                     cll.author != user.username &&
@@ -92,26 +91,26 @@
                 >
                   <div>
                     <v-form @submit.prevent="checkFlag(index)" class="mt-4">
-                      <v-row>
-                        <v-col xs="6" sm="8" md="10" lg="10" xl="11">
+                      <v-row justify="center" class="font-monts f-15">
+                        <v-col cols="5">
                           <v-text-field
-                            placeholder="Enter your flag"
-                            :loading="submitLoading"
+                            placeholder="oyusec{.*}"
+                            :loading="submit.statusLoading"
                             v-model="flag"
-                            autofocus
                             dense
+                            autofocus
                             trim
                           ></v-text-field>
                         </v-col>
-                        <v-col xs="6" sm="4" md="2" lg="2" xl="1">
+                        <v-col cols="2">
                           <v-btn
                             type="submit"
                             depressed
                             small
                             color="primary"
-                            :loading="submitLoading"
+                            :loading="submit.statusLoading"
                           >
-                            Submit
+                            Шалгах
                           </v-btn>
                         </v-col>
                       </v-row>
@@ -121,21 +120,16 @@
               </v-expansion-panel-content>
             </v-expansion-panel>
           </v-expansion-panels>
+          <v-snackbar
+            v-model="snackbar"
+            :color="submit.statusColor"
+            timeout="2000"
+          >
+            <v-icon size="30" v-text="submit.statusIcon"></v-icon>
+            <span class="f-17 ml-3 font-monts">{{ submit.statusText }}</span>
+          </v-snackbar>
         </div>
       </v-col>
-
-      <div class="text-center">
-        <v-snackbar v-model="snackbar" color="red" timeout="5000" bottom>
-          <v-icon size="25">{{ statusIcon }}</v-icon>
-          <span class="f-17 ml-3">{{ statusText }}</span>
-
-          <template v-slot:action="{ attrs }">
-            <v-btn text v-bind="attrs" @click="snackbar = false">
-              Close
-            </v-btn>
-          </template>
-        </v-snackbar>
-      </div>
     </v-row>
   </v-container>
 </template>
@@ -158,9 +152,9 @@ export default {
   components: {
     Editor,
   },
+
   data() {
     return {
-      submitLoading: false,
       mdiEmoticonSadOutline: mdiEmoticonSadOutline,
       mdiShieldStarOutline: mdiShieldStarOutline,
       mdiShieldStar: mdiShieldStar,
@@ -170,12 +164,13 @@ export default {
       flag: "",
       challs: [],
       snackbar: false,
-      statusText: "",
-      statusIcon: "",
-      url: REMOTE + "/ctf/pwn/",
-      header: {
-        Authorization: "JWT " + this.$store.state.token,
+      submit: {
+        statusText: "",
+        statusIcon: "",
+        statusColor: "",
+        statusLoading: false,
       },
+      url: REMOTE + "/ctf/pwn/",
     };
   },
 
@@ -184,73 +179,55 @@ export default {
     ...mapState(["isLogged"]),
   },
 
-  async created() {
-    if (this.$store.state.isLogged) {
-      axios
-        .get(this.url, {
-          headers: this.header,
-        })
-        .then(
-          (resp) => {
-            this.challs = resp.data;
-            this.loading = false;
-            if (this.challs.length === 0) {
-              this.noChalls = true;
-            }
-          },
-          (error) => {
-            console.log(error);
-            if (error.response.status == 401) {
-              this.$store.commit("logoutUser");
-            }
-          }
-        );
-    } else {
-      axios.get(this.url).then((resp) => {
-        console.log(resp.data);
-        this.challs = resp.data;
-        this.loading = false;
-        if (this.challs.length === 0) {
-          this.noChalls = true;
-        }
-      });
-    }
+  watch: {
+    "$store.state.isLogged": function() {
+      this.getChallenges();
+    },
+  },
+
+  mounted() {
+    this.getChallenges();
   },
 
   methods: {
+    async getChallenges() {
+      const header = this.$store.state.isLogged
+        ? { Authorization: "JWT " + this.$store.state.token }
+        : "";
+      const resp = await axios.get(this.url, {
+        headers: header,
+      });
+      this.challs = resp.data;
+      this.noChalls = this.challs.length === 0;
+      this.loading = false;
+    },
     async checkFlag(chall) {
       this.submitLoading = true;
-      axios
-        .post(
-          this.url,
-          {
-            id: this.id,
-            flag: this.flag,
-          },
-          { headers: this.header }
-        )
-        .then((resp) => {
-          console.log(resp.data);
-          if (resp.data.result == "correct") {
-            this.statusText = "Correct flag";
-            this.statusIcon = mdiFire;
-            this.challs[chall]["status"] = "solved";
-            this.syncProfile();
-          } else {
-            this.statusText = "Incorrect flag";
-            this.statusIcon = mdiEmoticonSadOutline;
-          }
-          this.snackbar = true;
-          this.submitLoading = false;
-        });
+      const resp = await axios.post(
+        this.url,
+        { id: this.id, flag: this.flag },
+        { headers: { Authorization: "JWT " + this.$store.state.token } }
+      );
+      if (resp.data.result == "correct") {
+        this.submit.statusText = "Зөв байна";
+        this.submit.statusColor = "green";
+        this.submit.statusIcon = mdiFire;
+        this.challs[chall]["status"] = "solved";
+        this.syncProfile();
+      } else {
+        this.submit.statusText = "Буруу байна";
+        this.submit.statusColor = "red";
+        this.submit.statusIcon = mdiEmoticonSadOutline;
+      }
+      this.snackbar = true;
+      this.submit.statusLoading = false;
     },
 
     async syncProfile() {
-      axios
-        .get(`${REMOTE}/profile/${this.$store.state.user.slug}`)
-        .then((resp) => {
-          this.$store.commit("setProfile", resp.data);
-        });
+      const resp = await axios.get(
+        `${REMOTE}/profile/${this.$store.state.user.slug}`
+      );
+      this.$store.commit("SET_PROFILE", resp.data);
     },
 
     toggleActive(id) {

@@ -1,20 +1,23 @@
-<template lang="">
-  <div>
-    <v-row class="mt-5" justify="center">
-      <v-col cols="11">
+<template>
+  <v-container>
+    <v-row justify="center">
+      <v-col cols="11" class="mt-5">
         <div class="text-center">
-          <v-icon dark size="50">mdi-emoticon-sad-outline</v-icon>
-          <span
-            class="white--text"
-            style="font-size: 20px; font-weight:700; font-family:'Open Sans'"
-            >Page not found 404</span
+          <v-icon size="50" v-text="mdiEmoticonSadOutline"></v-icon>
+          <span class="font-roboto font-weight-bold f-20"
+            >Хуудас олдсонгүй</span
           >
         </div>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 <script>
-export default {};
+import { mdiEmoticonSadOutline } from "@mdi/js";
+export default {
+  data: () => ({
+    mdiEmoticonSadOutline: mdiEmoticonSadOutline,
+  }),
+};
 </script>
 <style lang=""></style>

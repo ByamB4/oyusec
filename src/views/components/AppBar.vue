@@ -3,57 +3,34 @@
     <v-app-bar-nav-icon @click="setDrawer(!drawer)">
       <v-icon v-text="mdiMenu"></v-icon>
     </v-app-bar-nav-icon>
+
     <v-toolbar-title
       v-text="$route.name"
       class="font-press f-15"
     ></v-toolbar-title>
     <v-spacer />
-    <v-row align="center" justify="end">
+    <v-row v-if="isLogged" align="center" justify="end">
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-col
-            cols="3"
-            v-bind="attrs"
-            v-on="on"
-            class="font-roboto text-center"
-          >
-            <span class="amber--text">Lvl</span>
-            <span class="ml-3">TODO</span>
-          </v-col>
-        </template>
-        <span>Gonna update soon ...</span>
-      </v-tooltip>
-
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-col
-            v-bind="attrs"
-            v-on="on"
-            cols="3"
-            class="text-center font-roboto"
-          >
-            <span class="amber--text">Exp</span>
-            <span class="ml-3">TODO</span>
-          </v-col>
-        </template>
-        <span>Goona update soon ...</span>
-      </v-tooltip>
-
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-col cols="6">
+          <v-col cols="4">
             <v-progress-linear
               v-bind="attrs"
               v-on="on"
-              value="15"
+              value="75"
               height="10"
               color="amber darken-1"
               rounded
             ></v-progress-linear>
           </v-col>
         </template>
-        <span>Goona update soon ...</span>
+        <span>Оноо {{ profile.score }}</span>
       </v-tooltip>
+
+      <v-col cols="2">
+        <v-avatar size="42">
+          <v-img :src="user.photo" key="webpages:Enabled"></v-img>
+        </v-avatar>
+      </v-col>
     </v-row>
   </v-app-bar>
 </template>
@@ -71,7 +48,11 @@ export default {
 
   computed: {
     ...mapState(["drawer"]),
+    ...mapState(["isLogged"]),
+    ...mapState(["user"]),
+    ...mapState(["profile"]),
   },
+
   methods: {
     ...mapMutations({
       setDrawer: "SET_DRAWER",
