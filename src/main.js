@@ -8,10 +8,23 @@ import router from "./router";
 // plugins
 import vuetify from "./plugins/vuetify";
 import GSignInButton from "vue-google-signin-button";
+import axios from "axios";
 
-Vue.config.productionTip = false;
+const api = axios.create({
+  baseURL: "https://oyusec.herokuapp.com/",
+});
+
+const axiosPlugin = {
+  install(Vue) {
+    Vue.prototype.$api = api;
+  },
+};
+
+Vue.use(axiosPlugin);
 
 Vue.use(GSignInButton);
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,

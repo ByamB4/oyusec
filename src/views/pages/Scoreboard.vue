@@ -43,24 +43,29 @@
     </v-row>
   </v-container>
 </template>
-<script>
-import axios from "axios";
-import { REMOTE } from "@/store/variables";
 
+<script>
 export default {
   data: () => ({
     users: [],
     loading: true,
+    url: "ctf/scoreboard/",
   }),
+
+  created() {
+    this.$store.commit("SET_LOADING", true);
+  },
 
   mounted() {
     this.getData();
   },
+
   methods: {
     async getData() {
-      const resp = await axios.get(`${REMOTE}/ctf/scoreboard/`);
+      const resp = await this.$api.get(this.url);
       this.users = resp.data;
       this.loading = false;
+      this.$store.commit("SET_LOADING", false);
     },
   },
 };

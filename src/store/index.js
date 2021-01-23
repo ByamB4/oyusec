@@ -19,6 +19,7 @@ export default new Vuex.Store({
     profile: {},
     token: "",
     drawer: null,
+    loading: false,
   },
   plugins: [
     createPersistedState({
@@ -30,6 +31,10 @@ export default new Vuex.Store({
     }),
   ],
   mutations: {
+    SET_LOADING(state, payload) {
+      state.loading = payload;
+    },
+
     SET_DRAWER(state, payload) {
       state.drawer = payload;
     },

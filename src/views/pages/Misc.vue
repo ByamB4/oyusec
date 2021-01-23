@@ -134,9 +134,7 @@
   </v-container>
 </template>
 <script>
-import axios from "axios";
 import { mapState } from "vuex";
-import { REMOTE } from "@/store/variables";
 import { Editor } from "vuetify-markdown-editor";
 import "vuetify-markdown-editor/dist/vuetify-markdown-editor.css";
 import {
@@ -147,7 +145,7 @@ import {
 } from "@mdi/js";
 
 export default {
-  name: "Cryptography",
+  name: "Misc",
 
   components: {
     Editor,
@@ -158,6 +156,7 @@ export default {
       mdiEmoticonSadOutline: mdiEmoticonSadOutline,
       mdiShieldStarOutline: mdiShieldStarOutline,
       mdiShieldStar: mdiShieldStar,
+      url: "ctf/misc/",
       loading: true,
       noChalls: false,
       id: "",
@@ -170,7 +169,6 @@ export default {
         statusColor: "",
         statusLoading: false,
       },
-      url: REMOTE + "/ctf/misc/",
     };
   },
 
@@ -185,6 +183,10 @@ export default {
     },
   },
 
+  created() {
+    this.$store.commit("SET_LOADING", true);
+  },
+
   mounted() {
     this.getChallenges();
   },
@@ -194,16 +196,16 @@ export default {
       const header = this.$store.state.isLogged
         ? { Authorization: "JWT " + this.$store.state.token }
         : "";
-      const resp = await axios.get(this.url, {
-        headers: header,
-      });
+      const resp = await this.$api.get(this.url, { headers: header });
       this.challs = resp.data;
       this.noChalls = this.challs.length === 0;
       this.loading = false;
+      this.$store.commit("SET_LOADING", false);
     },
+
     async checkFlag(chall) {
       this.submitLoading = true;
-      const resp = await axios.post(
+      const resp = await this.$api.post(
         this.url,
         { id: this.id, flag: this.flag },
         { headers: { Authorization: "JWT " + this.$store.state.token } }
@@ -224,8 +226,8 @@ export default {
     },
 
     async syncProfile() {
-      const resp = await axios.get(
-        `${REMOTE}/profile/${this.$store.state.user.slug}`
+      const resp = await this.$api.get(
+        `profile/${this.$store.state.user.slug}`
       );
       this.$store.commit("SET_PROFILE", resp.data);
     },

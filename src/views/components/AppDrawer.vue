@@ -10,7 +10,7 @@
   >
     <v-sheet class="bg-dark">
       <v-row>
-        <router-link to="/">
+        <router-link to="/" style="text-decoration: none !important">
           <v-col class="mt-4" cols="12">
             <v-icon
               size="40"
@@ -79,9 +79,7 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapState } from "vuex";
-import { REMOTE } from "@/store/variables";
 
 import {
   mdiLockOpen,
@@ -137,15 +135,17 @@ export default {
 
   methods: {
     async googleSuccess(gdata) {
-      const resp = await axios.post(`${REMOTE}/auth/`, {
+      this.$store.commit("SET_LOADING", true);
+      const resp = await this.$api.post(`auth/`, {
         access_token: gdata.getAuthResponse(true).access_token,
       });
       this.$store.commit("SET_USER", resp.data);
       this.syncProfile();
+      this.$store.commit("SET_LOADING", false);
     },
     async syncProfile() {
-      const resp = await axios.get(
-        `${REMOTE}/profile/${this.$store.state.user.slug}`
+      const resp = await this.$api.get(
+        `profile/${this.$store.state.user.slug}`
       );
       this.$store.commit("SET_PROFILE", resp.data);
     },
