@@ -12,7 +12,7 @@
     <v-row v-if="isLogged" align="center" justify="end">
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-col cols="4">
+          <v-col cols="6">
             <v-progress-linear
               v-bind="attrs"
               v-on="on"
@@ -27,9 +27,11 @@
       </v-tooltip>
 
       <v-col cols="2">
-        <v-avatar size="42">
-          <v-img :src="user.photo" key="webpages:Enabled"></v-img>
-        </v-avatar>
+        <router-link :to="{ name: 'Profile', params: { slug: user.slug } }">
+          <v-avatar size="42">
+            <v-img :src="user.photo" key="webpages:Enabled" />
+          </v-avatar>
+        </router-link>
       </v-col>
     </v-row>
   </v-app-bar>

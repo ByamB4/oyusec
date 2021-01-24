@@ -20,7 +20,3 @@ export default {
   },
 };
 </script>
-<style lang="sass">
-::-webkit-scrollbar
-  width: 0px
-</style>

@@ -17,43 +17,33 @@ export default new VueRouter({
           component: () => import("@/views/Home"),
         },
         {
+          name: "Profile",
+          path: "/profile/:slug",
+          component: () => import("@/views/users/Profile"),
+        },
+        {
           name: "Cryptography",
           path: "/crypto",
-          props: {
-            urlp: "cryptotography",
-          },
           component: () => import("@/views/pages/Cryptography"),
         },
         {
           name: "Forensics",
           path: "/forensics",
-          props: {
-            urlp: "forensics",
-          },
           component: () => import("@/views/pages/Forensics"),
         },
         {
           name: "Binary exploitation",
           path: "/pwn",
-          props: {
-            urlp: "pwn",
-          },
           component: () => import("@/views/pages/Binary"),
         },
         {
           name: "Miscellaneous",
           path: "/misc",
-          props: {
-            urlp: "misc",
-          },
           component: () => import("@/views/pages/Misc"),
         },
         {
           name: "Programming",
           path: "/programming",
-          props: {
-            urlp: "programming",
-          },
           component: () => import("@/views/pages/Programming"),
         },
         {
@@ -64,9 +54,6 @@ export default new VueRouter({
         {
           name: "Web exploitation",
           path: "/web",
-          props: {
-            urlp: "web",
-          },
           component: () => import("@/views/pages/Web"),
         },
         {
@@ -74,7 +61,10 @@ export default new VueRouter({
           path: "/scoreboard",
           component: () => import("@/views/pages/Scoreboard"),
         },
-        { path: "*", component: () => import("@/errors/PageNotFound") },
+        {
+          path: "*",
+          component: () => import("@/errors/PageNotFound"),
+        },
       ],
     },
   ],

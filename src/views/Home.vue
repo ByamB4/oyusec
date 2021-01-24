@@ -1,3 +1,8 @@
+<style lang="sass">
+.v-expansion-panel-header
+  height: 10px !important
+</style>
+
 <template>
   <v-container class="mt-10">
     <v-row align="center">
@@ -7,9 +12,11 @@
             <v-card color="transparent">
               <v-card-text class="font-monts">
                 <v-row class="mb-4 f-20" align="center">
-                  <v-avatar color="grey" class="mr-4">
-                    <img
-                      src="https://avatars.githubusercontent.com/u/77679907?s=460&u=d1c8e402ddeb3e39930226bfb0b5a39b1d2b1660&v=4"
+                  <v-avatar size="50" class="mr-4">
+                    <v-img
+                      width="50"
+                      height="50"
+                      src="https://avatars.githubusercontent.com/u/77679907?s=460&u=94d68b1e26f6b731c4334cd44e7ba3eea067d157&v=4"
                     />
                   </v-avatar>
                   <strong class="f-25">Хувилбар 0.1 </strong>

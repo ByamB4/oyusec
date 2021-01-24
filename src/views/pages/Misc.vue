@@ -80,7 +80,7 @@
               </v-expansion-panel-header>
               <v-expansion-panel-content class="mb-n3">
                 <div class="mt-5 challenge">
-                  <Editor mode="viewer" v-model="cll.desc" />
+                  <mark-down-editor mode="viewer" v-model="cll.desc" />
                 </div>
                 <template
                   v-if="
@@ -135,8 +135,6 @@
 </template>
 <script>
 import { mapState } from "vuex";
-import { Editor } from "vuetify-markdown-editor";
-import "vuetify-markdown-editor/dist/vuetify-markdown-editor.css";
 import {
   mdiEmoticonSadOutline,
   mdiShieldStarOutline,
@@ -146,10 +144,6 @@ import {
 
 export default {
   name: "Misc",
-
-  components: {
-    Editor,
-  },
 
   data() {
     return {
@@ -239,14 +233,3 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-a {
-  text-decoration: none;
-}
-.v-expansion-panel-header {
-  height: 10px !important;
-}
-.v-expansion-panel-header:hover {
-  background-color: #083766 !important;
-}
-</style>
