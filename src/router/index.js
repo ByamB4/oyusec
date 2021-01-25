@@ -19,7 +19,7 @@ export default new VueRouter({
         {
           name: "Profile",
           path: "/profile/:slug",
-          component: () => import("@/views/users/Profile"),
+          component: () => import("@/views/users/Index"),
         },
         {
           name: "Cryptography",

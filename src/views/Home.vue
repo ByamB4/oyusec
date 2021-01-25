@@ -75,8 +75,5 @@ export default {
       },
     ],
   }),
-  mounted() {
-    this.$store.commit("SET_LOADING", false);
-  },
 };
 </script>

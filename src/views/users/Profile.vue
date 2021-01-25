@@ -1,116 +1,73 @@
 <template>
-  <div>
-    <v-container class="pa-5 mt-5 profile">
-      <v-row justify="center">
-        <v-col md="5">
-          <v-sheet rounded class="bg-dark-1">
-            <v-row class="mx-3 ">
-              <v-col cols="4">
-                <v-avatar size="120">
-                  <v-img
-                    :src="user.photo"
-                    key="webpages:Enabled"
-                    alt="Profile image"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col cols="8">
-                <h2 class="mt-3 ">Byambadalai Sumiya</h2>
-                <h3 class="mt-1 text--secondary">ByamB4</h3>
-                <h4 class="mt-1 text--disabled">Level: 15</h4>
-              </v-col>
-              <v-col cols="12">
-                <v-divider></v-divider>
-              </v-col>
-              <v-col cols="12">
-                <v-tooltip bottom v-for="(item, index) in trophy" :key="index">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-icon
-                      v-bind="attrs"
-                      v-on="on"
-                      size="42"
-                      :color="item.color"
-                      >{{ item.icon }}</v-icon
-                    >
-                  </template>
-                  <span>{{ item.color }}</span>
-                </v-tooltip>
-              </v-col>
-              <v-col cols="12">
-                <v-divider></v-divider>
-              </v-col>
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-col cols="12" v-bind="attrs" v-on="on">
-                    <v-avatar
-                      class="mr-2 mt-1"
-                      color="grey darken-1"
-                      size="38"
-                      v-for="item in 10"
-                      :key="item"
-                    >
-                      <v-img
-                        src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
-                      >
-                      </v-img>
-                    </v-avatar>
-                  </v-col>
-                </template>
-                <span>Дагагчид</span>
-              </v-tooltip>
-            </v-row>
-          </v-sheet>
+  <div class="bg-dark-1">
+    <div v-if="loading">
+      <v-skeleton-loader
+        type="list-item-avatar-two-line, article, actions"
+      ></v-skeleton-loader>
+    </div>
+    <div v-else>
+      <v-row class="mx-1">
+        <v-col xs="12" cols="4" sm="3" md="4" lg="4" xl="3">
+          <v-avatar size="100">
+            <v-img :src="data.photo" />
+          </v-avatar>
         </v-col>
-        <v-col md="7">
-          <v-sheet elevation="5" rounded>
-            <Challs />
-          </v-sheet>
-          <v-sheet elevation="5" rounded class="mt-5">
-            <Rating />
-          </v-sheet>
+        <v-col xs="12" cols="8" sm="9" md="8" lg="8" xl="9">
+          <h2 v-text="data.fullname"></h2>
+          <h3 class="mt-1 text--secondary" v-text="data.username"></h3>
         </v-col>
+        <v-col cols="12">
+          <v-divider></v-divider>
+        </v-col>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-col cols="12" v-bind="attrs" v-on="on">
+              <v-icon
+                size="42"
+                v-text="mdiTrophy"
+                v-for="index in data.fblood"
+                color="amber"
+                :key="index"
+              ></v-icon>
+            </v-col>
+          </template>
+          <span>Түрүүлж бодсон</span>
+        </v-tooltip>
       </v-row>
-    </v-container>
+    </div>
   </div>
 </template>
 
 <script>
-import Challs from "./Challs";
-import Rating from "./Rating";
 import { mdiTrophy } from "@mdi/js";
 import { mapState } from "vuex";
 
 export default {
-  data: () => ({
-    trophy: [
-      {
-        icon: mdiTrophy,
-        color: "amber",
-        desc: "test",
-      },
-      {
-        icon: mdiTrophy,
-        color: "blue-grey lighten-3",
-      },
-    ],
-  }),
+  data() {
+    return {
+      url: `profile/${this.$route.params.slug}`,
+      mdiTrophy: mdiTrophy,
+      data: {},
+      loading: true,
+    };
+  },
 
   computed: {
-    ...mapState(["drawer"]),
     ...mapState(["isLogged"]),
     ...mapState(["user"]),
     ...mapState(["profile"]),
   },
 
-  components: {
-    Challs,
-    Rating,
+  created() {
+    this.getUser();
+  },
+
+  methods: {
+    async getUser() {
+      const resp = await this.$api.get(this.url);
+      this.data = resp.data;
+      this.loading = false;
+    },
   },
 };
 </script>
-<style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
-.profile {
-  font-family: "Cabin", sans-serif;
-}
-</style>

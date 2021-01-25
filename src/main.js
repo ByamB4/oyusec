@@ -14,8 +14,12 @@ import axios from "axios";
 import "vuetify-markdown-editor/dist/vuetify-markdown-editor.css";
 import "@/sass/global.sass";
 
+// const api = axios.create({
+//   baseURL: "https://oyusec.herokuapp.com/",
+// });
+
 const api = axios.create({
-  baseURL: "https://oyusec.herokuapp.com/",
+  baseURL: "http://localhost:8000/",
 });
 
 const axiosPlugin = {

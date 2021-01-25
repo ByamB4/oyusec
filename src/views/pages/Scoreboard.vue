@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col cols="11" class="mt-5">
+      <v-col cols="11">
         <div v-if="loading">
           <v-skeleton-loader
             v-for="ind in 5"
