@@ -17,9 +17,14 @@ export default new VueRouter({
           component: () => import("@/views/Home"),
         },
         {
-          name: "Profile",
+          name: "Профайл",
           path: "/profile/:slug",
           component: () => import("@/views/users/Index"),
+        },
+        {
+          name: "Профайл засах",
+          path: "/profile/:slug/edit",
+          component: () => import("@/views/users/Edit"),
         },
         {
           name: "Cryptography",

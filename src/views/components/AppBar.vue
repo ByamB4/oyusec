@@ -27,7 +27,7 @@
       </v-tooltip>
 
       <v-col cols="2">
-        <router-link :to="{ name: 'Profile', params: { slug: user.slug } }">
+        <router-link :to="{ name: 'Профайл', params: { slug: user.slug } }">
           <v-avatar size="42">
             <v-img :src="user.photo" key="webpages:Enabled" />
           </v-avatar>

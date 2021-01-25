@@ -40,7 +40,6 @@
 
 <script>
 import { mdiTrophy } from "@mdi/js";
-import { mapState } from "vuex";
 
 export default {
   data() {
@@ -50,12 +49,6 @@ export default {
       data: {},
       loading: true,
     };
-  },
-
-  computed: {
-    ...mapState(["isLogged"]),
-    ...mapState(["user"]),
-    ...mapState(["profile"]),
   },
 
   created() {

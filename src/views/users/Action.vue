@@ -1,21 +1,20 @@
 <template>
-  <div class="bg-dark-1">
+  <div class="bg-dark">
     <div v-if="loading">
       <v-skeleton-loader type="actions"></v-skeleton-loader>
     </div>
     <div v-else>
       <v-row class="mx-1">
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <v-col cols="12" v-bind="attrs" v-on="on">
-              <v-btn color="primary" depressed small>
-                <v-icon left v-text="mdiPencil"> </v-icon>
-                Засах
-              </v-btn>
-            </v-col>
-          </template>
-          <span>Үйлдлүүд</span>
-        </v-tooltip>
+        <v-col cols="12" align="right">
+          <router-link
+            :to="{ name: 'Профайл засах', params: { slug: user.slug } }"
+          >
+            <v-btn color="primary" depressed small v-if="edit">
+              <v-icon left v-text="mdiPencil"> </v-icon>
+              Засах
+            </v-btn>
+          </router-link>
+        </v-col>
       </v-row>
     </div>
   </div>
@@ -30,7 +29,7 @@ export default {
     return {
       url: `profile/${this.$route.params.slug}`,
       mdiPencil: mdiPencil,
-      data: {},
+      edit: false,
       loading: true,
     };
   },
@@ -38,17 +37,26 @@ export default {
   computed: {
     ...mapState(["isLogged"]),
     ...mapState(["user"]),
-    ...mapState(["profile"]),
+  },
+
+  watch: {
+    "$store.state.isLogged": function() {
+      this.isUser();
+    },
   },
 
   created() {
-    this.getUser();
+    this.isUser();
   },
 
   methods: {
-    async getUser() {
+    async isUser() {
       const resp = await this.$api.get(this.url);
-      this.data = resp.data;
+      if (this.isLogged && resp.data.username == this.user.username) {
+        this.edit = true;
+      } else {
+        this.edit = false;
+      }
       this.loading = false;
     },
   },

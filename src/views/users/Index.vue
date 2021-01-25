@@ -5,8 +5,8 @@
         <v-sheet rounded elevation="5">
           <Profile />
         </v-sheet>
-        <v-sheet rounded elevation="5" class="mt-5">
-          <Action />
+        <v-sheet rounded class="mt-5">
+          <Links />
         </v-sheet>
       </v-col>
       <v-col xs="12" cols="12" sm="12" md="7" lg="7" xl="6">
@@ -20,6 +20,9 @@
         <v-sheet rounded elevation="5" class="mt-5">
           <Rating />
         </v-sheet>
+        <v-sheet rounded class="mt-5">
+          <Action />
+        </v-sheet>
       </v-col>
     </v-row>
   </v-container>
@@ -31,6 +34,7 @@ export default {
     Challs: () => import("./Challs"),
     Rating: () => import("./Rating"),
     Profile: () => import("./Profile"),
+    Links: () => import("./Links"),
     Action: () => import("./Action"),
   },
 };
