@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 set -e
 cd dist
+echo 'www.oyusec.ml' > CNAME
 git init
 git add -A
 git commit -a --allow-empty-message -m ''
