@@ -17,9 +17,6 @@
         >
           <Challs />
         </v-sheet>
-        <v-sheet rounded elevation="5" class="mt-5">
-          <Rating />
-        </v-sheet>
         <v-sheet rounded class="mt-5">
           <Action />
         </v-sheet>
@@ -32,7 +29,6 @@
 export default {
   components: {
     Challs: () => import("./Challs"),
-    Rating: () => import("./Rating"),
     Profile: () => import("./Profile"),
     Links: () => import("./Links"),
     Action: () => import("./Action"),
