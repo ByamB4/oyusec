@@ -87,7 +87,7 @@ export default {
         content: "CTF сонирхогч залуучуудад зориулан бүтээв",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "logo.png" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }],
   },
   loading: {
     color: "#b388ff",

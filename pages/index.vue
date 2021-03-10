@@ -3,7 +3,7 @@
     <v-row class="font-monts" justify="center">
       <v-col cols="11" align="center" class="f-19">
         <div>
-          <v-img src="logo.png" width="100" height="100" />
+          <v-img src="/logo.png" width="100" height="100" />
           <h2
             style="letter-spacing: 0.3px"
             class="font-press"
