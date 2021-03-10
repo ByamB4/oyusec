@@ -1,0 +1,101 @@
+.theme
+  &--light
+
+    &.v-application
+      .text
+        color: #fff !important
+      .text--secondary
+        color: rgba(255, 255, 255,0.5) !important
+
+    .v-app-bar, .v-main, .v-footer
+      background-color: #243250 !important
+      color: #fff !important
+    .v-navigation-drawer
+      background-color: #1c273f !important
+      .v-list-item
+        &__title
+          color: #fff !important
+    .v-data-table
+      color: #fff !important
+      background-color: transparent !important
+      tr
+        &:hover
+          background-color: rgba(255, 255, 255, .05) !important
+    .v-card
+      &__text
+        color: #fff !important
+
+    .v-list-item
+      &:hover, &--active
+        // background-color: rgba(255, 255, 255, .05) !important
+        background-color: rgba(255, 255, 255, .05) !important
+    .v-tabs > .v-tabs-bar
+      background-color: transparent !important
+
+    .v-tab:not(.v-tab--active)
+      color: #fff !important
+      .v-icon
+        color: #fff
+
+    .v-input
+      input
+        color: #fff !important
+      .v-label
+        color: rgba(255, 255, 255, 0.6) !important
+      .v-counter
+        color: #fff
+      &__icon > .v-icon
+        color: #fff
+
+    .v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset
+      color: rgba(255, 255, 255, 0.6) !important
+
+    .v-expansion-panels
+      margin: 0 24px !important
+      .v-expansion-panel-header
+        height: 10px !important
+        color: #fff !important
+        background-color: #3d4b6b !important
+        &:hover, &--active
+          background-color: #083766 !important
+    .v-sheet
+      color: #fff !important
+
+    .user-bg
+      background-color: #3d4b6b !important
+
+  &--dark
+    .v-app-bar, .v-main, .v-footer
+      background-color: #0c1221 !important
+
+    .v-tabs > .v-tabs-bar
+      background-color: transparent !important
+
+    // Challenge related
+    .v-expansion-panels
+      margin: 0 24px
+      .v-expansion-panel-header
+        height: 10px !important
+        background-color: #062a4e
+        &:hover, &--active
+          background-color: #083766
+
+    .v-input input
+      color: #fff !important
+
+    .v-navigation-drawer
+      background-color: #111827 !important
+
+    .v-data-table
+      background-color: transparent !important
+      tr
+        &:hover
+          background-color: rgba(255, 255, 255, .05) !important
+    .v-sheet
+      color: #fff !important
+
+    .user-bg
+      background-color: #111827 !important
+
+    .bg-transparent
+      background-color: #0c1221 !important
