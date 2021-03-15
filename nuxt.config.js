@@ -93,9 +93,6 @@ export default {
     color: "#b388ff",
     height: "1px",
   },
-  // router: {
-  //   base: '/oyusec/',
-  // },
   css: ["~/assets/global.sass", "~/assets/class.sass", "~/assets/theme.sass"],
   plugins: ["~/plugins/consts"],
   components: true,
@@ -112,7 +109,6 @@ export default {
     strategies: {
       local: {
         scheme: "refresh",
-        // Token ages have to match with endpoint
         token: {
           property: "access",
           maxAge: 3000,
@@ -161,8 +157,8 @@ export default {
   },
 
   axios: {
-    // baseURL: 'http://localhost:8000',
-    baseURL: "https://oyusec-server.herokuapp.com",
+    baseURL: "http://localhost:8000",
+    // baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",

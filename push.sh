@@ -2,5 +2,5 @@
 
 git add .
 # git commit -a --allow-empty-message -m ''
-git commit -m ':rocket: Deploy'
+git commit -m ':heavy_check_mark: Updated'
 git push

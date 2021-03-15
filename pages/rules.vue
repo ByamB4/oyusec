@@ -1,14 +1,14 @@
 <template>
   <v-container>
     <v-row class="font-monts" justify="center">
-      <v-col cols="11" align="center" class="f-19">
+      <v-col cols="12" align="center">
         <div>
           <h2 style="letter-spacing: 0.3px" class="font-press f-19">
             [ Дүрэм ]
           </h2>
         </div>
-        <div class="mt-10 text-justify f-15">
-          <ul style="line-height: 50px; letter-spacing: 1px">
+        <div class="mt-10 text-justify f-16">
+          <ul style="line-height: 50px; letter-spacing: 0.5px">
             <li>Хэн ч оролцох боломжтой нас, улс хязгаарлалтгүй.</li>
             <li>
               Та флаг дээр brute force хийж болохгүй, хэрэв хийсэн тохиолдолд

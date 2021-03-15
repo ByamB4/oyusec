@@ -69,9 +69,15 @@ export default {
     menu: [
       {
         icon: "mdi-sword-cross",
-        color: "indigo darken-1",
-        title: "Бодлогууд",
+        color: "green accent-4",
+        title: "Бодлого",
         link: "/challenges",
+      },
+      {
+        icon: "mdi-sword",
+        color: "blue ligthen-2",
+        title: "Тэмцээн",
+        link: "/competitions",
       },
       {
         icon: "mdi-chart-histogram",
@@ -79,12 +85,12 @@ export default {
         title: "Самбар",
         link: "/scoreboard",
       },
-      {
-        icon: "mdi-lock-check",
-        color: "cyan darken-1",
-        title: "Дүрэм",
-        link: "/rules",
-      },
+      // {
+      //   icon: "mdi-lock-check",
+      //   color: "cyan darken-1",
+      //   title: "Дүрэм",
+      //   link: "/rules",
+      // },
     ],
     auths: [
       {
