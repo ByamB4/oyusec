@@ -68,17 +68,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex"
 
 export default {
   data: () => ({
     changed: false,
     form: {
-      name: '',
-      state: 'Ил харагдана',
-      type: 'dynamic',
+      name: "",
+      state: "Ил харагдана",
+      type: "dynamic",
     },
-    stateItems: ['Ил харагдана', 'Нууцлагдмал'],
+    stateItems: ["Ил харагдана", "Нууцлагдмал"],
   }),
   computed: {
     ...mapState({ challenge: (state) => state.admin.activeChallenge }),
@@ -103,7 +103,7 @@ export default {
 
   methods: {
     submit() {
-      this.$store.dispatch('admin/updateChallenge', {
+      this.$store.dispatch("admin/updateChallenge", {
         form: this.form,
       })
     },

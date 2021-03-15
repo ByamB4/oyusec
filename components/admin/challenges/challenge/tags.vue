@@ -43,17 +43,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex"
 export default {
   data: () => ({
     form: {},
     changed: false,
     challenge: {},
     headers: [
-      { text: 'Агуулга', value: 'content', sortable: false },
-      { text: 'Үйлдэл', value: 'actions', sortable: false },
+      { text: "Агуулга", value: "content", sortable: false },
+      { text: "Үйлдэл", value: "actions", sortable: false },
     ],
-    stateItems: ['Ил харагдана', 'Нууцлагдмал'],
+    stateItems: ["Ил харагдана", "Нууцлагдмал"],
   }),
   computed: {
     ...mapState({ activeChallenge: (state) => state.admin.activeChallenge }),
@@ -61,13 +61,13 @@ export default {
 
   methods: {
     submit() {
-      this.$store.dispatch('admin/addTag', {
+      this.$store.dispatch("admin/addTag", {
         $data: this.form,
       })
       this.reset()
     },
     deleteItem(item) {
-      this.$store.dispatch('admin/deleteTag', {
+      this.$store.dispatch("admin/deleteTag", {
         $id: item.id,
       })
     },

@@ -31,27 +31,27 @@
   </v-container>
 </template>
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters } from "vuex"
 
 export default {
-  components: { challenge: () => import('/components/Challenge') },
+  components: { challenge: () => import("/components/Challenge") },
   async asyncData(context) {
     await Promise.all([
-      context.store.dispatch('challenge/updateChallenges', context),
-      context.store.dispatch('challenge/updateChallengesSolves', context),
+      context.store.dispatch("challenge/updateChallenges", context),
+      context.store.dispatch("challenge/updateChallengesSolves", context),
     ])
   },
   head: () => ({
-    title: 'Бодлогууд',
+    title: "Бодлогууд",
   }),
 
   computed: {
     ...mapGetters({
-      categories: 'challenge/getCategories',
+      categories: "challenge/getCategories",
     }),
     ...mapState({
-      isEnded: 'isEnded',
-      isStarted: 'isStarted',
+      isEnded: "isEnded",
+      isStarted: "isStarted",
       loggedIn: (state) => state.auth.loggedIn,
       competition: (state) => state.competition,
     }),
@@ -59,8 +59,8 @@ export default {
 
   mounted() {
     this.interval = setInterval(() => {
-      this.$store.dispatch('challenge/updateChallenges')
-      this.$store.dispatch('challenge/updateChallengesSolves')
+      this.$store.dispatch("challenge/updateChallenges")
+      this.$store.dispatch("challenge/updateChallengesSolves")
     }, 10 * 1000) // 10 sec
   },
 
@@ -70,10 +70,10 @@ export default {
 
   methods: {
     contestStart() {
-      this.$store.commit('SET_IS_STARTED')
+      this.$store.commit("SET_IS_STARTED")
     },
     contestEnd() {
-      this.$store.commit('SET_IS_ENDED')
+      this.$store.commit("SET_IS_ENDED")
     },
   },
 }

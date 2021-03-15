@@ -15,17 +15,17 @@
 <script>
 export default {
   components: {
-    config: () => import('/components/admin/config/config'),
-    appearance: () => import('/components/admin/config/appearance'),
-    times: () => import('/components/admin/config/times'),
+    config: () => import("/components/admin/config/config"),
+    appearance: () => import("/components/admin/config/appearance"),
+    times: () => import("/components/admin/config/times"),
   },
-  middleware: ['admin'],
+  middleware: ["admin"],
   data: () => ({
-    comps: ['config', 'appearance', 'times'],
+    comps: ["config", "appearance", "times"],
     tabs: [
-      { name: 'Тохиргоо', icon: 'mdi-auto-fix' },
-      { name: 'Үзэмж', icon: 'mdi-brush' },
-      { name: 'Цаг', icon: 'mdi-camera-timer' },
+      { name: "Тохиргоо", icon: "mdi-auto-fix" },
+      { name: "Үзэмж", icon: "mdi-brush" },
+      { name: "Цаг", icon: "mdi-camera-timer" },
     ],
   }),
 }

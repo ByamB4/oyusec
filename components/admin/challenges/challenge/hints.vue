@@ -60,24 +60,24 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex"
 
 export default {
   data() {
     return {
       form: {
-        state: 'Ил харагдана',
+        state: "Ил харагдана",
       },
       hints: {},
       challenge: {},
       changed: false,
       headers: [
-        { text: 'Агуулга', value: 'content', sortable: false },
-        { text: 'Татвар', value: 'cost', sortable: false },
-        { text: 'Төлөв', value: 'state', sortable: false },
-        { text: 'Засах', value: 'actions', sortable: false },
+        { text: "Агуулга", value: "content", sortable: false },
+        { text: "Татвар", value: "cost", sortable: false },
+        { text: "Төлөв", value: "state", sortable: false },
+        { text: "Засах", value: "actions", sortable: false },
       ],
-      stateItems: ['Ил харагдана', 'Нууцлагдмал'],
+      stateItems: ["Ил харагдана", "Нууцлагдмал"],
     }
   },
   computed: {
@@ -86,19 +86,19 @@ export default {
 
   methods: {
     submit() {
-      this.$store.dispatch('admin/addHint', {
+      this.$store.dispatch("admin/addHint", {
         $data: this.form,
       })
       this.reset()
     },
     deleteHint(item) {
-      this.$store.dispatch('admin/deleteHint', {
+      this.$store.dispatch("admin/deleteHint", {
         $id: item.id,
       })
     },
     reset() {
       this.form = {
-        state: 'Ил харагдана',
+        state: "Ил харагдана",
       }
       this.$refs.form.resetValidation()
     },

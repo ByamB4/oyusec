@@ -16,7 +16,7 @@ export const mutations = {
 
 export const actions = {
   async updateCompetition({ commit, dispatch }) {
-    const { data } = await this.$axios.get("api/competition/")
+    const { data } = await this.$axios.get("api/competitions/")
     commit("SET_COMPETITION", data.data)
   },
 }

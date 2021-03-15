@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex"
 export default {
   data() {
     return {
@@ -52,10 +52,10 @@ export default {
       challenge: {},
       changed: false,
       headers: [
-        { text: 'Агуулга', value: 'content', sortable: false },
-        { text: 'Засах', value: 'actions', sortable: false },
+        { text: "Агуулга", value: "content", sortable: false },
+        { text: "Засах", value: "actions", sortable: false },
       ],
-      stateItems: ['Ил харагдана', 'Нууцлагдмал'],
+      stateItems: ["Ил харагдана", "Нууцлагдмал"],
     }
   },
   computed: {
@@ -64,13 +64,13 @@ export default {
 
   methods: {
     submit() {
-      this.$store.dispatch('admin/addFlag', {
+      this.$store.dispatch("admin/addFlag", {
         $data: this.form,
       })
       this.reset()
     },
     deleteItem(item) {
-      this.$store.dispatch('admin/deleteFlag', {
+      this.$store.dispatch("admin/deleteFlag", {
         $id: item.id,
       })
     },

@@ -2,6 +2,14 @@
   <v-hover v-slot="{ hover }">
     <v-card
       :elevation="hover ? 8 : 2"
+      :to="{
+        name: 'competitions-slug',
+        params: {
+          slug: competition.slug,
+          id: competition.id,
+          name: competition.name,
+        },
+      }"
       class="my-3 user-bg font-cabin"
       max-width="350"
     >
