@@ -34,7 +34,7 @@
 import { mapState, mapGetters } from "vuex"
 
 export default {
-  components: { challenge: () => import("/components/Challenge") },
+  components: { challenge: () => import("~/components/Challenge") },
   async asyncData(context) {
     await Promise.all([
       context.store.dispatch("challenge/updateChallenges", context),

@@ -2,22 +2,24 @@
   <v-hover v-slot="{ hover }">
     <v-card
       :elevation="hover ? 8 : 2"
+      :to="{
+        name: 'competitions-slug',
+        params: {
+          slug: competition.slug,
+          id: competition.id,
+          name: competition.name,
+        },
+      }"
       class="my-3 user-bg font-cabin"
-      max-width="374"
+      max-width="350"
     >
       <v-img
         height="150"
         src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
       ></v-img>
+      <v-card-title><strong v-text="competition.name" /></v-card-title>
 
-      <v-card-title><strong>OyuSec Round #1</strong></v-card-title>
-
-      <v-card-text>
-        <div>
-          Small plates, salads & sandwiches - an intimate setting with 12 indoor
-          seats plus patio seating.
-        </div>
-      </v-card-text>
+      <v-card-text v-text="competition.description" />
 
       <v-divider class="mx-4"></v-divider>
 
@@ -29,6 +31,12 @@
 </template>
 <script>
 export default {
+  props: {
+    competition: {
+      required: true,
+      type: Object,
+    },
+  },
   data: () => ({}),
 
   methods: {
