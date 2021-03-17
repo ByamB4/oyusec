@@ -2,12 +2,12 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-tabs>
+        <v-tabs class="font-exo">
           <v-tab v-for="tab in tabs" :key="tab">
-            <span v-text="tab" />
+            <span class="font-weight-bold" v-text="tab" />
           </v-tab>
           <v-tab-item class="bg-transparent">
-            <v-row class="font-cabin">
+            <v-row>
               <v-col v-if="liveComps.length === 0" align="center" class="mt-5">
                 <h3>
                   Тэмцээн олдсонгүй
@@ -20,7 +20,7 @@
             </v-row>
           </v-tab-item>
           <v-tab-item class="bg-transparent">
-            <v-row class="font-cabin">
+            <v-row>
               <v-col
                 v-if="upcomingComps.length === 0"
                 align="center"
@@ -42,7 +42,7 @@
             </v-row>
           </v-tab-item>
           <v-tab-item class="bg-transparent">
-            <v-row class="font-cabin">
+            <v-row>
               <v-col
                 v-if="archiveComps.length === 0"
                 align="center"

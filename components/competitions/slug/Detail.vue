@@ -1,5 +1,5 @@
 <template>
-  <v-card class="user-bg font-cabin my-3">
+  <v-card class="user-bg font-exo my-3">
     <v-row>
       <v-col cols="3" align="center" class="py-5">
         <h4>
@@ -30,35 +30,26 @@
         <span>31 March 2021 , 22:00 pm UTC</span>
       </v-col>
     </v-row>
-    <!-- <v-divider class="mx-4"></v-divider> -->
     <v-card-title>
       <v-icon color="white">mdi-file-document-outline</v-icon>
       <h4 class="ml-2">Тайлбар</h4>
     </v-card-title>
     <v-card-text>
-      <span class="f-17">
-        {{ competition.description }}
-      </span>
+      <div class="f-17" v-html="$md.render(description)" />
     </v-card-text>
-    <!-- <v-divider class="mx-4"></v-divider> -->
     <v-card-title>
       <v-icon color="white">mdi-lock-check</v-icon>
       <h4 class="ml-2">Дүрэм</h4>
     </v-card-title>
     <v-card-text>
-      <span class="f-17">
-        {{ competition.description }}
-      </span>
+      <div class="f-17" v-html="$md.render(rule)" />
     </v-card-text>
-    <!-- <v-divider class="mx-4"></v-divider> -->
     <v-card-title>
       <v-icon color="white">mdi-trophy</v-icon>
       <h4 class="ml-2">Шагнал</h4>
     </v-card-title>
     <v-card-text>
-      <span class="f-17">
-        {{ competition.description }}
-      </span>
+      <div class="f-17" v-html="$md.render(prize)" />
     </v-card-text>
   </v-card>
 </template>
@@ -66,7 +57,9 @@
 <script>
 export default {
   data: () => ({
-    competition: {},
+    rule: "",
+    description: "",
+    prize: "",
   }),
   created() {
     this.getCompetition()
@@ -77,7 +70,9 @@ export default {
         `api/competition/${this.$route.params.slug}/`
       )
       if (data.success) {
-        this.competition = data.data
+        this.rule = data.data.rule
+        this.description = data.data.description
+        this.prize = data.data.prize
       }
     },
   },

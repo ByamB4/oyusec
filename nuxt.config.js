@@ -1,4 +1,5 @@
 export default {
+  ssr: false,
   head: {
     titleTemplate: "%s - OyuSec",
     title: "OyuSec",
@@ -158,8 +159,8 @@ export default {
   },
 
   axios: {
-    baseURL: "http://localhost:8000",
-    // baseURL: "https://oyusec-server.herokuapp.com",
+    // baseURL: "http://localhost:8000",
+    baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",
@@ -170,16 +171,17 @@ export default {
   },
 
   markdownit: {
-    injected: true,
+    runtime: true,
   },
 
   webfontloader: {
     google: {
-      families: ["Press+Start+2P", "Montserrat", "Cabin"],
+      families: ["Press+Start+2P", "Montserrat", "Cabin", "Exo+2"],
       urls: [
         "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap",
         "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap",
         "https://fonts.googleapis.com/css2?family=Cabin&display=swap",
+        "https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap",
       ],
     },
   },
@@ -190,9 +192,5 @@ export default {
     },
   },
   build: {},
-  generate: {
-    minify: {
-      collapseWhitespace: false,
-    },
-  },
+  generate: {},
 }

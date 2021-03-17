@@ -1,5 +1,5 @@
 <template>
-  <v-container class="challenges">
+  <v-container fluid class="challenges">
     <v-row justify="center">
       <v-col cols="11">
         <div v-show="isEnded">

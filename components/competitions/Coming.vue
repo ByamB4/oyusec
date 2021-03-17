@@ -19,7 +19,7 @@
       ></v-img>
       <v-card-title><strong v-text="competition.name" /></v-card-title>
 
-      <v-card-text v-text="competition.description" />
+      <!-- <v-card-text v-text="competition.description" /> -->
 
       <v-divider class="mx-4"></v-divider>
 

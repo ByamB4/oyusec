@@ -9,8 +9,7 @@
             class="font-press"
             v-text="competition.name"
           />
-          <!-- <p class="mt-4">2021-03-06 08:00 – 2021-03-07 20:00</p>
-          <h4>CTF is over. Thanks for playing</h4> -->
+          <span class="f-25 yellow--text">DEMO VERSION</span>
         </div>
         <div class="mt-5 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
@@ -18,25 +17,7 @@
           </h2>
           <p style="line-height: 200%" v-text="competition.description" />
         </div>
-        <div class="mt-5 text-justify">
-          <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-            [ Шагнал ]
-          </h2>
-          <ul
-            style="
-              line-height: 40px;
-              letter-spacing: 2px;
-              list-style-type: none;
-            "
-            class="mt-3 text-justify"
-          >
-            <li v-for="prize in prizes" :key="prize.value">
-              <v-icon :color="prize.color">{{ prize.icon }}</v-icon>
-              {{ prize.value }}
-            </li>
-          </ul>
-        </div>
-        <div class="mt-5 text-justify">
+        <div class="mt-10 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
             [ Ивээн тэтгэгч ]
           </h2>
@@ -49,23 +30,10 @@
             </li>
           </ul>
         </div>
-        <div class="mt-5 text-justify">
+        <div class="mt-10 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
             [ Бидэнтэй нэгдээрэй ]
           </h2>
-          <!-- <ul
-            style="
-              line-height: 40px;
-              letter-spacing: 2px;
-              list-style-type: none;
-            "
-            class="mt-3 text-justify"
-          >
-            <li v-for="link in links" :key="link.icon">
-              <v-icon size="30">{{ link.icon }}</v-icon>
-              {{ link.url }}
-            </li>
-          </ul> -->
           <div class="mt-5 ml-5">
             <v-btn
               v-for="link in links"
