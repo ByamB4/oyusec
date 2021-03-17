@@ -7,7 +7,13 @@
             src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
           ></v-img>
         </v-avatar>
-        <h1 v-text="competition.name" />
+        <h1 class="font-exo">
+          {{ competition.name }}
+          <v-chip class="ma-2" color="indigo darken-3">
+            <v-icon color="white" left> mdi-fire </v-icon>
+            <span class="white--text" v-text="competition.status" />
+          </v-chip>
+        </h1>
       </v-col>
     </v-row>
     <v-row>

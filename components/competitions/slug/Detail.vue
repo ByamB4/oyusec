@@ -6,28 +6,28 @@
           <v-icon color="white">mdi-map-marker</v-icon>
           <span>Байршил</span>
         </h4>
-        <span>онлайн</span>
+        <span v-text="competition.location" />
       </v-col>
       <v-col cols="3" align="center" class="py-5">
         <h4>
           <v-icon color="white">mdi-account</v-icon>
           <span>Элсэлт</span>
         </h4>
-        <span>хувь хүн</span>
+        <span v-text="competition.enrollment" />
       </v-col>
       <v-col cols="3" align="center" class="py-5">
         <h4>
           <v-icon color="white">mdi-calendar-month</v-icon>
           <span>Эхлэх хугацаа</span>
         </h4>
-        <span>1 March 2021 , 10:00 am UTC</span>
+        <span v-text="competition.start_date" />
       </v-col>
       <v-col cols="3" align="center" class="py-5">
         <h4>
           <v-icon color="white">mdi-calendar-month</v-icon>
           <span>Дуусах хугацаа</span>
         </h4>
-        <span>31 March 2021 , 22:00 pm UTC</span>
+        <span v-text="competition.end_date" />
       </v-col>
     </v-row>
     <v-card-title>
@@ -57,9 +57,10 @@
 <script>
 export default {
   data: () => ({
-    rule: "",
+    competition: {},
     description: "",
     prize: "",
+    rule: "",
   }),
   created() {
     this.getCompetition()
@@ -70,9 +71,10 @@ export default {
         `api/competition/${this.$route.params.slug}/`
       )
       if (data.success) {
-        this.rule = data.data.rule
+        this.competition = data.data
         this.description = data.data.description
         this.prize = data.data.prize
+        this.rule = data.data.rule
       }
     },
   },
