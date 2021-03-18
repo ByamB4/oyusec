@@ -35,21 +35,21 @@
       <h4 class="ml-2">Тайлбар</h4>
     </v-card-title>
     <v-card-text>
-      <div class="f-17" v-html="$md.render(competition.description)" />
+      <div class="f-17" v-html="$md.render(description)" />
     </v-card-text>
     <v-card-title>
       <v-icon color="white">mdi-lock-check</v-icon>
       <h4 class="ml-2">Дүрэм</h4>
     </v-card-title>
     <v-card-text>
-      <div class="f-17" v-html="$md.render(competition.rule)" />
+      <div class="f-17" v-html="$md.render(rule)" />
     </v-card-text>
     <v-card-title>
       <v-icon color="white">mdi-trophy</v-icon>
       <h4 class="ml-2">Шагнал</h4>
     </v-card-title>
     <v-card-text>
-      <div class="f-17" v-html="$md.render(competition.prize)" />
+      <div class="f-17" v-html="$md.render(prize)" />
     </v-card-text>
   </v-card>
 </template>
@@ -73,6 +73,15 @@ export default {
       return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${this.formatNum(
         date.getHours()
       )}:${this.formatNum(date.getMinutes())}`
+    },
+    description() {
+      return String(this.competition.description)
+    },
+    rule() {
+      return String(this.competition.rule)
+    },
+    prize() {
+      return String(this.competition.prize)
     },
   },
   methods: {

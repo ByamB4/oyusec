@@ -3,12 +3,12 @@
     <v-row v-if="competition.status === 'Удахгүй'">
       <v-col cols="12" align="center">
         <counter
-          :year="competition.start_date.getFullYear()"
-          :month="competition.start_date.getMonth()"
-          :date="competition.start_date.getDate()"
-          :hour="competition.start_date.getHours()"
-          :minute="competition.start_date.getMinutes()"
-          :second="competition.start_date.getSeconds()"
+          :year="start_date.getFullYear()"
+          :month="start_date.getMonth()"
+          :date="start_date.getDate()"
+          :hour="start_date.getHours()"
+          :minute="start_date.getMinutes()"
+          :second="start_date.getSeconds()"
           :millisecond="0"
         />
       </v-col>
@@ -47,6 +47,9 @@ export default {
       competition: "competition/getCompetition",
       categories: "competition/getCategories",
     }),
+    start_date() {
+      return new Date(this.competition.start_date)
+    },
   },
   created() {
     // If component loaded run once time

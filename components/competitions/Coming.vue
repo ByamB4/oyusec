@@ -19,7 +19,7 @@
       <v-divider class="mx-4"></v-divider>
 
       <v-card-text align="center">
-        <div>Эхэлнэ {{ competition.start_date }}</div>
+        <div>Эхэлнэ {{ start_date }}</div>
       </v-card-text>
     </v-card>
   </v-hover>
@@ -31,6 +31,26 @@ export default {
       required: true,
       type: Object,
     },
+  },
+  computed: {
+    start_date() {
+      const date = new Date(this.competition.start_date)
+      return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${this.formatNum(
+        date.getHours()
+      )}:${this.formatNum(date.getMinutes())}`
+    },
+    description() {
+      return String(this.competition.description)
+    },
+    rule() {
+      return String(this.competition.rule)
+    },
+    prize() {
+      return String(this.competition.prize)
+    },
+  },
+  methods: {
+    formatNum: (num) => (num < 10 ? "0" + num : num),
   },
 }
 </script>
