@@ -1,6 +1,9 @@
 <template>
   <v-expansion-panel class="challenge mt-2">
-    <v-expansion-panel-header expand-icon :class="{ solved: challenge.solved }">
+    <v-expansion-panel-header
+      expand-icon
+      :class="{ solved: challenge.solved && $auth.loggedIn }"
+    >
       <v-row align="center" no-gutters>
         <v-col
           xs="6"
@@ -12,7 +15,7 @@
         >
           <span class="ml-3" v-text="challenge.name" />
         </v-col>
-        <v-col class="text-right" xs="6" sm="6" md="6" lg="6" xl="4">
+        <v-col xs="6" sm="6" md="6" lg="6" xl="4" align="right">
           <v-chip small class="ml-1 white--text" color="primary">
             <span class="font-weight-bold">Бодсон {{ challenge.solves }}</span>
           </v-chip>
@@ -102,11 +105,22 @@ export default {
       if (data.status === "correct") {
         this.reset()
         this.isSolved = true
-        this.$store.commit("challenge/ADD_CHALLENGE_SOLVE", this.challenge.id)
-        await this.$store.dispatch("challenge/updateSolved")
-        await this.$store.dispatch("user/getProfile", {
-          slug: this.$auth.user.slug,
-        })
+        if (this.challenge.competition) {
+          this.$store.commit(
+            "competition/ADD_CHALLENGE_SOLVE",
+            this.challenge.id
+          )
+          await this.$store.dispatch("competition/updateSolved")
+          // await this.$store.dispatch("user/getProfile", {
+          //   slug: this.$auth.user.slug,
+          // })
+        } else {
+          this.$store.commit("challenge/ADD_CHALLENGE_SOLVE", this.challenge.id)
+          await this.$store.dispatch("challenge/updateSolved")
+          await this.$store.dispatch("user/getProfile", {
+            slug: this.$auth.user.slug,
+          })
+        }
       } else {
         this.reset()
         this.incorrect = true

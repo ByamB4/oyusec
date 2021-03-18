@@ -3,9 +3,7 @@
     <v-row>
       <v-col cols="12" align="center">
         <v-avatar color="primary" rounded size="150">
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-          ></v-img>
+          <v-img :src="competition.photo" />
         </v-avatar>
         <h1 class="font-exo">
           {{ competition.name }}
@@ -38,14 +36,15 @@
 </template>
 
 <script>
-import Detail from "~/components/competitions/slug/Detail"
-import Challenges from "~/components/competitions/slug/Challenges"
-import Scoreboard from "~/components/competitions/slug/Scoreboard"
+import { mapGetters } from "vuex"
 
 export default {
-  components: { Detail, Challenges, Scoreboard },
+  components: {
+    Detail: () => import("~/components/competitions/slug/Detail"),
+    Challenges: () => import("~/components/competitions/slug/Challenges"),
+    Scoreboard: () => import("~/components/competitions/slug/Scoreboard"),
+  },
   data: () => ({
-    competition: {},
     tabs: ["Тухай", "Бодлогууд", "Онооны самбар"],
   }),
   head() {
@@ -53,18 +52,16 @@ export default {
       title: this.$route.params.slug,
     }
   },
-  created() {
-    this.getCompetition()
+  computed: {
+    ...mapGetters({
+      competition: "competition/getCompetition",
+    }),
   },
-  methods: {
-    async getCompetition() {
-      const { data } = await this.$axios.get(
-        `api/competition/${this.$route.params.slug}/`
-      )
-      if (data.success) {
-        this.competition = data.data
-      }
-    },
+  mounted() {
+    this.$store.dispatch(
+      "competition/updateCompetition",
+      this.$route.params.slug
+    )
   },
 }
 </script>

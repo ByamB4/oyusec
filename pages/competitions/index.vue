@@ -22,7 +22,7 @@
           <v-tab-item class="bg-transparent">
             <v-row>
               <v-col
-                v-if="upcomingComps.length === 0"
+                v-if="comingComps.length === 0"
                 align="center"
                 class="mt-5"
               >
@@ -31,12 +31,7 @@
                   <v-icon color="white">mdi-emoticon-sad-outline</v-icon>
                 </h3>
               </v-col>
-              <v-col
-                v-for="comp in upcomingComps"
-                v-else
-                :key="comp.id"
-                cols="3"
-              >
+              <v-col v-for="comp in comingComps" v-else :key="comp.id" cols="3">
                 <Coming :competition="comp" />
               </v-col>
             </v-row>
@@ -80,7 +75,7 @@ export default {
   components: { Live, Coming, Archived },
   async asyncData(context) {
     await Promise.all([
-      context.store.dispatch("competitions/updateCompetition", context),
+      context.store.dispatch("competition/updateCompetitions", context),
     ])
   },
   data: () => ({
@@ -93,9 +88,9 @@ export default {
 
   computed: {
     ...mapGetters({
-      liveComps: "competitions/getLive",
-      upcomingComps: "competitions/getUpcoming",
-      archiveComps: "competitions/getArchive",
+      liveComps: "competition/getLive",
+      comingComps: "competition/getComing",
+      archiveComps: "competition/getArchive",
     }),
   },
 }
