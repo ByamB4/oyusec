@@ -8,7 +8,7 @@ export const state = () => ({
   isStarted: true,
   isEnded: false,
   challenges: [],
-  drawer: false,
+  drawer: true,
   connection: false,
 })
 

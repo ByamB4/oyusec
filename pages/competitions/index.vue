@@ -83,7 +83,6 @@ export default {
       context.store.dispatch("competitions/updateCompetition", context),
     ])
   },
-
   data: () => ({
     tabs: ["Шууд", "Удахгүй", "Дууссан"],
   }),

@@ -1,29 +1,43 @@
 <template>
-  <div v-if="loaded">
-    <div class="days">
-      {{ displayDays }}
-      <span>days</span>
-    </div>
-    <div class="hours">
-      {{ displayHours }}
-      <span>hours</span>
-    </div>
-
-    <div class="minutes">
-      {{ displayMinutes }}
-      <span>minutes</span>
-    </div>
-
-    <div class="seconds">
-      {{ displaySeconds }}
-      <span>seconds</span>
-    </div>
-  </div>
+  <ul v-if="loaded" class="vuejs-countdown">
+    <li v-if="displayDays > 0">
+      <p class="digit">{{ displayDays | twoDigits }}</p>
+      <p class="text">өдөр</p>
+    </li>
+    <li>
+      <p class="digit">{{ displayHours | twoDigits }}</p>
+      <p class="text">цаг</p>
+    </li>
+    <li>
+      <p class="digit">{{ displayMinutes | twoDigits }}</p>
+      <p class="text">мин</p>
+    </li>
+    <li>
+      <p class="digit">{{ displaySeconds | twoDigits }}</p>
+      <p class="text">сек</p>
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
-  props: ["year", "month", "date", "hour", "minute", "second", "millisecond"],
+  filters: {
+    twoDigits(value) {
+      if (value.toString().length <= 1) {
+        return "0" + value.toString()
+      }
+      return value.toString()
+    },
+  },
+  props: {
+    year: { type: String },
+    month: { type: String },
+    date: { type: String },
+    hour: { type: String },
+    minute: { type: String },
+    second: { type: String },
+    millisecond: { type: String },
+  },
   data: () => ({
     displayDays: 0,
     displayHours: 0,
@@ -87,4 +101,45 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.vuejs-countdown {
+  padding: 0;
+  margin: 0;
+}
+.vuejs-countdown li {
+  display: inline-block;
+  margin: 0 8px;
+  text-align: center;
+  position: relative;
+}
+.vuejs-countdown li p {
+  margin: 0;
+}
+.vuejs-countdown li:after {
+  content: ":";
+  position: absolute;
+  top: 0;
+  right: -13px;
+  font-size: 38px;
+}
+.vuejs-countdown li:first-of-type {
+  margin-left: 0;
+}
+.vuejs-countdown li:last-of-type {
+  margin-right: 0;
+}
+.vuejs-countdown li:last-of-type:after {
+  content: "";
+}
+.vuejs-countdown .digit {
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+.vuejs-countdown .text {
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+</style>

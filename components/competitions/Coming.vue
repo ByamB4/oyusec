@@ -10,7 +10,7 @@
           name: competition.name,
         },
       }"
-      class="my-3 user-bg font-cabin"
+      class="my-3 user-bg"
       max-width="350"
     >
       <v-img
@@ -19,12 +19,10 @@
       ></v-img>
       <v-card-title><strong v-text="competition.name" /></v-card-title>
 
-      <!-- <v-card-text v-text="competition.description" /> -->
-
       <v-divider class="mx-4"></v-divider>
 
       <v-card-text align="center">
-        <div>Ends at 31 Mar 2021 , 22:00 pm</div>
+        <div>Эхэлнэ {{ competition.start_date }}</div>
       </v-card-text>
     </v-card>
   </v-hover>
@@ -35,15 +33,6 @@ export default {
     competition: {
       required: true,
       type: Object,
-    },
-  },
-  data: () => ({}),
-
-  methods: {
-    reserve() {
-      this.loading = true
-
-      setTimeout(() => (this.loading = false), 2000)
     },
   },
 }
