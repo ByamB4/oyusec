@@ -15,6 +15,7 @@ export default {
         content: "CTF сонирхогч залуучуудад зориулан бүтээв",
       },
       // Just SEO related thing, will change later
+
       {
         name: "keywords",
         content:
