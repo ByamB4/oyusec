@@ -2,29 +2,17 @@
   <v-container fluid class="challenges">
     <v-row justify="center">
       <v-col cols="11">
-        <div v-show="isEnded">
-          <div class="font-cabin text-center mt-10">
-            <h1 class="information">{{ competition.name }} дууссан</h1>
+        <div v-for="category in categories" :key="category.name">
+          <div class="category font-cabin">
+            <h2 v-text="category.name" />
           </div>
-        </div>
-        <div v-show="isStarted">
-          <div v-for="category in categories" :key="category.name">
-            <div class="category font-cabin">
-              <h2 v-text="category.name" />
-            </div>
-            <v-expansion-panels popout tile>
-              <challenge
-                v-for="challenge in category.challenges"
-                :key="challenge.id"
-                :challenge="challenge"
-              />
-            </v-expansion-panels>
-          </div>
-        </div>
-        <div v-show="!isStarted && !isEnded">
-          <div class="font-cabin text-center mt-10">
-            <h1 class="information" v-text="competition.name" />
-          </div>
+          <v-expansion-panels popout tile>
+            <challenge
+              v-for="challenge in category.challenges"
+              :key="challenge.id"
+              :challenge="challenge"
+            />
+          </v-expansion-panels>
         </div>
       </v-col>
     </v-row>

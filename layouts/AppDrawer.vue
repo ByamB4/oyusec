@@ -120,6 +120,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout()
+      this.$store.dispatch("competition/updateSolved")
       this.$store.dispatch("challenge/updateSolved")
       // this.$store.commit('SET_USER', {})
       // this.$store.commit('SET_ISLOGGED', false)

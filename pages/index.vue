@@ -4,18 +4,21 @@
       <v-col cols="11" align="center" class="f-19">
         <div>
           <v-img src="/logo.png" width="100" height="100" />
-          <h2
-            style="letter-spacing: 0.3px"
-            class="font-press"
-            v-text="competition.name"
-          />
+          <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec - CTF</h2>
           <span class="f-25 yellow--text">DEMO VERSION</span>
         </div>
         <div class="mt-5 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
             [ Тухай ]
           </h2>
-          <p style="line-height: 200%" v-text="competition.description" />
+          <p style="line-height: 200%">
+            Энэ бол туршилтийн хувилбар. Хэрвээ ямар нэгэн алдаа, дутагдалтай
+            зүйл гарвал бидэнтэй холбогдож туслана уу.
+          </p>
+          <ul class="mt-3 text-justify">
+            <li><code>admin@mail.zxc : tmppass123</code></li>
+            <li><code>guest@mail.zxc : tmppass123</code></li>
+          </ul>
         </div>
         <div class="mt-10 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
@@ -53,8 +56,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
-
 export default {
   data: () => ({
     links: [
@@ -75,33 +76,11 @@ export default {
         url: "https://twitter.com/oyusec",
       },
     ],
-    prizes: [
-      {
-        icon: "mdi-trophy",
-        color: "amber",
-        value: "$XXX",
-      },
-      {
-        icon: "mdi-trophy",
-        color: "blue-grey lighten-2",
-        value: "$YYY",
-      },
-      {
-        icon: "mdi-trophy",
-        color: "brown lighten-1",
-        value: "$ZZZ",
-      },
-    ],
   }),
   head() {
     return {
       title: "Нүүр хуудас",
     }
-  },
-  computed: {
-    ...mapState({
-      competition: (state) => state.competition,
-    }),
   },
 }
 </script>

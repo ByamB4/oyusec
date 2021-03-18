@@ -11,6 +11,7 @@ const categoryOrders = [
 export const state = () => ({
   competition: {},
   competitions: {},
+  scoreboard: [],
   challenges: [],
   challengesSolves: [],
   solves: new Set(),
@@ -21,6 +22,7 @@ export const getters = {
   getArchive: (state) => state.competitions.archive,
   getComing: (state) => state.competitions.coming,
   getCompetition: (state) => state.competition,
+  getScoreboard: (state) => state.scoreboard,
   getChallenges: (state) =>
     state.challenges.map((challenge) => ({
       ...challenge,
@@ -52,8 +54,6 @@ export const mutations = {
   },
   SET_COMPETITION(state, payload) {
     state.competition = payload
-    state.competition.start_date = new Date(state.competition.start_date)
-    state.competition.end_date = new Date(state.competition.end_date)
   },
   SET_CHALLENGES(state, payload) {
     state.challenges = payload
@@ -63,6 +63,9 @@ export const mutations = {
   },
   SET_SOLVES(state, payload) {
     state.solves = new Set(payload.map((solve) => solve.challenge_id))
+  },
+  SET_SCOREBOARD(state, payload) {
+    state.scoreboard = payload
   },
   ADD_CHALLENGE_SOLVE(state, payload) {
     const target = state.challengesSolves.find(
@@ -109,5 +112,11 @@ export const actions = {
     if (data.success) {
       commit("SET_SOLVES", data.data)
     }
+  },
+  async updateScoreboard({ commit, state }) {
+    const { data } = await this.$axios.get(
+      `api/competition/${state.competition.slug}/scoreboard/`
+    )
+    commit("SET_SCOREBOARD", data.data)
   },
 }

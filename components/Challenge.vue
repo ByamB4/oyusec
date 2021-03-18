@@ -28,12 +28,13 @@
     <v-expansion-panel-content v-if="!challenge.solved" class="font-helve">
       <div class="mt-3" v-html="$md.render(challenge.description)" />
       <v-form
-        v-if="$auth.loggedIn"
+        v-if="$auth.loggedIn && status != 'Дууссан'"
         ref="form"
         v-model="form.valid"
         class="mt-4"
         @submit.prevent="submit"
       >
+        {{ status }}
         <v-row justify="center" class="font-helve f-15">
           <v-col cols="5">
             <v-text-field
@@ -73,6 +74,9 @@ export default {
       required: true,
       type: Object,
     },
+    status: {
+      type: String,
+    },
   },
   data: () => ({
     incorrect: false,
@@ -111,9 +115,7 @@ export default {
             this.challenge.id
           )
           await this.$store.dispatch("competition/updateSolved")
-          // await this.$store.dispatch("user/getProfile", {
-          //   slug: this.$auth.user.slug,
-          // })
+          await this.$store.dispatch("competition/updateScoreboard")
         } else {
           this.$store.commit("challenge/ADD_CHALLENGE_SOLVE", this.challenge.id)
           await this.$store.dispatch("challenge/updateSolved")
@@ -124,6 +126,9 @@ export default {
       } else {
         this.reset()
         this.incorrect = true
+        if (this.challenge.competition) {
+          await this.$store.dispatch("competition/updateScoreboard")
+        }
         setTimeout(() => {
           this.incorrect = false
         }, 500)

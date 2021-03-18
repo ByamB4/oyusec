@@ -1,5 +1,5 @@
 <template>
-  <div class="font-exo">
+  <v-container fluid class="font-exo challenges">
     <v-row v-if="competition.status === 'Удахгүй'">
       <v-col cols="12" align="center">
         <counter
@@ -13,19 +13,24 @@
         />
       </v-col>
     </v-row>
-    <div v-else v-for="category in categories" :key="category.name">
-      <div class="category">
-        <h2 v-text="category.name" />
-      </div>
-      <v-expansion-panels inset tile>
-        <challenge
-          v-for="challenge in category.challenges"
-          :key="challenge.id"
-          :challenge="challenge"
-        />
-      </v-expansion-panels>
-    </div>
-  </div>
+    <v-row v-else justify="center">
+      <v-col cols="12">
+        <div v-for="category in categories" :key="category.name">
+          <div class="category font-cabin">
+            <h2 v-text="category.name" />
+          </div>
+          <v-expansion-panels popout tile>
+            <challenge
+              v-for="challenge in category.challenges"
+              :key="challenge.id"
+              :challenge="challenge"
+              :status="competition.status"
+            />
+          </v-expansion-panels>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -55,7 +60,6 @@ export default {
       if (this.competition.status !== "Удахгүй") {
         this.$store.dispatch("competition/updateChallenges")
         this.$store.dispatch("competition/updateChallengesSolves")
-        console.log("sda")
       }
     }, 10 * 1000)
   },
@@ -64,3 +68,18 @@ export default {
   },
 }
 </script>
+
+<style lang="sass">
+.challenges
+  .category
+    letter-spacing: 2px
+    text-transform: capitalize
+    display: flex
+    margin-top: 10px
+    flex-direction: row
+    justify-content: space-between
+    align-self: center
+
+  .information
+    letter-spacing: 2px
+</style>

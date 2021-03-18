@@ -20,22 +20,14 @@
           <v-icon color="white">mdi-calendar-month</v-icon>
           <span>Эхлэх хугацаа</span>
         </h4>
-        <span>
-          {{ start_year }}-{{ start_month | twoDigits }}-{{
-            start_day | twoDigits
-          }}
-          {{ start_hour | twoDigits }}:{{ start_minute | twoDigits }}
-        </span>
+        <span v-text="start_date" />
       </v-col>
       <v-col cols="3" align="center" class="py-5">
         <h4>
           <v-icon color="white">mdi-calendar-month</v-icon>
           <span>Дуусах хугацаа</span>
         </h4>
-        <span>
-          {{ end_year }}-{{ end_month | twoDigits }}-{{ end_day | twoDigits }}
-          {{ end_hour | twoDigits }}:{{ end_minute | twoDigits }}
-        </span>
+        <span v-text="end_date" />
       </v-col>
     </v-row>
     <v-card-title>
@@ -64,49 +56,27 @@
 
 <script>
 import { mapGetters } from "vuex"
+
 export default {
-  filters: {
-    twoDigits(value) {
-      if (value.toString().length <= 1) {
-        return "0" + value.toString()
-      }
-      return value.toString()
-    },
-  },
   computed: {
     ...mapGetters({
       competition: "competition/getCompetition",
     }),
-    start_year() {
-      return this.competition.start_date.getFullYear()
+    start_date() {
+      const date = new Date(this.competition.start_date)
+      return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${this.formatNum(
+        date.getHours()
+      )}:${this.formatNum(date.getMinutes())}`
     },
-    start_month() {
-      return this.competition.start_date.getMonth()
+    end_date() {
+      const date = new Date(this.competition.end_date)
+      return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${this.formatNum(
+        date.getHours()
+      )}:${this.formatNum(date.getMinutes())}`
     },
-    start_day() {
-      return this.competition.start_date.getDate()
-    },
-    start_hour() {
-      return this.competition.start_date.getHours()
-    },
-    start_minute() {
-      return this.competition.start_date.getMinutes()
-    },
-    end_year() {
-      return this.competition.end_date.getFullYear()
-    },
-    end_month() {
-      return this.competition.end_date.getMonth()
-    },
-    end_day() {
-      return this.competition.end_date.getDate()
-    },
-    end_hour() {
-      return this.competition.end_date.getHours()
-    },
-    end_minute() {
-      return this.competition.end_date.getMinutes()
-    },
+  },
+  methods: {
+    formatNum: (num) => (num < 10 ? "0" + num : num),
   },
 }
 </script>
