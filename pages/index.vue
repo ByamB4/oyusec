@@ -26,7 +26,7 @@
           <ul style="list-style-type: none" class="mt-3 text-justify">
             <li>
               <v-avatar>
-                <img src="oyutech.png" />
+                <img src="/oyutech.png" />
               </v-avatar>
               <strong>OyuTech</strong>
             </li>
