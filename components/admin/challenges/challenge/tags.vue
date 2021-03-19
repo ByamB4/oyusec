@@ -5,15 +5,19 @@
         <v-card-text>
           <v-text-field
             v-model="form.content"
-            label="Tag content"
+            :label="$t('content')"
             outlined
             dense
           ></v-text-field>
           <v-row justify="end">
             <v-card-actions>
-              <v-btn small elevation="2" color="primary" type="submit">
-                Нэмэх
-              </v-btn>
+              <v-btn
+                small
+                elevation="2"
+                color="primary"
+                type="submit"
+                v-text="$t('submit')"
+              />
             </v-card-actions>
           </v-row>
         </v-card-text>
@@ -21,16 +25,14 @@
     </v-col>
     <v-col cols="7">
       <v-data-table
-        :headers="headers"
+        :headers="$t('admin.challengeEditTagHeaders')"
         :items="activeChallenge.tags"
         :items-per-page="5"
-        loading-text="Түр хүлээнэ үү"
+        :loading-text="$t('loading')"
         :footer-props="{ itemsPerPageText: '' }"
       >
         <template #[`item.state`]="{ item }">
-          <v-chip small color="primary">
-            {{ item.state }}
-          </v-chip>
+          <v-chip small color="primary" v-text="item.state" />
         </template>
         <template #[`item.actions`]="{ item }">
           <v-icon small class="mr-2" @click="deleteItem(item)">
@@ -49,10 +51,6 @@ export default {
     form: {},
     changed: false,
     challenge: {},
-    headers: [
-      { text: "Агуулга", value: "content", sortable: false },
-      { text: "Үйлдэл", value: "actions", sortable: false },
-    ],
     stateItems: ["Ил харагдана", "Нууцлагдмал"],
   }),
   computed: {

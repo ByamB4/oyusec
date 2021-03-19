@@ -20,7 +20,7 @@
     </nuxt-link>
     <v-list flat rounded>
       <v-list-item
-        v-for="item in menu"
+        v-for="item in $t('drawer.leftMenu')"
         :key="item.icon"
         :to="localePath(item.link)"
         exact
@@ -42,13 +42,15 @@
             <v-icon color="red">mdi-login</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="f-12">Гарах</v-list-item-title>
+            <v-list-item-title class="f-12">{{
+              $t("drawer.loggedMenu.title")
+            }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </div>
       <template v-else>
         <v-list-item
-          v-for="auth in auths"
+          v-for="auth in $t('drawer.authMenu')"
           :key="auth.icon"
           :to="localePath(auth.link)"
           exact
@@ -69,14 +71,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
-
 export default {
   computed: {
-    ...mapGetters({
-      menu: "menu/leftMenu",
-      auths: "menu/authMenu",
-    }),
     drawer: {
       get() {
         return this.$store.state.drawer

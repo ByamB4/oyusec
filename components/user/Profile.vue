@@ -4,14 +4,14 @@
       <h2 style="letter-spacing: 0.3px" class="font-press f-15">
         [ {{ profile.username }} ]
       </h2>
-      <h3 class="mt-5 text-gray-400">
-        Өдөр: <span class="white--text">{{ profile.days }}</span>
+      <h3 class="mt-5 text-gray-400 font-exo">
+        {{ $t("days") }}: <span class="white--text" v-text="profile.days" />
       </h3>
-      <h3 class="mt-2 text-gray-400">
-        Оноо: <span class="white--text">{{ profile.score }}</span>
+      <h3 class="mt-2 text-gray-400 font-exo">
+        {{ $t("score") }}: <span class="white--text" v-text="profile.score" />
       </h3>
-      <h3 class="mt-2 text-gray-400">
-        Төрөл:
+      <h3 class="mt-2 text-gray-400 font-exo">
+        {{ $t("user_type") }}:
         <template v-if="profile.type === 'admin'">
           <v-icon color="white">mdi-account-cog</v-icon>
         </template>

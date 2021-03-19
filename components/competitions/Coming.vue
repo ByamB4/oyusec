@@ -2,24 +2,27 @@
   <v-hover v-slot="{ hover }">
     <v-card
       :elevation="hover ? 8 : 2"
-      :to="{
-        name: 'competitions-slug',
-        params: {
-          slug: competition.slug,
-          id: competition.id,
-          name: competition.name,
-        },
-      }"
+      :to="
+        localePath({
+          name: 'competitions-slug',
+          params: {
+            slug: competition.slug,
+            id: competition.id,
+            name: competition.name,
+          },
+        })
+      "
       class="my-3 user-bg"
       max-width="350"
     >
       <v-img height="150" :src="competition.photo" />
       <v-card-title><strong v-text="competition.name" /></v-card-title>
 
-      <v-divider class="mx-4"></v-divider>
+      <v-divider class="mx-4" />
 
       <v-card-text align="center">
-        <div>Эхэлнэ {{ start_date }}</div>
+        <span v-text="$t('startsAt')" />
+        <span v-text="start_date" />
       </v-card-text>
     </v-card>
   </v-hover>

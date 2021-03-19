@@ -17,7 +17,7 @@
     <v-row>
       <v-col cols="12">
         <v-tabs>
-          <v-tab v-for="tab in tabs" :key="tab">
+          <v-tab v-for="tab in $t('competition.slugMenu')" :key="tab">
             <span v-text="tab" />
           </v-tab>
           <v-tab-item>
@@ -44,9 +44,6 @@ export default {
     Challenges: () => import("~/components/competitions/slug/Challenges"),
     Scoreboard: () => import("~/components/competitions/slug/Scoreboard"),
   },
-  data: () => ({
-    tabs: ["Тухай", "Бодлогууд", "Онооны самбар"],
-  }),
   head() {
     return {
       title: this.$route.params.slug,
@@ -65,5 +62,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

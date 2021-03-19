@@ -3,26 +3,26 @@
     <v-card-text>
       <v-text-field
         v-model="form.name"
-        label="Бодлогын нэр"
+        :label="$t('name')"
         outlined
         dense
       ></v-text-field>
       <v-text-field
         v-model="form.category"
-        label="Бодлогын төрөл"
+        :label="$t('category')"
         outlined
         dense
       ></v-text-field>
       <v-textarea
         v-model="form.description"
+        :label="$t('description')"
         class="mt-n2"
         outlined
-        label="Бодлогын тайлбар"
         auto-grow
       ></v-textarea>
       <v-text-field
         v-model="form.value"
-        label="Бодлогын оноо"
+        :label="$t('score')"
         type="number"
         outlined
         hint="Бодлогын эхлэх оноо буюу хэн ч бодоогүй үеийн оноо"
@@ -31,7 +31,7 @@
       <div v-if="form.type === 'dynamic'">
         <v-text-field
           v-model="form.decay"
-          label="Бодлогын буурах хувь"
+          :label="$t('decay')"
           type="number"
           placeholder="30"
           hint="Хүн бодлого бодох үед оноог хэр хэмжээтэй буурахыг тодорхойлно"
@@ -40,7 +40,7 @@
         ></v-text-field>
         <v-text-field
           v-model="form.minimum"
-          label="Бодлогын хамгийн бага оноо"
+          :label="$t('minimum_value')"
           type="number"
           hint="Оноо буурсаар эцсийн дүндээ хэд болохыг тодорхойлно"
           outlined
@@ -52,15 +52,19 @@
         :item-text="form.state"
         :items="stateItems"
         dense
-        label="Бодлогын төлөв"
+        :label="$t('state')"
         outlined
       >
       </v-select>
       <v-row justify="end">
         <v-card-actions>
-          <v-btn small elevation="2" color="primary" type="submit">
-            Шинэчлэх
-          </v-btn>
+          <v-btn
+            small
+            elevation="2"
+            color="primary"
+            type="submit"
+            v-text="$t('submit')"
+          />
         </v-card-actions>
       </v-row>
     </v-card-text>

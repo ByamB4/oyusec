@@ -2,14 +2,16 @@
   <v-hover v-slot="{ hover }">
     <v-card
       :elevation="hover ? 8 : 2"
-      :to="{
-        name: 'competitions-slug',
-        params: {
-          slug: competition.slug,
-          id: competition.id,
-          name: competition.name,
-        },
-      }"
+      :to="
+        localePath({
+          name: 'competitions-slug',
+          params: {
+            slug: competition.slug,
+            id: competition.id,
+            name: competition.name,
+          },
+        })
+      "
       class="my-3 user-bg"
       max-width="350"
     >
@@ -18,10 +20,11 @@
         <strong v-text="competition.name" />
       </v-card-title>
 
-      <v-divider class="mx-4"></v-divider>
+      <v-divider class="mx-4" />
 
       <v-card-text align="center">
-        <div>Дуусна {{ competition.end_date }}</div>
+        <span v-text="$t('endsAt')" />
+        <span v-text="competition.end_date" />
       </v-card-text>
     </v-card>
   </v-hover>

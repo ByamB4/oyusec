@@ -1,7 +1,7 @@
 <template>
-  <v-card class="user-bg" tile>
+  <v-card class="user-bg font-exo" tile>
     <v-tabs>
-      <v-tab v-for="tab in tabs" :key="tab.name">
+      <v-tab v-for="tab in $t('admin.challengeEditTab')" :key="tab.name">
         <span v-text="tab" />
       </v-tab>
       <v-tab-item v-for="comp in compNames" :key="comp">
@@ -12,18 +12,15 @@
 </template>
 
 <script>
-import general from "./challenge/general"
-import hints from "./challenge/hints"
-import flags from "./challenge/flags"
-import tags from "./challenge/tags"
-
 export default {
-  components: { general, hints, flags, tags },
-  data() {
-    return {
-      compNames: ["general", "hints", "flags", "tags"],
-      tabs: ["General", "Hints", "Flag", "Tag"],
-    }
+  components: {
+    general: () => import("./challenge/general"),
+    hints: () => import("./challenge/hints"),
+    flags: () => import("./challenge/flags"),
+    tags: () => import("./challenge/tags"),
   },
+  data: () => ({
+    compNames: ["general", "hints", "flags", "tags"],
+  }),
 }
 </script>

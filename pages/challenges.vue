@@ -41,7 +41,6 @@ export default {
       isEnded: "isEnded",
       isStarted: "isStarted",
       loggedIn: (state) => state.auth.loggedIn,
-      competition: (state) => state.competition,
     }),
   },
 

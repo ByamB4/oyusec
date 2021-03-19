@@ -1,7 +1,7 @@
 <template>
   <v-tabs v-model="tab" vertical>
-    <v-tab v-for="item of tabs" :key="item.name">
-      <v-row justify="start" class="px-3" align="center">
+    <v-tab v-for="item of $t('admin.challengesTab')" :key="item.name">
+      <v-row justify="start" class="px-3 font-exo" align="center">
         <v-icon left v-text="item.icon" />
         <span v-text="item.name" />
       </v-row>
@@ -23,12 +23,6 @@ export default {
   middleware: ["admin"],
   data: () => ({
     comps: ["Standard", "Dynamic", "Challenges", "Challenge"],
-    tabs: [
-      { name: "Стандарт", icon: "mdi-sword" },
-      { name: "Динамик", icon: "mdi-sword-cross" },
-      { name: "Бодлогууд" },
-      { name: "Бодлого" },
-    ],
   }),
   computed: {
     tab: {

@@ -1,33 +1,34 @@
 <template>
-  <v-card class="user-bg" tile>
+  <v-card class="user-bg font-exo" tile>
     <v-card-title>
-      <span class="font-monts">Нийт бодлогууд</span>
+      <span v-text="$t('all_challenges')" />
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
         dense
         append-icon="mdi-magnify"
-        label="Хайх"
+        :label="$t('search')"
         single-line
         hide-details
       >
       </v-text-field>
     </v-card-title>
     <v-data-table
-      :headers="headers"
+      :headers="$t('admin.challengesHeaders')"
       :items="challenges"
       :items-per-page="10"
       :search="search"
-      loading-text="Түр хүлээнэ үү"
-      :footer-props="{ itemsPerPageText: 'Нэг хуудсанд мөр' }"
+      :loading-text="$t('loading')"
+      :footer-props="{ itemsPerPageText: '' }"
       class="elevation-1"
     >
       <template #top>
         <v-dialog v-model="dialog.show" max-width="300px">
           <v-card class="user-bg">
-            <v-card-title class="headline justify-center"
-              >Та итгэлтэй байна уу ?</v-card-title
-            >
+            <v-card-title
+              class="headline justify-center"
+              v-text="$t('are_you_sure')"
+            />
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
@@ -35,30 +36,26 @@
                 small
                 text
                 @click="dialog.show = false"
-                >Үгүй</v-btn
-              >
+                v-text="$t('no')"
+              />
               <v-btn
                 color="blue darken-1"
                 small
                 depressed
                 @click="deleteConfirm"
-                >Тийм</v-btn
-              >
+                v-text="$t('yes')"
+              />
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-dialog>
       </template>
       <template #[`item.state`]="{ item }">
-        <v-chip small color="purple darken-2">
-          {{ item.state }}
-        </v-chip>
+        <v-chip small color="purple darken-2" v-text="item.state" />
       </template>
 
       <template #[`item.type`]="{ item }">
-        <v-chip small color="primary">
-          {{ item.type }}
-        </v-chip>
+        <v-chip small color="primary" v-text="item.type" />
       </template>
 
       <template #[`item.actions`]="{ item }">
@@ -80,14 +77,6 @@ export default {
       show: false,
       itemID: null,
     },
-    headers: [
-      { text: "Нэр", value: "name", sortable: false },
-      { text: "Ангилал", value: "category", sortable: false },
-      { text: "Оноо", value: "value" },
-      { text: "Төрөл", value: "type", sortable: false },
-      { text: "Төлөв", value: "state", sortable: false },
-      { text: "Үйлдэл:", value: "actions", sortable: false },
-    ],
   }),
 
   computed: {

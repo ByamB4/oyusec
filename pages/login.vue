@@ -1,21 +1,21 @@
 <template>
   <v-container>
-    <v-row justify="center" class="font-cabin">
+    <v-row justify="center" class="font-exo">
       <v-col xs="12" cols="12" sm="12" md="7" lg="5" xl="6">
         <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
           <v-card class="user-bg mt-10" elevation="12" shaped>
             <v-card-title class="justify-center font-press f-18" primary-title
-              >[ Нэвтрэх ]</v-card-title
+              >[ {{ $t("login") }} ]</v-card-title
             >
             <v-card-text>
               <v-text-field
                 v-model="form.email"
                 :rules="[rules.required, rules.email]"
                 :loading="form.loading"
+                :label="$t('email')"
                 type="email"
                 color="white"
                 class="mt-5"
-                label="Хэрэглэгчийн имэйл"
                 outlined
                 dense
               ></v-text-field>
@@ -25,8 +25,8 @@
                 :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
                 :rules="[rules.limitPass]"
                 :loading="form.loading"
+                :label="$t('password')"
                 color="white"
-                label="Нууц үг"
                 outlined
                 dense
                 class="mt-2 col-white"
@@ -41,9 +41,8 @@
                   rounded
                   elevation="2"
                   color="primary"
-                >
-                  Нэвтрэх
-                </v-btn>
+                  v-text="$t('submit')"
+                />
               </v-card-actions>
             </v-card-text>
           </v-card>

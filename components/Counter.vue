@@ -1,34 +1,26 @@
 <template>
   <ul v-if="loaded" class="vuejs-countdown">
     <li v-if="displayDays > 0">
-      <p class="digit">{{ displayDays | twoDigits }}</p>
-      <p class="text">өдөр</p>
+      <p class="digit" v-text="twoDigits(displayDays)" />
+      <p class="text" v-text="$t('day')" />
     </li>
     <li>
-      <p class="digit">{{ displayHours | twoDigits }}</p>
-      <p class="text">цаг</p>
+      <p class="digit" v-text="twoDigits(displayHours)" />
+      <p class="text" v-text="$t('hour')" />
     </li>
     <li>
-      <p class="digit">{{ displayMinutes | twoDigits }}</p>
-      <p class="text">мин</p>
+      <p class="digit" v-text="twoDigits(displayMinutes)" />
+      <p class="text" v-text="$t('min')" />
     </li>
     <li>
-      <p class="digit">{{ displaySeconds | twoDigits }}</p>
-      <p class="text">сек</p>
+      <p class="digit" v-text="twoDigits(displaySeconds)" />
+      <p class="text" v-text="$t('sec')" />
     </li>
   </ul>
 </template>
 
 <script>
 export default {
-  filters: {
-    twoDigits(value) {
-      if (value.toString().length <= 1) {
-        return "0" + value.toString()
-      }
-      return value.toString()
-    },
-  },
   props: {
     year: { type: Number },
     month: { type: Number },
@@ -73,6 +65,12 @@ export default {
   },
   methods: {
     formatNum: (num) => (num < 10 ? "0" + num : num),
+    twoDigits(value) {
+      if (value.toString().length <= 1) {
+        return "0" + value.toString()
+      }
+      return value.toString()
+    },
     showRemaining() {
       const timer = setInterval(() => {
         const now = new Date()

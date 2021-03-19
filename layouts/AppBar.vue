@@ -8,7 +8,7 @@
       <template v-if="$auth.loggedIn">
         <template v-if="$auth.user.type === 'admin'">
           <v-btn
-            v-for="link in admin_menu"
+            v-for="link in $t('topBar.adminMenu')"
             :key="link.title"
             :color="link.color"
             :to="localePath(link.to)"
@@ -39,7 +39,9 @@
         <v-btn
           icon
           color="light-blue darken-1"
-          :to="{ name: 'user-slug', params: { slug: $auth.user.slug } }"
+          :to="
+            localePath({ name: 'user-slug', params: { slug: $auth.user.slug } })
+          "
         >
           <v-icon>mdi-account-circle</v-icon>
         </v-btn>
@@ -94,7 +96,6 @@ export default {
   computed: {
     ...mapGetters({
       profile: "user/getProfile",
-      admin_menu: "menu/adminMenu",
     }),
   },
 

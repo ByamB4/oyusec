@@ -1,16 +1,16 @@
 <template>
   <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
-    <v-card class="user-bg" tile>
+    <v-card class="user-bg font-exo" tile>
       <v-card-text>
         <v-text-field
           v-model="form.name"
-          label="Бодлогын нэр"
+          :label="$t('name')"
           outlined
           dense
         ></v-text-field>
         <v-text-field
           v-model="form.category"
-          label="Бодлогын төрөл"
+          :label="$t('category')"
           outlined
           dense
         ></v-text-field>
@@ -20,14 +20,14 @@
             Та текстийн **bold** бас _italic_ болгох боломжтой.
             > Мөн санамж, бичиг зэрэг
           "
+          :label="$t('description')"
           class="mt-n2"
           outlined
-          label="Бодлогын тайлбар"
           auto-grow
         ></v-textarea>
         <v-text-field
           v-model="form.value"
-          label="Бодлогын оноо"
+          :label="$t('score')"
           placeholder="1000"
           type="number"
           outlined
@@ -36,7 +36,7 @@
         ></v-text-field>
         <v-text-field
           v-model="form.decay"
-          label="Бодлогын буурах хувь"
+          :label="$t('decay')"
           type="number"
           placeholder="30"
           hint="Хүн бодлого бодох үед оноог хэр хэмжээтэй буурахыг тодорхойлно"
@@ -45,7 +45,7 @@
         ></v-text-field>
         <v-text-field
           v-model="form.minimum"
-          label="Бодлогын хамгийн бага оноо"
+          :label="$t('minimum_value')"
           placeholder="100"
           type="number"
           hint="Оноо буурсаар эцсийн дүндээ хэд болохыг тодорхойлно"
@@ -56,23 +56,27 @@
           v-model="form.state"
           :item-text="form.state"
           :items="form.stateItems"
+          :label="$t('state')"
           dense
-          label="Бодлогын төлөв"
           outlined
         >
         </v-select>
         <v-text-field
           v-model="form.flag"
           placeholder="flag{.*}"
-          label="Бодлогын хариу"
+          :label="$t('flag')"
           outlined
           dense
         ></v-text-field>
         <v-row justify="end">
           <v-card-actions>
-            <v-btn small elevation="2" color="primary" type="submit">
-              Болсон
-            </v-btn>
+            <v-btn
+              small
+              elevation="2"
+              color="primary"
+              type="submit"
+              v-text="$t('submit')"
+            />
           </v-card-actions>
         </v-row>
       </v-card-text>

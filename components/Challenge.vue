@@ -1,41 +1,35 @@
 <template>
-  <v-expansion-panel class="challenge mt-2">
+  <v-expansion-panel class="challenge mt-2 font-exo">
     <v-expansion-panel-header
       expand-icon
       :class="{ solved: challenge.solved && $auth.loggedIn }"
     >
       <v-row align="center" no-gutters>
-        <v-col
-          xs="6"
-          sm="6"
-          md="6"
-          lg="6"
-          xl="8"
-          class="f-15 font-weight-bold fonts-monts"
-        >
-          <span class="ml-3" v-text="challenge.name" />
+        <v-col xs="6" sm="6" md="6" lg="6" xl="8" class="f-15">
+          <strong class="ml-3" v-text="challenge.name" />
         </v-col>
         <v-col xs="6" sm="6" md="6" lg="6" xl="4" align="right">
           <v-chip small class="ml-1 white--text" color="primary">
-            <span class="font-weight-bold">Бодсон {{ challenge.solves }}</span>
+            <strong v-text="$t('solved')" />
+            <span class="ml-1" v-text="challenge.solves" />
           </v-chip>
           <v-chip small class="ml-1 white--text" color="purple darken-2">
-            <span class="font-weight-bold">Оноо {{ challenge.value }}</span>
+            <strong v-text="$t('score')" />
+            <span class="ml-1" v-text="challenge.value" />
           </v-chip>
         </v-col>
       </v-row>
     </v-expansion-panel-header>
-    <v-expansion-panel-content v-if="!challenge.solved" class="font-helve">
+    <v-expansion-panel-content v-if="!challenge.solved">
       <div class="mt-3" v-html="$md.render(challenge.description)" />
       <v-form
         v-if="$auth.loggedIn && status != 'Дууссан'"
         ref="form"
         v-model="form.valid"
-        class="mt-4"
+        class="mt-4 f-15"
         @submit.prevent="submit"
       >
-        {{ status }}
-        <v-row justify="center" class="font-helve f-15">
+        <v-row justify="center">
           <v-col cols="5">
             <v-text-field
               v-model="form.submission"
@@ -47,7 +41,7 @@
               dense
               autofocus
               trim
-            ></v-text-field>
+            />
           </v-col>
           <v-col cols="2">
             <v-btn
@@ -57,9 +51,8 @@
               depressed
               small
               color="primary"
-            >
-              Шалгах
-            </v-btn>
+              v-text="$t('submit')"
+            />
           </v-col>
         </v-row>
       </v-form>
@@ -162,5 +155,8 @@ export default {
   90% {
     transform: translateX(-10px);
   }
+}
+.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+  background-color: rgba(255, 255, 255, 0.12) !important;
 }
 </style>

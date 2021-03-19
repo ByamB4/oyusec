@@ -3,9 +3,7 @@ export const state = () => ({
 })
 
 export const getters = {
-  getScoreboard: (state) => {
-    return state.scoreboard
-  },
+  getScoreboard: (state) => state.scoreboard,
 }
 
 export const mutations = {

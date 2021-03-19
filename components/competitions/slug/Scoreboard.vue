@@ -5,24 +5,39 @@
         <v-simple-table class="font-monts">
           <thead>
             <tr>
-              <th class="text-center white--text" style="width: 10%">RANK</th>
-              <th class="text-left white--text" style="width: 50%">USER</th>
-              <th class="text-center white--text" style="width: 40%">SCORE</th>
+              <th
+                class="text-center white--text"
+                style="width: 10%"
+                v-text="$t('rank')"
+              />
+              <th
+                class="text-left white--text"
+                style="width: 50%"
+                v-text="$t('user')"
+              />
+              <th
+                class="text-center white--text"
+                style="width: 40%"
+                v-text="$t('score')"
+              />
             </tr>
           </thead>
           <tbody>
             <tr v-for="(user, ind) in scoreboard" :key="ind">
               <td class="text-center" v-text="ind + 1"></td>
               <td>
-                <router-link
-                  :to="{ name: 'user-slug', params: { slug: user.username } }"
-                  ><span class="white--text">{{
-                    user.username
-                  }}</span></router-link
-                >
+                <nuxt-link
+                  :to="
+                    localePath({
+                      name: 'user-slug',
+                      params: { slug: user.username },
+                    })
+                  "
+                  ><span class="white--text" v-text="user.username" />
+                </nuxt-link>
               </td>
-              <td class="text-center" v-text="user.score"></td>
-              <td class="text-center" v-text="user.first_blood"></td>
+              <td class="text-center" v-text="user.score" />
+              <td class="text-center" v-text="user.first_blood" />
             </tr>
           </tbody>
         </v-simple-table>
@@ -57,5 +72,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

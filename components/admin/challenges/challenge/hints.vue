@@ -7,12 +7,12 @@
             v-model="form.content"
             class="mt-n2"
             outlined
-            label="Hint content"
+            :label="$t('content')"
             auto-grow
           ></v-textarea>
           <v-text-field
             v-model="form.value"
-            label="Cost"
+            :label="$t('cost')"
             type="number"
             outlined
             dense
@@ -21,16 +21,20 @@
             v-model="form.state"
             :item-text="form.state"
             :items="stateItems"
+            :label="$t('state')"
             dense
-            label="State"
             outlined
           >
           </v-select>
           <v-row justify="end">
             <v-card-actions>
-              <v-btn small elevation="2" color="primary" type="submit">
-                Нэмэх
-              </v-btn>
+              <v-btn
+                small
+                elevation="2"
+                color="primary"
+                type="submit"
+                v-text="$t('submit')"
+              />
             </v-card-actions>
           </v-row>
         </v-card-text>
@@ -38,10 +42,10 @@
     </v-col>
     <v-col cols="7">
       <v-data-table
-        :headers="headers"
+        :headers="$t('admin.challengeEditHintHeaders')"
         :items="activeChallenge.hints"
         :items-per-page="5"
-        loading-text="Түр хүлээнэ үү"
+        :loading-text="$t('loading')"
         :footer-props="{ itemsPerPageText: '' }"
       >
         <template #[`item.state`]="{ item }">
@@ -71,12 +75,6 @@ export default {
       hints: {},
       challenge: {},
       changed: false,
-      headers: [
-        { text: "Агуулга", value: "content", sortable: false },
-        { text: "Татвар", value: "cost", sortable: false },
-        { text: "Төлөв", value: "state", sortable: false },
-        { text: "Засах", value: "actions", sortable: false },
-      ],
       stateItems: ["Ил харагдана", "Нууцлагдмал"],
     }
   },

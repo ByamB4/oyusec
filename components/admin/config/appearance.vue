@@ -18,9 +18,13 @@
         ></v-textarea>
         <v-row justify="end">
           <v-card-actions>
-            <v-btn small elevation="2" color="primary" type="submit">
-              Болсон
-            </v-btn>
+            <v-btn
+              small
+              elevation="2"
+              color="primary"
+              type="submit"
+              v-text="$t('submit')"
+            />
           </v-card-actions>
         </v-row>
       </v-card-text>
