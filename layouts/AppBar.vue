@@ -8,10 +8,10 @@
       <template v-if="$auth.loggedIn">
         <template v-if="$auth.user.type === 'admin'">
           <v-btn
-            v-for="link in admin_links"
+            v-for="link in admin_menu"
             :key="link.title"
             :color="link.color"
-            :to="link.to"
+            :to="localePath(link.to)"
             small
             text
           >
@@ -45,39 +45,56 @@
         </v-btn>
       </template>
     </client-only>
-    <v-btn
-      icon
-      color="pink"
-      @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-    >
-      <v-icon>mdi-theme-light-dark</v-icon>
-    </v-btn>
+
+    <!-- Dirty code will update later -->
+    <div class="mr-3">
+      <v-btn
+        v-if="$i18n.locale === 'en'"
+        text
+        small
+        icon
+        :to="switchLocalePath('mn')"
+      >
+        <v-icon color="pink">mdi-translate</v-icon>
+      </v-btn>
+      <v-btn v-else text small icon :to="switchLocalePath('en')">
+        <v-icon color="pink">mdi-translate-off</v-icon>
+      </v-btn>
+    </div>
+    <div>
+      <v-btn
+        v-if="$vuetify.theme.dark"
+        text
+        small
+        icon
+        color="amber darken-1"
+        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+      >
+        <v-icon>mdi-white-balance-sunny</v-icon>
+      </v-btn>
+      <v-btn
+        v-else
+        text
+        small
+        icon
+        color="blue-grey lighten-3"
+        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+      >
+        <v-icon>mdi-moon-waning-crescent</v-icon>
+      </v-btn>
+    </div>
+    <!-- End of dirty code -->
   </v-app-bar>
 </template>
 
 <script>
 import { mapGetters } from "vuex"
-export default {
-  data: () => ({
-    admin_links: [
-      {
-        icon: "mdi-wrench",
-        title: "Тохиргоо",
-        color: "red",
-        to: "/admin/config",
-      },
-      {
-        icon: "mdi-sword-cross",
-        title: "Бодлогууд",
-        color: "blue",
-        to: "/admin/challenges",
-      },
-    ],
-  }),
 
+export default {
   computed: {
     ...mapGetters({
       profile: "user/getProfile",
+      admin_menu: "menu/adminMenu",
     }),
   },
 

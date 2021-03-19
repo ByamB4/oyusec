@@ -8,7 +8,7 @@
     floating
     class="font-press"
   >
-    <router-link to="/">
+    <nuxt-link :to="localePath('/')">
       <div class="mt-2 d-flex align-center">
         <v-avatar tile size="45" class="ml-4">
           <v-img src="/logo.png" />
@@ -17,9 +17,14 @@
           <span class="white--text">OyuSec</span>
         </div>
       </div>
-    </router-link>
+    </nuxt-link>
     <v-list flat rounded>
-      <v-list-item v-for="item in menu" :key="item.icon" :to="item.link" exact>
+      <v-list-item
+        v-for="item in menu"
+        :key="item.icon"
+        :to="localePath(item.link)"
+        exact
+      >
         <v-list-item-icon>
           <v-icon :color="item.color">{{ item.icon }}</v-icon>
         </v-list-item-icon>
@@ -45,7 +50,7 @@
         <v-list-item
           v-for="auth in auths"
           :key="auth.icon"
-          :to="auth.link"
+          :to="localePath(auth.link)"
           exact
         >
           <v-list-item-icon>
@@ -64,50 +69,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex"
+
 export default {
-  data: () => ({
-    menu: [
-      {
-        icon: "mdi-sword-cross",
-        color: "green accent-4",
-        title: "Бодлого",
-        link: "/challenges",
-      },
-      {
-        icon: "mdi-sword",
-        color: "blue ligthen-2",
-        title: "Тэмцээн",
-        link: "/competitions",
-      },
-      {
-        icon: "mdi-chart-histogram",
-        color: "yellow darken-2",
-        title: "Самбар",
-        link: "/scoreboard",
-      },
-      // {
-      //   icon: "mdi-lock-check",
-      //   color: "cyan darken-1",
-      //   title: "Дүрэм",
-      //   link: "/rules",
-      // },
-    ],
-    auths: [
-      {
-        icon: "mdi-account-plus",
-        color: "green accent-4",
-        name: "Бүртгүүлэх",
-        link: "/register",
-      },
-      {
-        icon: "mdi-login",
-        color: "orange darken-4",
-        name: "Нэвтрэх",
-        link: "/login",
-      },
-    ],
-  }),
   computed: {
+    ...mapGetters({
+      menu: "menu/leftMenu",
+      auths: "menu/authMenu",
+    }),
     drawer: {
       get() {
         return this.$store.state.drawer

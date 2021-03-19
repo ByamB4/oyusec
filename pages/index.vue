@@ -5,15 +5,14 @@
         <div>
           <v-img src="/logo.png" width="100" height="100" />
           <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec - CTF</h2>
-          <span class="f-25 yellow--text">DEMO VERSION</span>
+          <span class="f-25 yellow--text">{{ $t("note") }}</span>
         </div>
         <div class="mt-5 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-            [ Тухай ]
+            [ {{ $t("about") }} ]
           </h2>
           <p style="line-height: 200%">
-            Энэ бол туршилтийн хувилбар. Хэрвээ ямар нэгэн алдаа, дутагдалтай
-            зүйл гарвал бидэнтэй холбогдож туслана уу.
+            {{ $t("description") }}
           </p>
           <ul class="mt-3 text-justify">
             <li><code>admin@mail.zxc : tmppass123</code></li>
@@ -22,20 +21,20 @@
         </div>
         <div class="mt-10 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-            [ Ивээн тэтгэгч ]
+            [ {{ $t("sponsor") }} ]
           </h2>
           <ul style="list-style-type: none" class="mt-3 text-justify">
             <li>
               <v-avatar>
                 <img src="oyutech.png" />
               </v-avatar>
-              <span class="font-weight-bold">OyuTech</span>
+              <strong>OyuTech</strong>
             </li>
           </ul>
         </div>
         <div class="mt-10 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-            [ Бидэнтэй нэгдээрэй ]
+            [ {{ $t("contact") }} ]
           </h2>
           <div class="mt-5 ml-5">
             <v-btn
@@ -79,7 +78,7 @@ export default {
   }),
   head() {
     return {
-      title: "Нүүр хуудас",
+      title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
     }
   },
 }

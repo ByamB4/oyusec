@@ -106,6 +106,7 @@ export default {
     "@nuxtjs/toast",
     "@nuxtjs/markdownit",
     "nuxt-webfontloader",
+    "nuxt-i18n",
   ],
 
   auth: {
@@ -153,15 +154,15 @@ export default {
       },
     },
     redirect: {
-      home: "/challenges",
-      login: "/login",
+      home: "challenges",
+      login: "login",
       logout: false,
     },
   },
 
   axios: {
-    // baseURL: "http://localhost:8000",
-    baseURL: "https://oyusec-server.herokuapp.com",
+    baseURL: "http://localhost:8000",
+    // baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",
@@ -169,6 +170,27 @@ export default {
     className: "font-cabin",
     iconPack: "mdi",
     duration: 3000,
+  },
+  i18n: {
+    lazy: true,
+    locales: [
+      {
+        name: "English",
+        code: "en",
+        iso: "en-US",
+        file: "en-US.js",
+      },
+      {
+        name: "Mongolia",
+        code: "mn",
+        iso: "mn-MN",
+        file: "mn-MN.js",
+      },
+    ],
+    langDir: "~/locales/",
+    defaultLocale: "mn",
+    fallbackLocale: "mn",
+    strategy: "prefix",
   },
 
   markdownit: {

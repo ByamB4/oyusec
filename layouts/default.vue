@@ -11,17 +11,12 @@
 </template>
 
 <script>
-import AppBar from "~/layouts/AppBar"
-import AppDrawer from "~/layouts/AppDrawer"
-import AppView from "~/layouts/AppView"
-import AppFooter from "~/layouts/AppFooter"
-
 export default {
   components: {
-    AppBar,
-    AppDrawer,
-    AppView,
-    AppFooter,
+    AppBar: () => import("~/layouts/AppBar"),
+    AppDrawer: () => import("~/layouts/AppDrawer"),
+    AppView: () => import("~/layouts/AppView"),
+    AppFooter: () => import("~/layouts/AppFooter"),
   },
 }
 </script>
