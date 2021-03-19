@@ -12,7 +12,7 @@
           },
         })
       "
-      class="my-3 user-bg font-cabin"
+      class="my-3 user-bg font-exo"
       max-width="350"
     >
       <v-img height="150" :src="competition.photo" />

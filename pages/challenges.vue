@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="11">
         <div v-for="category in categories" :key="category.name">
-          <div class="category font-cabin">
+          <div class="category">
             <h2 v-text="category.name" />
           </div>
           <v-expansion-panels popout tile>

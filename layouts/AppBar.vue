@@ -39,6 +39,8 @@
         <v-btn
           icon
           color="light-blue darken-1"
+          type="button"
+          role="button"
           :to="
             localePath({ name: 'user-slug', params: { slug: $auth.user.slug } })
           "
@@ -52,6 +54,8 @@
     <div class="mr-3">
       <v-btn
         v-if="$i18n.locale === 'en'"
+        type="button"
+        role="button"
         text
         small
         icon
@@ -66,6 +70,8 @@
     <div>
       <v-btn
         v-if="$vuetify.theme.dark"
+        type="button"
+        role="button"
         text
         small
         icon
@@ -76,6 +82,8 @@
       </v-btn>
       <v-btn
         v-else
+        type="button"
+        role="button"
         text
         small
         icon

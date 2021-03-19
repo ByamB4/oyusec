@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="font-cabin">
+    <v-row>
       <v-col cols="12">
         <profile />
       </v-col>

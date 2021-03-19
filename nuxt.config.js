@@ -200,11 +200,10 @@ export default {
 
   webfontloader: {
     google: {
-      families: ["Press+Start+2P", "Montserrat", "Cabin", "Exo+2"],
+      families: ["Press+Start+2P", "Montserrat", "Exo+2"],
       urls: [
         "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap",
         "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap",
-        "https://fonts.googleapis.com/css2?family=Cabin&display=swap",
         "https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap",
       ],
     },
