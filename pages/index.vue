@@ -12,7 +12,7 @@
             [ {{ $t("about") }} ]
           </h2>
           <p style="line-height: 200%">
-            {{ $t("description") }}
+            {{ $t("site_description") }}
           </p>
           <ul class="mt-3 text-justify">
             <li><code>admin@mail.zxc : tmppass123</code></li>

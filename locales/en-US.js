@@ -1,8 +1,8 @@
 export default {
   about: "About",
   note: "DEMO VERSION",
-  // description:
-  // "This is an experimental version. If there are any errors or not working thing, please contact us for assistance.",
+  site_description:
+    "This is an experimental version. If there are any errors or not working thing, please contact us for assistance.",
   name: "Name",
   category: "Category",
   state: "State",
