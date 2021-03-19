@@ -3,7 +3,7 @@
     <v-row class="font-monts" justify="center">
       <v-col cols="11" align="center" class="f-19">
         <div>
-          <v-img src="/logo.png" width="100" height="100" />
+          <v-img src="/logo.png" width="100" height="100" alt="oyusec logo" />
           <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec - CTF</h2>
           <span class="f-25 yellow--text">{{ $t("note") }}</span>
         </div>
@@ -26,7 +26,7 @@
           <ul style="list-style-type: none" class="mt-3 text-justify">
             <li>
               <v-avatar>
-                <img src="/oyutech.png" />
+                <img alt="oyutech logo" src="/oyutech.png" />
               </v-avatar>
               <strong>OyuTech</strong>
             </li>
