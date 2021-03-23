@@ -162,8 +162,8 @@ export default {
   },
 
   axios: {
-    // baseURL: "http://localhost:8000",
-    baseURL: "https://oyusec-server.herokuapp.com",
+    baseURL: "http://localhost:8000",
+    // baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",

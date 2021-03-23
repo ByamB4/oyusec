@@ -13,6 +13,7 @@ export default {
   sponsor: "Ивээн тэтгэгч",
   decay: "Буурах хувь",
   content: "Агуулга",
+  rating: "Үнэлгээ",
   cost: "Зардал",
   minimum_value: "Хамгийн бага оноо",
   search: "Хайх",

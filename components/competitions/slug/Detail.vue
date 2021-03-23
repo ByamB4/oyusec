@@ -10,10 +10,10 @@
       </v-col>
       <v-col cols="3" align="center" class="py-5">
         <h4>
-          <v-icon color="white">mdi-account</v-icon>
-          <span v-text="$t('enrollment')" />
+          <v-icon color="white">mdi-star</v-icon>
+          <span class="font-weight-bold" v-text="$t('rating')" />
         </h4>
-        <span v-text="competition.enrollment" />
+        <span v-text="competition.rating" />
       </v-col>
       <v-col cols="3" align="center" class="py-5">
         <h4>

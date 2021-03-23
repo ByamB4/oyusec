@@ -17,6 +17,7 @@ export default {
   no: "No",
   are_you_sure: "Are you sure ?",
   search: "Search",
+  rating: "Rating",
   all_challenges: "All Challenges",
   minimum_value: "Minimum Value",
   contact: "Join Us",

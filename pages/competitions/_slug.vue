@@ -2,9 +2,14 @@
   <v-container class="py-0">
     <v-row>
       <v-col cols="12" align="center">
-        <v-avatar color="primary" rounded size="150">
-          <v-img :src="competition.photo" />
-        </v-avatar>
+        <v-img
+          lazy-src="/loading-contest.png"
+          alt="competition thumbnail"
+          :src="competition.photo"
+          width="200"
+          height="200"
+          contain
+        />
         <h1 class="font-exo">
           {{ competition.name }}
           <v-chip class="ma-2" color="indigo darken-3">

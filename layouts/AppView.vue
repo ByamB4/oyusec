@@ -1,5 +1,5 @@
 <template>
-  <v-main class="mt-5">
+  <v-main>
     <nuxt />
   </v-main>
 </template>

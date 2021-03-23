@@ -15,7 +15,11 @@
       class="my-3 user-bg"
       max-width="350"
     >
-      <v-img height="150" :src="competition.photo" />
+      <v-img
+        height="150"
+        lazy-src="/loading-contest.png"
+        :src="competition.photo"
+      />
       <v-card-title>
         <strong v-text="competition.name" />
       </v-card-title>
