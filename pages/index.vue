@@ -5,19 +5,16 @@
         <div>
           <v-img src="/logo.png" width="100" height="100" alt="oyusec logo" />
           <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec - CTF</h2>
-          <span class="f-25 yellow--text">{{ $t("note") }}</span>
         </div>
         <div class="mt-5 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
             [ {{ $t("about") }} ]
           </h2>
           <p style="line-height: 200%">
-            {{ $t("site_description") }}
+            Мэдээллийн аюулгүй байдлын талаарх үнэн зөв, бодитой ойлголт,
+            мэдлэгийг бий болгох, төлөвшүүлэх, түгээн дэлгэрүүлэх зорилготой
+            цахим аюулгүй байдлын тэмцээнийг зохион байгуулах гэж байна.
           </p>
-          <ul class="mt-3 text-justify">
-            <li><code>admin@mail.zxc : tmppass123</code></li>
-            <li><code>guest@mail.zxc : tmppass123</code></li>
-          </ul>
         </div>
         <div class="mt-10 text-justify">
           <h2 style="letter-spacing: 0.3px" class="font-press f-15">
