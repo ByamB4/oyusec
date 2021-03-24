@@ -13,7 +13,7 @@
           <v-icon color="white">mdi-star</v-icon>
           <span class="font-weight-bold" v-text="$t('rating')" />
         </h4>
-        <span v-text="competition.rating" />
+        <span v-text="competition.weight" />
       </v-col>
       <v-col cols="3" align="center" class="py-5">
         <h4>

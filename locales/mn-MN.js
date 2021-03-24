@@ -40,6 +40,7 @@ export default {
   email: "Имэйл",
   password: "Нууц үг",
   solvedChallenges: "Бодсон бодлогууд",
+  competitionHistory: "Тэмцээний түүх",
   competition_notfound: "Тэмцээн олдсонгүй",
   endsAt: "Дуусна",
   startsAt: "Эхэлнэ",
@@ -112,6 +113,22 @@ export default {
   competition: {
     menu: ["Шууд", "Удахгүй", "Дууссан"],
     slugMenu: ["Тухай", "Бодлогууд", "Онооны самбар"],
+  },
+  userTab: {
+    profile: {
+      competitionTab: [
+        { name: "Байр" },
+        { name: "Арга хэмжээ" },
+        { name: "CTF оноо" },
+        { name: "Чансаа оноо" },
+      ],
+      solvesTab: [
+        { name: "Огноо" },
+        { name: "Төрөл" },
+        { name: "Нэр" },
+        { name: "Оноо" },
+      ],
+    },
   },
   admin: {
     challengesTab: [

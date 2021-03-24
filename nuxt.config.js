@@ -168,7 +168,7 @@ export default {
   toast: {
     theme: "bubble",
     position: "bottom-right",
-    className: "font-cabin",
+    className: "font-exo",
     iconPack: "mdi",
     duration: 3000,
   },
@@ -200,11 +200,12 @@ export default {
 
   webfontloader: {
     google: {
-      families: ["Press+Start+2P", "Montserrat", "Exo+2"],
+      families: ["Press+Start+2P", "Montserrat", "Exo+2", "Play"],
       urls: [
         "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap",
         "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap",
         "https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap",
+        "https://fonts.googleapis.com/css2?family=Play&display=swap",
       ],
     },
   },

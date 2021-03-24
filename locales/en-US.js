@@ -32,6 +32,7 @@ export default {
   challenge_name: "Challenge Name",
   competition_notfound: "No competition found",
   solvedChallenges: "Solved Challenges",
+  competitionHistory: "Competition History",
   createAccount: "Create Account",
   day: "Day",
   hour: "Hour",
@@ -112,6 +113,22 @@ export default {
   competition: {
     menu: ["Live", "Upcoming", "Archived"],
     slugMenu: ["About", "Challenges", "Scoreboard"],
+  },
+  userTab: {
+    profile: {
+      competitionTab: [
+        { name: "Place" },
+        { name: "Event" },
+        { name: "CTF points" },
+        { name: "Rating points" },
+      ],
+      solvesTab: [
+        { name: "Date" },
+        { name: "Category" },
+        { name: "Name" },
+        { name: "Point" },
+      ],
+    },
   },
   admin: {
     challengesTab: [

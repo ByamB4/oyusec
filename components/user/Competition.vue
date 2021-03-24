@@ -1,0 +1,56 @@
+<template>
+  <v-row class="mx-3">
+    <h2 style="letter-spacing: 0.3px" class="font-press f-15">
+      [ {{ $t("competitionHistory") }} ]
+    </h2>
+    <v-col cols="12">
+      <v-simple-table dark>
+        <thead>
+          <tr>
+            <th
+              v-for="tab in $t('userTab.profile.competitionTab')"
+              :key="tab.name"
+              class="text-center"
+              v-text="tab.name"
+            />
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(comp, ind) in competitions" :key="ind">
+            <td class="text-center">
+              <v-icon v-if="comp.place === 1">mdi-crown-outline</v-icon>
+              <template v-else>
+                {{ comp.place }}
+              </template>
+            </td>
+            <td class="text-center" v-text="comp.name" />
+            <td class="text-center" v-text="comp.score" />
+            <td class="text-center" v-text="comp.rating" />
+          </tr>
+        </tbody>
+      </v-simple-table>
+    </v-col>
+  </v-row>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    competitions: [],
+    heads: ["Place", "Event", "CTF points", "Rating points"],
+  }),
+  created() {
+    this.getSolvedChallenges()
+  },
+  methods: {
+    async getSolvedChallenges() {
+      const { data } = await this.$axios.get(
+        `api/user/competition/${this.$route.params.slug.toLowerCase()}/`
+      )
+      if (data.success) {
+        this.competitions = data.data
+      }
+    },
+  },
+}
+</script>

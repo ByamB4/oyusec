@@ -1,11 +1,14 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <profile />
+  <v-container fluid class="mt-5">
+    <v-row class="font-monts">
+      <!-- <v-col cols="12">
+        <UserProfile />
+      </v-col> -->
+      <v-col cols="6" class="mt-5">
+        <UserSolves />
       </v-col>
-      <v-col cols="12" class="mt-5">
-        <solvedchalls />
+      <v-col cols="6" class="mt-5">
+        <UserCompetition />
       </v-col>
     </v-row>
   </v-container>
@@ -13,10 +16,6 @@
 
 <script>
 export default {
-  components: {
-    solvedchalls: () => import("~/components/user/SolvedChalls"),
-    profile: () => import("~/components/user/Profile"),
-  },
   head() {
     return {
       title: this.$route.params.slug,
