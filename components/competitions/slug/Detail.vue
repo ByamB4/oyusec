@@ -64,15 +64,19 @@ export default {
     }),
     start_date() {
       const date = new Date(this.competition.start_date)
-      return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${this.formatNum(
-        date.getHours()
-      )}:${this.formatNum(date.getMinutes())}`
+      return `${date.getFullYear()}-${
+        date.getMonth() + 1
+      }-${date.getDate()} ${this.formatNum(date.getHours())}:${this.formatNum(
+        date.getMinutes()
+      )}`
     },
     end_date() {
       const date = new Date(this.competition.end_date)
-      return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${this.formatNum(
-        date.getHours()
-      )}:${this.formatNum(date.getMinutes())}`
+      return `${date.getFullYear()}-${
+        date.getMonth() + 1
+      }-${date.getDate()} ${this.formatNum(date.getHours())}:${this.formatNum(
+        date.getMinutes()
+      )}`
     },
     description() {
       return String(this.competition.description)

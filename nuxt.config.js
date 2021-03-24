@@ -55,7 +55,12 @@ export default {
       },
       {
         name: "og:description",
-        content: "CTF сонирхогч залуучуудад зориулан бүтээв",
+        content:
+          "Мэдээллийн аюулгүй байдлын талаарх үнэн зөв, бодитой ойлголт, мэдлэг, ур чадварыг нийтэд таниулцах",
+      },
+      {
+        name: "og:image",
+        content: "/logo.png",
       },
       {
         name: "og:url",
@@ -84,10 +89,6 @@ export default {
       {
         name: "twitter:creator",
         content: "@byamb4",
-      },
-      {
-        name: "twitter:description",
-        content: "CTF сонирхогч залуучуудад зориулан бүтээв",
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }],
