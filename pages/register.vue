@@ -1,9 +1,9 @@
 <template>
-  <v-container>
-    <v-row justify="center" class="font-exo">
+  <v-container fill-height>
+    <v-row class="font-exo" justify="center">
       <v-col xs="12" cols="12" sm="12" md="7" lg="5" xl="6">
         <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
-          <v-card class="user-bg mt-10" elevation="5" shaped>
+          <v-card class="user-bg up-down" elevation="5" shaped>
             <v-card-title class="justify-center font-press f-18" primary-title
               >[ {{ $t("createAccount") }} ]</v-card-title
             >
