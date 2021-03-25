@@ -69,6 +69,7 @@ export default {
     },
     status: {
       type: String,
+      default: "Дууссан",
     },
   },
   data: () => ({

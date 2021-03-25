@@ -2,12 +2,12 @@
   <v-container fluid class="challenges">
     <v-row justify="center">
       <v-col cols="11">
-        <div v-for="category in categories" :key="category.name">
+        <div v-for="category in categories" :key="category.name" class="mt-5">
           <div class="category">
-            <h2 v-text="category.name" />
+            <h2 class="font-play" v-text="category.name" />
           </div>
           <v-expansion-panels popout tile>
-            <challenge
+            <Challenge
               v-for="challenge in category.challenges"
               :key="challenge.id"
               :challenge="challenge"
@@ -22,7 +22,6 @@
 import { mapState, mapGetters } from "vuex"
 
 export default {
-  components: { challenge: () => import("~/components/Challenge") },
   async asyncData(context) {
     await Promise.all([
       context.store.dispatch("challenge/updateChallenges", context),

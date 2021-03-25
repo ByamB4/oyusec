@@ -1,10 +1,10 @@
 export default {
   ssr: false,
   head: {
-    titleTemplate: "%s - OyuSec",
+    titleTemplate: "%s | OyuSec",
     title: "OyuSec",
     htmlAttrs: {
-      lang: "en",
+      lang: "mn",
     },
     meta: [
       { charset: "utf-8" },
@@ -12,7 +12,8 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: "CTF сонирхогч залуучуудад зориулан бүтээв",
+        content:
+          "Мэдээллийн аюулгүй байдлын талаарх үнэн зөв, бодитой ойлголт, мэдлэг, ур чадварыг нийтэд сургах, таниулах",
       },
       // Just SEO related thing, will change later
 

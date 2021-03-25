@@ -47,7 +47,7 @@
       </v-col>
       <v-col cols="6" class="mt-10" style="color: #616161">
         <v-tooltip bottom>
-          <template v-slot:activator="{ on, attrs }">
+          <template #activator="{ on, attrs }">
             <div v-bind="attrs" v-on="on">
               <h2 class="text-center">
                 <v-icon size="35" color="#616161">mdi-book-open-variant</v-icon>
@@ -74,8 +74,8 @@ export default {
       title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
       meta: [
         {
-          hid: "description",
-          name: "description",
+          hid: "og:description",
+          name: "og:description",
           content:
             "Бодлого: Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх",
         },
