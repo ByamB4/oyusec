@@ -68,8 +68,8 @@ export default {
       type: Object,
     },
     status: {
+      required: false,
       type: String,
-      default: "Дууссан",
     },
   },
   data: () => ({
