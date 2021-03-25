@@ -22,7 +22,7 @@
     <v-row>
       <v-col cols="12">
         <v-tabs>
-          <v-tab v-for="tab in $t('competition.slugMenu')" :key="tab">
+          <v-tab v-for="tab in $t('competitionTab.slugMenu')" :key="tab">
             <span v-text="tab" />
           </v-tab>
           <v-tab-item>

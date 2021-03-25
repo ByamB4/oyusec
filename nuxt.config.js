@@ -91,7 +91,7 @@ export default {
         content: "@byamb4",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/oyusec.png" }],
   },
   loading: {
     color: "#b388ff",
@@ -163,8 +163,8 @@ export default {
   },
 
   axios: {
-    // baseURL: "http://localhost:8000",
-    baseURL: "https://oyusec-server.herokuapp.com",
+    baseURL: "http://localhost:8000",
+    // baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",

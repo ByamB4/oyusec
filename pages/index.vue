@@ -1,51 +1,67 @@
 <template>
   <v-container>
-    <v-row class="font-monts" justify="center">
-      <v-col cols="11" align="center" class="f-19">
-        <div>
-          <v-img src="/logo.png" width="100" height="100" alt="oyusec logo" />
-          <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec - CTF</h2>
-        </div>
-        <div class="mt-5 text-justify">
-          <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-            [ {{ $t("about") }} ]
-          </h2>
-          <p style="line-height: 200%">
-            Мэдээллийн аюулгүй байдлын талаарх үнэн зөв, бодитой ойлголт,
-            мэдлэгийг бий болгох, төлөвшүүлэх, түгээн дэлгэрүүлэх зорилготой
-            цахим аюулгүй байдлын тэмцээнийг зохион байгуулах гэж байна.
-          </p>
-        </div>
-        <div class="mt-10 text-justify">
-          <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-            [ {{ $t("sponsor") }} ]
-          </h2>
-          <ul style="list-style-type: none" class="mt-3 text-justify">
-            <li>
-              <v-avatar>
-                <img alt="oyutech logo" src="/oyutech.png" />
-              </v-avatar>
-              <strong>OyuTech</strong>
-            </li>
-          </ul>
-        </div>
-        <div class="mt-10 text-justify">
-          <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-            [ {{ $t("contact") }} ]
-          </h2>
-          <div class="mt-5 ml-5">
-            <v-btn
-              v-for="link in links"
-              :key="link.icon"
-              icon
-              class="ml-4"
-              :href="link.url"
-              target="_blank"
-            >
-              <v-icon size="40" color="white" v-text="link.icon"></v-icon>
-            </v-btn>
-          </div>
-        </div>
+    <v-row class="font-exo" align="center" justify="center">
+      <v-col cols="12" class="f-19" align="center">
+        <v-img src="/logo.png" width="100" height="100" alt="oyusec logo" />
+        <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec</h2>
+      </v-col>
+      <v-col cols="6" class="mt-10 text-justify">
+        <h2 class="text-center">
+          <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
+          {{ $t("challenge") }}
+        </h2>
+        <span style="line-height: 200%" class="f-19">
+          Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг
+          шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх
+        </span>
+      </v-col>
+      <v-col cols="6" class="mt-10 text-justify">
+        <h2 class="text-center">
+          <v-icon size="35" color="light-blue accent-3"
+            >mdi-account-group</v-icon
+          >
+          {{ $t("community") }}
+        </h2>
+        <span style="line-height: 200%" class="f-19">
+          Бусадтай харилцаа тогтоож, өөрсдийн бодсон бодолт зэргийг хуваалцан
+          бие биенийхээ арга туршилгаас суралцах. Асууж тодруулах зүйл гарах үед
+          <v-btn link icon href="https://discord.gg/9fqVFEBAhv" target="_blank"
+            ><v-icon>mdi-discord</v-icon></v-btn
+          >-оор чөлөөтэй харилцана.
+        </span>
+      </v-col>
+      <v-col cols="6" class="mt-10 text-justify">
+        <h2 class="text-center">
+          <v-icon size="35" color="yellow darken-2">mdi-trophy-outline</v-icon>
+          {{ $t("competition") }}
+        </h2>
+        <span style="line-height: 200%" class="f-19">
+          <b>Live</b> тэмцээнд оролцон оноо цуглуулж бусадтай өрсөлдөн ранкаа
+          ахиулах боломжтой. Бид тэмцээний үр дүнг өөрсдийн
+
+          <v-btn link icon href="https://discord.gg/9fqVFEBAhv" target="_blank"
+            ><v-icon>mdi-facebook</v-icon></v-btn
+          >
+          хуудсаараа дамжуулан зарлаж байх болно.
+        </span>
+      </v-col>
+      <v-col cols="6" class="mt-10" style="color: #616161">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <div v-bind="attrs" v-on="on">
+              <h2 class="text-center">
+                <v-icon size="35" color="#616161">mdi-book-open-variant</v-icon>
+                {{ $t("learn") }}
+              </h2>
+              <span style="line-height: 200%" class="f-19 text-justify">
+                Бид анхлан суралцагчдад, зориулж чиглэл өгөх зорилгоор
+                <b>linux</b>, энгийн <b>ctf</b> бодлого, аюулгүй байдлын талаар
+                сонирхолтой байдлаар заах болно.
+              </span>
+            </div>
+          </template>
+          <span v-text="$t('comingSoon')" />
+        </v-tooltip>
       </v-col>
     </v-row>
   </v-container>
@@ -53,29 +69,17 @@
 
 <script>
 export default {
-  data: () => ({
-    links: [
-      {
-        icon: "mdi-facebook",
-        url: "https://facebook.com/oyusec/",
-      },
-      {
-        icon: "mdi-github",
-        url: "https://github.com/oyusec/",
-      },
-      {
-        icon: "mdi-discord",
-        url: "https://discord.gg/9fqVFEBAhv",
-      },
-      {
-        icon: "mdi-twitter",
-        url: "https://twitter.com/oyusec",
-      },
-    ],
-  }),
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Бодлого: Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх",
+        },
+      ],
     }
   },
 }

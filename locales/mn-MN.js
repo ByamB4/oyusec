@@ -1,10 +1,12 @@
 export default {
   about: "Тухай",
   note: "ТУРШИЛТЫН ХУВИЛБАР",
-  site_description:
-    "Энэ бол туршилтийн хувилбар. Хэрвээ ямар нэгэн алдаа, дутагдалтай зүйл гарвал бидэнтэй холбогдож туслана уу.",
   description: "Тайлбар",
   name: "Нэр",
+  challenge: "Бодлого",
+  community: "Орчин",
+  competition: "Тэмцээн",
+  learn: "Сурах",
   category: "Төрөл",
   flag: "Флаг",
   state: "Төлөв",
@@ -21,6 +23,7 @@ export default {
   yes: "Тийм",
   no: "Үгүй",
   loading: "Уншиж байна",
+  comingSoon: "Тун удахгүй",
   all_challenges: "Бүх бодлогууд",
   contact: "Бидэнтэй нэгдээрэй",
   solved: "Бодсон",
@@ -110,7 +113,7 @@ export default {
       },
     ],
   },
-  competition: {
+  competitionTab: {
     menu: ["Шууд", "Удахгүй", "Дууссан"],
     slugMenu: ["Тухай", "Бодлогууд", "Онооны самбар"],
   },

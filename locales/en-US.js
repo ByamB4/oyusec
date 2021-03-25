@@ -1,9 +1,11 @@
 export default {
   about: "About",
   note: "DEMO VERSION",
-  site_description:
-    "This is an experimental version. If there are any errors or not working thing, please contact us for assistance.",
   name: "Name",
+  challenge: "Challenge",
+  community: "Community",
+  competition: "Competition",
+  learn: "Learn",
   category: "Category",
   state: "State",
   flag: "Flag",
@@ -13,6 +15,7 @@ export default {
   sponsor: "Sponser",
   decay: "Decay",
   loading: "Loading",
+  comingSoon: "Coming soon",
   yes: "Yes",
   no: "No",
   are_you_sure: "Are you sure ?",
@@ -110,7 +113,7 @@ export default {
       },
     ],
   },
-  competition: {
+  competitionTab: {
     menu: ["Live", "Upcoming", "Archived"],
     slugMenu: ["About", "Challenges", "Scoreboard"],
   },

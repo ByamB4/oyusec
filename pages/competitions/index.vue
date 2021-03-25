@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12">
         <v-tabs class="font-exo">
-          <v-tab v-for="tab in $t('competition.menu')" :key="tab">
+          <v-tab v-for="tab in $t('competitionTab.menu')" :key="tab">
             <span class="font-weight-bold" v-text="tab" />
           </v-tab>
           <v-tab-item class="bg-transparent">
