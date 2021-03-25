@@ -2,7 +2,13 @@
   <v-container>
     <v-row class="font-exo" align="center" justify="center">
       <v-col cols="12" class="f-19" align="center">
-        <v-img src="/logo.png" width="100" height="100" alt="oyusec logo" />
+        <v-img
+          id="logo"
+          src="/logo.png"
+          width="100"
+          height="100"
+          alt="oyusec logo"
+        />
         <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec</h2>
       </v-col>
       <v-col cols="6" class="mt-10 text-justify">

@@ -15,7 +15,7 @@
                 </h3>
               </v-col>
               <v-col v-for="comp in liveComps" v-else :key="comp.id" cols="3">
-                <Live :competition="comp" />
+                <CompetitionsLive :competition="comp" />
               </v-col>
             </v-row>
           </v-tab-item>
@@ -32,7 +32,7 @@
                 </h3>
               </v-col>
               <v-col v-for="comp in comingComps" v-else :key="comp.id" cols="3">
-                <Coming :competition="comp" />
+                <CompetitionsComing :competition="comp" />
               </v-col>
             </v-row>
           </v-tab-item>
@@ -54,7 +54,7 @@
                 :key="comp.id"
                 cols="3"
               >
-                <Archived :competition="comp" />
+                <CompetitionsArchived :competition="comp" />
               </v-col>
             </v-row>
           </v-tab-item>
@@ -68,11 +68,6 @@
 import { mapGetters } from "vuex"
 
 export default {
-  components: {
-    Live: () => import("~/components/competitions/Live"),
-    Coming: () => import("~/components/competitions/Coming"),
-    Archived: () => import("~/components/competitions/Archived"),
-  },
   async asyncData(context) {
     await Promise.all([
       context.store.dispatch("competition/updateCompetitions", context),

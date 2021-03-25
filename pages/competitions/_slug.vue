@@ -26,13 +26,13 @@
             <span v-text="tab" />
           </v-tab>
           <v-tab-item>
-            <Detail />
+            <CompetitionsSlugDetail />
           </v-tab-item>
           <v-tab-item>
-            <Challenges />
+            <CompetitionsSlugChallenges />
           </v-tab-item>
           <v-tab-item>
-            <Scoreboard />
+            <CompetitionsSlugScoreboard />
           </v-tab-item>
         </v-tabs>
       </v-col>
@@ -44,14 +44,17 @@
 import { mapGetters } from "vuex"
 
 export default {
-  components: {
-    Detail: () => import("~/components/competitions/slug/Detail"),
-    Challenges: () => import("~/components/competitions/slug/Challenges"),
-    Scoreboard: () => import("~/components/competitions/slug/Scoreboard"),
-  },
   head() {
     return {
-      title: this.$route.params.slug,
+      title: `Тэмцээн | ${this.$route.params.slug}`,
+      meta: [
+        {
+          hid: "og:description",
+          name: "og:description",
+          content:
+            "Тэмцээн | Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх",
+        },
+      ],
     }
   },
   computed: {

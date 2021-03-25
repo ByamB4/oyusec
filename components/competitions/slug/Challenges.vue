@@ -2,7 +2,7 @@
   <v-container fluid class="font-exo challenges">
     <v-row v-if="competition.status === 'Удахгүй'">
       <v-col cols="12" align="center">
-        <counter
+        <Counter
           :year="start_date.getFullYear()"
           :month="start_date.getMonth()"
           :date="start_date.getDate()"
@@ -20,7 +20,7 @@
             <h2 v-text="category.name" />
           </div>
           <v-expansion-panels popout tile>
-            <challenge
+            <Challenge
               v-for="challenge in category.challenges"
               :key="challenge.id"
               :challenge="challenge"
@@ -37,11 +37,6 @@
 import { mapGetters } from "vuex"
 
 export default {
-  components: {
-    challenge: () => import("~/components/Challenge"),
-    counter: () => import("~/components/Counter"),
-  },
-
   computed: {
     ...mapGetters({
       competition: "competition/getCompetition",

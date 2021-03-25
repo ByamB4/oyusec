@@ -1,12 +1,4 @@
 export const state = () => ({
-  competition: {
-    name: "OyuSec CTF",
-    description:
-      "Мэдээллийн аюулгүй байдлын чиглэлээр сонирхон суралцдаг хэн бүхэнд зориулан бүтээв, өрсөлдөөнт, хөгжилтэй байдлаар сурцгаая",
-    state: "running",
-  },
-  isStarted: true,
-  isEnded: false,
   challenges: [],
   drawer: true,
   connection: false,
