@@ -32,7 +32,7 @@
           Бусадтай харилцаа тогтоож, өөрсдийн бодсон бодолт зэргийг хуваалцан
           бие биенийхээ арга туршилгаас суралцах. Асууж тодруулах зүйл гарах үед
           <v-btn link icon href="https://discord.gg/9fqVFEBAhv" target="_blank"
-            ><v-icon>mdi-discord</v-icon></v-btn
+            ><v-icon color="white">mdi-discord</v-icon></v-btn
           >-оор чөлөөтэй харилцана.
         </span>
       </v-col>
@@ -46,7 +46,7 @@
           ахиулах боломжтой. Бид тэмцээний үр дүнг өөрсдийн
 
           <v-btn link icon href="https://discord.gg/9fqVFEBAhv" target="_blank"
-            ><v-icon>mdi-facebook</v-icon></v-btn
+            ><v-icon color="white">mdi-facebook</v-icon></v-btn
           >
           хуудсаараа дамжуулан зарлаж байх болно.
         </span>
