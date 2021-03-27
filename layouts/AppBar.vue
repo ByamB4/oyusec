@@ -100,11 +100,9 @@ export default {
   },
 
   mounted() {
-    this.interval = setInterval(() => {
-      if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
-        this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })
-      }
-    }, 10 * 1000) // 10 sec
+    if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
+      this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })
+    }
   },
 }
 </script>

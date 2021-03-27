@@ -54,7 +54,7 @@ export default {
     this.interval = setInterval(() => {
       this.$store.dispatch("competition/updateChallenges")
       this.$store.dispatch("competition/updateChallengesSolves")
-    }, 10 * 6000)
+    }, 10 * 60000)
   },
   destroyed() {
     clearInterval(this.interval)
