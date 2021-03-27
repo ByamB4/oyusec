@@ -14,7 +14,17 @@
                   <v-icon color="white">mdi-emoticon-sad-outline</v-icon>
                 </h3>
               </v-col>
-              <v-col v-for="comp in liveComps" v-else :key="comp.id" cols="3">
+              <v-col
+                v-for="comp in liveComps"
+                v-else
+                :key="comp.id"
+                cols="12"
+                xs="12"
+                sm="6"
+                md="4"
+                lg="3"
+                xl="3"
+              >
                 <CompetitionsLive :competition="comp" />
               </v-col>
             </v-row>
@@ -31,7 +41,17 @@
                   <v-icon color="white">mdi-emoticon-sad-outline</v-icon>
                 </h3>
               </v-col>
-              <v-col v-for="comp in comingComps" v-else :key="comp.id" cols="3">
+              <v-col
+                v-for="comp in comingComps"
+                v-else
+                :key="comp.id"
+                cols="12"
+                xs="12"
+                sm="6"
+                md="4"
+                lg="3"
+                xl="3"
+              >
                 <CompetitionsComing :competition="comp" />
               </v-col>
             </v-row>
@@ -52,7 +72,12 @@
                 v-for="comp in archiveComps"
                 v-else
                 :key="comp.id"
-                cols="3"
+                cols="12"
+                xs="12"
+                sm="6"
+                md="4"
+                lg="3"
+                xl="3"
               >
                 <CompetitionsArchived :competition="comp" />
               </v-col>

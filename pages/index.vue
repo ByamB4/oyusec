@@ -11,7 +11,15 @@
         />
         <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec</h2>
       </v-col>
-      <v-col cols="6" class="mt-10 text-justify">
+      <v-col
+        cols="12"
+        xs="12"
+        sm="12"
+        md="6"
+        lg="6"
+        xl="6"
+        class="mt-10 text-justify"
+      >
         <h2 class="text-center">
           <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
           {{ $t("challenge") }}
@@ -21,7 +29,15 @@
           шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх
         </span>
       </v-col>
-      <v-col cols="6" class="mt-10 text-justify">
+      <v-col
+        cols="12"
+        xs="12"
+        sm="12"
+        md="6"
+        lg="6"
+        xl="6"
+        class="mt-10 text-justify"
+      >
         <h2 class="text-center">
           <v-icon size="35" color="light-blue accent-3"
             >mdi-account-group</v-icon
@@ -36,7 +52,15 @@
           >-оор чөлөөтэй харилцана.
         </span>
       </v-col>
-      <v-col cols="6" class="mt-10 text-justify">
+      <v-col
+        cols="12"
+        xs="12"
+        sm="12"
+        md="6"
+        lg="6"
+        xl="6"
+        class="mt-10 text-justify"
+      >
         <h2 class="text-center">
           <v-icon size="35" color="yellow darken-2">mdi-trophy-outline</v-icon>
           {{ $t("competition") }}
@@ -51,7 +75,16 @@
           хуудсаараа дамжуулан зарлаж байх болно.
         </span>
       </v-col>
-      <v-col cols="6" class="mt-10" style="color: #616161">
+      <v-col
+        cols="12"
+        xs="12"
+        sm="12"
+        md="6"
+        lg="6"
+        xl="6"
+        class="mt-10"
+        style="color: #616161"
+      >
         <v-tooltip bottom>
           <template #activator="{ on, attrs }">
             <div v-bind="attrs" v-on="on">
