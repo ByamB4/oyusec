@@ -1,6 +1,6 @@
 <template>
   <v-expansion-panel class="challenge mt-2 font-exo">
-    <v-dialog v-model="dialog.show" max-width="300px">
+    <v-dialog v-model="dialog.show" max-width="400px">
       <v-simple-table class="user-bg font-exo" dark>
         <tbody>
           <tr v-for="user in solvers" :key="user.username">

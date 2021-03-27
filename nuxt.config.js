@@ -94,11 +94,11 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/oyusec.png" }],
   },
-  loading: false,
-  // loading: {
-  //   color: "#b388ff",
-  //   height: "1px",
-  // },
+  // loading: false,
+  loading: {
+    color: "#b388ff",
+    height: "1px",
+  },
   css: ["~/assets/global.sass", "~/assets/class.sass", "~/assets/theme.sass"],
   plugins: ["~/plugins/consts"],
   components: true,
