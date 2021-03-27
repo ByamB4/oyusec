@@ -47,19 +47,14 @@ export default {
     },
   },
   created() {
-    // If component loaded run once time
-    if (this.competition.status !== "Удахгүй") {
-      this.$store.dispatch("competition/updateChallenges")
-      this.$store.dispatch("competition/updateChallengesSolves")
-    }
+    this.$store.dispatch("competition/updateChallenges")
+    this.$store.dispatch("competition/updateChallengesSolves")
   },
   mounted() {
     this.interval = setInterval(() => {
-      if (this.competition.status !== "Удахгүй") {
-        this.$store.dispatch("competition/updateChallenges")
-        this.$store.dispatch("competition/updateChallengesSolves")
-      }
-    }, 10 * 1000)
+      this.$store.dispatch("competition/updateChallenges")
+      this.$store.dispatch("competition/updateChallengesSolves")
+    }, 10 * 6000)
   },
   destroyed() {
     clearInterval(this.interval)

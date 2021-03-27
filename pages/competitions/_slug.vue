@@ -65,7 +65,7 @@ export default {
   mounted() {
     this.$store.dispatch(
       "competition/updateCompetition",
-      this.$route.params.slug
+      this.$route.path.split("/").pop()
     )
   },
 }

@@ -133,6 +133,13 @@ export default {
         challenge_id: this.challenge.id,
         submission: this.form.submission,
       })
+      if (!data.success) {
+        this.$toast.error(data.detail, {
+          icon: "alert-circle",
+        })
+        this.reset()
+        return
+      }
       if (data.status === "correct") {
         this.reset()
         this.isSolved = true

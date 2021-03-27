@@ -100,6 +100,7 @@ export const actions = {
     if (data.success) {
       commit("SET_CHALLENGES", data.data)
     }
+    await dispatch("updateSolved")
   },
   async updateChallengesSolves({ commit, state }) {
     const { data } = await this.$axios.get(
