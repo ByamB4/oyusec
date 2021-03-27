@@ -1,5 +1,25 @@
 <template>
   <v-expansion-panel class="challenge mt-2 font-exo">
+    <v-dialog v-model="dialog.show" max-width="300px">
+      <v-simple-table class="user-bg font-exo" dark>
+        <tbody>
+          <tr v-for="user in solvers" :key="user.username">
+            <td>
+              <nuxt-link
+                :to="
+                  localePath({
+                    name: 'user-slug',
+                    params: { slug: user.slug },
+                  })
+                "
+                ><span class="f-18 white--text" v-text="user.username" />
+              </nuxt-link>
+            </td>
+            <td class="f-15 text-center" v-text="user.time" />
+          </tr>
+        </tbody>
+      </v-simple-table>
+    </v-dialog>
     <v-expansion-panel-header
       expand-icon
       :class="{ solved: challenge.solved && $auth.loggedIn }"
@@ -9,7 +29,15 @@
           <strong class="ml-3" v-text="challenge.name" />
         </v-col>
         <v-col xs="6" sm="6" md="6" lg="6" xl="4" align="right">
-          <v-chip small class="ml-1 white--text" color="primary">
+          <v-chip
+            class="ma-2"
+            close
+            small
+            color="primary"
+            text-color="white"
+            close-icon="mdi-eye-outline"
+            @click:close="showSolves"
+          >
             <strong v-text="$t('solved')" />
             <span class="ml-1" v-text="challenge.solves" />
           </v-chip>
@@ -37,7 +65,7 @@
               :rules="[rules.required]"
               :loading="form.loading"
               color="white"
-              placeholder="flag{.*}"
+              placeholder="oyusec{.*}"
               dense
               autofocus
               trim
@@ -74,6 +102,11 @@ export default {
   },
   data: () => ({
     incorrect: false,
+    dialog: {
+      show: false,
+      itemID: null,
+    },
+    solvers: [],
     form: {
       submission: "",
       valid: true,
@@ -126,6 +159,19 @@ export default {
         setTimeout(() => {
           this.incorrect = false
         }, 500)
+      }
+    },
+    async showSolves() {
+      this.dialog.show = true
+      const { data } = await this.$axios.get(
+        `api/challenge/${this.challenge.id}/solves/`
+      )
+      if (data.success) {
+        this.solvers = data.data
+      } else {
+        this.$toast.error(data.detail, {
+          icon: "alert-circle",
+        })
       }
     },
   },
