@@ -75,10 +75,10 @@ export default {
         link: "/competitions",
       },
       {
-        icon: "mdi-chart-histogram",
-        color: "yellow darken-2",
-        title: "Rank",
-        link: "/scoreboard",
+        icon: "mdi-chart-line",
+        color: "#ffdf00",
+        title: "Rankings",
+        link: "/rankings",
       },
     ],
     authMenu: [
