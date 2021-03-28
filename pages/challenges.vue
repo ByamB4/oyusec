@@ -1,14 +1,25 @@
 <template>
   <v-container fluid class="challenges">
     <v-row justify="center">
-      <v-col cols="11">
-        <div v-for="category in categories" :key="category.name" class="mt-5">
+      <v-col v-if="loggedIn" cols="10" class="d-flex justify-end">
+        <v-checkbox
+          v-model="isHideSolved"
+          class="font-play"
+          color="orange"
+          label="Бодсон бодлого нуух"
+        >
+        </v-checkbox>
+      </v-col>
+      <v-col cols="10" :class="{ 'mt-n10': loggedIn }">
+        <div v-for="category in categories" :key="category.name">
           <div class="category">
             <h2 class="font-play" v-text="category.name" />
           </div>
-          <v-expansion-panels popout tile>
+          <v-expansion-panels popout tile inset>
             <Challenge
-              v-for="challenge in category.challenges"
+              v-for="challenge in category.challenges.filter(
+                ({ solved }) => !isHideSolved || !solved
+              )"
               :key="challenge.id"
               :challenge="challenge"
             />
@@ -28,45 +39,27 @@ export default {
       context.store.dispatch("challenge/updateChallengesSolves", context),
     ])
   },
+  data: () => ({
+    isHideSolved: false,
+  }),
   head: () => ({
     title: "Бодлогууд",
   }),
-
   computed: {
     ...mapGetters({
       categories: "challenge/getCategories",
     }),
     ...mapState({
-      isEnded: "isEnded",
       isStarted: "isStarted",
       loggedIn: (state) => state.auth.loggedIn,
     }),
-  },
-
-  mounted() {
-    this.interval = setInterval(() => {
-      this.$store.dispatch("challenge/updateChallenges")
-      this.$store.dispatch("challenge/updateChallengesSolves")
-    }, 10 * 6000) // 10 sec
-  },
-
-  destroyed() {
-    clearInterval(this.interval)
-  },
-
-  methods: {
-    contestStart() {
-      this.$store.commit("SET_IS_STARTED")
-    },
-    contestEnd() {
-      this.$store.commit("SET_IS_ENDED")
-    },
   },
 }
 </script>
 
 <style lang="sass">
 .challenges
+  position: relative
   .category
     letter-spacing: 2px
     text-transform: capitalize

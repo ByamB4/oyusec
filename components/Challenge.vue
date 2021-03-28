@@ -1,5 +1,9 @@
 <template>
-  <v-expansion-panel class="challenge mt-2 font-exo">
+  <v-expansion-panel
+    :id="'a' + challenge.id"
+    class="challenge mt-2 font-exo"
+    @click="$vuetify.goTo(`#a${challenge.id}`, scrollOptions)"
+  >
     <v-dialog v-model="dialog.show" max-width="400px">
       <v-simple-table class="user-bg font-exo" dark>
         <tbody>
@@ -112,6 +116,11 @@ export default {
       valid: true,
       loading: false,
     },
+    scrollOptions: {
+      duration: 1500,
+      offset: 0,
+      easing: "easeInOutQuad",
+    },
     rules: {
       required: (value) => !!value || "Заавал бөглөх ёстой",
     },
@@ -180,6 +189,9 @@ export default {
           icon: "alert-circle",
         })
       }
+    },
+    test() {
+      console.log("test")
     },
   },
 }

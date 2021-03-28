@@ -12,9 +12,9 @@
         <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec</h2>
       </v-col>
       <v-col
-        cols="12"
-        xs="12"
-        sm="12"
+        cols="10"
+        xs="10"
+        sm="10"
         md="6"
         lg="6"
         xl="6"
@@ -30,9 +30,9 @@
         </span>
       </v-col>
       <v-col
-        cols="12"
-        xs="12"
-        sm="12"
+        cols="10"
+        xs="10"
+        sm="10"
         md="6"
         lg="6"
         xl="6"
@@ -53,9 +53,9 @@
         </span>
       </v-col>
       <v-col
-        cols="12"
-        xs="12"
-        sm="12"
+        cols="10"
+        xs="10"
+        sm="10"
         md="6"
         lg="6"
         xl="6"
@@ -76,9 +76,9 @@
         </span>
       </v-col>
       <v-col
-        cols="12"
-        xs="12"
-        sm="12"
+        cols="10"
+        xs="10"
+        sm="10"
         md="6"
         lg="6"
         xl="6"

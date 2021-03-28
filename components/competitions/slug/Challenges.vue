@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="font-exo challenges">
-    <v-row v-if="competition.status === 'Удахгүй'">
+    <v-row v-if="competition.status === 'Удахгүй'" justify="center">
       <v-col cols="12" align="center">
         <Counter
           :year="start_date.getFullYear()"
@@ -14,14 +14,25 @@
       </v-col>
     </v-row>
     <v-row v-else justify="center">
-      <v-col cols="12">
+      <v-col v-if="loggedIn" cols="12" class="d-flex justify-end">
+        <v-checkbox
+          v-model="isHideSolved"
+          class="font-play"
+          color="orange"
+          label="Бодсон бодлого нуух"
+        >
+        </v-checkbox>
+      </v-col>
+      <v-col cols="12" :class="{ 'mt-n10': loggedIn }">
         <div v-for="category in categories" :key="category.name">
           <div class="category">
-            <h2 v-text="category.name" />
+            <h2 class="font-play" v-text="category.name" />
           </div>
-          <v-expansion-panels popout tile>
+          <v-expansion-panels popout tile inset>
             <Challenge
-              v-for="challenge in category.challenges"
+              v-for="challenge in category.challenges.filter(
+                ({ solved }) => !isHideSolved || !solved
+              )"
               :key="challenge.id"
               :challenge="challenge"
               :status="competition.status"
@@ -34,13 +45,19 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters, mapState } from "vuex"
 
 export default {
+  data: () => ({
+    isHideSolved: false,
+  }),
   computed: {
     ...mapGetters({
       competition: "competition/getCompetition",
       categories: "competition/getCategories",
+    }),
+    ...mapState({
+      loggedIn: (state) => state.auth.loggedIn,
     }),
     start_date() {
       return new Date(this.competition.start_date)
