@@ -1,44 +1,55 @@
 <template>
   <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
-    <v-card class="user-bg font-exo" tile>
+    <v-card class="user-bg font-exo" dark>
       <v-card-text>
         <v-text-field
           v-model="form.name"
           :label="$t('name')"
+          :rules="[rules.required, rules.counter]"
+          :counter="25"
+          :loading="form.loading"
+          placeholder="Миний Нууц Файл"
           outlined
           dense
         ></v-text-field>
         <v-text-field
           v-model="form.category"
           :label="$t('category')"
+          :rules="[rules.required, rules.counter]"
+          :counter="25"
+          :loading="form.loading"
+          placeholder="Forensics"
           outlined
           dense
         ></v-text-field>
         <v-textarea
           v-model="form.description"
+          :rules="[rules.required]"
+          :loading="form.loading"
           placeholder="
             Та текстийн **bold** бас _italic_ болгох боломжтой.
             > Мөн санамж, бичиг зэрэг
+            [Татах](https://your-file-end-url.com)
           "
-          :label="$t('description')"
-          class="mt-n2"
           outlined
+          :label="$t('description')"
           auto-grow
         ></v-textarea>
         <v-text-field
           v-model="form.value"
           :label="$t('score')"
+          :loading="form.loading"
           placeholder="1000"
           type="number"
           outlined
-          hint="Бодлогын эхлэх оноо буюу хэн ч бодоогүй үеийн оноо"
           dense
         ></v-text-field>
         <v-text-field
           v-model="form.decay"
           :label="$t('decay')"
+          :loading="form.loading"
           type="number"
-          placeholder="30"
+          placeholder="25"
           hint="Хүн бодлого бодох үед оноог хэр хэмжээтэй буурахыг тодорхойлно"
           outlined
           dense
@@ -46,31 +57,27 @@
         <v-text-field
           v-model="form.minimum"
           :label="$t('minimum_value')"
+          :loading="form.loading"
           placeholder="100"
           type="number"
           hint="Оноо буурсаар эцсийн дүндээ хэд болохыг тодорхойлно"
           outlined
           dense
         ></v-text-field>
-        <v-select
-          v-model="form.state"
-          :item-text="form.state"
-          :items="form.stateItems"
-          :label="$t('state')"
-          dense
-          outlined
-        >
-        </v-select>
         <v-text-field
           v-model="form.flag"
-          placeholder="flag{.*}"
+          placeholder="oyusec{.*}"
+          :rules="[rules.required]"
           :label="$t('flag')"
+          :loading="form.loading"
           outlined
           dense
         ></v-text-field>
         <v-row justify="end">
           <v-card-actions>
             <v-btn
+              :loading="form.loading"
+              :disabled="!form.valid"
               small
               elevation="2"
               color="primary"
@@ -88,8 +95,18 @@
 export default {
   data: () => ({
     form: {
-      state: "Ил харагдана",
-      stateItems: ["Ил харагдана", "Нууцлагдмал"],
+      name: "",
+      category: "",
+      decay: "",
+      description: "",
+      minimum: "",
+      value: "",
+      flag: "",
+      loading: false,
+    },
+    rules: {
+      required: (value) => !!value || "Заавал бөглөх ёстой",
+      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт",
     },
   }),
   methods: {
@@ -97,7 +114,6 @@ export default {
       this.form.name = ""
       this.form.description = ""
       this.form.value = ""
-      this.form.state = "Ил харагдана"
       this.form.category = ""
       this.form.flag = ""
       this.form.decay = ""
@@ -106,10 +122,11 @@ export default {
     },
 
     submit() {
-      this.$store.dispatch("admin/addChallenge", {
-        $form: this.form,
-        $type: "dynamic",
-      })
+      this.$toast.success("Удахгүй шинэчлэгдэнэ :')", { icon: "check-circle" })
+      // this.$store.dispatch("admin/addChallenge", {
+      //   $form: this.form,
+      //   $type: "dynamic",
+      // })
       this.reset()
     },
   },

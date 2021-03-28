@@ -40,14 +40,8 @@
   color: rgb(156, 163, 175) !important
 
 .up-down
-  -webkit-animation: mover 10s infinite alternate
   animation: mover 10s infinite alternate
 
-@-webkit-keyframes mover
-  0%
-    transform: translateY(-100px)
-  100%
-    transform: translateY(50px)
 
 @keyframes mover
   0%
@@ -55,7 +49,7 @@
   100%
     transform: translateY(50px)
 
-.page-enter-active, .page-leave-active 
+.page-enter-active, .page-leave-active
   transition: all .25s ease-out
 
 .page-enter, .page-leave-active

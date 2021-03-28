@@ -75,6 +75,12 @@ export default {
         link: "/competitions",
       },
       {
+        icon: "mdi-cards-heart",
+        color: "#e31b23",
+        title: "Contribute",
+        link: "/contribute",
+      },
+      {
         icon: "mdi-chart-line",
         color: "#ffdf00",
         title: "Rankings",
@@ -132,6 +138,12 @@ export default {
         { name: "Point" },
       ],
     },
+  },
+  contribute: {
+    challengesTab: [
+      { name: "Standart", icon: "mdi-sword" },
+      { name: "Dynamic", icon: "mdi-sword-cross" },
+    ],
   },
   admin: {
     challengesTab: [

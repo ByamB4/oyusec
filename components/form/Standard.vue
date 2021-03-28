@@ -1,25 +1,35 @@
 <template>
   <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
-    <v-card class="user-bg font-exo" tile>
+    <v-card class="user-bg font-exo" dark>
       <v-card-text>
         <v-text-field
           v-model="form.name"
           :label="$t('name')"
-          required
+          :rules="[rules.required, rules.counter]"
+          :counter="25"
+          :loading="form.loading"
+          placeholder="Миний Нууц Файл"
           outlined
           dense
         ></v-text-field>
         <v-text-field
           v-model="form.category"
           :label="$t('category')"
+          :rules="[rules.required, rules.counter]"
+          :counter="25"
+          :loading="form.loading"
+          placeholder="Forensics"
           outlined
           dense
         ></v-text-field>
         <v-textarea
           v-model="form.description"
+          :rules="[rules.required]"
+          :loading="form.loading"
           placeholder="
             Та текстийн **bold** бас _italic_ болгох боломжтой.
             > Мөн санамж, бичиг зэрэг
+            [Татах](https://your-file-end-url.com)
           "
           outlined
           :label="$t('description')"
@@ -28,30 +38,26 @@
         <v-text-field
           v-model="form.value"
           :label="$t('score')"
+          :loading="form.loading"
           placeholder="1000"
           type="number"
           outlined
           dense
         ></v-text-field>
-        <v-select
-          v-model="form.state"
-          :item-text="form.state"
-          :items="form.stateItems"
-          :label="$t('state')"
-          dense
-          outlined
-        >
-        </v-select>
         <v-text-field
           v-model="form.flag"
-          placeholder="flag{.*}"
+          placeholder="oyusec{.*}"
+          :rules="[rules.required]"
           :label="$t('flag')"
+          :loading="form.loading"
           outlined
           dense
         ></v-text-field>
         <v-row justify="end">
           <v-card-actions>
             <v-btn
+              :loading="form.loading"
+              :disabled="!form.valid"
               small
               elevation="2"
               color="primary"
@@ -69,8 +75,16 @@
 export default {
   data: () => ({
     form: {
-      state: "Ил харагдана",
-      stateItems: ["Ил харагдана", "Нууцлагдмал"],
+      name: "",
+      category: "",
+      description: "",
+      value: "",
+      flag: "",
+      loading: false,
+    },
+    rules: {
+      required: (value) => !!value || "Заавал бөглөх ёстой",
+      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт",
     },
   }),
   methods: {
@@ -80,15 +94,15 @@ export default {
       this.form.category = ""
       this.form.value = ""
       this.form.flag = ""
-      this.form.state = "Ил харагдана"
       this.$refs.form.resetValidation()
     },
 
     submit() {
-      this.$store.dispatch("admin/addChallenge", {
-        $form: this.form,
-        $type: "standard",
-      })
+      this.$toast.success("Удахгүй шинэчлэгдэнэ :')", { icon: "check-circle" })
+      // this.$store.dispatch("admin/addChallenge", {
+      //   $form: this.form,
+      //   $type: "standard",
+      // })
       this.reset()
     },
   },

@@ -75,6 +75,12 @@ export default {
         link: "/competitions",
       },
       {
+        icon: "mdi-cards-heart",
+        color: "#e31b23",
+        title: "Хувь нэмэр",
+        link: "/contribute",
+      },
+      {
         icon: "mdi-chart-line",
         color: "#ffdf00",
         title: "Зэрэглэл",
@@ -132,6 +138,12 @@ export default {
         { name: "Оноо" },
       ],
     },
+  },
+  contribute: {
+    challengesTab: [
+      { name: "Стандарт", icon: "mdi-sword" },
+      { name: "Динамик", icon: "mdi-sword-cross" },
+    ],
   },
   admin: {
     challengesTab: [
