@@ -1,11 +1,8 @@
 <template>
   <v-app>
-    <AppBar />
-
     <AppDrawer />
-
+    <AppBar />
     <AppView />
-
     <AppFooter />
   </v-app>
 </template>

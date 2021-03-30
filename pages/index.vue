@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="font-exo" align="center" justify="center">
-      <v-col cols="12" class="f-19" align="center">
+      <v-col cols="12" align="center" class="mb-10">
         <v-img
           id="logo"
           src="/logo.png"
@@ -9,7 +9,20 @@
           height="100"
           alt="oyusec logo"
         />
-        <h2 style="letter-spacing: 0.3px" class="font-press">OyuSec</h2>
+        <vue-typer
+          class="font-press"
+          :text="[
+            'Learn cyber security',
+            'Sharp your skills',
+            'Compete others',
+            'OyuSec',
+            'Challenge your friends',
+            'Be a top player',
+          ]"
+          :shuffle="true"
+          :erase-delay="400"
+          caret-animation="blink"
+        ></vue-typer>
       </v-col>
       <v-col
         cols="10"
@@ -107,7 +120,12 @@
 </template>
 
 <script>
+import { VueTyper } from "vue-typer"
+
 export default {
+  components: {
+    "vue-typer": VueTyper,
+  },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
@@ -130,3 +148,19 @@ export default {
   },
 }
 </script>
+
+<style>
+.vue-typer .custom.char.typed {
+  color: #fff;
+  font-size: 25px;
+}
+.vue-typer .custom.char.selected {
+  background-color: #fff;
+  font-size: 25px;
+}
+.vue-typer .custom.caret {
+  padding-top: 11px;
+  width: 10px;
+  background-color: #fff;
+}
+</style>

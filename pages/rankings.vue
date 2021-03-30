@@ -25,6 +25,18 @@
             :footer-props="{ itemsPerPageText: '' }"
             class="elevation-10"
           >
+            <template #[`item.username`]="{ item }" class="text-center">
+              <nuxt-link
+                :to="
+                  localePath({
+                    name: 'user-slug',
+                    params: { slug: item.slug },
+                  })
+                "
+              >
+                <span class="white--text" v-text="item.username" />
+              </nuxt-link>
+            </template>
             <template #[`item.place`]="{ item }" class="text-center">
               <v-icon v-if="item.place == 1" color="#FFDF00"
                 >mdi-crown-outline</v-icon
