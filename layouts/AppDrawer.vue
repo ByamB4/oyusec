@@ -11,7 +11,7 @@
     <nuxt-link :to="localePath('/')" aria-label="homepage">
       <div class="mt-2 d-flex align-center">
         <v-avatar tile size="45" class="ml-4">
-          <v-img src="/logo.png" />
+          <v-img src="/logo.png" aria-label="homepage image" />
         </v-avatar>
         <div class="ml-5">
           <span class="white--text">OyuSec</span>
