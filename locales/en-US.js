@@ -10,6 +10,7 @@ export default {
   state: "State",
   flag: "Flag",
   description: "Description",
+  solution: "Solution",
   rule: "Rule",
   prizes: "Prizes",
   sponsor: "Sponser",
@@ -35,7 +36,10 @@ export default {
   challenge_name: "Challenge Name",
   competition_notfound: "No competition found",
   solvedChallenges: "Solved Challenges",
+  youHaveSolvedThisChallenge: "You have solved this challenge",
+  youHaveAddedThisChallenge: "You have added this challenge",
   competitionHistory: "Competition History",
+  competitionOver: "Competition Is Over",
   createAccount: "Create Account",
   day: "Day",
   hour: "Hour",
@@ -52,6 +56,7 @@ export default {
   enrollment: "Enrollment",
   rank: "Rank",
   user: "User",
+  added: "Added",
   pages: {
     index: {
       title: "Homepage",
@@ -75,16 +80,16 @@ export default {
         link: "/competitions",
       },
       {
-        icon: "mdi-cards-heart",
-        color: "#e31b23",
-        title: "Contribute",
-        link: "/contribute",
-      },
-      {
         icon: "mdi-chart-line",
         color: "#ffdf00",
         title: "Rankings",
         link: "/rankings",
+      },
+      {
+        icon: "mdi-cards-heart",
+        color: "#e31b23",
+        title: "Contribute",
+        link: "/contribute",
       },
     ],
     authMenu: [
@@ -141,8 +146,8 @@ export default {
   },
   contribute: {
     challengesTab: [
-      { name: "Standart", icon: "mdi-sword" },
       { name: "Dynamic", icon: "mdi-sword-cross" },
+      // { name: "Standart", icon: "mdi-sword" },
     ],
   },
   admin: {

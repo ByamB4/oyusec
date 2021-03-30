@@ -13,10 +13,7 @@
             </v-row>
           </v-tab>
           <v-tab-item tile>
-            <FormStandard />
-          </v-tab-item>
-          <v-tab-item tile>
-            <FormDynamic />
+            <ContributeRequestchallenge />
           </v-tab-item>
         </v-tabs>
       </v-col>

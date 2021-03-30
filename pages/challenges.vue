@@ -4,6 +4,7 @@
       <v-col v-if="loggedIn" cols="10" class="d-flex justify-end">
         <v-checkbox
           v-model="isHideSolved"
+          dark
           class="font-play"
           color="orange"
           label="Бодсон бодлого нуух"
@@ -15,7 +16,7 @@
           <div class="category">
             <h2 class="font-play" v-text="category.name" />
           </div>
-          <v-expansion-panels popout tile inset>
+          <v-expansion-panels popout tile inset dark>
             <Challenge
               v-for="challenge in category.challenges.filter(
                 ({ solved }) => !isHideSolved || !solved

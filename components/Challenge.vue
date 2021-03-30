@@ -1,9 +1,7 @@
 <template>
-  <v-expansion-panel
-    :id="'a' + challenge.id"
-    class="challenge mt-2 font-exo"
-    @click="$vuetify.goTo(`#a${challenge.id}`, scrollOptions)"
-  >
+  <!-- :id="'a' + challenge.id"
+    @click="$vuetify.goTo(`#a${challenge.id}`, scrollOptions)" -->
+  <v-expansion-panel class="challenge mt-2 font-exo">
     <v-dialog v-model="dialog.show" max-width="400px">
       <v-simple-table class="user-bg font-exo" dark>
         <tbody>
@@ -26,13 +24,18 @@
     </v-dialog>
     <v-expansion-panel-header
       expand-icon
-      :class="{ solved: challenge.solved && $auth.loggedIn }"
+      :class="{
+        solved:
+          $auth.loggedIn &&
+          (challenge.solved ||
+            $auth.user.username == challenge.author.username),
+      }"
     >
       <v-row align="center" no-gutters>
-        <v-col xs="6" sm="6" md="6" lg="6" xl="8" class="f-15">
+        <v-col xs="12" sm="4" md="5" lg="6" xl="8" class="f-15">
           <strong class="ml-3" v-text="challenge.name" />
         </v-col>
-        <v-col xs="6" sm="6" md="6" lg="6" xl="4" align="right">
+        <v-col xs="12" sm="8" md="7" lg="6" xl="4" align="right">
           <v-chip
             class="ma-2"
             close
@@ -45,49 +48,108 @@
             <strong v-text="$t('solved')" />
             <span class="ml-1" v-text="challenge.solves" />
           </v-chip>
-          <v-chip small class="ml-1 white--text" color="purple darken-2">
+          <v-chip small class="ml-1" color="purple darken-2">
             <strong v-text="$t('score')" />
             <span class="ml-1" v-text="challenge.value" />
+          </v-chip>
+          <v-chip small class="ml-1" color="teal darken-2">
+            <strong v-text="$t('added')" />
+            <nuxt-link
+              :to="
+                localePath({
+                  name: 'user-slug',
+                  params: { slug: challenge.author.slug },
+                })
+              "
+            >
+              <span
+                class="ml-1 white--text"
+                v-text="challenge.author.username"
+              />
+            </nuxt-link>
           </v-chip>
         </v-col>
       </v-row>
     </v-expansion-panel-header>
-    <v-expansion-panel-content v-if="!challenge.solved">
+    <v-expansion-panel-content>
       <div class="mt-3" v-html="$md.render(challenge.description)" />
-      <v-form
-        v-if="$auth.loggedIn && status != 'Дууссан'"
-        ref="form"
-        v-model="form.valid"
-        class="mt-4 f-15"
-        @submit.prevent="submit"
+      <div
+        v-if="
+          status == 'Дууссан' ||
+          challenge.solved ||
+          ($auth.loggedIn &&
+            $auth.user.username == challenge.author.username) ||
+          status == 'Дууссан'
+        "
       >
-        <v-row justify="center">
-          <v-col cols="5">
-            <v-text-field
-              v-model="form.submission"
-              :class="{ incorrect }"
-              :rules="[rules.required]"
-              :loading="form.loading"
-              color="white"
-              placeholder="oyusec{.*}"
-              dense
-              autofocus
-              trim
+        <v-row>
+          <v-col cols="12" class="text-center">
+            <h4
+              v-if="
+                $auth.loggedIn &&
+                $auth.user.username == challenge.author.username
+              "
+              v-text="$t('youHaveAddedThisChallenge')"
             />
-          </v-col>
-          <v-col cols="2">
-            <v-btn
-              :disabled="!form.valid"
-              :loading="form.loading"
-              type="submit"
-              depressed
-              small
-              color="primary"
-              v-text="$t('submit')"
+            <h4
+              v-else-if="status == 'Дууссан'"
+              v-text="$t('competitionOver')"
             />
+            <h4
+              v-else-if="challenge.solved"
+              v-text="$t('youHaveSolvedThisChallenge')"
+            />
+
+            <v-tooltip bottom>
+              <template #activator="{ on, attrs }">
+                <span
+                  v-bind="attrs"
+                  class="font-weight-bold"
+                  style="color: #e85154"
+                  v-on="on"
+                  >Writeup</span
+                >
+              </template>
+              <span>Soon2 Zoom2</span>
+            </v-tooltip>
           </v-col>
         </v-row>
-      </v-form>
+      </div>
+      <div v-else-if="$auth.loggedIn">
+        <v-form
+          ref="form"
+          v-model="form.valid"
+          class="mt-4 f-15"
+          @submit.prevent="submit"
+        >
+          <v-row class="d-flex justify-center">
+            <v-col cols="5">
+              <v-text-field
+                v-model="form.submission"
+                :class="{ incorrect }"
+                :rules="[rules.required]"
+                :loading="form.loading"
+                color="white"
+                placeholder="oyusec{.*}"
+                dense
+                autofocus
+                trim
+              />
+            </v-col>
+            <v-col cols="2">
+              <v-btn
+                :disabled="!form.valid"
+                :loading="form.loading"
+                type="submit"
+                depressed
+                small
+                color="primary"
+                v-text="$t('submit')"
+              />
+            </v-col>
+          </v-row>
+        </v-form>
+      </div>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
@@ -189,9 +251,6 @@ export default {
           icon: "alert-circle",
         })
       }
-    },
-    test() {
-      console.log("test")
     },
   },
 }

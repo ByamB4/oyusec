@@ -11,6 +11,7 @@ export default {
   flag: "Флаг",
   state: "Төлөв",
   rule: "Дүрэм",
+  solution: "Шийдэл",
   prizes: "Шагнал",
   sponsor: "Ивээн тэтгэгч",
   decay: "Буурах хувь",
@@ -44,7 +45,10 @@ export default {
   password: "Нууц үг",
   solvedChallenges: "Бодсон бодлогууд",
   competitionHistory: "Тэмцээний түүх",
+  competitionOver: "Тэмцээн дууссан байна",
   competition_notfound: "Тэмцээн олдсонгүй",
+  youHaveSolvedThisChallenge: "Та аль хэдийн бодсон байна",
+  youHaveAddedThisChallenge: "Та энэ бодлогыг нэмсэн байна",
   endsAt: "Дуусна",
   startsAt: "Эхэлнэ",
   finished: "Дууссан",
@@ -52,6 +56,7 @@ export default {
   enrollment: "Элсэлт",
   rank: "Байр",
   user: "Хэрэглэгч",
+  added: "Нэмсэн",
   pages: {
     index: {
       title: "Нүүр хуудас",
@@ -75,16 +80,16 @@ export default {
         link: "/competitions",
       },
       {
-        icon: "mdi-cards-heart",
-        color: "#e31b23",
-        title: "Хувь нэмэр",
-        link: "/contribute",
-      },
-      {
         icon: "mdi-chart-line",
         color: "#ffdf00",
         title: "Зэрэглэл",
         link: "/rankings",
+      },
+      {
+        icon: "mdi-cards-heart",
+        color: "#e31b23",
+        title: "Хувь нэмэр",
+        link: "/contribute",
       },
     ],
     loggedMenu: { title: "Гарах" },
@@ -141,8 +146,8 @@ export default {
   },
   contribute: {
     challengesTab: [
-      { name: "Стандарт", icon: "mdi-sword" },
       { name: "Динамик", icon: "mdi-sword-cross" },
+      // { name: "Стандарт", icon: "mdi-sword" },
     ],
   },
   admin: {
