@@ -57,7 +57,7 @@
     <div class="mr-3">
       <v-btn
         v-if="$i18n.locale === 'en'"
-        aria-label="toggle language"
+        aria-label="toggle mongolia"
         text
         small
         icon
@@ -65,7 +65,7 @@
       >
         <v-icon color="pink">mdi-translate</v-icon>
       </v-btn>
-      <v-btn v-else text small icon :to="switchLocalePath('en')">
+      <v-btn v-else text small icon aria-label="toggle english" :to="switchLocalePath('en')">
         <v-icon color="pink">mdi-translate-off</v-icon>
       </v-btn>
     </div>

@@ -8,7 +8,7 @@
     floating
     class="font-press"
   >
-    <nuxt-link :to="localePath('/')">
+    <nuxt-link :to="localePath('/')" aria-label="homepage">
       <div class="mt-2 d-flex align-center">
         <v-avatar tile size="45" class="ml-4">
           <v-img src="/logo.png" />

@@ -1,5 +1,6 @@
 export default {
   ssr: false,
+  target: "static",
   head: {
     titleTemplate: "%s | OyuSec",
     title: "OyuSec",
@@ -221,6 +222,5 @@ export default {
   build: {},
   generate: {
     fallback: true,
-    
   },
 }

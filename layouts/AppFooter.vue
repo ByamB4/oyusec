@@ -9,6 +9,7 @@
             class="mx-3"
             icon
             :href="link.link"
+            rel="noopener"
             target="_blank"
           >
             <v-icon size="24px">

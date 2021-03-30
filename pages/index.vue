@@ -35,7 +35,7 @@
       >
         <h2 class="text-center">
           <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
-          {{ $t("challenge") }}4
+          {{ $t("challenge") }}5
         </h2>
         <span style="line-height: 200%" class="f-19">
           Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг
@@ -60,7 +60,13 @@
         <span style="line-height: 200%" class="f-19">
           Бусадтай харилцаа тогтоож, өөрсдийн бодсон бодолт зэргийг хуваалцан
           бие биенийхээ арга туршилгаас суралцах. Асууж тодруулах зүйл гарах үед
-          <v-btn link icon href="https://discord.gg/9fqVFEBAhv" target="_blank"
+          <v-btn
+            link
+            icon
+            href="https://discord.gg/9fqVFEBAhv"
+            target="_blank"
+            rel="noopener"
+            aria-label="discord link"
             ><v-icon color="white">mdi-discord</v-icon></v-btn
           >-оор чөлөөтэй харилцана.
         </span>
