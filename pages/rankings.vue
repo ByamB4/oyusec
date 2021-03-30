@@ -34,7 +34,7 @@
                   })
                 "
               >
-                <span class="white--text" v-text="item.username" />
+                <span v-text="item.username" />
               </nuxt-link>
             </template>
             <template #[`item.place`]="{ item }" class="text-center">

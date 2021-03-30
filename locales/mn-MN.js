@@ -49,6 +49,7 @@ export default {
   competition_notfound: "Тэмцээн олдсонгүй",
   youHaveSolvedThisChallenge: "Та аль хэдийн бодсон байна",
   youHaveAddedThisChallenge: "Та энэ бодлогыг нэмсэн байна",
+  weNeverAbleToSeeYourPassword: "Бид таны нууц үгийг мэдэх ямар ч боломжгүй",
   endsAt: "Дуусна",
   startsAt: "Эхэлнэ",
   finished: "Дууссан",
@@ -126,7 +127,12 @@ export default {
   },
   competitionTab: {
     menu: ["Шууд", "Удахгүй", "Дууссан"],
-    slugMenu: ["Тухай", "Бодлогууд", "Онооны самбар"],
+    slugMenu: [
+      { title: "Тухай", icon: "mdi-script-text-outline" },
+      { title: "Бодлогууд", icon: "mdi-sword-cross" },
+      { title: "Онооны самбар", icon: "mdi-chart-line" },
+      { title: "Үзүүлэлт", icon: "mdi-chart-bar" },
+    ],
   },
   userTab: {
     profile: {
@@ -146,7 +152,7 @@ export default {
   },
   contribute: {
     challengesTab: [
-      { name: "Динамик", icon: "mdi-sword-cross" },
+      { name: "Бодлого", icon: "mdi-sword-cross" },
       // { name: "Стандарт", icon: "mdi-sword" },
     ],
   },

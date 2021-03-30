@@ -31,7 +31,7 @@
 
         <v-list-item-content>
           <v-list-item-title
-            class="f-12"
+            class="f-12 white--text"
             v-text="item.title"
           ></v-list-item-title>
         </v-list-item-content>
@@ -42,7 +42,7 @@
             <v-icon color="red">mdi-login</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="f-12">{{
+            <v-list-item-title class="f-12 white--text">{{
               $t("drawer.loggedMenu.title")
             }}</v-list-item-title>
           </v-list-item-content>
@@ -60,7 +60,7 @@
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title
-              class="f-12"
+              class="f-12 white--text"
               v-text="auth.name"
             ></v-list-item-title>
           </v-list-item-content>

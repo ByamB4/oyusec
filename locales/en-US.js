@@ -41,6 +41,7 @@ export default {
   competitionHistory: "Competition History",
   competitionOver: "Competition Is Over",
   createAccount: "Create Account",
+  weNeverAbleToSeeYourPassword: "We never able to see your password",
   day: "Day",
   hour: "Hour",
   min: "Min",
@@ -126,7 +127,12 @@ export default {
   },
   competitionTab: {
     menu: ["Live", "Upcoming", "Archived"],
-    slugMenu: ["About", "Challenges", "Scoreboard"],
+    slugMenu: [
+      { title: "About", icon: "mdi-script-text-outline" },
+      { title: "Challenges", icon: "mdi-sword-cross" },
+      { title: "Scoreboard", icon: "mdi-chart-line" },
+      { title: "Statistic", icon: "mdi-chart-bar" },
+    ],
   },
   userTab: {
     profile: {
@@ -146,7 +152,7 @@ export default {
   },
   contribute: {
     challengesTab: [
-      { name: "Dynamic", icon: "mdi-sword-cross" },
+      { name: "Challenge", icon: "mdi-sword-cross" },
       // { name: "Standart", icon: "mdi-sword" },
     ],
   },

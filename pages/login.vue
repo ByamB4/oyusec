@@ -26,6 +26,7 @@
                 :rules="[rules.limitPass]"
                 :loading="form.loading"
                 :label="$t('password')"
+                :hint="$t('weNeverAbleToSeeYourPassword')"
                 color="white"
                 outlined
                 dense

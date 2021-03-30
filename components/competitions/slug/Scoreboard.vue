@@ -46,7 +46,7 @@
                       params: { slug: user.username },
                     })
                   "
-                  ><span class="f-18 white--text" v-text="user.username" />
+                  ><span class="f-18" v-text="user.username" />
                 </nuxt-link>
               </td>
               <td class="f-18 text-center" v-text="user.score" />

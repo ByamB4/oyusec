@@ -80,12 +80,8 @@
         </h2>
         <span style="line-height: 200%" class="f-19">
           <b>Live</b> тэмцээнд оролцон оноо цуглуулж бусадтай өрсөлдөн ранкаа
-          ахиулах боломжтой. Бид тэмцээний үр дүнг өөрсдийн
-
-          <v-btn link icon href="https://discord.gg/9fqVFEBAhv" target="_blank"
-            ><v-icon color="white">mdi-facebook</v-icon></v-btn
-          >
-          хуудсаараа дамжуулан зарлаж байх болно.
+          ахиулах боломжтой. Бид тэмцээний үр дүнг өөрсдийн цахим хуудсаараа
+          дамжуулан зарлаж байх болно.
         </span>
       </v-col>
       <v-col

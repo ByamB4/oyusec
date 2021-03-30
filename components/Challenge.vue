@@ -62,10 +62,7 @@
                 })
               "
             >
-              <span
-                class="ml-1 white--text"
-                v-text="challenge.author.username"
-              />
+              <span class="ml-1" v-text="challenge.author.username" />
             </nuxt-link>
           </v-chip>
         </v-col>

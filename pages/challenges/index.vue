@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="challenges">
     <v-row justify="center">
-      <v-col v-if="loggedIn" cols="10" class="d-flex justify-end">
+      <v-col v-if="loggedIn" cols="11" class="d-flex justify-end">
         <v-checkbox
           v-model="isHideSolved"
           dark
@@ -11,7 +11,7 @@
         >
         </v-checkbox>
       </v-col>
-      <v-col cols="10" :class="{ 'mt-n10': loggedIn }">
+      <v-col cols="11" :class="{ 'mt-n10': loggedIn }">
         <div v-for="category in categories" :key="category.name">
           <div class="category">
             <h2 class="font-play" v-text="category.name" />

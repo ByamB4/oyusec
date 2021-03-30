@@ -49,35 +49,6 @@
           dense
         ></v-text-field>
         <v-text-field
-          v-model="form.value"
-          :label="$t('score')"
-          :loading="form.loading"
-          placeholder="1000"
-          type="number"
-          outlined
-          dense
-        ></v-text-field>
-        <v-text-field
-          v-model="form.decay"
-          :label="$t('decay')"
-          :loading="form.loading"
-          type="number"
-          placeholder="25"
-          hint="Хүн бодлого бодох үед оноог хэр хэмжээтэй буурахыг тодорхойлно"
-          outlined
-          dense
-        ></v-text-field>
-        <v-text-field
-          v-model="form.minimum"
-          :label="$t('minimum_value')"
-          :loading="form.loading"
-          placeholder="100"
-          type="number"
-          hint="Оноо буурсаар эцсийн дүндээ хэд болохыг тодорхойлно"
-          outlined
-          dense
-        ></v-text-field>
-        <v-text-field
           v-model="form.flag"
           placeholder="oyusec{.*}"
           :rules="[rules.required]"

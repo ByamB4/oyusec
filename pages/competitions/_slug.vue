@@ -23,7 +23,8 @@
       <v-col cols="12">
         <v-tabs>
           <v-tab v-for="tab in $t('competitionTab.slugMenu')" :key="tab">
-            <span v-text="tab" />
+            <v-icon>{{ tab.icon }}</v-icon>
+            <span class="ml-3" v-text="tab.title" />
           </v-tab>
           <v-tab-item>
             <CompetitionsSlugDetail />
@@ -33,6 +34,9 @@
           </v-tab-item>
           <v-tab-item>
             <CompetitionsSlugScoreboard />
+          </v-tab-item>
+          <v-tab-item>
+            <CompetitionsSlugStatistic />
           </v-tab-item>
         </v-tabs>
       </v-col>
