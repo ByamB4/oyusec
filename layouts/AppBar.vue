@@ -40,9 +40,7 @@
         <v-btn
           icon
           color="light-blue darken-1"
-          aria-haspopup="true"
-          role="button"
-          type="button"
+          aria-label="user profile"
           :to="
             localePath({
               name: 'user-slug',
@@ -59,9 +57,7 @@
     <div class="mr-3">
       <v-btn
         v-if="$i18n.locale === 'en'"
-        aria-haspopup="true"
-        role="button"
-        type="button"
+        aria-label="toggle language"
         text
         small
         icon
@@ -76,9 +72,7 @@
     <div>
       <v-btn
         v-if="$vuetify.theme.dark"
-        aria-haspopup="true"
-        role="button"
-        type="button"
+        aria-label="toggle dark"
         text
         small
         icon
@@ -89,9 +83,7 @@
       </v-btn>
       <v-btn
         v-else
-        aria-haspopup="true"
-        role="button"
-        type="button"
+        aria-label="toggle light"
         text
         small
         icon
