@@ -168,17 +168,6 @@ export default {
     // baseURL: "http://localhost:8000",
     baseURL: "https://oyusec-server.herokuapp.com",
   },
-  fallback: true,
-  render: {
-    fallback: {
-      static: {
-        // Avoid sending 404 for these extensions
-        handlers: {
-          ".js": false,
-        },
-      },
-    },
-  },
   toast: {
     theme: "bubble",
     position: "bottom-right",
@@ -230,5 +219,8 @@ export default {
     },
   },
   build: {},
-  generate: {},
+  generate: {
+    fallback: true,
+    
+  },
 }

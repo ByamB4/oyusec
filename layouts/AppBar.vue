@@ -36,11 +36,18 @@
           </template>
           <span>{{ profile.progress }}%</span>
         </v-tooltip>
+
         <v-btn
           icon
           color="light-blue darken-1"
+          aria-haspopup="true"
+          role="button"
+          type="button"
           :to="
-            localePath({ name: 'user-slug', params: { slug: $auth.user.slug } })
+            localePath({
+              name: 'user-slug',
+              params: { slug: $auth.user.slug },
+            })
           "
         >
           <v-icon>mdi-account-circle</v-icon>
@@ -52,6 +59,9 @@
     <div class="mr-3">
       <v-btn
         v-if="$i18n.locale === 'en'"
+        aria-haspopup="true"
+        role="button"
+        type="button"
         text
         small
         icon
@@ -66,6 +76,9 @@
     <div>
       <v-btn
         v-if="$vuetify.theme.dark"
+        aria-haspopup="true"
+        role="button"
+        type="button"
         text
         small
         icon
@@ -76,6 +89,9 @@
       </v-btn>
       <v-btn
         v-else
+        aria-haspopup="true"
+        role="button"
+        type="button"
         text
         small
         icon
