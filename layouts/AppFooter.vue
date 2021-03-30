@@ -6,9 +6,10 @@
           <v-btn
             v-for="link in links"
             :key="link.icon"
+            :href="link.link"
+            :aria-label="link.link"
             class="mx-3"
             icon
-            :href="link.link"
             rel="noopener"
             target="_blank"
           >

@@ -1,7 +1,7 @@
 <template>
   <v-app-bar app height="50" elevation="0">
     <v-app-bar-nav-icon @click="$store.commit('TOGGLE_DRAWER')">
-      <v-icon color="white">mdi-menu</v-icon>
+      <v-icon color="white" aria-label="toggle drawer">mdi-menu</v-icon>
     </v-app-bar-nav-icon>
     <v-spacer />
     <client-only>
@@ -65,7 +65,14 @@
       >
         <v-icon color="pink">mdi-translate</v-icon>
       </v-btn>
-      <v-btn v-else text small icon aria-label="toggle english" :to="switchLocalePath('en')">
+      <v-btn
+        v-else
+        text
+        small
+        icon
+        aria-label="toggle english"
+        :to="switchLocalePath('en')"
+      >
         <v-icon color="pink">mdi-translate-off</v-icon>
       </v-btn>
     </div>
