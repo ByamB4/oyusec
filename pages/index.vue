@@ -35,7 +35,7 @@
       >
         <h2 class="text-center">
           <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
-          {{ $t("challenge") }}9
+          {{ $t("challenge") }}10
         </h2>
         <span style="line-height: 200%" class="f-19">
           Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг

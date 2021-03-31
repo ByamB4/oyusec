@@ -219,6 +219,11 @@ export default {
       dark: true,
     },
   },
+  render: {
+    static: {
+      maxAge: 60 * 60 * 24 * 365 * 1000,
+    },
+  },
   build: {},
   generate: {
     fallback: true,
