@@ -100,7 +100,15 @@ export default {
     color: "#b388ff",
     height: "1px",
   },
-  css: ["~/assets/global.sass", "~/assets/class.sass", "~/assets/theme.sass"],
+  css: [
+    "~/assets/global.sass",
+    "~/assets/class.sass",
+    "~/assets/theme.sass",
+    {
+      src: "~/node_modules/highlight.js/styles/monokai-sublime.css",
+      lang: "css",
+    },
+  ],
   plugins: ["~/plugins/consts"],
   components: true,
   buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify"],
@@ -200,6 +208,8 @@ export default {
 
   markdownit: {
     runtime: true,
+    injected: true,
+    use: ["markdown-it-highlightjs"],
   },
 
   webfontloader: {

@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/toast": "^3.3.1",
     "core-js": "^3.8.3",
+    "markdown-it-highlightjs": "^3.4.0",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.21.1",
     "nuxt-webfontloader": "^1.1.0",
