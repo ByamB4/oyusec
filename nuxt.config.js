@@ -21,7 +21,7 @@ export default {
       {
         name: "keywords",
         content:
-          "ctf, oyusec, byamb4, монгол, writeup, oyutech, oyutube, oyulearn, mongolian",
+          "oyusec, ctf, byamb4, монгол, writeup, oyutech, oyutube, oyulearn, mongolian, os",
       },
       {
         name: "author",

@@ -35,7 +35,7 @@
       >
         <h2 class="text-center">
           <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
-          {{ $t("challenge") }}10
+          {{ $t("challenge") }}
         </h2>
         <span style="line-height: 200%" class="f-19">
           Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг
@@ -133,8 +133,8 @@ export default {
       title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
       meta: [
         {
-          hid: "og:description",
-          name: "og:description",
+          hid: "description",
+          name: "description",
           content:
             "Бодлого: Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх",
         },
