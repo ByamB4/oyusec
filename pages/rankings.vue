@@ -141,9 +141,11 @@ export default {
     ],
   }),
 
-  head: () => ({
-    title: "Онооны самбар",
-  }),
+  head() {
+    return {
+      title: this.$i18n.messages[this.$i18n.locale].pages.rankings.title,
+    }
+  },
 
   computed: {
     ...mapGetters({

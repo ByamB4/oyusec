@@ -1,6 +1,5 @@
 export default {
   about: "About",
-  note: "DEMO VERSION",
   name: "Name",
   challenge: "Challenge",
   community: "Community",
@@ -61,9 +60,38 @@ export default {
   pages: {
     index: {
       title: "Homepage",
+      challengeDescription:
+        "Test your skills on information security and networking policies, score points and compete with others in a fun way.",
+      communityDescription:
+        "Build relationships with others, share your thoughts, and learn from each other's experiences. Feel free to contact us when you have any questions",
+      competitionDescription:
+        "You can participate in competitions, collect points and compete with others to improve your rank. We will announce the results of the competition on our website.",
+      description: [
+        "Learn cyber security",
+        "Sharpen your skills",
+        "Compete others",
+        "OyuSec",
+        "Challenge your friends",
+        "Be a top player",
+      ],
     },
     competition: {
       title: "Competitions",
+    },
+    challenges: {
+      title: "Challenges",
+    },
+    contribute: {
+      title: "Contribute",
+    },
+    rankings: {
+      title: "Rankings",
+    },
+    register: {
+      title: "Register",
+    },
+    login: {
+      title: "Login",
     },
   },
   drawer: {

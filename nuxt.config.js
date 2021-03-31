@@ -224,6 +224,7 @@ export default {
       maxAge: 60 * 60 * 24 * 365 * 1000,
     },
   },
+  fetchOnServer: false,
   build: {},
   generate: {
     fallback: true,

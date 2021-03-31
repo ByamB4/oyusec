@@ -72,9 +72,11 @@ export default {
       limitPass: (value) => value.length >= 8 || "8 тэмдэгтээс их байх ёстой",
     },
   }),
-  head: () => ({
-    title: "Нэвтрэх",
-  }),
+  head() {
+    return {
+      title: this.$i18n.messages[this.$i18n.locale].pages.register.title,
+    }
+  },
   methods: {
     reset() {
       this.form = {

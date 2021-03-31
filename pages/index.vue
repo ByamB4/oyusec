@@ -11,36 +11,30 @@
         />
         <vue-typer
           class="font-press"
-          :text="[
-            'Learn cyber security',
-            'Sharp your skills',
-            'Compete others',
-            'OyuSec',
-            'Challenge your friends',
-            'Be a top player',
-          ]"
+          :text="$t('pages.index.description')"
           :shuffle="true"
           :erase-delay="400"
           caret-animation="blink"
         ></vue-typer>
       </v-col>
       <v-col
-        cols="10"
-        xs="10"
-        sm="10"
-        md="6"
-        lg="6"
-        xl="6"
-        class="mt-10 text-justify"
+        cols="12"
+        xs="12"
+        sm="8"
+        md="8"
+        lg="8"
+        xl="8"
+        class="mt-10 text-center"
       >
         <h2 class="text-center">
-          <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
-          {{ $t("challenge") }}
+          <v-icon size="35" color="yellow darken-2">mdi-trophy-outline</v-icon>
+          {{ $t("competition") }}
         </h2>
-        <span style="line-height: 200%" class="f-19">
-          Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг
-          шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх
-        </span>
+        <span
+          style="line-height: 200%"
+          class="f-19"
+          v-text="$t('pages.index.competitionDescription')"
+        />
       </v-col>
       <v-col
         cols="10"
@@ -49,7 +43,27 @@
         md="6"
         lg="6"
         xl="6"
-        class="mt-10 text-justify"
+        class="mt-10 text-center"
+      >
+        <h2 class="text-center">
+          <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
+          {{ $t("challenge") }}
+        </h2>
+
+        <span
+          style="line-height: 200%"
+          class="f-19"
+          v-text="$t('pages.index.challengeDescription')"
+        />
+      </v-col>
+      <v-col
+        cols="10"
+        xs="10"
+        sm="10"
+        md="6"
+        lg="6"
+        xl="6"
+        class="mt-10 text-center"
       >
         <h2 class="text-center">
           <v-icon size="35" color="light-blue accent-3"
@@ -57,38 +71,11 @@
           >
           {{ $t("community") }}
         </h2>
-        <span style="line-height: 200%" class="f-19">
-          Бусадтай харилцаа тогтоож, өөрсдийн бодсон бодолт зэргийг хуваалцан
-          бие биенийхээ арга туршилгаас суралцах. Асууж тодруулах зүйл гарах үед
-          <v-btn
-            link
-            icon
-            href="https://discord.gg/9fqVFEBAhv"
-            target="_blank"
-            rel="noopener"
-            aria-label="discord link"
-            ><v-icon color="white">mdi-discord</v-icon></v-btn
-          >-оор чөлөөтэй харилцана.
-        </span>
-      </v-col>
-      <v-col
-        cols="10"
-        xs="10"
-        sm="10"
-        md="6"
-        lg="6"
-        xl="6"
-        class="mt-10 text-justify"
-      >
-        <h2 class="text-center">
-          <v-icon size="35" color="yellow darken-2">mdi-trophy-outline</v-icon>
-          {{ $t("competition") }}
-        </h2>
-        <span style="line-height: 200%" class="f-19">
-          <b>Live</b> тэмцээнд оролцон оноо цуглуулж бусадтай өрсөлдөн ранкаа
-          ахиулах боломжтой. Бид тэмцээний үр дүнг өөрсдийн цахим хуудсаараа
-          дамжуулан зарлаж байх болно.
-        </span>
+        <span
+          style="line-height: 200%"
+          class="f-19"
+          v-text="$t('pages.index.communityDescription')"
+        />
       </v-col>
       <!-- <v-col
         cols="10"
