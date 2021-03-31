@@ -1,6 +1,9 @@
 <template>
-  <v-app-bar app height="50" elevation="0" aria-label="toggle drawer">
-    <v-app-bar-nav-icon @click="$store.commit('TOGGLE_DRAWER')">
+  <v-app-bar app height="50" elevation="0">
+    <v-app-bar-nav-icon
+      @click="$store.commit('TOGGLE_DRAWER')"
+      aria-label="toggle drawer"
+    >
       <v-icon color="white">mdi-menu</v-icon>
     </v-app-bar-nav-icon>
     <v-spacer />
