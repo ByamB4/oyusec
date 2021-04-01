@@ -3,8 +3,9 @@
     <v-row>
       <v-col cols="12">
         <v-tabs class="font-exo">
-          <v-tab v-for="tab in $t('competitionTab.menu')" :key="tab">
-            <span class="font-weight-bold" v-text="tab" />
+          <v-tab v-for="tab in $t('competitionTab.menu')" :key="tab.title">
+            <v-icon>{{ tab.icon }}</v-icon>
+            <span class="ml-3" v-text="tab.title" />
           </v-tab>
           <v-tab-item class="bg-transparent">
             <v-row>

@@ -22,7 +22,7 @@
     <v-row>
       <v-col cols="12">
         <v-tabs>
-          <v-tab v-for="tab in $t('competitionTab.slugMenu')" :key="tab">
+          <v-tab v-for="tab in $t('competitionTab.slugMenu')" :key="tab.title">
             <v-icon>{{ tab.icon }}</v-icon>
             <span class="ml-3" v-text="tab.title" />
           </v-tab>

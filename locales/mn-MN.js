@@ -58,6 +58,7 @@ export default {
   rank: "Байр",
   user: "Хэрэглэгч",
   added: "Нэмсэн",
+  postedAt: "Нийтлэгдсэн",
   pages: {
     index: {
       title: "Нүүр хуудас",
@@ -98,13 +99,13 @@ export default {
   drawer: {
     leftMenu: [
       {
-        icon: "mdi-sword-cross",
+        icon: "mdi-sword",
         color: "green accent-4",
         title: "Бодлого",
         link: "/challenges",
       },
       {
-        icon: "mdi-sword",
+        icon: "mdi-sword-cross",
         color: "blue ligthen-2",
         title: "Тэмцээн",
         link: "/competitions",
@@ -115,6 +116,12 @@ export default {
         title: "Зэрэглэл",
         link: "/rankings",
       },
+      // {
+      //   icon: "mdi-file-document-outline",
+      //   color: "purple lighten-2",
+      //   title: "Хариу",
+      //   link: "/writeup",
+      // },
       {
         icon: "mdi-cards-heart",
         color: "#e31b23",
@@ -155,7 +162,11 @@ export default {
     ],
   },
   competitionTab: {
-    menu: ["Шууд", "Удахгүй", "Дууссан"],
+    menu: [
+      { title: "Шууд", icon: "mdi-record-circle-outline" },
+      { title: "Удахгүй", icon: "mdi-circle-slice-5" },
+      { title: "Дууссан", icon: "mdi-archive" },
+    ],
     slugMenu: [
       { title: "Тухай", icon: "mdi-script-text-outline" },
       { title: "Бодлогууд", icon: "mdi-sword-cross" },

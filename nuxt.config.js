@@ -1,3 +1,5 @@
+const hljs = require("highlight.js")
+
 export default {
   ssr: false,
   target: "static",
@@ -174,8 +176,8 @@ export default {
   },
 
   axios: {
-    // baseURL: "http://localhost:8000",
-    baseURL: "https://oyusec-server.herokuapp.com",
+    baseURL: "http://localhost:8000",
+    // baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",
@@ -205,7 +207,6 @@ export default {
     fallbackLocale: "mn",
     strategy: "prefix",
   },
-
   markdownit: {
     runtime: true,
     injected: true,

@@ -1,24 +1,14 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
     mobile-breakpoint="960"
-    width="240"
+    :mini-variant="drawer"
+    permanent
     enable-resize-watcher
     app
     floating
-    class="font-press"
+    class="font-exo"
   >
-    <nuxt-link :to="localePath('/')" aria-label="homepage">
-      <div class="mt-2 d-flex align-center">
-        <v-avatar tile size="45" class="ml-4">
-          <v-img src="/logo.png" aria-label="homepage image" />
-        </v-avatar>
-        <div class="ml-5">
-          <span class="white--text">OyuSec</span>
-        </div>
-      </div>
-    </nuxt-link>
-    <v-list flat rounded>
+    <v-list nav min-height="200">
       <v-list-item
         v-for="item in $t('drawer.leftMenu')"
         :key="item.icon"
@@ -30,10 +20,7 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title
-            class="f-12 white--text"
-            v-text="item.title"
-          ></v-list-item-title>
+          <v-list-item-title v-text="item.title" />
         </v-list-item-content>
       </v-list-item>
       <div v-if="$auth.loggedIn">
@@ -42,9 +29,7 @@
             <v-icon color="red">mdi-login</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="f-12 white--text">{{
-              $t("drawer.loggedMenu.title")
-            }}</v-list-item-title>
+            <v-list-item-title v-text="$t('drawer.loggedMenu.title')" />
           </v-list-item-content>
         </v-list-item>
       </div>
@@ -59,10 +44,7 @@
             <v-icon :color="auth.color">{{ auth.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title
-              class="f-12 white--text"
-              v-text="auth.name"
-            ></v-list-item-title>
+            <v-list-item-title v-text="auth.name" />
           </v-list-item-content>
         </v-list-item>
       </template>
@@ -85,8 +67,8 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout()
-      this.$store.dispatch("competition/updateSolved")
-      this.$store.dispatch("challenge/updateSolved")
+      await this.$store.dispatch("competition/updateSolved")
+      await this.$store.dispatch("challenge/updateSolved")
       // this.$store.commit('SET_USER', {})
       // this.$store.commit('SET_ISLOGGED', false)
       // this.$store.commit('SET_TOKEN', { access: null, refresh: null })

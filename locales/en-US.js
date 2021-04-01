@@ -57,6 +57,7 @@ export default {
   rank: "Rank",
   user: "User",
   added: "Added",
+  postedAt: "Posted at",
   pages: {
     index: {
       title: "Homepage",
@@ -97,17 +98,29 @@ export default {
   drawer: {
     leftMenu: [
       {
-        icon: "mdi-sword-cross",
+        icon: "mdi-home",
+        color: "orange darken-3",
+        title: "Home",
+        link: "/",
+      },
+      {
+        icon: "mdi-sword",
         color: "green accent-4",
         title: "Practice",
         link: "/challenges",
       },
       {
-        icon: "mdi-sword",
+        icon: "mdi-sword-cross",
         color: "blue ligthen-2",
         title: "Compete",
         link: "/competitions",
       },
+      // {
+      //   icon: "mdi-file-document-outline",
+      //   color: "purple lighten-2",
+      //   title: "Writeup",
+      //   link: "/writeup",
+      // },
       {
         icon: "mdi-chart-line",
         color: "#ffdf00",
@@ -154,7 +167,11 @@ export default {
     ],
   },
   competitionTab: {
-    menu: ["Live", "Upcoming", "Archived"],
+    menu: [
+      { title: "Live", icon: "mdi-record-circle-outline" },
+      { title: "Upcoming", icon: "mdi-circle-slice-5" },
+      { title: "Archived", icon: "mdi-archive" },
+    ],
     slugMenu: [
       { title: "About", icon: "mdi-script-text-outline" },
       { title: "Challenges", icon: "mdi-sword-cross" },

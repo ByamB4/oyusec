@@ -96,19 +96,20 @@
               v-else-if="challenge.solved"
               v-text="$t('youHaveSolvedThisChallenge')"
             />
-
-            <v-tooltip bottom>
-              <template #activator="{ on, attrs }">
-                <span
-                  v-bind="attrs"
-                  class="font-weight-bold"
-                  style="color: #e85154"
-                  v-on="on"
-                  >Writeup</span
-                >
-              </template>
-              <span>Soon2 Zoom2</span>
-            </v-tooltip>
+            <nuxt-link
+              :to="
+                localePath({
+                  name: 'writeup-id',
+                  params: { id: challenge.id },
+                })
+              "
+            >
+              <span
+                class="font-weight-bold"
+                style="color: #e85154"
+                v-text="$t('solution')"
+              />
+            </nuxt-link>
           </v-col>
         </v-row>
       </div>
