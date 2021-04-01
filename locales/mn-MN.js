@@ -27,6 +27,8 @@ export default {
   comingSoon: "Тун удахгүй",
   all_challenges: "Бүх бодлогууд",
   contact: "Бидэнтэй нэгдээрэй",
+  player: "Тоглогч",
+  topPlayers: "Шилдэг тоглогчид",
   solved: "Бодсон",
   point: "Оноо",
   score: "Оноо",
@@ -46,7 +48,7 @@ export default {
   solvedChallenges: "Бодсон бодлогууд",
   competitionHistory: "Тэмцээний түүх",
   competitionOver: "Тэмцээн дууссан байна",
-  competition_notfound: "Тэмцээн олдсонгүй",
+  noCompetitionFound: "Тэмцээн олдсонгүй",
   youHaveSolvedThisChallenge: "Та аль хэдийн бодсон байна",
   youHaveAddedThisChallenge: "Та энэ бодлогыг нэмсэн байна",
   weNeverAbleToSeeYourPassword: "Бид таны нууц үгийг мэдэх ямар ч боломжгүй",
@@ -59,6 +61,11 @@ export default {
   user: "Хэрэглэгч",
   added: "Нэмсэн",
   postedAt: "Нийтлэгдсэн",
+  haveAnAccount: "Хаяг байгаа юу ?",
+  dontHaveAnAccount: "Хаяг байхгүй юу ?",
+  forgetYourPassword: "Нууц үгээ мартсан уу ?",
+  loginRequired: "Нэвтрэх шаардлагатай",
+  hideSolvedChallenges: "Бодсон бодлого нуух",
   pages: {
     index: {
       title: "Нүүр хуудас",
@@ -99,6 +106,12 @@ export default {
   drawer: {
     leftMenu: [
       {
+        icon: "mdi-home",
+        color: "orange darken-3",
+        title: "Нүүр хуудас",
+        link: "/",
+      },
+      {
         icon: "mdi-sword",
         color: "green accent-4",
         title: "Бодлого",
@@ -113,8 +126,8 @@ export default {
       {
         icon: "mdi-chart-line",
         color: "#ffdf00",
-        title: "Зэрэглэл",
-        link: "/rankings",
+        title: "Самбар",
+        link: "/scoreboard",
       },
       // {
       //   icon: "mdi-file-document-outline",
@@ -132,16 +145,10 @@ export default {
     loggedMenu: { title: "Гарах" },
     authMenu: [
       {
-        icon: "mdi-account-plus",
-        color: "green accent-4",
-        name: "Бүртгүүлэх",
-        link: "/register",
-      },
-      {
         icon: "mdi-login",
         color: "orange darken-4",
         name: "Нэвтрэх",
-        link: "/login",
+        link: "/auth",
       },
     ],
   },
@@ -194,6 +201,44 @@ export default {
     challengesTab: [
       { name: "Бодлого", icon: "mdi-sword-cross" },
       // { name: "Стандарт", icon: "mdi-sword" },
+    ],
+  },
+  scoreboard: {
+    headers: [
+      {
+        text: "Байр",
+        align: "center",
+        sortable: false,
+        value: "place",
+        width: "10%",
+      },
+      {
+        text: "Тоглогч",
+        value: "username",
+        sortable: false,
+        width: "15%",
+      },
+      {
+        text: "Бодлогууд",
+        value: "total_solved_challs",
+        sortable: true,
+        width: "15%",
+        align: "center",
+      },
+      {
+        text: "Нийт",
+        value: "progress",
+        sortable: false,
+        align: "center",
+        width: "20%",
+      },
+      {
+        text: "Тэмцээн",
+        value: "total_rating",
+        sortable: true,
+        align: "center",
+        width: "20%",
+      },
     ],
   },
   admin: {

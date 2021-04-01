@@ -6,6 +6,7 @@
     enable-resize-watcher
     app
     floating
+    width="200"
     class="font-exo"
   >
     <v-list nav min-height="200">

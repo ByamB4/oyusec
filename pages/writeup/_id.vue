@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row justify="center" class="font-exo">
+    <!-- <v-row justify="center" class="font-exo">
       <v-col cols="10">
         <v-row align="center">
           <v-col cols="6">
@@ -21,25 +21,25 @@
           />
         </v-expansion-panels>
       </v-col>
-    </v-row>
+    </v-row> -->
   </v-container>
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+// import { mapGetters } from "vuex"
 
-export default {
-  data: () => ({
-    edit: false,
-  }),
-  computed: {
-    ...mapGetters({
-      writeups: "writeup/getWriteups",
-      challenge: "writeup/getChallenge",
-    }),
-  },
-  async mounted() {
-    await this.$store.dispatch("writeup/updateWriteups", this.$route.params.id)
-  },
-}
+// export default {
+//   data: () => ({
+//     edit: false,
+//   }),
+//   computed: {
+//     ...mapGetters({
+//       writeups: "writeup/getWriteups",
+//       challenge: "writeup/getChallenge",
+//     }),
+//   },
+//   async mounted() {
+//     await this.$store.dispatch("writeup/updateWriteups", this.$route.params.id)
+//   },
+// }
 </script>

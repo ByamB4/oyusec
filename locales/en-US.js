@@ -15,6 +15,8 @@ export default {
   sponsor: "Sponser",
   decay: "Decay",
   loading: "Loading",
+  player: "Player",
+  topPlayers: "Top players",
   comingSoon: "Coming soon",
   yes: "Yes",
   no: "No",
@@ -33,7 +35,7 @@ export default {
   days: "Days",
   user_type: "User Type",
   challenge_name: "Challenge Name",
-  competition_notfound: "No competition found",
+  noCompetitionFound: "No competition found",
   solvedChallenges: "Solved Challenges",
   youHaveSolvedThisChallenge: "You have solved this challenge",
   youHaveAddedThisChallenge: "You have added this challenge",
@@ -41,6 +43,9 @@ export default {
   competitionOver: "Competition Is Over",
   createAccount: "Create Account",
   weNeverAbleToSeeYourPassword: "We never able to see your password",
+  haveAnAccount: "Have an account ?",
+  dontHaveAnAccount: "Don't have an account ?",
+  forgetYourPassword: "Forget your password ?",
   day: "Day",
   hour: "Hour",
   min: "Min",
@@ -58,6 +63,8 @@ export default {
   user: "User",
   added: "Added",
   postedAt: "Posted at",
+  loginRequired: "Login required",
+  hideSolvedChallenges: "Hide solved challenges",
   pages: {
     index: {
       title: "Homepage",
@@ -124,8 +131,8 @@ export default {
       {
         icon: "mdi-chart-line",
         color: "#ffdf00",
-        title: "Rankings",
-        link: "/rankings",
+        title: "Scoreboard",
+        link: "/scoreboard",
       },
       {
         icon: "mdi-cards-heart",
@@ -136,16 +143,10 @@ export default {
     ],
     authMenu: [
       {
-        icon: "mdi-account-plus",
-        color: "green accent-4",
-        name: "Register",
-        link: "/register",
-      },
-      {
         icon: "mdi-login",
         color: "orange darken-4",
         name: "Login",
-        link: "/login",
+        link: "/auth",
       },
     ],
     loggedMenu: { title: "Logout" },
@@ -199,6 +200,44 @@ export default {
     challengesTab: [
       { name: "Challenge", icon: "mdi-sword-cross" },
       // { name: "Standart", icon: "mdi-sword" },
+    ],
+  },
+  scoreboard: {
+    headers: [
+      {
+        text: "Rank",
+        align: "center",
+        sortable: false,
+        value: "place",
+        width: "10%",
+      },
+      {
+        text: "Player",
+        value: "username",
+        sortable: false,
+        width: "15%",
+      },
+      {
+        text: "Challenges",
+        value: "total_solved_challs",
+        sortable: true,
+        width: "15%",
+        align: "center",
+      },
+      {
+        text: "Ownership",
+        value: "progress",
+        sortable: false,
+        align: "center",
+        width: "20%",
+      },
+      {
+        text: "Competition",
+        value: "total_rating",
+        sortable: true,
+        align: "center",
+        width: "20%",
+      },
     ],
   },
   admin: {

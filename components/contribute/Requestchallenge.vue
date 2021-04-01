@@ -5,73 +5,78 @@
     :disabled="!$auth.loggedIn"
     @submit.prevent="submit"
   >
-    <v-card class="user-bg font-exo" dark>
-      <v-card-text>
-        <v-text-field
-          v-model="form.name"
-          :label="$t('name')"
-          :rules="[rules.required, rules.counter]"
-          :counter="25"
-          :loading="form.loading"
-          placeholder="Миний Нууц Файл"
-          outlined
-          dense
-        ></v-text-field>
-        <v-text-field
-          v-model="form.category"
-          :label="$t('category')"
-          :rules="[rules.required, rules.counter]"
-          :counter="25"
-          :loading="form.loading"
-          placeholder="Forensics"
-          outlined
-          dense
-        ></v-text-field>
-        <v-textarea
-          v-model="form.description"
-          :rules="[rules.required]"
-          :loading="form.loading"
-          placeholder="
+    <v-tooltip bottom :disabled="$auth.loggedIn" color="warning">
+      <template #activator="{ on, attrs }">
+        <v-card class="user-bg font-exo" dark v-bind="attrs" v-on="on">
+          <v-card-text>
+            <v-text-field
+              v-model="form.name"
+              :label="$t('name')"
+              :rules="[rules.required, rules.counter]"
+              :counter="25"
+              :loading="form.loading"
+              placeholder="Миний Нууц Файл"
+              outlined
+              dense
+            ></v-text-field>
+            <v-text-field
+              v-model="form.category"
+              :label="$t('category')"
+              :rules="[rules.required, rules.counter]"
+              :counter="25"
+              :loading="form.loading"
+              placeholder="Forensics"
+              outlined
+              dense
+            ></v-text-field>
+            <v-textarea
+              v-model="form.description"
+              :rules="[rules.required]"
+              :loading="form.loading"
+              placeholder="
             Та текстийн **bold** бас _italic_ болгох боломжтой.
             > Мөн санамж, бичиг зэрэг
             [Татах](https://your-file-end-url.com)
           "
-          outlined
-          :label="$t('description')"
-          auto-grow
-        ></v-textarea>
-        <v-text-field
-          v-model="form.solution"
-          :label="$t('solution')"
-          :rules="[rules.required]"
-          :loading="form.loading"
-          outlined
-          dense
-        ></v-text-field>
-        <v-text-field
-          v-model="form.flag"
-          placeholder="oyusec{.*}"
-          :rules="[rules.required]"
-          :label="$t('flag')"
-          :loading="form.loading"
-          outlined
-          dense
-        ></v-text-field>
-        <v-row justify="end">
-          <v-card-actions>
-            <v-btn
+              outlined
+              :label="$t('description')"
+              auto-grow
+            ></v-textarea>
+            <v-text-field
+              v-model="form.solution"
+              :label="$t('solution')"
+              :rules="[rules.required]"
               :loading="form.loading"
-              :disabled="!form.valid"
-              small
-              elevation="2"
-              color="primary"
-              type="submit"
-              v-text="$t('submit')"
-            />
-          </v-card-actions>
-        </v-row>
-      </v-card-text>
-    </v-card>
+              outlined
+              dense
+            ></v-text-field>
+            <v-text-field
+              v-model="form.flag"
+              placeholder="oyusec{.*}"
+              :rules="[rules.required]"
+              :label="$t('flag')"
+              :loading="form.loading"
+              outlined
+              dense
+            ></v-text-field>
+            <v-row justify="end">
+              <v-card-actions>
+                <v-btn
+                  :loading="form.loading"
+                  :disabled="!form.valid"
+                  small
+                  elevation="2"
+                  color="primary"
+                  type="submit"
+                  v-text="$t('submit')"
+                />
+              </v-card-actions>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </template>
+      <span class="font-exo" v-text="$t('loginRequired')" />
+    </v-tooltip>
   </v-form>
 </template>
 
@@ -94,13 +99,6 @@ export default {
       counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт",
     },
   }),
-  mounted() {
-    if (!this.$auth.loggedIn) {
-      this.$toast.show("Эхлээд нэвтэрнэ үү", {
-        icon: "alert-circle",
-      })
-    }
-  },
   methods: {
     reset() {
       this.form.name = ""

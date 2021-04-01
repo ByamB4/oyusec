@@ -96,7 +96,13 @@
               v-else-if="challenge.solved"
               v-text="$t('youHaveSolvedThisChallenge')"
             />
-            <nuxt-link
+            <span
+              class="font-weight-bold"
+              style="color: #e85154"
+              v-text="$t('solution')"
+            />
+            <span>(soon)</span>
+            <!-- <nuxt-link
               :to="
                 localePath({
                   name: 'writeup-id',
@@ -104,12 +110,7 @@
                 })
               "
             >
-              <span
-                class="font-weight-bold"
-                style="color: #e85154"
-                v-text="$t('solution')"
-              />
-            </nuxt-link>
+            </nuxt-link> -->
           </v-col>
         </v-row>
       </div>

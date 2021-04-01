@@ -1,18 +1,16 @@
 <template>
-  <v-container fluid class="mt-10">
+  <v-container>
     <v-row justify="center">
-      <v-col cols="11">
-        <v-tabs vertical>
+      <v-col cols="12">
+        <v-tabs class="font-exo">
           <v-tab
             v-for="item of $t('contribute.challengesTab')"
             :key="item.name"
           >
-            <v-row justify="start" class="px-3 font-exo" align="center">
-              <v-icon left v-text="item.icon" />
-              <span v-text="item.name" />
-            </v-row>
+            <v-icon v-text="item.icon" />
+            <span class="ml-3" v-text="item.name" />
           </v-tab>
-          <v-tab-item tile>
+          <v-tab-item class="mt-3">
             <ContributeRequestchallenge />
           </v-tab-item>
         </v-tabs>

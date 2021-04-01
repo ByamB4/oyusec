@@ -4,6 +4,7 @@
       <v-col cols="12">
         <v-card class="user-bg font-exo" dark>
           <v-card-title>
+            <h3 class="ml-10" v-text="$t('topPlayers')" />
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
@@ -16,7 +17,7 @@
             </v-text-field>
           </v-card-title>
           <v-data-table
-            :headers="headers"
+            :headers="$t('scoreboard.headers')"
             :items="scoreboard"
             :items-per-page="20"
             :search="search"
@@ -61,7 +62,7 @@
             </template>
 
             <template #[`item.progress`]="{ item }">
-              <v-tooltip bottom>
+              <v-tooltip bottom color="amber darken-4">
                 <template #activator="{ on, attrs }">
                   <v-progress-linear
                     :value="item.progress"
@@ -74,7 +75,7 @@
                     v-on="on"
                   ></v-progress-linear>
                 </template>
-                <span>{{ item.progress }}%</span>
+                <span class="font-exo">{{ item.progress }}%</span>
               </v-tooltip>
             </template>
 
@@ -103,42 +104,6 @@ export default {
   data: () => ({
     search: "",
     loading: true,
-    headers: [
-      {
-        text: "Rank",
-        align: "center",
-        sortable: false,
-        value: "place",
-        width: "10%",
-      },
-      {
-        text: "User",
-        value: "username",
-        sortable: false,
-        width: "15%",
-      },
-      {
-        text: "Challenges",
-        value: "total_solved_challs",
-        sortable: true,
-        width: "15%",
-        align: "center",
-      },
-      {
-        text: "Ownership",
-        value: "progress",
-        sortable: false,
-        align: "center",
-        width: "20%",
-      },
-      {
-        text: "Competition",
-        value: "total_rating",
-        sortable: true,
-        align: "center",
-        width: "20%",
-      },
-    ],
   }),
 
   head() {
