@@ -3,8 +3,8 @@ import get from "lodash/get"
 
 const categoryOrders = [
   "Forensics",
-  "Cryptography",
   "Miscellaneous",
+  "Cryptography",
   "Web",
   "Binary exploitation",
   "Reverse engineering",
