@@ -33,8 +33,6 @@ export default {
       default: false,
     },
   },
-  // props: [
-  //   "login"],
   methods: {
     soon() {
       this.$toast.success("Soon2", { icon: "check-circle" })

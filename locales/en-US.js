@@ -68,6 +68,22 @@ export default {
   postedAt: "Posted at",
   loginRequired: "Login required",
   hideSolvedChallenges: "Hide solved challenges",
+
+  // rules
+  max25Character: "Max 25 characters",
+  required: "Required",
+  limitPass: "Must be more than 8 characters",
+  letterOnly: "Please enter characters only",
+  checkAgain: "Please check again",
+
+  // placeholders
+  exFileName: "My Secret File",
+  exCategory: "Forensics",
+  exDescription:
+    "You can **bold** and _italic_ text.\n> Also you can write note\n[Download](https://your-file-end-url.com)",
+  exFlag: "oyusec{.*}",
+
+  // pages
   pages: {
     index: {
       title: "Homepage",

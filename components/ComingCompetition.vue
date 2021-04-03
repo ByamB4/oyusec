@@ -30,10 +30,7 @@
             <v-col cols="7" class="f-16 text-capitalize">
               <h4 v-text="comp.weight" />
               <h4 v-text="comp.enrollment" />
-              <h4 v-if="comp.start_date">
-                {{ displayDays }}d {{ displayHours }}h {{ displayMinutes }}m
-                {{ displaySeconds }}s
-              </h4>
+              <h4 v-if="comp.start_date" v-text="displayDate" />
             </v-col>
           </v-row>
         </v-col>
@@ -52,6 +49,9 @@ export default {
     displaySeconds: 0,
   }),
   computed: {
+    displayDate() {
+      return `${this.displayDays}h ${this.displayHours} ${this.displayMinutes}m ${this.displaySeconds}s`
+    },
     _seconds: () => 1000,
     _minutes() {
       return this._seconds * 60
@@ -69,6 +69,9 @@ export default {
   mounted() {
     this.fetchData()
   },
+  destroyed() {
+    clearInterval(this.timer)
+  },
   methods: {
     async fetchData() {
       const { data } = await this.$axios.get("api/competitions/coming/")
@@ -78,13 +81,6 @@ export default {
       } else {
         this.comp = false
       }
-    },
-    formatNum: (num) => (num < 10 ? "0" + num : num),
-    twoDigits(value) {
-      if (value.toString().length <= 1) {
-        return "0" + value.toString()
-      }
-      return value.toString()
     },
     showRemaining() {
       const timer = setInterval(() => {
@@ -100,10 +96,10 @@ export default {
         const minutes = Math.floor((distance % this._hours) / this._minutes)
         const seconds = Math.floor((distance % this._minutes) / this._seconds)
 
-        this.displayMinutes = this.formatNum(minutes)
-        this.displaySeconds = this.formatNum(seconds)
-        this.displayHours = this.formatNum(hours)
-        this.displayDays = this.formatNum(days)
+        this.displayMinutes = this.$time.formatNum(minutes)
+        this.displaySeconds = this.$time.formatNum(seconds)
+        this.displayHours = this.$time.formatNum(hours)
+        this.displayDays = days
       }, 1000)
     },
   },

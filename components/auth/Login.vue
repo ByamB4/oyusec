@@ -1,13 +1,15 @@
 <template>
   <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
     <v-card class="user-bg" elevation="12" shaped>
-      <v-card-title class="justify-center font-press f-18" primary-title
-        >[ {{ $t("login") }} ]</v-card-title
-      >
+      <v-card-title
+        class="justify-center font-press f-18"
+        primary-title
+        v-text="$t('login')"
+      />
       <v-card-text>
         <v-text-field
           v-model="form.email"
-          :rules="[rules.required, rules.email]"
+          :rules="[$rules.required, $rules.email]"
           :loading="form.loading"
           :label="$t('email')"
           type="email"
@@ -20,7 +22,7 @@
           v-model="form.password"
           :type="passwordShow ? 'text' : 'password'"
           :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="[rules.limitPass]"
+          :rules="[$rules.limitPass]"
           :loading="form.loading"
           :label="$t('password')"
           :hint="$t('weNeverAbleToSeeYourPassword')"
@@ -57,15 +59,8 @@ export default {
       valid: true,
     },
     passwordShow: false,
-    rules: {
-      required: (value) => !!value || "Заавал бөглөх ёстой",
-      email: (value) => {
-        const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        return pattern.test(value) || "Дахин шалгана уу"
-      },
-      limitPass: (value) => value.length >= 8 || "8 тэмдэгтээс их байх ёстой",
-    },
   }),
+  created() {},
   methods: {
     reset() {
       this.form = {

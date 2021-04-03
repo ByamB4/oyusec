@@ -111,7 +111,28 @@ export default {
       lang: "css",
     },
   ],
-  plugins: ["~/plugins/consts"],
+  i18n: {
+    lazy: true,
+    locales: [
+      {
+        name: "English",
+        code: "en",
+        iso: "en-US",
+        file: "en-US.js",
+      },
+      {
+        name: "Mongolia",
+        code: "mn",
+        iso: "mn-MN",
+        file: "mn-MN.js",
+      },
+    ],
+    langDir: "~/locales/",
+    defaultLocale: "mn",
+    fallbackLocale: "mn",
+    strategy: "prefix",
+  },
+  plugins: ["~/plugins/consts", "~/plugins/methods"],
   components: true,
   buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify"],
   modules: [
@@ -176,8 +197,8 @@ export default {
   },
 
   axios: {
-    // baseURL: "http://localhost:8000",
-    baseURL: "https://oyusec-server.herokuapp.com",
+    baseURL: "http://localhost:8000",
+    // baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",
@@ -185,27 +206,6 @@ export default {
     className: "font-exo",
     iconPack: "mdi",
     duration: 3000,
-  },
-  i18n: {
-    lazy: true,
-    locales: [
-      {
-        name: "English",
-        code: "en",
-        iso: "en-US",
-        file: "en-US.js",
-      },
-      {
-        name: "Mongolia",
-        code: "mn",
-        iso: "mn-MN",
-        file: "mn-MN.js",
-      },
-    ],
-    langDir: "~/locales/",
-    defaultLocale: "mn",
-    fallbackLocale: "mn",
-    strategy: "prefix",
   },
   markdownit: {
     runtime: true,

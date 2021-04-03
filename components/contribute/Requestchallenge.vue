@@ -12,32 +12,28 @@
             <v-text-field
               v-model="form.name"
               :label="$t('name')"
-              :rules="[rules.required, rules.counter]"
+              :rules="[$rules.required, $rules.counter]"
               :counter="25"
               :loading="form.loading"
-              placeholder="Миний Нууц Файл"
+              :placeholder="$t('exFileName')"
               outlined
               dense
             ></v-text-field>
             <v-text-field
               v-model="form.category"
               :label="$t('category')"
-              :rules="[rules.required, rules.counter]"
+              :rules="[$rules.required, $rules.counter]"
               :counter="25"
               :loading="form.loading"
-              placeholder="Forensics"
+              :placeholder="$t('exCategory')"
               outlined
               dense
             ></v-text-field>
             <v-textarea
               v-model="form.description"
-              :rules="[rules.required]"
+              :rules="[$rules.required]"
               :loading="form.loading"
-              placeholder="
-            Та текстийн **bold** бас _italic_ болгох боломжтой.
-            > Мөн санамж, бичиг зэрэг
-            [Татах](https://your-file-end-url.com)
-          "
+              :placeholder="$t('exDescription')"
               outlined
               :label="$t('description')"
               auto-grow
@@ -45,15 +41,15 @@
             <v-text-field
               v-model="form.solution"
               :label="$t('solution')"
-              :rules="[rules.required]"
+              :rules="[$rules.required]"
               :loading="form.loading"
               outlined
               dense
             ></v-text-field>
             <v-text-field
               v-model="form.flag"
-              placeholder="oyusec{.*}"
-              :rules="[rules.required]"
+              :placeholder="$t('exFlag')"
+              :rules="[$rules.required]"
               :label="$t('flag')"
               :loading="form.loading"
               outlined
@@ -93,10 +89,6 @@ export default {
       flag: "",
       solution: "",
       loading: false,
-    },
-    rules: {
-      required: (value) => !!value || "Заавал бөглөх ёстой",
-      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт",
     },
   }),
   methods: {

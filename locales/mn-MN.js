@@ -69,6 +69,21 @@ export default {
   forgetYourPassword: "Нууц үгээ мартсан уу ?",
   loginRequired: "Нэвтрэх шаардлагатай",
   hideSolvedChallenges: "Бодсон бодлого нуух",
+  // rules
+  max25Character: "Ихдээ 25 тэмдэгт",
+  required: "Заавал бөглөх ёстой",
+  limitPass: "8 тэмдэгтээс их байх ёстой",
+  letterOnly: "Зөвхөн тэмдэгт оруулна уу",
+  checkAgain: "Дахин шалгана уу",
+
+  // placeholders
+  exFileName: "Миний нууц файл",
+  exCategory: "Forensics",
+  exDescription:
+    "Та текстийн **bold** бас _italic_ болгох боломжтой.\n> Мөн санамж, бичиг зэрэг\n[Татах](https://your-file-end-url.com)",
+  exFlag: "oyusec{.*}",
+
+  // pages
   pages: {
     index: {
       title: "Нүүр хуудас",
