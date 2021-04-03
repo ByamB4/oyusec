@@ -24,7 +24,7 @@
           <v-list-item-title v-text="item.title" />
         </v-list-item-content>
       </v-list-item>
-      <div v-if="$auth.loggedIn">
+      <!-- <div v-if="$auth.loggedIn">
         <v-list-item @click="logout">
           <v-list-item-icon>
             <v-icon color="red">mdi-login</v-icon>
@@ -33,8 +33,8 @@
             <v-list-item-title v-text="$t('drawer.loggedMenu.title')" />
           </v-list-item-content>
         </v-list-item>
-      </div>
-      <template v-else>
+      </div> -->
+      <template v-if="!$auth.loggedIn">
         <v-list-item
           v-for="auth in $t('drawer.authMenu')"
           :key="auth.icon"
@@ -42,7 +42,7 @@
           exact
         >
           <v-list-item-icon>
-            <v-icon :color="auth.color">{{ auth.icon }}</v-icon>
+            <v-icon :color="auth.color" v-text="auth.icon" />
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title v-text="auth.name" />
@@ -63,16 +63,6 @@ export default {
       set(payload) {
         this.$store.commit("SET_DRAWER", payload)
       },
-    },
-  },
-  methods: {
-    async logout() {
-      await this.$auth.logout()
-      await this.$store.dispatch("competition/updateSolved")
-      await this.$store.dispatch("challenge/updateSolved")
-      // this.$store.commit('SET_USER', {})
-      // this.$store.commit('SET_ISLOGGED', false)
-      // this.$store.commit('SET_TOKEN', { access: null, refresh: null })
     },
   },
 }

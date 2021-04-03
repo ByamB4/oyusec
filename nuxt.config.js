@@ -169,15 +169,15 @@ export default {
     },
     redirect: {
       home: "challenges",
-      login: "login",
+      register: "auth",
       logout: "",
     },
     plugins: ["~/plugins/auth.js"],
   },
 
   axios: {
-    // baseURL: "http://localhost:8000",
-    baseURL: "https://oyusec-server.herokuapp.com",
+    baseURL: "http://localhost:8000",
+    // baseURL: "https://oyusec-server.herokuapp.com",
   },
   toast: {
     theme: "bubble",

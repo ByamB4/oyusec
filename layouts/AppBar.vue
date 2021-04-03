@@ -9,7 +9,7 @@
     <v-spacer />
     <client-only>
       <template v-if="$auth.loggedIn">
-        <template v-if="$auth.user.type === 'admin'">
+        <!-- <template v-if="$auth.user.type === 'admin'">
           <v-btn
             v-for="link in $t('topBar.adminMenu')"
             :key="link.title"
@@ -23,8 +23,8 @@
             </v-icon>
             <span v-text="link.title" />
           </v-btn>
-        </template>
-        <v-tooltip v-if="$auth.user.type !== 'admin'" bottom>
+        </template> -->
+        <v-tooltip bottom>
           <template #activator="{ on, attrs }">
             <v-progress-linear
               :value="profile.progress"
@@ -53,56 +53,42 @@
         >
           <v-icon>mdi-account-circle</v-icon>
         </v-btn>
+        <v-btn aria-label="log out" icon @click="logout">
+          <v-icon color="purple lighten-1">mdi-logout</v-icon>
+        </v-btn>
       </template>
     </client-only>
 
     <!-- Dirty code will update later -->
-    <div class="mr-3">
-      <v-btn
-        v-if="$i18n.locale === 'en'"
-        aria-label="toggle mongolia"
-        text
-        small
-        icon
-        :to="switchLocalePath('mn')"
-      >
-        <v-icon color="pink">mdi-translate</v-icon>
-      </v-btn>
-      <v-btn
-        v-else
-        text
-        small
-        icon
-        aria-label="toggle english"
-        :to="switchLocalePath('en')"
-      >
-        <v-icon color="pink">mdi-translate-off</v-icon>
-      </v-btn>
-    </div>
-    <div>
-      <v-btn
-        v-if="$vuetify.theme.dark"
-        aria-label="toggle dark"
-        text
-        small
-        icon
-        color="amber darken-1"
-        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-      >
-        <v-icon>mdi-white-balance-sunny</v-icon>
-      </v-btn>
-      <v-btn
-        v-else
-        aria-label="toggle light"
-        text
-        small
-        icon
-        color="blue-grey lighten-3"
-        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-      >
-        <v-icon>mdi-moon-waning-crescent</v-icon>
-      </v-btn>
-    </div>
+    <v-btn
+      v-if="$i18n.locale === 'en'"
+      aria-label="toggle mongolia"
+      icon
+      :to="switchLocalePath('mn')"
+    >
+      <v-icon color="pink">mdi-translate</v-icon>
+    </v-btn>
+    <v-btn v-else icon aria-label="toggle english" :to="switchLocalePath('en')">
+      <v-icon color="pink">mdi-translate-off</v-icon>
+    </v-btn>
+    <v-btn
+      v-if="$vuetify.theme.dark"
+      aria-label="toggle dark"
+      icon
+      color="amber darken-1"
+      @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+    >
+      <v-icon>mdi-white-balance-sunny</v-icon>
+    </v-btn>
+    <v-btn
+      v-else
+      aria-label="toggle light"
+      icon
+      color="blue-grey lighten-3"
+      @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+    >
+      <v-icon>mdi-moon-waning-crescent</v-icon>
+    </v-btn>
     <!-- End of dirty code -->
   </v-app-bar>
 </template>
@@ -117,11 +103,21 @@ export default {
     }),
   },
 
-  mounted() {
-    if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
-      this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })
-    }
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+      await this.$store.commit("competition/SET_SOLVES", [])
+      await this.$store.commit("challenge/SET_SOLVES", [])
+      // this.$store.commit('SET_USER', {})
+      // this.$store.commit('SET_ISLOGGED', false)
+      // this.$store.commit('SET_TOKEN', { access: null, refresh: null })
+    },
   },
+  // mounted() {
+  //   if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
+  //     this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })
+  //   }
+  // },
 }
 </script>
 <style lang="sass">

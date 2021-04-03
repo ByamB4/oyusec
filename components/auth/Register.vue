@@ -95,13 +95,16 @@ export default {
       }
       this.$refs.form.resetValidation()
     },
-    submit() {
+    async submit() {
       this.form.loading = true
-      this.$store.dispatch("user/registerUser", {
+      const success = await this.$store.dispatch("user/registerUser", {
         nuxt: this.$nuxt,
         form: this.form,
       })
       this.reset()
+      if (success) {
+        this.$emit("switch")
+      }
     },
   },
 }

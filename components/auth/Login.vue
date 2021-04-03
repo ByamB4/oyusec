@@ -51,10 +51,10 @@
 export default {
   data: () => ({
     form: {
+      loading: false,
       email: "",
       password: "",
       valid: true,
-      loading: false,
     },
     passwordShow: false,
     rules: {
@@ -75,8 +75,9 @@ export default {
       }
       this.$refs.form.resetValidation()
     },
-    submit() {
-      this.$store.dispatch("user/loginUser", {
+    async submit() {
+      this.form.loading = true
+      await this.$store.dispatch("user/loginUser", {
         auth: this.$auth,
         form: this.form,
       })

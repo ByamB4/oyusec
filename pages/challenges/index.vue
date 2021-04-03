@@ -1,31 +1,38 @@
 <template>
-  <v-container fluid class="challenges">
-    <v-row justify="center">
-      <v-col v-if="$auth.loggedIn" cols="11" class="d-flex justify-end">
-        <v-checkbox
-          v-model="isHideSolved"
-          dark
-          class="font-play"
-          color="orange"
-          label="Бодсон бодлого нуух"
-        >
-        </v-checkbox>
+  <v-container fluid class="challenges font-exo">
+    <v-row>
+      <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
+        <today-top-player />
       </v-col>
-      <v-col cols="11" :class="{ 'mt-n10': $auth.loggedIn }">
-        <div v-for="category in categories" :key="category.name">
-          <div class="category">
-            <h2 class="font-play" v-text="category.name" />
-          </div>
-          <v-expansion-panels popout tile inset dark>
-            <Challenge
-              v-for="challenge in category.challenges.filter(
-                ({ solved }) => !isHideSolved || !solved
-              )"
-              :key="challenge.id"
-              :challenge="challenge"
+      <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
+        <coming-competition />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <v-tabs v-model="activeTab" grow>
+          <v-tab v-for="tab in $t('challengesTab.menu')" :key="tab.title">
+            <v-icon left v-text="tab.icon" />
+            <span v-text="tab.title" />
+          </v-tab>
+        </v-tabs>
+      </v-col>
+      <v-col cols="6">
+        <v-tabs-items v-if="!loading" v-model="activeTab">
+          <v-tab-item v-for="category in categories" :key="category">
+            <challenges-category
+              :panel="activeTab"
+              :category="category"
+              @switch="updateChall"
             />
-          </v-expansion-panels>
-        </div>
+          </v-tab-item>
+        </v-tabs-items>
+        <template v-else>
+          <v-skeleton-loader type="list-item-three-line" />
+        </template>
+      </v-col>
+      <v-col cols="6">
+        <challenges-detail :chall="challenge" @solved="updateSolved" />
       </v-col>
     </v-row>
   </v-container>
@@ -41,8 +48,14 @@ export default {
     ])
   },
   data: () => ({
-    isHideSolved: false,
+    loading: false,
+    challenge: false,
   }),
+  // async fetch() {
+  //   await this.$store.dispatch("challenge/updateChallenges")
+  //   await this.$store.dispatch("challenge/updateChallengesSolves")
+  //   this.loading = false
+  // },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title,
@@ -52,22 +65,22 @@ export default {
     ...mapGetters({
       categories: "challenge/getCategories",
     }),
+    activeTab: {
+      set(tab) {
+        this.$store.commit("challenge/SET_TAB", tab)
+      },
+      get() {
+        return this.$store.state.challenge.tab
+      },
+    },
+  },
+  methods: {
+    updateChall(chall) {
+      this.challenge = chall
+    },
+    updateSolved() {
+      this.challenge.solved = true
+    },
   },
 }
 </script>
-
-<style lang="sass">
-.challenges
-  position: relative
-  .category
-    letter-spacing: 2px
-    text-transform: capitalize
-    display: flex
-    margin-top: 10px
-    flex-direction: row
-    justify-content: space-between
-    align-self: center
-
-  .information
-    letter-spacing: 2px
-</style>

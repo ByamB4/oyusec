@@ -39,12 +39,13 @@ export const actions = {
 
     if (data.success) {
       this.$toast.success("Хаяг амжилттай нээгдлээ", { icon: "check-circle" })
-      nuxt.$router.push("login")
+      return true
     } else {
       // Gonna finish this later
       this.$toast.error(data.detail, {
         icon: "alert-circle",
       })
+      return false
     }
   },
 }

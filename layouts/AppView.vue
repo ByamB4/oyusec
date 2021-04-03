@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <nuxt keep-alive:keep-alive-props="{ max: 10 }" />
+    <nuxt keep-alive />
   </v-main>
 </template>
 

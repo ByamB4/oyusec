@@ -43,6 +43,17 @@
   text-transform: none !important
 .up-down
   animation: mover 10s infinite alternate
+.big-small-circle
+  border-radius: 50%
+  animation: abig-small-circle 3s infinite alternate
+
+@keyframes abig-small-circle
+  0%
+    box-shadow: 0 0 0 0 #76ff03
+  70%
+    box-shadow: 0 0 0 7px transparent
+  100%
+    box-shadow: 0 0 0 0 transparent
 
 @keyframes mover
   0%
