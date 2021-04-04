@@ -1,6 +1,4 @@
 <template>
-  <!-- :id="'a' + challenge.id"
-    @click="$vuetify.goTo(`#a${challenge.id}`, scrollOptions)" -->
   <v-expansion-panel class="challenge mt-2 font-exo">
     <v-dialog v-model="dialog.show" max-width="400px">
       <v-simple-table class="user-bg font-exo" dark>

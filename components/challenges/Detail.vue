@@ -29,24 +29,29 @@
               <v-text-field
                 v-model="form.submission"
                 :class="{ incorrect }"
-                :rules="[rules.required]"
+                :rules="[$rules.required]"
                 :loading="form.loading"
                 color="white"
                 placeholder="oyusec{.*}"
                 dense
-                trim
               />
             </v-col>
             <v-col cols="2">
               <v-btn
-                :disabled="!form.valid"
+                :disabled="!form.valid || form.loading"
                 :loading="form.loading"
                 type="submit"
                 depressed
                 small
                 color="primary"
-                v-text="$t('submit')"
-              />
+              >
+                <span v-text="$t('submit')" />
+                <template #loader>
+                  <span class="custom-loader">
+                    <v-icon light>mdi-cached</v-icon>
+                  </span>
+                </template>
+              </v-btn>
             </v-col>
           </v-row>
         </v-form>
@@ -79,11 +84,7 @@ export default {
     },
     form: {
       submission: "",
-      valid: true,
       loading: false,
-    },
-    rules: {
-      required: (value) => !!value || "Заавал бөглөх ёстой",
     },
   }),
   watch: {
@@ -99,11 +100,9 @@ export default {
     reset() {
       this.form = {
         submission: "",
-        valid: true,
         loading: false,
       }
       this.$refs.form.resetValidation()
-      this.form.loading = false
     },
     async submit() {
       this.incorrect = false

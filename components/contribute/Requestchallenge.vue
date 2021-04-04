@@ -1,78 +1,74 @@
 <template>
-  <v-form
-    ref="form"
-    v-model="form.valid"
-    :disabled="!$auth.loggedIn"
-    @submit.prevent="submit"
-  >
-    <v-tooltip bottom :disabled="$auth.loggedIn" color="warning">
-      <template #activator="{ on, attrs }">
-        <v-card class="user-bg font-exo" dark v-bind="attrs" v-on="on">
-          <v-card-text>
-            <v-text-field
-              v-model="form.name"
-              :label="$t('name')"
-              :rules="[$rules.required, $rules.counter]"
-              :counter="25"
+  <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
+    <v-card class="user-bg font-exo">
+      <v-card-text>
+        <v-text-field
+          v-model="form.name"
+          :label="$t('name')"
+          :rules="[$rules.required, $rules.counter]"
+          :counter="25"
+          :loading="form.loading"
+          :placeholder="$t('exFileName')"
+          outlined
+          dense
+        ></v-text-field>
+        <v-text-field
+          v-model="form.category"
+          :label="$t('category')"
+          :rules="[$rules.required, $rules.counter]"
+          :counter="25"
+          :loading="form.loading"
+          :placeholder="$t('exCategory')"
+          outlined
+          dense
+        ></v-text-field>
+        <v-textarea
+          v-model="form.description"
+          :rules="[$rules.required]"
+          :loading="form.loading"
+          :placeholder="$t('exDescription')"
+          outlined
+          :label="$t('description')"
+          auto-grow
+        ></v-textarea>
+        <v-text-field
+          v-model="form.solution"
+          :label="$t('solution')"
+          :rules="[$rules.required]"
+          :loading="form.loading"
+          outlined
+          dense
+        ></v-text-field>
+        <v-text-field
+          v-model="form.flag"
+          :placeholder="$t('exFlag')"
+          :rules="[$rules.required]"
+          :label="$t('flag')"
+          :loading="form.loading"
+          outlined
+          dense
+        ></v-text-field>
+        <v-row justify="end">
+          <v-card-actions>
+            <v-btn
               :loading="form.loading"
-              :placeholder="$t('exFileName')"
-              outlined
-              dense
-            ></v-text-field>
-            <v-text-field
-              v-model="form.category"
-              :label="$t('category')"
-              :rules="[$rules.required, $rules.counter]"
-              :counter="25"
-              :loading="form.loading"
-              :placeholder="$t('exCategory')"
-              outlined
-              dense
-            ></v-text-field>
-            <v-textarea
-              v-model="form.description"
-              :rules="[$rules.required]"
-              :loading="form.loading"
-              :placeholder="$t('exDescription')"
-              outlined
-              :label="$t('description')"
-              auto-grow
-            ></v-textarea>
-            <v-text-field
-              v-model="form.solution"
-              :label="$t('solution')"
-              :rules="[$rules.required]"
-              :loading="form.loading"
-              outlined
-              dense
-            ></v-text-field>
-            <v-text-field
-              v-model="form.flag"
-              :placeholder="$t('exFlag')"
-              :rules="[$rules.required]"
-              :label="$t('flag')"
-              :loading="form.loading"
-              outlined
-              dense
-            ></v-text-field>
-            <v-row justify="end">
-              <v-card-actions>
-                <v-btn
-                  :loading="form.loading"
-                  :disabled="!form.valid"
-                  small
-                  elevation="2"
-                  color="primary"
-                  type="submit"
-                  v-text="$t('submit')"
-                />
-              </v-card-actions>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </template>
-      <span class="font-exo" v-text="$t('loginRequired')" />
-    </v-tooltip>
+              :disabled="!form.valid || form.loading"
+              small
+              elevation="2"
+              color="primary"
+              type="submit"
+            >
+              <span v-text="$t('submit')" />
+              <template #loader>
+                <span class="custom-loader">
+                  <v-icon light>mdi-cached</v-icon>
+                </span>
+              </template>
+            </v-btn>
+          </v-card-actions>
+        </v-row>
+      </v-card-text>
+    </v-card>
   </v-form>
 </template>
 
@@ -82,26 +78,18 @@ export default {
     form: {
       name: "",
       category: "",
-      decay: 25,
-      description: "",
-      minimum: 100,
-      value: 1000,
-      flag: "",
-      solution: "",
-      loading: false,
     },
   }),
   methods: {
     reset() {
-      this.form.name = ""
-      this.form.description = ""
-      this.form.value = ""
-      this.form.category = ""
-      this.form.flag = ""
-      this.form.decay = ""
-      this.form.minimum = ""
-      this.form.solution = ""
-      this.form.loading = false
+      this.form = {
+        name: "",
+        category: "",
+        solution: "",
+        flag: "",
+        description: "",
+        loading: false,
+      }
       this.$refs.form.resetValidation()
     },
     async submit() {

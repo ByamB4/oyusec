@@ -20,8 +20,8 @@
         ></v-text-field>
         <v-text-field
           v-model="form.password"
-          :type="passwordShow ? 'text' : 'password'"
-          :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="showPassword ? 'text' : 'password'"
+          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           :rules="[$rules.limitPass]"
           :loading="form.loading"
           :label="$t('password')"
@@ -29,20 +29,26 @@
           color="white"
           outlined
           dense
-          class="mt-2 col-white"
-          @click:append="passwordShow = !passwordShow"
+          class="mt-2"
+          @click:append="showPassword = !showPassword"
         ></v-text-field>
         <v-card-actions class="mt-2">
           <v-btn
             :loading="form.loading"
-            :disabled="!form.valid"
+            :disabled="!form.valid || form.loading"
             type="submit"
             block
             rounded
             elevation="2"
             color="primary"
-            v-text="$t('submit')"
-          />
+          >
+            <span v-text="$t('submit')" />
+            <template #loader>
+              <span class="custom-loader">
+                <v-icon light>mdi-cached</v-icon>
+              </span>
+            </template>
+          </v-btn>
         </v-card-actions>
       </v-card-text>
     </v-card>
@@ -53,14 +59,12 @@
 export default {
   data: () => ({
     form: {
-      loading: false,
       email: "",
       password: "",
-      valid: true,
+      loading: false,
     },
-    passwordShow: false,
+    showPassword: false,
   }),
-  created() {},
   methods: {
     reset() {
       this.form = {
