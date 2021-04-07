@@ -11,15 +11,19 @@
     <v-row>
       <v-col cols="12">
         <v-tabs v-model="activeTab" grow>
-          <v-tab v-for="tab in $t('challengesTab.menu')" :key="tab.title">
+          <v-tab v-for="(tab, i) in $t('challengesTab.menu')" :key="tab.title">
             <v-icon left v-text="tab.icon" />
             <span v-text="tab.title" />
+            <span class="font-weight-bold ml-2" v-text="total_challs[i]" />
           </v-tab>
         </v-tabs>
       </v-col>
       <v-col cols="6">
         <v-tabs-items v-if="!loading" v-model="activeTab">
-          <v-tab-item v-for="category in categories" :key="category">
+          <v-tab-item
+            v-for="category in $store.state.challenge.categoryOrders"
+            :key="category"
+          >
             <challenges-category
               :panel="activeTab"
               :category="category"
@@ -38,7 +42,7 @@
   </v-container>
 </template>
 <script>
-import { mapGetters } from "vuex"
+// import { mapGetters } from "vuex"
 
 export default {
   async asyncData(context) {
@@ -51,20 +55,15 @@ export default {
     loading: false,
     challenge: false,
   }),
-  // async fetch() {
-  //   await this.$store.dispatch("challenge/updateChallenges")
-  //   await this.$store.dispatch("challenge/updateChallengesSolves")
-  //   this.loading = false
-  // },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title,
     }
   },
   computed: {
-    ...mapGetters({
-      categories: "challenge/getCategories",
-    }),
+    // ...mapGetters({
+    //   categories: "challenge/getCategories",
+    // }),
     activeTab: {
       set(tab) {
         this.$store.commit("challenge/SET_TAB", tab)
@@ -72,6 +71,17 @@ export default {
       get() {
         return this.$store.state.challenge.tab
       },
+    },
+    total_challs() {
+      const t = []
+      this.$store.state.challenge.categoryOrders.forEach((cat) =>
+        t.push(
+          this.$store.state.challenge.challenges.filter(
+            (chall) => chall.category === cat
+          ).length
+        )
+      )
+      return t
     },
   },
   methods: {

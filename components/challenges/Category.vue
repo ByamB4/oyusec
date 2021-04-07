@@ -22,9 +22,6 @@
 
 <script>
 export default {
-  data: () => ({
-    activePanel: null,
-  }),
   props: {
     category: {
       type: String,
@@ -34,14 +31,17 @@ export default {
       required: true,
     },
   },
-  watch: {
-    panel(a, b) {
-      this.activePanel = []
-    },
-  },
+  data: () => ({
+    activePanel: null,
+  }),
   computed: {
     challenges() {
       return this.$store.getters["challenge/getChallenges"](this.category)
+    },
+  },
+  watch: {
+    panel(a, b) {
+      this.activePanel = []
     },
   },
 }

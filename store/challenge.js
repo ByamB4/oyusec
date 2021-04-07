@@ -1,21 +1,20 @@
 import get from "lodash/get"
 // import groupBy from "lodash/groupBy"
 
-const categoryOrders = [
-  "Forensics",
-  "Miscellaneous",
-  "Cryptography",
-  "Web",
-  "Binary exploitation",
-  "Reverse engineering",
-]
-
 export const state = () => ({
   challenges: [],
   challengesVisited: [],
   challengesSolves: [],
   solves: new Set(),
   tab: 0,
+  categoryOrders: [
+    "Forensics",
+    "Miscellaneous",
+    "Cryptography",
+    "Web",
+    "Binary exploitation",
+    "Reverse engineering",
+  ],
 })
 
 export const getters = {
@@ -31,9 +30,6 @@ export const getters = {
           0
         ),
       })),
-  getCategories() {
-    return categoryOrders
-  },
   // Object.entries(groupBy(state.challenges, ({ category }) => category))
   //   .map(([name]) => ({
   //     name,

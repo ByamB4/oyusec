@@ -110,7 +110,6 @@
 
 <script>
 import { VueTyper } from "vue-typer"
-
 export default {
   components: {
     "vue-typer": VueTyper,
