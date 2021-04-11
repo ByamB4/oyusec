@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12">
-        <v-tabs class="font-exo">
+        <v-tabs>
           <v-tab v-for="tab in $t('competitionTab.menu')" :key="tab.title">
             <v-icon v-text="tab.icon" />
             <span class="ml-3" v-text="tab.title" />
@@ -14,10 +14,7 @@
                 align="center"
                 class="mt-5"
               >
-                <h3>
-                  {{ $t("noCompetitionFound") }}
-                  <v-icon color="white">mdi-emoticon-sad-outline</v-icon>
-                </h3>
+                <h3 v-text="$t('noCompetitionFound')" />
               </v-col>
               <v-col
                 v-for="comp in component.data"
@@ -64,6 +61,9 @@ export default {
       ],
     }
   },
+  // async fetch() {
+  //   await this.$store.dispatch("competition/updateCompetition")
+  // },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.competition.title,

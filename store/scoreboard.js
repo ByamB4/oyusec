@@ -7,9 +7,7 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_SCOREBOARD(state, payload) {
-    state.scoreboard = payload
-  },
+  SET_SCOREBOARD: (s, p) => (s.scoreboard = p),
 }
 
 export const actions = {

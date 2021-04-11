@@ -9,57 +9,32 @@ export const state = () => ({
 })
 
 export const mutations = {
-  SET_CHALLENGES(state, payload) {
-    state.challenges = payload
+  SET_CHALLENGES: (s, p) => (s.challenges = p),
+  SET_ACTIVE_CHALLENGE: (s, p) => (s.activeChallenge = p),
+  SET_TAB: (s, p) => (s.tab = p),
+  UPDATE_CHALLENGE(s, p) {
+    const target = s.challenges.findIndex((challenge) => challenge.id === p.id)
+    Vue.set(s.challenges, target, p)
   },
-  SET_ACTIVE_CHALLENGE(state, payload) {
-    state.activeChallenge = payload
+  ADD_CHALLENGE: (s, p) => s.challenges.unshift(p),
+  ADD_ACTIVE_HINT: (s, p) => s.activeChallenge.hints.unshift(p),
+  ADD_ACTIVE_FLAG: (s, p) => s.activeChallenge.flags.unshift(p),
+  ADD_ACTIVE_TAG: (s, p) => s.activeChallenge.tags.unshift(p),
+  REMOVE_CHALLENGE(s, p) {
+    const newItems = s.challenges.filter((item) => item.id !== p)
+    s.challenges = newItems
   },
-  SET_TAB(state, payload) {
-    state.tab = payload
+  REMOVE_ACTIVE_HINT(s, p) {
+    const newItems = s.activeChallenge.hints.filter((item) => item.id !== p)
+    s.activeChallenge.hints = newItems
   },
-  SET_CONFIGS(state, payload) {
-    state.configs = payload
+  REMOVE_ACTIVE_FLAG(s, p) {
+    const newItems = s.activeChallenge.flags.filter((item) => item.id !== p)
+    s.activeChallenge.flags = newItems
   },
-  UPDATE_CHALLENGE(state, payload) {
-    const target = state.challenges.findIndex(
-      (challenge) => challenge.id === payload.id
-    )
-    Vue.set(state.challenges, target, payload)
-  },
-  ADD_CHALLENGE(state, payload) {
-    state.challenges.unshift(payload)
-  },
-  ADD_ACTIVE_HINT(state, payload) {
-    state.activeChallenge.hints.unshift(payload)
-  },
-  ADD_ACTIVE_FLAG(state, payload) {
-    state.activeChallenge.flags.unshift(payload)
-  },
-  ADD_ACTIVE_TAG(state, payload) {
-    state.activeChallenge.tags.unshift(payload)
-  },
-  REMOVE_CHALLENGE(state, payload) {
-    const newItems = state.challenges.filter((item) => item.id !== payload)
-    state.challenges = newItems
-  },
-  REMOVE_ACTIVE_HINT(state, payload) {
-    const newItems = state.activeChallenge.hints.filter(
-      (item) => item.id !== payload
-    )
-    state.activeChallenge.hints = newItems
-  },
-  REMOVE_ACTIVE_FLAG(state, payload) {
-    const newItems = state.activeChallenge.flags.filter(
-      (item) => item.id !== payload
-    )
-    state.activeChallenge.flags = newItems
-  },
-  REMOVE_ACTIVE_TAG(state, payload) {
-    const newItems = state.activeChallenge.tags.filter(
-      (item) => item.id !== payload
-    )
-    state.activeChallenge.tags = newItems
+  REMOVE_ACTIVE_TAG(s, p) {
+    const newItems = s.activeChallenge.tags.filter((item) => item.id !== p)
+    s.activeChallenge.tags = newItems
   },
 }
 export const actions = {

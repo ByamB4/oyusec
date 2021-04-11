@@ -42,30 +42,21 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_TAB(state, payload) {
-    state.tab = payload
-  },
-  SET_CHALLENGES(state, payload) {
-    state.challenges = payload
-  },
-  SET_CHALLENGES_SOLVES(state, payload) {
-    state.challengesSolves = payload
-  },
-  SET_SOLVES(state, payload) {
-    state.solves = new Set(payload.map((solve) => solve.challenge_id))
-  },
-  ADD_CHALLENGE_SOLVE(state, payload) {
-    state.solves.add(payload)
+  SET_TAB: (s, p) => (s.tab = p),
+  SET_CHALLENGES: (s, p) => (s.challenges = p),
+  SET_CHALLENGES_SOLVES: (s, p) => (s.challengesSolves = p),
+  SET_SOLVES: (s, p) =>
+    (s.solves = new Set(p.map((solve) => solve.challenge_id))),
+  ADD_CHALLENGE_SOLVE(s, p) {
+    s.solves.add(p)
     const target = state.challengesSolves.find(
-      (challenge) => challenge.id === payload
+      (challenge) => challenge.id === p
     )
     Object.assign(target, {
       solves: target.solves + 1,
     })
   },
-  ADD_CHALLENGE_VISIT(state, payload) {
-    state.challengesVisited.unshift(payload)
-  },
+  ADD_CHALLENGE_VISIT: (s, p) => s.challengesVisited.unshift(p),
 }
 
 export const actions = {

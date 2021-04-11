@@ -9,9 +9,7 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_PROFILE(state, payload) {
-    state.profile = payload
-  },
+  SET_PROFILE: (s, p) => (s.profile = p),
 }
 export const actions = {
   async getProfile({ commit, dispatch }, { slug }) {

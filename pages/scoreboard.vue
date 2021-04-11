@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12">
-        <v-card class="user-bg font-exo" dark>
+        <v-card class="user-bg" dark>
           <v-card-title>
             <h3 class="ml-10" v-text="$t('topPlayers')" />
             <v-spacer></v-spacer>
@@ -105,7 +105,9 @@ export default {
     search: "",
     loading: true,
   }),
-
+  // async fetch() {
+  //   await this.$store.dispatch("scoreboard/update")
+  // },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.rankings.title,
@@ -117,7 +119,7 @@ export default {
       scoreboard: "scoreboard/getScoreboard",
     }),
   },
-  mounted() {
+  created() {
     this.loading = false
   },
 }

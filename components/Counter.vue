@@ -37,6 +37,9 @@ export default {
   created() {
     this.showRemaining()
   },
+  destroyed() {
+    clearInterval(this.timer)
+  },
   methods: {
     showRemaining() {
       const timer = setInterval(() => {
@@ -62,9 +65,6 @@ export default {
         this.loaded = true
       }, 1000)
     },
-  },
-  destroyed() {
-    clearInterval(this.timer)
   },
 }
 </script>

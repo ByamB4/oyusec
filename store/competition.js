@@ -49,27 +49,16 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_COMPETITIONS(state, payload) {
-    state.competitions = payload
-  },
-  SET_COMPETITION(state, payload) {
-    state.competition = payload
-  },
-  SET_CHALLENGES(state, payload) {
-    state.challenges = payload
-  },
-  SET_CHALLENGES_SOLVES(state, payload) {
-    state.challengesSolves = payload
-  },
-  SET_SOLVES(state, payload) {
-    state.solves = new Set(payload.map((solve) => solve.challenge_id))
-  },
-  SET_SCOREBOARD(state, payload) {
-    state.scoreboard = payload
-  },
-  ADD_CHALLENGE_SOLVE(state, payload) {
-    const target = state.challengesSolves.find(
-      (challenge) => challenge.challengeID === payload
+  SET_COMPETITIONS: (s, p) => (s.competitions = p),
+  SET_COMPETITION: (s, p) => (s.competition = p),
+  SET_CHALLENGES: (s, p) => s.challenges.p,
+  SET_CHALLENGES_SOLVES: (s, p) => (s.challengesSolves = p),
+  SET_SOLVES: (s, p) =>
+    (s.solves = new Set(p.map((solve) => solve.challenge_id))),
+  SET_SCOREBOARD: (s, p) => (s.scoreboard = p),
+  ADD_CHALLENGE_SOLVE(s, p) {
+    const target = s.challengesSolves.find(
+      (challenge) => challenge.challengeID === p
     )
     Object.assign(target, {
       solves: target.solves + 1,

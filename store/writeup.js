@@ -11,47 +11,37 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_CHALLENGE(state, payload) {
-    state.challenge = payload
-  },
-  SET_WRITEUPS(state, payload) {
-    state.writeups = payload
-  },
-  SET_DISLIKE(state, payload) {
-    const target = state.writeups.findIndex(
-      (writeup) => writeup.id === payload.id
-    )
-    if (payload.status === "dislike") {
-      payload.status = null
-      payload.power += 1
-    } else if (payload.status === "like") {
-      payload.status = "dislike"
-      payload.power -= 2
+  SET_CHALLENGE: (s, p) => (s.challenge = p),
+  SET_WRITEUPS: (s, p) => (s.writeups = p),
+  SET_DISLIKE(s, p) {
+    const target = s.writeups.findIndex((writeup) => writeup.id === p.id)
+    if (p.status === "dislike") {
+      p.status = null
+      p.power += 1
+    } else if (p.status === "like") {
+      p.status = "dislike"
+      p.power -= 2
     } else {
-      payload.status = "dislike"
-      payload.power -= 1
+      p.status = "dislike"
+      p.power -= 1
     }
-    Vue.set(state.writeups, target, payload)
+    Vue.set(state.writeups, target, p)
   },
-  SET_LIKE(state, payload) {
-    const target = state.writeups.findIndex(
-      (writeup) => writeup.id === payload.id
-    )
-    if (payload.status === "like") {
-      payload.status = null
-      payload.power -= 1
-    } else if (payload.status === "dislike") {
-      payload.status = "like"
-      payload.power += 2
+  SET_LIKE(s, p) {
+    const target = s.writeups.findIndex((writeup) => writeup.id === p.id)
+    if (p.status === "like") {
+      p.status = null
+      p.power -= 1
+    } else if (p.status === "dislike") {
+      p.status = "like"
+      p.power += 2
     } else {
-      payload.status = "like"
-      payload.power += 1
+      p.status = "like"
+      p.power += 1
     }
-    Vue.set(state.writeups, target, payload)
+    Vue.set(state.writeups, target, p)
   },
-  ADD_WRITEUP(state, payload) {
-    state.writeups.unshift(payload)
-  },
+  ADD_WRITEUP: (s, p) => s.writeups.unshift(p),
 }
 
 export const actions = {

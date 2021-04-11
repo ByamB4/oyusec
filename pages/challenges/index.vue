@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="challenges font-exo">
+  <v-container fluid class="challenges">
     <v-row>
       <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
         <today-top-player />
@@ -10,11 +10,11 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-tabs v-model="activeTab" grow>
+        <v-tabs v-model="activeTab" grow hide-slider>
           <v-tab v-for="(tab, i) in $t('challengesTab.menu')" :key="tab.title">
             <v-icon left v-text="tab.icon" />
             <span v-text="tab.title" />
-            <span class="font-weight-bold ml-2" v-text="total_challs[i]" />
+            <span class="ml-2" v-text="total_challs[i]" />
           </v-tab>
         </v-tabs>
       </v-col>
@@ -55,6 +55,10 @@ export default {
     loading: false,
     challenge: false,
   }),
+  // async fetch() {
+  //   await this.$store.dispatch("challenge/updateChallenges")
+  //   await this.$store.dispatch("challenge/updateChallengesSolves")
+  // },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title,

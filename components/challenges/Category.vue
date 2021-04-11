@@ -48,9 +48,12 @@ export default {
 </script>
 
 <style lang="sass">
+.v-expansion-panel-header
+  &:hover
+    border-left: 3px solid $neon !important
 .v-expansion-panels .v-expansion-panel-header--active
   .v-icon
-    color: #76FF03 !important
+    color: $neon !important
 .solved
-  border-left: 3px solid #76ff03
+  border-left: 3px solid $neon
 </style>

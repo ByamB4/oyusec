@@ -101,6 +101,8 @@ export default {
   loading: {
     color: "#b388ff",
     height: "1px",
+    continuous: true,
+    duration: 2000,
   },
   css: [
     "~/assets/global.sass",
@@ -225,7 +227,7 @@ export default {
     },
   },
   vuetify: {
-    // Default theme is dark
+    customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: true,
     },

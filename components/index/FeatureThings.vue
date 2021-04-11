@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="6" v-for="n in 4" :key="n">
+    <v-col v-for="n in 4" :key="n" cols="6">
       <v-card to="/challenges" elevation="0">
         <v-card-title class="justify-center">
           <h2>

@@ -50,7 +50,7 @@ import { mapGetters } from "vuex"
 export default {
   head() {
     return {
-      title: `Тэмцээн | ${this.$route.params.slug}`,
+      title: `Тэмцээн | ${this.competition.name}`,
       meta: [
         {
           hid: "og:description",
@@ -66,7 +66,7 @@ export default {
       competition: "competition/getCompetition",
     }),
   },
-  mounted() {
+  created() {
     this.$store.dispatch(
       "competition/updateCompetition",
       this.$route.path.split("/").pop()

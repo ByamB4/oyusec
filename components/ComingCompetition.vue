@@ -7,8 +7,8 @@
             :size="100"
             :width="4"
             value="100"
-            color="light-green accent-3"
             class="big-small-circle"
+            color="light-green accent-3"
           >
             <v-icon size="40" color="white">mdi-trophy</v-icon>
           </v-progress-circular>
@@ -52,9 +52,6 @@ export default {
     clearInterval(this.timer)
   },
   methods: {
-    _days(_) {
-      return _ * 24
-    },
     async fetchData() {
       const { data } = await this.$axios.get("api/competitions/coming/")
       if (data.success) {

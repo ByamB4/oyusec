@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main class="font-exo">
     <nuxt keep-alive />
   </v-main>
 </template>
