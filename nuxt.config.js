@@ -4,10 +4,10 @@ export default {
   ssr: false,
   target: "static",
   head: {
-    titleTemplate: "%s | OyuSec",
+    titleTemplate: "%s",
     title: "OyuSec",
     htmlAttrs: {
-      lang: "mn",
+      lang: "en",
     },
     meta: [
       { charset: "utf-8" },

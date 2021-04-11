@@ -1,5 +1,30 @@
 const time = {
   formatNum: (num) => (num < 10 ? "0" + num : num),
+  // sec() {
+  //   return 1000
+  // },
+  // min() {
+  //   return this.sec * 60
+  // },
+  // hour() {
+  //   return this.min * 60
+  // },
+  // day() {
+  //   return this.hour * 24
+  // },
+
+  timeLeft(dist) {
+    const sec = 1000
+    const min = sec * 60
+    const hour = min * 60
+    const day = hour * 24
+    return {
+      seconds: Math.floor((dist % min) / sec),
+      minutes: Math.floor((dist % hour) / min),
+      hours: Math.floor((dist % day) / hour),
+      days: Math.floor(dist / day),
+    }
+  },
 }
 
 export default ({ app }, inject) => {

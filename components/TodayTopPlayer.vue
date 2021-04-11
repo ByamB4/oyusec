@@ -11,18 +11,18 @@
             class="big-small-circle"
           >
             <v-avatar size="90">
-              <v-img v-if="top" :src="top.user.img"> </v-img>
+              <v-img v-if="top.length" :src="top.user.img"> </v-img>
             </v-avatar>
           </v-progress-circular>
         </v-col>
-        <v-col cols="6" xs="6" sm="5" md="6" lg="6" xl="6">
+        <v-col cols="6" xs="6" sm="5" md="6" lg="5" xl="6">
           <span
             class="text-uppercase text-gray-400 f-15"
             v-text="$t('todayTopPlayer')"
           />
-          <h3 v-if="top" v-text="top.user.username" />
+          <h3 v-if="top.length" v-text="top.user.username" />
         </v-col>
-        <v-col cols="12" xs="6" sm="5" md="4" lg="4" xl="4">
+        <v-col cols="12" xs="6" sm="5" md="4" lg="5" xl="4">
           <v-row no-gutters>
             <v-col cols="5" class="text-uppercase text-gray-400 f-13">
               <h4 v-text="$t('challenge')" />
@@ -44,9 +44,9 @@
 <script>
 export default {
   data: () => ({
-    top: false,
+    top: {},
   }),
-  mounted() {
+  created() {
     this.fetchData()
   },
   methods: {
@@ -54,8 +54,6 @@ export default {
       const { data } = await this.$axios.get("api/challenges/today/top/")
       if (data.success) {
         this.top = data.data
-      } else {
-        this.top = false
       }
     },
   },
