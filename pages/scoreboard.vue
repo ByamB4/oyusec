@@ -24,7 +24,6 @@
             :loading-text="$t('loading')"
             :loading="loading"
             :footer-props="{ itemsPerPageText: '' }"
-            class="elevation-10"
           >
             <template #[`item.username`]="{ item }" class="text-center">
               <nuxt-link
@@ -39,13 +38,13 @@
               </nuxt-link>
             </template>
             <template #[`item.place`]="{ item }" class="text-center">
-              <v-icon v-if="item.place == 1" color="#FFDF00"
+              <v-icon v-if="item.place === 1" class="col-gold"
                 >mdi-crown-outline</v-icon
               >
-              <v-icon v-else-if="item.place == 2" color="#D3D3D3"
+              <v-icon v-else-if="item.place === 2" class="col-silver"
                 >mdi-crown-outline</v-icon
               >
-              <v-icon v-else-if="item.place == 3" color="#CD7F32"
+              <v-icon v-else-if="item.place === 3" class="col-bronze"
                 >mdi-crown-outline</v-icon
               >
               <template v-else>
@@ -75,15 +74,15 @@
                     v-on="on"
                   ></v-progress-linear>
                 </template>
-                <span class="font-exo">{{ item.progress }}%</span>
+                <span v-text="item.progress" />
               </v-tooltip>
             </template>
 
             <template #[`item.total_rating`]="{ item }">
-              <span>{{ item.total_rating }}</span>
+              <span v-text="item.total_rating" />
               <template v-if="item.total_win > 0">
-                <v-icon color="#ffdf00" size="15">mdi-trophy</v-icon>
-                <span style="color: #ffdf00" v-text="item.total_win" />
+                <v-icon class="col-gold" size="15">mdi-trophy</v-icon>
+                <span class="col-gold" v-text="item.total_win" />
               </template>
             </template>
           </v-data-table>

@@ -36,7 +36,12 @@
         </template>
       </v-col>
       <v-col cols="6">
-        <challenges-detail :chall="challenge" @solved="updateSolved" />
+        <challenges-detail
+          v-if="viewChallenge"
+          :chall="challenge"
+          :can-submit="canSubmit"
+          @solved="updateSolved"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -53,7 +58,8 @@ export default {
   },
   data: () => ({
     loading: false,
-    challenge: false,
+    challenge: {},
+    viewChallenge: false,
   }),
   // async fetch() {
   //   await this.$store.dispatch("challenge/updateChallenges")
@@ -65,16 +71,22 @@ export default {
     }
   },
   computed: {
-    // ...mapGetters({
-    //   categories: "challenge/getCategories",
-    // }),
     activeTab: {
       set(tab) {
         this.$store.commit("challenge/SET_TAB", tab)
+        this.challenge = {}
+        this.viewChallenge = false
       },
       get() {
         return this.$store.state.challenge.tab
       },
+    },
+    canSubmit() {
+      return (
+        this.$auth.loggedIn &&
+        this.challenge.author !== this.$auth.user.username &&
+        !this.challenge.solved
+      )
     },
     total_challs() {
       const t = []
@@ -90,7 +102,13 @@ export default {
   },
   methods: {
     updateChall(chall) {
-      this.challenge = chall
+      if (chall === this.challenge) {
+        this.challenge = {}
+        this.viewChallenge = false
+      } else {
+        this.challenge = chall
+        this.viewChallenge = true
+      }
     },
     updateSolved() {
       this.challenge.solved = true

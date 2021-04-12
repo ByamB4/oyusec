@@ -45,30 +45,16 @@
   color: $gray-700
 .col-gray-300
   color: $gray-300
+.col-gold
+  color: $gold !important
+.col-silver
+  color: $silver !important
+.col-bronze
+  color: $bronze !important
 
 .custom-loader
   animation: loader 1s infinite
   display: flex
-
-@-moz-keyframes loader
-  from
-  transform: rotate(0)
-  to
-  transform: rotate(360deg)
-
-@-webkit-keyframes loader
-  from 
-  transform: rotate(0)
-
-  to 
-  transform: rotate(360deg)
-
-@-o-keyframes loader
-  from 
-  transform: rotate(0)
-
-  to 
-  transform: rotate(360deg)
 
 @keyframes loader
   from
@@ -105,3 +91,23 @@
 .page-enter, .page-leave-active
   opacity: 0
   transform-origin: 50% 50%
+
+.incorrect
+  animation-name: shake
+  animation-duration: 0.5s, 0.35s
+  animation-iteration-count: 1, 2
+
+@keyframes shake
+  0%,
+  20%,
+  40%,
+  60%,
+  80%
+    transform: translateX(10px)
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90%
+    transform: translateX(-10px)

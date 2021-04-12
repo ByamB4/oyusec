@@ -49,9 +49,7 @@ export const mutations = {
     (s.solves = new Set(p.map((solve) => solve.challenge_id))),
   ADD_CHALLENGE_SOLVE(s, p) {
     s.solves.add(p)
-    const target = state.challengesSolves.find(
-      (challenge) => challenge.id === p
-    )
+    const target = s.challengesSolves.find((challenge) => challenge.id === p)
     Object.assign(target, {
       solves: target.solves + 1,
     })

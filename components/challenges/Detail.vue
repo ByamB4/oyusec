@@ -3,21 +3,21 @@
     <v-row v-if="!loading">
       <v-col cols="12" align="center">
         <h1 v-text="challenge.name" />
+        <!-- <v-icon>mdi-account-circle</v-icon> -->
+        <!-- <span>Бодсон</span> -->
+        <!-- <span v-text="solves" /> -->
+        <!-- <v-icon>mdi-star</v-icon> -->
+        <!-- <span>Оноо</span> -->
+        <!-- <span v-text="challenge.value" /> -->
+        <!-- <span>Нэмсэн</span> -->
+        <!-- <v-icon>mdi-star</v-icon> -->
+        <!-- <span v-text="author" /> -->
         <div
-          v-if="challenge"
           class="text-justify mt-3"
           v-html="$md.render(challenge.description)"
         />
       </v-col>
-      <v-col
-        v-if="
-          $auth.loggedIn &&
-          challenge &&
-          !chall.solved &&
-          challenge.author.username !== $auth.user.username
-        "
-        cols="12"
-      >
+      <v-col v-if="canSubmit" cols="12">
         <v-form
           ref="form"
           v-model="form.valid"
@@ -72,16 +72,22 @@ export default {
   props: {
     chall: {
       required: true,
+      type: Object,
+    },
+    canSubmit: {
+      type: Boolean,
+      required: true,
     },
   },
   data: () => ({
-    challenge: false,
+    challenge: {
+      description: "",
+    },
+    solves: null,
+    solved: false,
+    author: null,
     incorrect: false,
     loading: false,
-    dialog: {
-      show: false,
-      itemID: null,
-    },
     form: {
       submission: "",
       loading: false,
@@ -90,13 +96,31 @@ export default {
   watch: {
     async chall(a, b) {
       this.loading = true
+      this.solves = a.solves
+      this.solved = a.solved
+      this.author = a.author
       this.challenge = await this.$store.dispatch("challenge/getChallenge", {
         id: a.uuid,
       })
       this.loading = false
     },
   },
+  mounted() {
+    this.initData()
+    // this.loading = true
+    // this.solves = this.chall.solves
+    // this.challenge = await this.
+  },
   methods: {
+    async initData() {
+      this.loading = true
+      this.solves = this.chall.solves
+      this.author = this.chall.author
+      this.challenge = await this.$store.dispatch("challenge/getChallenge", {
+        id: this.chall.uuid,
+      })
+      this.loading = false
+    },
     reset() {
       this.form = {
         submission: "",
@@ -131,45 +155,11 @@ export default {
         }, 500)
       }
     },
-    async showSolves() {
-      this.dialog.show = true
-      const { data } = await this.$axios.get(
-        `api/challenge/${this.challenge.id}/solves/`
-      )
-      if (data.success) {
-        this.solvers = data.data
-      } else {
-        this.$toast.error(data.detail, {
-          icon: "alert-circle",
-        })
-      }
-    },
   },
 }
 </script>
 
 <style lang="scss">
-.incorrect {
-  animation-name: shake;
-  animation-duration: 0.5s, 0.35s;
-  animation-iteration-count: 1, 2;
-}
-@keyframes shake {
-  0%,
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: translateX(10px);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: translateX(-10px);
-  }
-}
 .theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }

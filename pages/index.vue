@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="font-exo" align="center" justify="center">
+    <v-row align="center" justify="center">
       <v-col cols="12" align="center" class="mb-10">
         <v-img
           id="logo"
