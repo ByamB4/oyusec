@@ -132,7 +132,7 @@ export default {
     langDir: "~/locales/",
     defaultLocale: "mn",
     fallbackLocale: "mn",
-    strategy: "prefix",
+    strategy: "no_prefix",
   },
   plugins: ["~/plugins/consts", "~/plugins/methods"],
   components: true,
@@ -192,6 +192,7 @@ export default {
     },
     redirect: {
       home: "challenges",
+      login: "auth",
       register: "auth",
       logout: "",
     },

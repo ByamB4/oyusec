@@ -34,6 +34,7 @@ export default {
   content: "Content",
   cost: "Cost",
   days: "Days",
+  fullName: "Full Name",
   user_type: "User Type",
   challenge_name: "Challenge Name",
   noCompetitionFound: "No competition found",
@@ -49,6 +50,7 @@ export default {
   forgetYourPassword: "Forget your password ?",
   timeLeft: "Time left",
   day: "Day",
+  edit: "Edit",
   upcomingContest: "Upcoming contest",
   hour: "Hour",
   min: "Min",
@@ -65,6 +67,7 @@ export default {
   rank: "Rank",
   user: "User",
   added: "Added",
+  logout: "Logout",
   postedAt: "Posted at",
   loginRequired: "Login required",
   hideSolvedChallenges: "Hide solved challenges",
@@ -168,7 +171,6 @@ export default {
         link: "/auth",
       },
     ],
-    loggedMenu: { title: "Logout" },
   },
   topBar: {
     adminMenu: [
@@ -184,6 +186,17 @@ export default {
         color: "blue",
         to: "/admin/challenges",
       },
+    ],
+  },
+  profileTab: {
+    menu: [
+      { title: "General", icon: "mdi-cog" },
+      { title: "Teams", icon: "mdi-account-group" },
+      {
+        title: "About you",
+        icon: "mdi-account-edit",
+      },
+      { title: "Other", icon: "mdi-shield-account" },
     ],
   },
   challengesTab: {

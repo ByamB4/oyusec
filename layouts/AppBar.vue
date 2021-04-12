@@ -44,17 +44,15 @@
           icon
           color="light-blue darken-1"
           aria-label="user profile"
-          :to="
+          :to="localePath({ name: 'user-profile' })"
+        >
+          <!-- :to="
             localePath({
               name: 'user-slug',
               params: { slug: $auth.user.slug },
             })
-          "
-        >
+          " -->
           <v-icon>mdi-account-circle</v-icon>
-        </v-btn>
-        <v-btn aria-label="log out" icon @click="logout">
-          <v-icon color="purple lighten-1">mdi-logout</v-icon>
         </v-btn>
       </template>
     </client-only>
@@ -64,11 +62,16 @@
       v-if="$i18n.locale === 'en'"
       aria-label="toggle mongolia"
       icon
-      :to="switchLocalePath('mn')"
+      @click="$i18n.setLocale('mn')"
     >
       <v-icon color="pink">mdi-translate</v-icon>
     </v-btn>
-    <v-btn v-else icon aria-label="toggle english" :to="switchLocalePath('en')">
+    <v-btn
+      v-else
+      icon
+      aria-label="toggle english"
+      @click="$i18n.setLocale('en')"
+    >
       <v-icon color="pink">mdi-translate-off</v-icon>
     </v-btn>
     <v-btn
@@ -103,16 +106,6 @@ export default {
     }),
   },
 
-  methods: {
-    async logout() {
-      await this.$auth.logout()
-      await this.$store.commit("competition/SET_SOLVES", [])
-      await this.$store.commit("challenge/SET_SOLVES", [])
-      // this.$store.commit('SET_USER', {})
-      // this.$store.commit('SET_ISLOGGED', false)
-      // this.$store.commit('SET_TOKEN', { access: null, refresh: null })
-    },
-  },
   // mounted() {
   //   if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
   //     this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })

@@ -25,6 +25,7 @@ export default {
   no: "Үгүй",
   loading: "Уншиж байна",
   comingSoon: "Тун удахгүй",
+  fullName: "Бүтэн нэр",
   all_challenges: "Бүх бодлогууд",
   contact: "Бидэнтэй нэгдээрэй",
   player: "Тоглогч",
@@ -61,6 +62,8 @@ export default {
   location: "Байршил",
   enrollment: "Элсэлт",
   rank: "Байр",
+  edit: "Засах",
+  logout: "Гарах",
   user: "Хэрэглэгч",
   added: "Нэмсэн",
   postedAt: "Нийтлэгдсэн",
@@ -160,7 +163,6 @@ export default {
         link: "/contribute",
       },
     ],
-    loggedMenu: { title: "Гарах" },
     authMenu: [
       {
         icon: "mdi-login",
@@ -184,6 +186,17 @@ export default {
         color: "blue",
         to: "/admin/challenges",
       },
+    ],
+  },
+  profileTab: {
+    menu: [
+      { title: "Ерөнхий", icon: "mdi-cog" },
+      { title: "Баг", icon: "mdi-account-group" },
+      {
+        title: "Тухай",
+        icon: "mdi-account-edit",
+      },
+      { title: "Бусад", icon: "mdi-shield-account" },
     ],
   },
   challengesTab: {

@@ -5,18 +5,21 @@ export const state = () => ({
 })
 
 export const getters = {
-  getProfile: (state) => state.profile,
+  getProfile: (s) => s.profile,
 }
 
 export const mutations = {
   SET_PROFILE: (s, p) => (s.profile = p),
 }
 export const actions = {
-  async getProfile({ commit, dispatch }, { slug }) {
-    const { data } = await this.$axios.get(`api/user/profile/${slug}/`)
-    commit("SET_PROFILE", data.data)
+  async getProfile({ commit, dispatch }) {
+    if (this.$auth.loggedIn) {
+      const { data } = await this.$axios.get(
+        `api/user/profile/${this.$auth.user.slug}/`
+      )
+      commit("SET_PROFILE", data.data)
+    }
   },
-
   async loginUser({ commit, dispatch }, { auth, form }) {
     try {
       await auth.loginWith("local", {

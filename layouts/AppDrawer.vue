@@ -13,7 +13,7 @@
       <v-list-item
         v-for="item in $t('drawer.leftMenu')"
         :key="item.icon"
-        :to="localePath(item.link)"
+        :to="item.link"
         exact
       >
         <v-list-item-icon>
@@ -38,7 +38,7 @@
         <v-list-item
           v-for="auth in $t('drawer.authMenu')"
           :key="auth.icon"
-          :to="localePath(auth.link)"
+          :to="auth.link"
           exact
         >
           <v-list-item-icon>
