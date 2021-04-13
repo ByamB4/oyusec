@@ -30,17 +30,24 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex"
+
 export default {
   data: () => ({
     challenges: [],
   }),
+  computed: {
+    ...mapGetters({
+      profile: "user/getProfile",
+    }),
+  },
   created() {
     this.getSolvedChallenges()
   },
   methods: {
     async getSolvedChallenges() {
       const { data } = await this.$axios.get(
-        `api/user/solves/${this.$route.params.slug.toLowerCase()}/`
+        `api/user/solves/${this.profile.slug}/`
       )
       if (data.success) {
         this.challenges = data.data

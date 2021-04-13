@@ -19,7 +19,7 @@
             </v-row>
           </v-card-title>
           <v-card-text class="px-0 py-0">
-            <v-tabs v-model="activeTab" hide-slider grow>
+            <v-tabs v-model="activeTab" hide-slider>
               <v-tab v-for="tab in $t('profileTab.menu')" :key="tab.title">
                 <v-icon left v-text="tab.icon" />
                 <span class="ml-2" v-text="tab.title" />
@@ -42,10 +42,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex"
+
 export default {
   components: {
     general: () => import("~/layouts/user/profile/general"),
     team: () => import("~/layouts/user/profile/team"),
+    edit: () => import("~/layouts/user/profile/edit"),
   },
   middleware: ["auth"],
   async asyncData(context) {
@@ -53,11 +56,16 @@ export default {
   },
   data: () => ({
     activeTab: null,
-    comps: ["general", "team"],
+    comps: ["general", "team", "edit"],
   }),
+  computed: {
+    ...mapGetters({
+      profile: "user/getProfile",
+    }),
+  },
   head() {
     return {
-      title: this.$auth.user.username,
+      title: this.profile.fullname,
     }
   },
 }

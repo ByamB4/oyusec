@@ -7,8 +7,7 @@
     </v-col>
     <v-col cols="9">
       <h2 v-text="profile.fullname" />
-      <span class="col-gray-300" v-text="'@' + profile.username" />
-      {{ $auth.loggedIn }}
+      <span class="col-gray-400" v-text="'@' + profile.username" />
     </v-col>
   </v-row>
 </template>

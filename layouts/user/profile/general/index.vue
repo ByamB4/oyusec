@@ -1,8 +1,8 @@
 <template>
   <v-row class="mt-5">
-    <v-col cols="3"><ChallengeChart /></v-col>
-    <v-col cols="3"><Solves /></v-col>
-    <v-col cols="6"><Edit /></v-col>
+    <v-col cols="4"><ChallengeChart /></v-col>
+    <v-col cols="4"><Solves /></v-col>
+    <v-col cols="4"><Competition /></v-col>
   </v-row>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   components: {
     ChallengeChart: () => import("./ChallengeChart"),
     Solves: () => import("./Solves"),
-    Edit: () => import("./Edit"),
+    Competition: () => import("./Competition"),
   },
 }
 </script>

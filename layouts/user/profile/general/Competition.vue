@@ -34,18 +34,25 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex"
+
 export default {
   data: () => ({
     competitions: [],
     heads: ["Place", "Event", "CTF points", "Rating points"],
   }),
+  computed: {
+    ...mapGetters({
+      profile: "user/getProfile",
+    }),
+  },
   created() {
     this.getSolvedChallenges()
   },
   methods: {
     async getSolvedChallenges() {
       const { data } = await this.$axios.get(
-        `api/user/competition/${this.$route.params.slug.toLowerCase()}/`
+        `api/user/competition/${this.profile.slug}/`
       )
       if (data.success) {
         this.competitions = data.data

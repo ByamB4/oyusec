@@ -10,6 +10,8 @@ export const getters = {
 
 export const mutations = {
   SET_PROFILE: (s, p) => (s.profile = p),
+  SET_PROFILE_SOCIAL: (s, p) => (s.profile.socials = p),
+  SET_PROFILE_FULLNAME: (s, p) => (s.profile.fullname = p),
 }
 export const actions = {
   async getProfile({ commit, dispatch }) {
@@ -47,6 +49,22 @@ export const actions = {
         icon: "alert-circle",
       })
       return false
+    }
+  },
+  // Related profile
+  async updateSocial({ commit }, { form }) {
+    const { data } = await this.$axios.post(
+      `api/user/edit/${this.$auth.user.id}/`,
+      {
+        data: form,
+      }
+    )
+    if (data.success) {
+      commit("SET_PROFILE_SOCIAL", data.data.socials)
+      commit("SET_PROFILE_FULLNAME", data.data.fullname)
+      this.$toast.success("Амжилттай шинэчлэгдлээ", {
+        icon: "check-circle",
+      })
     }
   },
 }
