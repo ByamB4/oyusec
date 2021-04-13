@@ -152,12 +152,12 @@ export default {
         scheme: "refresh",
         token: {
           property: "access",
-          maxAge: 3000,
+          maxAge: 60 * 60 * 24,
         },
         refreshToken: {
           property: "refresh",
           data: "refresh",
-          maxAge: 60 * 60 * 24,
+          maxAge: 60 * 60 * 24 * 5,
         },
         user: {
           property: "user",
@@ -187,7 +187,7 @@ export default {
             method: "post",
           },
         },
-        autoLogout: true,
+        // autoLogout: true,
       },
     },
     redirect: {

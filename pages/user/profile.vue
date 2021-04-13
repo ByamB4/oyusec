@@ -2,12 +2,35 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12">
-        <v-tabs v-model="activeTab" hide-slider>
-          <v-tab v-for="tab in $t('profileTab.menu')" :key="tab.title">
-            <v-icon left v-text="tab.icon" />
-            <span class="ml-2" v-text="tab.title" />
-          </v-tab>
-        </v-tabs>
+        <v-card class="user-bg">
+          <v-card-title>
+            <v-row align="center">
+              <v-col cols="4">
+                <user-detail />
+              </v-col>
+              <v-divider vertical inset />
+              <v-col cols="4">
+                <user-social-links />
+              </v-col>
+              <v-divider vertical inset />
+              <v-col cols="4">
+                <user-type />
+              </v-col>
+            </v-row>
+          </v-card-title>
+          <v-card-text class="px-0 py-0">
+            <v-tabs v-model="activeTab" hide-slider grow>
+              <v-tab v-for="tab in $t('profileTab.menu')" :key="tab.title">
+                <v-icon left v-text="tab.icon" />
+                <span class="ml-2" v-text="tab.title" />
+              </v-tab>
+            </v-tabs>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
         <v-tabs-items v-model="activeTab">
           <v-tab-item v-for="comp in comps" :key="comp">
             <component :is="comp"></component>

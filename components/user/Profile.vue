@@ -4,6 +4,7 @@
       <h2 style="letter-spacing: 0.3px" class="font-press f-15">
         [ {{ profile.username }} ]
       </h2>
+
       <!-- <h3 class="mt-5 text-gray-400">
         {{ $t("days") }}: <span class="white--text" v-text="profile.days" />
       </h3>

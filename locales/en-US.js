@@ -190,7 +190,7 @@ export default {
   },
   profileTab: {
     menu: [
-      { title: "General", icon: "mdi-cog" },
+      { title: "General", icon: "mdi-account-outline" },
       { title: "Teams", icon: "mdi-account-group" },
       {
         title: "About you",

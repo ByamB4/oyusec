@@ -1,14 +1,16 @@
 <template>
-  <v-card elevation="12" class="user-bg">
-    <v-card-title class="justify-center">
-      <v-avatar color="grey darken-1 shrink" size="78">
+  <v-row align="center">
+    <v-col cols="3">
+      <v-avatar color="grey darken-1 shrink" size="100">
         <v-img :src="profile.photo + '?s=500'" alt="user avatar" />
       </v-avatar>
-    </v-card-title>
-    <v-card-text class="text-center f-17">
-      <h2 class="f-semibold white--text" v-text="profile.username" />
-    </v-card-text>
-  </v-card>
+    </v-col>
+    <v-col cols="9">
+      <h2 v-text="profile.fullname" />
+      <span class="col-gray-300" v-text="'@' + profile.username" />
+      {{ $auth.loggedIn }}
+    </v-col>
+  </v-row>
 </template>
 
 <script>
