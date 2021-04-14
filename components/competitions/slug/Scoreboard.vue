@@ -43,7 +43,7 @@
                   :to="
                     localePath({
                       name: 'user-slug',
-                      params: { slug: user.username },
+                      params: { slug: user.username }
                     })
                   "
                   ><span class="f-18" v-text="user.username" />
@@ -65,8 +65,8 @@ export default {
   computed: {
     ...mapGetters({
       scoreboard: "competition/getScoreboard",
-      competition: "competition/getCompetition",
-    }),
+      competition: "competition/getCompetition"
+    })
   },
   created() {
     // If component loaded run once time
@@ -81,6 +81,6 @@ export default {
   },
   destroyed() {
     clearInterval(this.interval)
-  },
+  }
 }
 </script>

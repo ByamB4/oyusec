@@ -80,12 +80,12 @@ export default {
     form: {
       name: "",
       state: "Ил харагдана",
-      type: "dynamic",
+      type: "dynamic"
     },
-    stateItems: ["Ил харагдана", "Нууцлагдмал"],
+    stateItems: ["Ил харагдана", "Нууцлагдмал"]
   }),
   computed: {
-    ...mapState({ challenge: (state) => state.admin.activeChallenge }),
+    ...mapState({ challenge: (state) => state.admin.activeChallenge })
   },
 
   watch: {
@@ -101,16 +101,16 @@ export default {
         this.form.description = this.challenge.description
         this.form.value = this.challenge.value
         this.form.id = this.challenge.id
-      },
-    },
+      }
+    }
   },
 
   methods: {
     submit() {
       this.$store.dispatch("admin/updateChallenge", {
-        form: this.form,
+        form: this.form
       })
-    },
-  },
+    }
+  }
 }
 </script>

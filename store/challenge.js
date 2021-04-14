@@ -13,8 +13,8 @@ export const state = () => ({
     "Cryptography",
     "Web",
     "Binary exploitation",
-    "Reverse engineering",
-  ],
+    "Reverse engineering"
+  ]
 })
 
 export const getters = {
@@ -28,8 +28,8 @@ export const getters = {
           state.challengesSolves.find(({ id }) => id === chall.uuid),
           "solves",
           0
-        ),
-      })),
+        )
+      }))
   // Object.entries(groupBy(state.challenges, ({ category }) => category))
   //   .map(([name]) => ({
   //     name,
@@ -51,10 +51,10 @@ export const mutations = {
     s.solves.add(p)
     const target = s.challengesSolves.find((challenge) => challenge.id === p)
     Object.assign(target, {
-      solves: target.solves + 1,
+      solves: target.solves + 1
     })
   },
-  ADD_CHALLENGE_VISIT: (s, p) => s.challengesVisited.unshift(p),
+  ADD_CHALLENGE_VISIT: (s, p) => s.challengesVisited.unshift(p)
 }
 
 export const actions = {
@@ -81,5 +81,5 @@ export const actions = {
       return data.data
     }
     return state.challengesVisited[target]
-  },
+  }
 }

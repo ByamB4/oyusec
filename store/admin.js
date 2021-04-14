@@ -5,7 +5,7 @@ export const state = () => ({
   challenges: [],
   activeChallenge: {},
   teams: [],
-  tab: "standard",
+  tab: "standard"
 })
 
 export const mutations = {
@@ -35,7 +35,7 @@ export const mutations = {
   REMOVE_ACTIVE_TAG(s, p) {
     const newItems = s.activeChallenge.tags.filter((item) => item.id !== p)
     s.activeChallenge.tags = newItems
-  },
+  }
 }
 export const actions = {
   async update({ dispatch }) {
@@ -50,7 +50,7 @@ export const actions = {
   },
   async setConfig({ commit }, { form }) {
     const { data } = await this.$axios.post("api/admin/config/", {
-      data: form,
+      data: form
     })
     if (data.success) {
       commit("SET_COMPETITION", form, { root: true })
@@ -65,7 +65,7 @@ export const actions = {
   },
   async updateChallenge({ commit }, { form }) {
     const { data } = await this.$axios.post(`api/admin/challenge/${form.id}/`, {
-      data: form,
+      data: form
     })
     if (data.success) {
       commit("UPDATE_CHALLENGE", data.challenge)
@@ -82,7 +82,7 @@ export const actions = {
   async addChallenge({ commit, dispatch }, { $form, $type }) {
     const { data } = await this.$axios.post("api/admin/challenges/add/", {
       data: $form,
-      type: $type,
+      type: $type
     })
     if (data.success) {
       commit("ADD_CHALLENGE", data.challenge)
@@ -99,7 +99,7 @@ export const actions = {
     const { data } = await this.$axios.post(`api/admin/hint/`, {
       data: $data,
       id: state.activeChallenge.id,
-      type: "add",
+      type: "add"
     })
     if (data.success) {
       commit("ADD_ACTIVE_HINT", data.hint)
@@ -110,7 +110,7 @@ export const actions = {
     const { data } = await this.$axios.post(`api/admin/flag/`, {
       data: $data,
       id: state.activeChallenge.id,
-      type: "add",
+      type: "add"
     })
     if (data.success) {
       commit("ADD_ACTIVE_FLAG", data.flag)
@@ -121,7 +121,7 @@ export const actions = {
     const { data } = await this.$axios.post(`api/admin/tag/`, {
       data: $data,
       id: state.activeChallenge.id,
-      type: "add",
+      type: "add"
     })
     if (data.success) {
       commit("ADD_ACTIVE_TAG", data.tag)
@@ -138,7 +138,7 @@ export const actions = {
   async deleteHint({ commit }, { $id }) {
     const { data } = await this.$axios.post(`api/admin/hint/`, {
       id: $id,
-      type: "delete",
+      type: "delete"
     })
     if (data.success) {
       commit("REMOVE_ACTIVE_HINT", $id)
@@ -148,7 +148,7 @@ export const actions = {
   async deleteFlag({ commit }, { $id }) {
     const { data } = await this.$axios.post(`api/admin/flag/`, {
       id: $id,
-      type: "delete",
+      type: "delete"
     })
     if (data.success) {
       commit("REMOVE_ACTIVE_FLAG", $id)
@@ -158,11 +158,11 @@ export const actions = {
   async deleteTag({ commit }, { $id }) {
     const { data } = await this.$axios.post(`api/admin/tag/`, {
       id: $id,
-      type: "delete",
+      type: "delete"
     })
     if (data.success) {
       commit("REMOVE_ACTIVE_TAG", $id)
       this.$toast.success(data.detail, { icon: "check-circle" })
     }
-  },
+  }
 }

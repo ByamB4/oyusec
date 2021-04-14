@@ -32,15 +32,15 @@
 <script>
 export default {
   data: () => ({
-    edit: false,
+    edit: false
   }),
   head() {
     return {
-      title: this.$route.params.slug,
+      title: this.$route.params.slug
     }
   },
   mounted() {
     this.$store.dispatch("user/getProfile", { slug: this.$route.params.slug })
-  },
+  }
 }
 </script>

@@ -112,7 +112,7 @@
 import { VueTyper } from "vue-typer"
 export default {
   components: {
-    "vue-typer": VueTyper,
+    "vue-typer": VueTyper
   },
   head() {
     return {
@@ -122,9 +122,9 @@ export default {
           hid: "description",
           name: "description",
           content:
-            "Бодлого: Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх",
-        },
-      ],
+            "Бодлого: Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх"
+        }
+      ]
       // script: [
       //   {
       //     src: "https://nextparticle.nextco.de/nextparticle.min.js",
@@ -133,7 +133,7 @@ export default {
       //   },
       // ],
     }
-  },
+  }
 }
 </script>
 

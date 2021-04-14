@@ -49,19 +49,19 @@ import { mapGetters, mapState } from "vuex"
 
 export default {
   data: () => ({
-    isHideSolved: false,
+    isHideSolved: false
   }),
   computed: {
     ...mapGetters({
       competition: "competition/getCompetition",
-      categories: "competition/getCategories",
+      categories: "competition/getCategories"
     }),
     ...mapState({
-      loggedIn: (state) => state.auth.loggedIn,
+      loggedIn: (state) => state.auth.loggedIn
     }),
     start_date() {
       return new Date(this.competition.start_date)
-    },
+    }
   },
   created() {
     this.$store.dispatch("competition/updateChallenges")
@@ -75,7 +75,7 @@ export default {
   },
   destroyed() {
     clearInterval(this.interval)
-  },
+  }
 }
 </script>
 

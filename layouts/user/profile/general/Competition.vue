@@ -39,12 +39,12 @@ import { mapGetters } from "vuex"
 export default {
   data: () => ({
     competitions: [],
-    heads: ["Place", "Event", "CTF points", "Rating points"],
+    heads: ["Place", "Event", "CTF points", "Rating points"]
   }),
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
+      profile: "user/getProfile"
+    })
   },
   created() {
     this.getSolvedChallenges()
@@ -57,7 +57,7 @@ export default {
       if (data.success) {
         this.competitions = data.data
       }
-    },
-  },
+    }
+  }
 }
 </script>

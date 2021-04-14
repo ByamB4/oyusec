@@ -1,17 +1,17 @@
 export const state = () => ({
   profile: {
-    progress: 0,
-  },
+    progress: 0
+  }
 })
 
 export const getters = {
-  getProfile: (s) => s.profile,
+  getProfile: (s) => s.profile
 }
 
 export const mutations = {
   SET_PROFILE: (s, p) => (s.profile = p),
   SET_PROFILE_SOCIAL: (s, p) => (s.profile.socials = p),
-  SET_PROFILE_FULLNAME: (s, p) => (s.profile.fullname = p),
+  SET_PROFILE_FULLNAME: (s, p) => (s.profile.fullname = p)
 }
 export const actions = {
   async getProfile({ commit, dispatch }) {
@@ -25,14 +25,14 @@ export const actions = {
   async loginUser({ commit, dispatch }, { auth, form }) {
     try {
       await auth.loginWith("local", {
-        data: form,
+        data: form
       })
       await dispatch("getProfile", {
-        slug: auth.user.slug,
+        slug: auth.user.slug
       })
     } catch (error) {
       this.$toast.error("Нууц үг эсвэл нэр буруу байна", {
-        icon: "alert-circle",
+        icon: "alert-circle"
       })
     }
   },
@@ -46,7 +46,7 @@ export const actions = {
     } else {
       // Gonna finish this later
       this.$toast.error(data.detail, {
-        icon: "alert-circle",
+        icon: "alert-circle"
       })
       return false
     }
@@ -56,15 +56,15 @@ export const actions = {
     const { data } = await this.$axios.post(
       `api/user/edit/${this.$auth.user.id}/`,
       {
-        data: form,
+        data: form
       }
     )
     if (data.success) {
       commit("SET_PROFILE_SOCIAL", data.data.socials)
       commit("SET_PROFILE_FULLNAME", data.data.fullname)
       this.$toast.success("Амжилттай шинэчлэгдлээ", {
-        icon: "check-circle",
+        icon: "check-circle"
       })
     }
-  },
+  }
 }

@@ -61,16 +61,16 @@ export default {
     form: {
       email: "",
       password: "",
-      loading: false,
+      loading: false
     },
-    showPassword: false,
+    showPassword: false
   }),
   methods: {
     reset() {
       this.form = {
         email: "",
         password: "",
-        loading: false,
+        loading: false
       }
       this.$refs.form.resetValidation()
     },
@@ -78,10 +78,10 @@ export default {
       this.form.loading = true
       await this.$store.dispatch("user/loginUser", {
         auth: this.$auth,
-        form: this.form,
+        form: this.form
       })
       this.reset()
-    },
-  },
+    }
+  }
 }
 </script>

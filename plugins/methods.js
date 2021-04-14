@@ -22,9 +22,9 @@ const time = {
       seconds: Math.floor((dist % min) / sec),
       minutes: Math.floor((dist % hour) / min),
       hours: Math.floor((dist % day) / hour),
-      days: Math.floor(dist / day),
+      days: Math.floor(dist / day)
     }
-  },
+  }
 }
 
 export default ({ app }, inject) => {
@@ -44,7 +44,7 @@ export default ({ app }, inject) => {
     email: (value) => {
       const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return pattern.test(value) || i18n.t("checkAgain")
-    },
+    }
   }
   inject("rules", rules)
 }

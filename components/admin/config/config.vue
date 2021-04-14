@@ -32,13 +32,13 @@
 <script>
 export default {
   data: () => ({
-    form: {},
+    form: {}
   }),
   methods: {
     onSubmit() {
       this.$store.dispatch("admin/setConfig", { form: this.form })
-    },
-  },
+    }
+  }
 }
 </script>
 

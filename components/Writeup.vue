@@ -7,7 +7,7 @@
             :to="
               localePath({
                 name: 'user-slug',
-                params: { slug: writeup.author.slug },
+                params: { slug: writeup.author.slug }
               })
             "
           >
@@ -99,8 +99,8 @@ export default {
   props: {
     writeup: {
       required: true,
-      type: Object,
-    },
-  },
+      type: Object
+    }
+  }
 }
 </script>

@@ -14,7 +14,7 @@
 export default {
   data: () => ({
     // Default behavior is login
-    login: true,
-  }),
+    login: true
+  })
 }
 </script>

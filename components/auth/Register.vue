@@ -74,9 +74,9 @@ export default {
       username: "",
       password: "",
       email: "",
-      loading: false,
+      loading: false
     },
-    showPassword: false,
+    showPassword: false
   }),
   methods: {
     reset() {
@@ -84,7 +84,7 @@ export default {
         username: "",
         email: "",
         password: "",
-        loading: false,
+        loading: false
       }
       this.$refs.form.resetValidation()
     },
@@ -92,13 +92,13 @@ export default {
       this.form.loading = true
       const success = await this.$store.dispatch("user/registerUser", {
         nuxt: this.$nuxt,
-        form: this.form,
+        form: this.form
       })
       this.reset()
       if (success) {
         this.$emit("switch")
       }
-    },
-  },
+    }
+  }
 }
 </script>

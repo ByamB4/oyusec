@@ -34,12 +34,12 @@ import { mapGetters } from "vuex"
 
 export default {
   data: () => ({
-    challenges: [],
+    challenges: []
   }),
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
+      profile: "user/getProfile"
+    })
   },
   created() {
     this.getSolvedChallenges()
@@ -52,7 +52,7 @@ export default {
       if (data.success) {
         this.challenges = data.data
       }
-    },
-  },
+    }
+  }
 }
 </script>

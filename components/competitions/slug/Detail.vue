@@ -60,7 +60,7 @@ import { mapGetters } from "vuex"
 export default {
   computed: {
     ...mapGetters({
-      competition: "competition/getCompetition",
+      competition: "competition/getCompetition"
     }),
     start_date() {
       const date = new Date(this.competition.start_date)
@@ -86,10 +86,10 @@ export default {
     },
     prize() {
       return String(this.competition.prize)
-    },
+    }
   },
   methods: {
-    formatNum: (num) => (num < 10 ? "0" + num : num),
-  },
+    formatNum: (num) => (num < 10 ? "0" + num : num)
+  }
 }
 </script>

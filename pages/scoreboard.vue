@@ -30,7 +30,7 @@
                 :to="
                   localePath({
                     name: 'user-slug',
-                    params: { slug: item.slug },
+                    params: { slug: item.slug }
                   })
                 "
               >
@@ -102,24 +102,24 @@ export default {
 
   data: () => ({
     search: "",
-    loading: true,
+    loading: true
   }),
   // async fetch() {
   //   await this.$store.dispatch("scoreboard/update")
   // },
   head() {
     return {
-      title: this.$i18n.messages[this.$i18n.locale].pages.rankings.title,
+      title: this.$i18n.messages[this.$i18n.locale].pages.rankings.title
     }
   },
 
   computed: {
     ...mapGetters({
-      scoreboard: "scoreboard/getScoreboard",
-    }),
+      scoreboard: "scoreboard/getScoreboard"
+    })
   },
   created() {
     this.loading = false
-  },
+  }
 }
 </script>

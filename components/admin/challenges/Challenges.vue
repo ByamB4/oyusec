@@ -75,14 +75,14 @@ export default {
     search: "",
     dialog: {
       show: false,
-      itemID: null,
-    },
+      itemID: null
+    }
   }),
 
   computed: {
     ...mapState({
-      challenges: (state) => state.admin.challenges,
-    }),
+      challenges: (state) => state.admin.challenges
+    })
   },
 
   created() {
@@ -100,10 +100,10 @@ export default {
     },
     editItem(item) {
       this.$store.dispatch("admin/getChallenge", {
-        id: item.id,
+        id: item.id
       })
       this.$store.commit("admin/SET_TAB", 3)
-    },
-  },
+    }
+  }
 }
 </script>

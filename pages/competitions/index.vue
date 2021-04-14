@@ -40,7 +40,7 @@
 export default {
   async asyncData(context) {
     await Promise.all([
-      context.store.dispatch("competition/updateCompetitions", context),
+      context.store.dispatch("competition/updateCompetitions", context)
     ])
   },
   data() {
@@ -48,17 +48,17 @@ export default {
       components: [
         {
           title: "CompetitionsLive",
-          data: this.$store.state.competition.competitions.live,
+          data: this.$store.state.competition.competitions.live
         },
         {
           title: "CompetitionsComing",
-          data: this.$store.state.competition.competitions.coming,
+          data: this.$store.state.competition.competitions.coming
         },
         {
           title: "CompetitionsArchive",
-          data: this.$store.state.competition.competitions.archive,
-        },
-      ],
+          data: this.$store.state.competition.competitions.archive
+        }
+      ]
     }
   },
   // async fetch() {
@@ -66,8 +66,8 @@ export default {
   // },
   head() {
     return {
-      title: this.$i18n.messages[this.$i18n.locale].pages.competition.title,
+      title: this.$i18n.messages[this.$i18n.locale].pages.competition.title
     }
-  },
+  }
 }
 </script>

@@ -22,7 +22,7 @@ export default {
   // },
   middleware: ["admin"],
   data: () => ({
-    comps: ["Standard", "Dynamic", "Challenges", "Challenge"],
+    comps: ["Standard", "Dynamic", "Challenges", "Challenge"]
   }),
   computed: {
     tab: {
@@ -31,8 +31,8 @@ export default {
       },
       get() {
         return this.$store.state.admin.tab
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>

@@ -44,7 +44,7 @@
 <script>
 export default {
   data: () => ({
-    top: {},
+    top: {}
   }),
   created() {
     this.fetchData()
@@ -55,8 +55,8 @@ export default {
       if (data.success) {
         this.top = data.data
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

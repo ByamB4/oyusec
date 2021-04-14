@@ -31,21 +31,21 @@ export default {
     links: [
       {
         icon: "mdi-facebook",
-        link: "https://www.facebook.com/OyuSec/",
+        link: "https://www.facebook.com/OyuSec/"
       },
       {
         icon: "mdi-twitter",
-        link: "https://twitter.com/oyusec",
+        link: "https://twitter.com/oyusec"
       },
       {
         icon: "mdi-instagram",
-        link: "https://www.instagram.com/oyutech/",
+        link: "https://www.instagram.com/oyutech/"
       },
       {
         icon: "mdi-discord",
-        link: "https://discord.gg/9fqVFEBAhv",
-      },
-    ],
-  }),
+        link: "https://discord.gg/9fqVFEBAhv"
+      }
+    ]
+  })
 }
 </script>

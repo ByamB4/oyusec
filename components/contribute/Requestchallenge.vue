@@ -77,8 +77,8 @@ export default {
   data: () => ({
     form: {
       name: "",
-      category: "",
-    },
+      category: ""
+    }
   }),
   methods: {
     reset() {
@@ -88,26 +88,26 @@ export default {
         solution: "",
         flag: "",
         description: "",
-        loading: false,
+        loading: false
       }
       this.$refs.form.resetValidation()
     },
     async submit() {
       this.form.loading = true
       const { data } = await this.$axios.post("api/challenges/request/", {
-        data: this.form,
+        data: this.form
       })
       if (data.success) {
         this.$toast.success(data.detail, {
-          icon: "check-circle",
+          icon: "check-circle"
         })
       } else {
         this.$toast.error(data.detail, {
-          icon: "alert-circle",
+          icon: "alert-circle"
         })
       }
       this.reset()
-    },
-  },
+    }
+  }
 }
 </script>

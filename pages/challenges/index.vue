@@ -53,13 +53,13 @@ export default {
   async asyncData(context) {
     await Promise.all([
       context.store.dispatch("challenge/updateChallenges", context),
-      context.store.dispatch("challenge/updateChallengesSolves", context),
+      context.store.dispatch("challenge/updateChallengesSolves", context)
     ])
   },
   data: () => ({
     loading: false,
     challenge: {},
-    viewChallenge: false,
+    viewChallenge: false
   }),
   // async fetch() {
   //   await this.$store.dispatch("challenge/updateChallenges")
@@ -67,7 +67,7 @@ export default {
   // },
   head() {
     return {
-      title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title,
+      title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title
     }
   },
   computed: {
@@ -79,7 +79,7 @@ export default {
       },
       get() {
         return this.$store.state.challenge.tab
-      },
+      }
     },
     canSubmit() {
       return (
@@ -98,7 +98,7 @@ export default {
         )
       )
       return t
-    },
+    }
   },
   methods: {
     updateChall(chall) {
@@ -112,7 +112,7 @@ export default {
     },
     updateSolved() {
       this.challenge.solved = true
-    },
-  },
+    }
+  }
 }
 </script>

@@ -80,12 +80,12 @@ export default {
       description: "",
       value: "",
       flag: "",
-      loading: false,
+      loading: false
     },
     rules: {
       required: (value) => !!value || "Заавал бөглөх ёстой",
-      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт",
-    },
+      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт"
+    }
   }),
   methods: {
     reset() {
@@ -104,7 +104,7 @@ export default {
       //   $type: "standard",
       // })
       this.reset()
-    },
-  },
+    }
+  }
 }
 </script>

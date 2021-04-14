@@ -27,7 +27,7 @@
 <script>
 export default {
   data: () => ({
-    profile: {},
+    profile: {}
   }),
   created() {
     this.getUserProfile()
@@ -42,7 +42,7 @@ export default {
       } else {
         this.$toast.error(data.detail, { icon: "alert-circle" })
       }
-    },
-  },
+    }
+  }
 }
 </script>

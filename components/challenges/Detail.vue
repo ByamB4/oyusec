@@ -72,16 +72,16 @@ export default {
   props: {
     chall: {
       required: true,
-      type: Object,
+      type: Object
     },
     canSubmit: {
       type: Boolean,
-      required: true,
-    },
+      required: true
+    }
   },
   data: () => ({
     challenge: {
-      description: "",
+      description: ""
     },
     solves: null,
     solved: false,
@@ -90,8 +90,8 @@ export default {
     loading: false,
     form: {
       submission: "",
-      loading: false,
-    },
+      loading: false
+    }
   }),
   watch: {
     async chall(a, b) {
@@ -100,10 +100,10 @@ export default {
       this.solved = a.solved
       this.author = a.author
       this.challenge = await this.$store.dispatch("challenge/getChallenge", {
-        id: a.uuid,
+        id: a.uuid
       })
       this.loading = false
-    },
+    }
   },
   mounted() {
     this.initData()
@@ -117,14 +117,14 @@ export default {
       this.solves = this.chall.solves
       this.author = this.chall.author
       this.challenge = await this.$store.dispatch("challenge/getChallenge", {
-        id: this.chall.uuid,
+        id: this.chall.uuid
       })
       this.loading = false
     },
     reset() {
       this.form = {
         submission: "",
-        loading: false,
+        loading: false
       }
       this.$refs.form.resetValidation()
     },
@@ -133,12 +133,12 @@ export default {
       this.form.loading = true
       const { data } = await this.$axios.post("api/challenges/attempt/", {
         challenge_id: this.challenge.id,
-        submission: this.form.submission,
+        submission: this.form.submission
       })
       this.reset()
       if (!data.success) {
         this.$toast.error(data.detail, {
-          icon: "alert-circle",
+          icon: "alert-circle"
         })
         return
       }
@@ -146,7 +146,7 @@ export default {
         this.$emit("solved")
         this.$store.commit("challenge/ADD_CHALLENGE_SOLVE", this.challenge.id)
         await this.$store.dispatch("user/getProfile", {
-          slug: this.$auth.user.slug,
+          slug: this.$auth.user.slug
         })
       } else {
         this.incorrect = true
@@ -154,8 +154,8 @@ export default {
           this.incorrect = false
         }, 500)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
