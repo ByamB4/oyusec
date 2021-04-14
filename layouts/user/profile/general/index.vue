@@ -11,8 +11,8 @@ export default {
   components: {
     ProfileChart: () => import("./ProfileChart"),
     Solves: () => import("./Solves"),
-    Competition: () => import("./Competition"),
-  },
+    Competition: () => import("./Competition")
+  }
 }
 </script>
 

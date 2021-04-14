@@ -55,15 +55,15 @@ export default {
       form: {
         username: "",
         fullname: "",
-        email: "",
+        email: ""
       },
-      loading: false,
+      loading: false
     }
   },
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
+      profile: "user/getProfile"
+    })
   },
   created() {
     this.form.username = this.profile.username
@@ -74,7 +74,7 @@ export default {
     socialSubmit() {
       this.loading = true
       this.$store.dispatch("user/updateSocial", {
-        form: this.form,
+        form: this.form
       })
       this.reset()
     },
@@ -82,8 +82,8 @@ export default {
       // this.form = {}
       this.loading = false
       // this.$refs.form.resetValidation()
-    },
-  },
+    }
+  }
 }
 </script>
 

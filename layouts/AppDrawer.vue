@@ -62,8 +62,8 @@ export default {
       },
       set(payload) {
         this.$store.commit("SET_DRAWER", payload)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>

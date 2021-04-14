@@ -1,5 +1,5 @@
 export default {
   theme: {
-    dark: true,
-  },
+    dark: true
+  }
 }

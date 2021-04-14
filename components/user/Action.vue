@@ -52,13 +52,13 @@ export default {
     edit: {
       type: Boolean,
       required: true,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
+      profile: "user/getProfile"
+    })
   },
   // mounted() {
   //   this.$store.dispatch("reports/getData")
@@ -77,26 +77,26 @@ export default {
     async reportUser(type) {
       if (!this.$auth.loggedIn) {
         this.$toast.show("Эхлээд нэвтэрнэ үү", {
-          icon: "alert-circle",
+          icon: "alert-circle"
         })
       } else {
         const { data } = await this.$axios.post("api/v1/report/", {
           data: {
             _to: this.guest.id,
             _from: this.$auth.user.id,
-            _type: type,
-          },
+            _type: type
+          }
         })
         if (data.success) {
           if (type === "report") {
             this.$store.commit("reports/ADD_REPORT", {
               guestID: this.guest.id,
-              profileID: this.$auth.user.id,
+              profileID: this.$auth.user.id
             })
           } else {
             this.$store.commit("reports/REMOVE_REPORT", {
               guestID: this.guest.id,
-              profileID: this.$auth.user.id,
+              profileID: this.$auth.user.id
             })
           }
         }
@@ -104,7 +104,7 @@ export default {
     },
     contains(val) {
       return this.reports.filter((report) => report === val).length > 0
-    },
-  },
+    }
+  }
 }
 </script>

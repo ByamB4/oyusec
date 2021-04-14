@@ -5,7 +5,7 @@ const categoryOrders = [
   // Default category order, not editable
   "misc",
   "crypto",
-  "reverse",
+  "reverse"
 ]
 
 export const state = () => ({
@@ -14,7 +14,7 @@ export const state = () => ({
   scoreboard: [],
   challenges: [],
   challengesSolves: [],
-  solves: new Set(),
+  solves: new Set()
 })
 
 export const getters = {
@@ -33,19 +33,19 @@ export const getters = {
         ),
         "solves",
         0
-      ),
+      )
     })),
   getCategories: (state, getters) =>
     Object.entries(groupBy(getters.getChallenges, ({ category }) => category))
       .map(([name, challenges]) => ({
         name,
-        challenges: challenges.sort((a, b) => a.value - b.value),
+        challenges: challenges.sort((a, b) => a.value - b.value)
       }))
       .sort((a, b) => {
         const orderA = categoryOrders.indexOf(a.name.toLowerCase())
         const orderB = categoryOrders.indexOf(b.name.toLowerCase())
         return (orderA === -1 ? 9999 : orderA) - (orderB === -1 ? 9999 : orderB)
-      }),
+      })
 }
 
 export const mutations = {
@@ -61,9 +61,9 @@ export const mutations = {
       (challenge) => challenge.challengeID === p
     )
     Object.assign(target, {
-      solves: target.solves + 1,
+      solves: target.solves + 1
     })
-  },
+  }
 }
 
 export const actions = {
@@ -108,5 +108,5 @@ export const actions = {
       `api/competition/${state.competition.slug}/scoreboard/`
     )
     commit("SET_SCOREBOARD", data.data)
-  },
+  }
 }

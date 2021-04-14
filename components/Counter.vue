@@ -28,11 +28,11 @@ export default {
     hour: { type: Number },
     minute: { type: Number },
     second: { type: Number },
-    millisecond: { type: Number },
+    millisecond: { type: Number }
   },
   data: () => ({
     displayTime: {},
-    loaded: false,
+    loaded: false
   }),
   created() {
     this.showRemaining()
@@ -64,8 +64,8 @@ export default {
 
         this.loaded = true
       }, 1000)
-    },
-  },
+    }
+  }
 }
 </script>
 

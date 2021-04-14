@@ -2,12 +2,12 @@ import Vue from "vue"
 
 export const state = () => ({
   challenge: {},
-  writeups: [],
+  writeups: []
 })
 
 export const getters = {
   getWriteups: (state) => state.writeups.sort((a, b) => a.power - b.power),
-  getChallenge: (state) => state.challenge,
+  getChallenge: (state) => state.challenge
 }
 
 export const mutations = {
@@ -41,7 +41,7 @@ export const mutations = {
     }
     Vue.set(state.writeups, target, p)
   },
-  ADD_WRITEUP: (s, p) => s.writeups.unshift(p),
+  ADD_WRITEUP: (s, p) => s.writeups.unshift(p)
 }
 
 export const actions = {
@@ -52,7 +52,7 @@ export const actions = {
       commit("SET_CHALLENGE", data.challenge)
     } else {
       this.$toast.error(data.detail, {
-        icon: "alert-circle",
+        icon: "alert-circle"
       })
     }
   },
@@ -60,13 +60,13 @@ export const actions = {
     const { data } = await this.$axios.post("api/challenges/writeup/", {
       action: "add",
       id: $id,
-      data: $data,
+      data: $data
     })
     if (data.success) {
       commit("ADD_WRITEUP", data.data)
     } else {
       this.$toast.error(data.detail, {
-        icon: "alert-circle",
+        icon: "alert-circle"
       })
     }
   },
@@ -74,14 +74,14 @@ export const actions = {
     commit("SET_LIKE", writeup)
     await this.$axios.post("api/challenges/writeups/", {
       id: writeup.id,
-      action: "like",
+      action: "like"
     })
   },
   async dislike({ commit }, writeup) {
     commit("SET_DISLIKE", writeup)
     await this.$axios.post("api/challenges/writeups/", {
       id: writeup.id,
-      action: "dislike",
+      action: "dislike"
     })
-  },
+  }
 }

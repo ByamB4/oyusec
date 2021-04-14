@@ -43,7 +43,7 @@
 export default {
   data: () => ({
     comp: {},
-    displayTime: "",
+    displayTime: ""
   }),
   mounted() {
     this.fetchData()
@@ -73,7 +73,7 @@ export default {
         const showTime = this.$time.timeLeft(distance)
         this.displayTime = `${showTime.days}h ${showTime.hours}h ${showTime.minutes}m ${showTime.seconds}s`
       }, 1000)
-    },
-  },
+    }
+  }
 }
 </script>

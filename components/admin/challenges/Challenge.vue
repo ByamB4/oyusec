@@ -17,10 +17,10 @@ export default {
     general: () => import("./challenge/general"),
     hints: () => import("./challenge/hints"),
     flags: () => import("./challenge/flags"),
-    tags: () => import("./challenge/tags"),
+    tags: () => import("./challenge/tags")
   },
   data: () => ({
-    compNames: ["general", "hints", "flags", "tags"],
-  }),
+    compNames: ["general", "hints", "flags", "tags"]
+  })
 }
 </script>

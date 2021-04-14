@@ -1,13 +1,13 @@
 export const state = () => ({
-  scoreboard: [],
+  scoreboard: []
 })
 
 export const getters = {
-  getScoreboard: (state) => state.scoreboard,
+  getScoreboard: (state) => state.scoreboard
 }
 
 export const mutations = {
-  SET_SCOREBOARD: (s, p) => (s.scoreboard = p),
+  SET_SCOREBOARD: (s, p) => (s.scoreboard = p)
 }
 
 export const actions = {
@@ -19,5 +19,5 @@ export const actions = {
     if (data.success) {
       commit("SET_SCOREBOARD", data.data)
     }
-  },
+  }
 }

@@ -23,8 +23,8 @@
 export default {
   head() {
     return {
-      title: this.$i18n.messages[this.$i18n.locale].pages.contribute.title,
+      title: this.$i18n.messages[this.$i18n.locale].pages.contribute.title
     }
-  },
+  }
 }
 </script>

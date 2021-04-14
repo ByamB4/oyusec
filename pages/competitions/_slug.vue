@@ -56,21 +56,21 @@ export default {
           hid: "og:description",
           name: "og:description",
           content:
-            "Тэмцээн | Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх",
-        },
-      ],
+            "Тэмцээн | Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх"
+        }
+      ]
     }
   },
   computed: {
     ...mapGetters({
-      competition: "competition/getCompetition",
-    }),
+      competition: "competition/getCompetition"
+    })
   },
   created() {
     this.$store.dispatch(
       "competition/updateCompetition",
       this.$route.path.split("/").pop()
     )
-  },
+  }
 }
 </script>

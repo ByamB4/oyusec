@@ -30,13 +30,13 @@ export default {
   props: {
     login: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
     soon() {
       this.$toast.success("Soon2", { icon: "check-circle" })
-    },
-  },
+    }
+  }
 }
 </script>

@@ -45,21 +45,21 @@ export default {
   data: () => ({
     form: {
       solution: "",
-      loading: false,
+      loading: false
     },
     rules: {
-      required: (value) => !!value || "Заавал бөглөх ёстой",
-    },
+      required: (value) => !!value || "Заавал бөглөх ёстой"
+    }
   }),
   computed: {
     ...mapGetters({
-      challenge: "writeup/getChallenge",
-    }),
+      challenge: "writeup/getChallenge"
+    })
   },
   mounted() {
     if (!this.$auth.loggedIn) {
       this.$toast.show("Эхлээд нэвтэрнэ үү", {
-        icon: "alert-circle",
+        icon: "alert-circle"
       })
     }
   },
@@ -73,10 +73,10 @@ export default {
       this.form.loading = true
       await this.$store.dispatch("writeup/addWriteup", {
         $id: this.challenge.id,
-        $data: this.form.solution,
+        $data: this.form.solution
       })
       this.reset()
-    },
-  },
+    }
+  }
 }
 </script>

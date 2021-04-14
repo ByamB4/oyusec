@@ -9,8 +9,8 @@
 export default {
   components: {
     Edit: () => import("./Edit"),
-    Hint: () => import("./Hint"),
-  },
+    Hint: () => import("./Hint")
+  }
 }
 </script>
 

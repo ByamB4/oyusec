@@ -8,8 +8,8 @@
           params: {
             slug: competition.slug,
             id: competition.id,
-            name: competition.name,
-          },
+            name: competition.name
+          }
         })
       "
       class="my-3 user-bg font-exo"
@@ -32,8 +32,8 @@ export default {
   props: {
     competition: {
       required: true,
-      type: Object,
-    },
+      type: Object
+    }
   },
   computed: {
     end_date() {
@@ -52,10 +52,10 @@ export default {
     },
     prize() {
       return String(this.competition.prize)
-    },
+    }
   },
   methods: {
-    formatNum: (num) => (num < 10 ? "0" + num : num),
-  },
+    formatNum: (num) => (num < 10 ? "0" + num : num)
+  }
 }
 </script>

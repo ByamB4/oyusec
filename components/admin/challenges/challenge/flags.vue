@@ -52,28 +52,28 @@ export default {
     form: {},
     challenge: {},
     changed: false,
-    stateItems: ["Ил харагдана", "Нууцлагдмал"],
+    stateItems: ["Ил харагдана", "Нууцлагдмал"]
   }),
   computed: {
-    ...mapState({ activeChallenge: (state) => state.admin.activeChallenge }),
+    ...mapState({ activeChallenge: (state) => state.admin.activeChallenge })
   },
 
   methods: {
     submit() {
       this.$store.dispatch("admin/addFlag", {
-        $data: this.form,
+        $data: this.form
       })
       this.reset()
     },
     deleteItem(item) {
       this.$store.dispatch("admin/deleteFlag", {
-        $id: item.id,
+        $id: item.id
       })
     },
     reset() {
       this.form = {}
       this.$refs.form.resetValidation()
-    },
-  },
+    }
+  }
 }
 </script>

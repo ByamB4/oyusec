@@ -21,9 +21,9 @@ import { mapGetters } from "vuex"
 export default {
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
-  },
+      profile: "user/getProfile"
+    })
+  }
 }
 </script>
 
