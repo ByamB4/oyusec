@@ -190,13 +190,12 @@ export default {
   },
   profileTab: {
     menu: [
-      { title: "Ерөнхий", icon: "mdi-cog" },
+      { title: "Ерөнхий", icon: "mdi-account-outline" },
       { title: "Баг", icon: "mdi-account-group" },
       {
-        title: "Тухай",
+        title: "Засах",
         icon: "mdi-account-edit"
-      },
-      { title: "Бусад", icon: "mdi-shield-account" }
+      }
     ]
   },
   challengesTab: {

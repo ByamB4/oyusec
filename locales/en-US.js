@@ -193,10 +193,9 @@ export default {
       { title: "General", icon: "mdi-account-outline" },
       { title: "Teams", icon: "mdi-account-group" },
       {
-        title: "About you",
+        title: "Edit",
         icon: "mdi-account-edit"
-      },
-      { title: "Other", icon: "mdi-shield-account" }
+      }
     ]
   },
   challengesTab: {
