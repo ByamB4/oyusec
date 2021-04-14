@@ -1,16 +1,16 @@
 <template>
   <v-row align="center" no-gutters justify="center">
     <v-col cols="3" align="center">
-      <h2>#57</h2>
-      <span class="f-17 col-gray-400">Ranking</span>
+      <h2 v-text="profile.added_challenge" />
+      <span class="f-17 col-gray-400" v-text="$t('challenge')" />
     </v-col>
     <v-col cols="3" align="center">
-      <h2>15107</h2>
-      <span class="f-17 col-gray-400">Score</span>
+      <h2 v-text="profile.score" />
+      <span class="f-17 col-gray-400" v-text="$t('score')" />
     </v-col>
     <v-col cols="3" align="center">
-      <h2>5123</h2>
-      <span class="f-17 col-gray-400">Days</span>
+      <h2 v-text="profile.days" />
+      <span class="f-17 col-gray-400" v-text="$t('days')" />
     </v-col>
   </v-row>
 </template>

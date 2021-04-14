@@ -16,7 +16,7 @@ export default {
         content:
           "Мэдээллийн аюулгүй байдлын талаарх үнэн зөв, бодитой ойлголт, мэдлэг, ур чадварыг нийтэд сургах, таниулах"
       },
-      // Just SEO related thing, will change later
+      // TODO temporary
 
       {
         name: "keywords",
@@ -198,8 +198,8 @@ export default {
   },
 
   axios: {
-    baseURL: "http://localhost:8000"
-    // baseURL: "https://oyusec-server.herokuapp.com",
+    // baseURL: "http://localhost:8000"
+    baseURL: "https://oyusec-server.herokuapp.com"
   },
   toast: {
     theme: "bubble",
