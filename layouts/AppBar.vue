@@ -99,21 +99,18 @@ import { mapGetters } from "vuex"
 export default {
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
+      profile: "user/getProfile"
+    })
   },
   methods: {
-    async logout() {
+    logout() {
       this.$auth.logout()
-      await this.$auth.logout()
-      await this.$store.commit("competition/SET_SOLVES", [])
-      await this.$store.commit("challenge/SET_SOLVES", [])
-      // this.$store.dispatch("user/getGuest", { id: this.$route.params.id })
-      // if (this.edit === true) {
-      //   this.$emit("toggleEdit")
-      // }
-    },
-  },
+      this.$router.push("/")
+      this.$store.commit("competition/SET_SOLVES", [])
+      this.$store.commit("challenge/SET_SOLVES", [])
+      this.$store.commit("user/SET_PROFILE", {})
+    }
+  }
   // mounted() {
   //   if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
   //     this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })

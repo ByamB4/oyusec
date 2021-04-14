@@ -95,7 +95,7 @@ export default {
         content: "@byamb4",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/oyusec.png" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }],
   },
   // loading: false,
   loading: {

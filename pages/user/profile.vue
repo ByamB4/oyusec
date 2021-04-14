@@ -5,15 +5,15 @@
         <v-card class="user-bg">
           <v-card-title>
             <v-row align="center">
-              <v-col cols="4">
+              <v-col cols="12" sm="6" md="6" lg="4" xl="4">
                 <user-detail />
               </v-col>
               <v-divider vertical inset />
-              <v-col cols="4">
+              <v-col cols="12" sm="6" md="6" lg="4" xl="4">
                 <user-social-links />
               </v-col>
               <v-divider vertical inset />
-              <v-col cols="4">
+              <v-col cols="12" sm="12" md="12" lg="4" xl="4">
                 <user-type />
               </v-col>
             </v-row>
@@ -48,25 +48,25 @@ export default {
   components: {
     general: () => import("~/layouts/user/profile/general"),
     team: () => import("~/layouts/user/profile/team"),
-    edit: () => import("~/layouts/user/profile/edit"),
+    edit: () => import("~/layouts/user/profile/edit")
   },
-  middleware: ["auth"],
+  middleware: "auth",
   async asyncData(context) {
     await Promise.all([context.store.dispatch("user/getProfile", context)])
   },
   data: () => ({
     activeTab: null,
-    comps: ["general", "team", "edit"],
+    comps: ["general", "team", "edit"]
   }),
-  computed: {
-    ...mapGetters({
-      profile: "user/getProfile",
-    }),
-  },
   head() {
     return {
-      title: this.profile.fullname,
+      title: this.profile.fullname
     }
   },
+  computed: {
+    ...mapGetters({
+      profile: "user/getProfile"
+    })
+  }
 }
 </script>
