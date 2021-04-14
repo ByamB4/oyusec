@@ -189,13 +189,17 @@ export default {
     ]
   },
   profileTab: {
-    menu: [
+    authMenu: [
       { title: "General", icon: "mdi-account-outline" },
       { title: "Teams", icon: "mdi-account-group" },
       {
         title: "Edit",
         icon: "mdi-account-edit"
       }
+    ],
+    menu: [
+      { title: "General", icon: "mdi-account-outline" },
+      { title: "Teams", icon: "mdi-account-group" }
     ]
   },
   challengesTab: {

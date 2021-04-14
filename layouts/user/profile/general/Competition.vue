@@ -1,8 +1,10 @@
 <template>
   <v-row class="mx-3">
-    <h2 style="letter-spacing: 0.3px" class="font-press f-15">
-      [ {{ $t("competitionHistory") }} ]
-    </h2>
+    <v-col cols="12" class="text-center">
+      <h2 style="letter-spacing: 0.3px" class="font-press f-15">
+        [ {{ $t("competitionHistory") }} ]
+      </h2>
+    </v-col>
     <v-col cols="12">
       <v-simple-table dark>
         <thead>
@@ -16,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(comp, ind) in competitions" :key="ind">
+          <tr v-for="(comp, ind) in profile.competitions" :key="ind">
             <td class="text-center">
               <v-icon v-if="comp.place === 1">mdi-crown-outline</v-icon>
               <template v-else>
@@ -37,27 +39,10 @@
 import { mapGetters } from "vuex"
 
 export default {
-  data: () => ({
-    competitions: [],
-    heads: ["Place", "Event", "CTF points", "Rating points"]
-  }),
   computed: {
     ...mapGetters({
       profile: "user/getProfile"
     })
-  },
-  created() {
-    this.getSolvedChallenges()
-  },
-  methods: {
-    async getSolvedChallenges() {
-      const { data } = await this.$axios.get(
-        `api/user/competition/${this.profile.slug}/`
-      )
-      if (data.success) {
-        this.competitions = data.data
-      }
-    }
   }
 }
 </script>

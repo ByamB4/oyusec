@@ -189,13 +189,17 @@ export default {
     ]
   },
   profileTab: {
-    menu: [
+    authMenu: [
       { title: "Ерөнхий", icon: "mdi-account-outline" },
       { title: "Баг", icon: "mdi-account-group" },
       {
         title: "Засах",
         icon: "mdi-account-edit"
       }
+    ],
+    menu: [
+      { title: "Ерөнхий", icon: "mdi-account-outline" },
+      { title: "Баг", icon: "mdi-account-group" }
     ]
   },
   challengesTab: {

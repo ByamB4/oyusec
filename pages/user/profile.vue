@@ -20,7 +20,7 @@
           </v-card-title>
           <v-card-text class="px-0 py-0">
             <v-tabs v-model="activeTab" hide-slider>
-              <v-tab v-for="tab in $t('profileTab.menu')" :key="tab.title">
+              <v-tab v-for="tab in $t('profileTab.authMenu')" :key="tab.title">
                 <v-icon left v-text="tab.icon" />
                 <span class="ml-2" v-text="tab.title" />
               </v-tab>
@@ -52,7 +52,10 @@ export default {
   },
   middleware: "auth",
   async asyncData(context) {
-    await Promise.all([context.store.dispatch("user/getProfile", context)])
+    const { slug } = context.app.$auth.user
+    await context.store.dispatch("user/getProfile", {
+      slug
+    })
   },
   data: () => ({
     activeTab: null,
