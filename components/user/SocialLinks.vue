@@ -3,7 +3,11 @@
     <v-col
       v-for="social in profile.socials"
       :key="social.type"
-      cols="6"
+      cols="12"
+      sm="12"
+      md="6"
+      lg="6"
+      xl="6"
       class="col-gray-400 py-2"
     >
       <div class="text-truncate">
@@ -20,9 +24,9 @@ import { mapGetters } from "vuex"
 export default {
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
-  },
+      profile: "user/getProfile"
+    })
+  }
 }
 </script>
 

@@ -46,13 +46,10 @@
           aria-label="user profile"
           :to="localePath({ name: 'user-profile' })"
         >
-          <!-- :to="
-            localePath({
-              name: 'user-slug',
-              params: { slug: $auth.user.slug },
-            })
-          " -->
           <v-icon>mdi-account-circle</v-icon>
+        </v-btn>
+        <v-btn icon color="purple" aria-label="logout" @click="logout">
+          <v-icon>mdi-logout</v-icon>
         </v-btn>
       </template>
     </client-only>
@@ -102,10 +99,18 @@ import { mapGetters } from "vuex"
 export default {
   computed: {
     ...mapGetters({
-      profile: "user/getProfile",
-    }),
+      profile: "user/getProfile"
+    })
   },
-
+  methods: {
+    logout() {
+      this.$auth.logout()
+      this.$router.push("/")
+      this.$store.commit("competition/SET_SOLVES", [])
+      this.$store.commit("challenge/SET_SOLVES", [])
+      this.$store.commit("user/SET_PROFILE", {})
+    }
+  }
   // mounted() {
   //   if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
   //     this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })

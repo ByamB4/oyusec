@@ -7,18 +7,11 @@ export default {
   data() {
     return {
       barChartData: {
-        labels: [
-          "Cryptography",
-          "Pwn",
-          "Forensics",
-          "Misc",
-          "Reversing",
-          "Web",
-        ],
+        labels: ["CHALLENGES", "COMPETITIONS", "CONTRIBUTE"],
         datasets: [
           {
-            data: [25, 86, 57, 92, 41, 100],
-            backgroundColor: "rgba(20, 255, 0, 0.3)",
+            data: [25, 86, 57],
+            backgroundColor: "rgba(118, 255, 3, 0.15)",
             borderColor: "#76ff03",
             borderWidth: 2,
             pointStyle: "circle",

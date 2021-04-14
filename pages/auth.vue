@@ -13,6 +13,7 @@
 <script>
 export default {
   data: () => ({
+    // Default behavior is login
     login: true,
   }),
 }
