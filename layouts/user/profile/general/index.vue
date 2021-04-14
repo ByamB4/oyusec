@@ -1,6 +1,6 @@
 <template>
   <v-row class="mt-5">
-    <v-col cols="4"><ChallengeChart /></v-col>
+    <v-col cols="4"><ProfileChart /></v-col>
     <v-col cols="4"><Solves /></v-col>
     <v-col cols="4"><Competition /></v-col>
   </v-row>
@@ -9,7 +9,7 @@
 <script>
 export default {
   components: {
-    ChallengeChart: () => import("./ChallengeChart"),
+    ProfileChart: () => import("./ProfileChart"),
     Solves: () => import("./Solves"),
     Competition: () => import("./Competition"),
   },

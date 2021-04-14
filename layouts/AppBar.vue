@@ -46,13 +46,10 @@
           aria-label="user profile"
           :to="localePath({ name: 'user-profile' })"
         >
-          <!-- :to="
-            localePath({
-              name: 'user-slug',
-              params: { slug: $auth.user.slug },
-            })
-          " -->
           <v-icon>mdi-account-circle</v-icon>
+        </v-btn>
+        <v-btn icon color="purple" aria-label="logout" @click="logout">
+          <v-icon>mdi-logout</v-icon>
         </v-btn>
       </template>
     </client-only>
@@ -105,7 +102,18 @@ export default {
       profile: "user/getProfile",
     }),
   },
-
+  methods: {
+    async logout() {
+      this.$auth.logout()
+      await this.$auth.logout()
+      await this.$store.commit("competition/SET_SOLVES", [])
+      await this.$store.commit("challenge/SET_SOLVES", [])
+      // this.$store.dispatch("user/getGuest", { id: this.$route.params.id })
+      // if (this.edit === true) {
+      //   this.$emit("toggleEdit")
+      // }
+    },
+  },
   // mounted() {
   //   if (this.$auth.loggedIn && this.$auth.user.type !== "admin") {
   //     this.$store.dispatch("user/getProfile", { slug: this.$auth.user.slug })
