@@ -8,7 +8,7 @@
             :width="4"
             value="100"
             class="big-small-circle"
-            color="light-green accent-3"
+            color="primary"
           >
             <v-icon size="40" color="white">mdi-trophy</v-icon>
           </v-progress-circular>

@@ -51,7 +51,7 @@ export const getters = {
 export const mutations = {
   SET_COMPETITIONS: (s, p) => (s.competitions = p),
   SET_COMPETITION: (s, p) => (s.competition = p),
-  SET_CHALLENGES: (s, p) => s.challenges.p,
+  SET_CHALLENGES: (s, p) => (s.challenges = p),
   SET_CHALLENGES_SOLVES: (s, p) => (s.challengesSolves = p),
   SET_SOLVES: (s, p) =>
     (s.solves = new Set(p.map((solve) => solve.challenge_id))),

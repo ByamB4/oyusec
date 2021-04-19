@@ -10,7 +10,7 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-tabs v-model="activeTab" grow hide-slider>
+        <v-tabs v-model="activeTab">
           <v-tab v-for="(tab, i) in $t('challengesTab.menu')" :key="tab.title">
             <v-icon left v-text="tab.icon" />
             <span v-text="tab.title" />

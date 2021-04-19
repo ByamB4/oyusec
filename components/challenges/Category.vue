@@ -45,15 +45,23 @@ export default {
     }
   }
 }
+// &:hover
+// .v-expansion-panels .v-expansion-panel-header--active
+//   .v-icon
+//     color: $blue-base !important
+// .solved
+//   border-left: 3px solid $neon
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+@import "~vuetify/src/styles/styles.sass"
+
 .v-expansion-panel-header
-  &:hover
-    border-left: 3px solid $neon !important
+  &:hover, &--active
+    border-left: 3px solid map-get($blue, base) !important
 .v-expansion-panels .v-expansion-panel-header--active
   .v-icon
-    color: $neon !important
+    color: map-get($blue, base) !important
 .solved
-  border-left: 3px solid $neon
+  border-left: 3px solid map-get($blue, base)
 </style>
