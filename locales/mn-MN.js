@@ -72,6 +72,7 @@ export default {
   forgetYourPassword: "Нууц үгээ мартсан уу ?",
   loginRequired: "Нэвтрэх шаардлагатай",
   hideSolvedChallenges: "Бодсон бодлого нуух",
+  hint: "Тусламж",
   // rules
   max25Character: "Ихдээ 25 тэмдэгт",
   required: "Заавал бөглөх ёстой",
@@ -134,7 +135,7 @@ export default {
       },
       {
         icon: "mdi-sword",
-        color: "green accent-4",
+        color: "cyan accent-3",
         title: "Бодлого",
         link: "/challenges"
       },
@@ -145,17 +146,17 @@ export default {
         link: "/competitions"
       },
       {
+        icon: "mdi-school-outline",
+        color: "light-green accent-3",
+        title: "Academy",
+        link: "/academy"
+      },
+      {
         icon: "mdi-chart-line",
         color: "#ffdf00",
         title: "Самбар",
         link: "/scoreboard"
       },
-      // {
-      //   icon: "mdi-file-document-outline",
-      //   color: "purple lighten-2",
-      //   title: "Хариу",
-      //   link: "/writeup",
-      // },
       {
         icon: "mdi-cards-heart",
         color: "#e31b23",

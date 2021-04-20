@@ -52,7 +52,6 @@ export default {
   middleware: "auth",
   async asyncData(context) {
     const { slug } = context.params
-    console.log(slug)
     await context.store.dispatch("user/getProfile", {
       slug
     })

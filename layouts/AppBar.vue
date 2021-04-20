@@ -37,7 +37,7 @@
               v-on="on"
             ></v-progress-linear>
           </template>
-          <span>{{ profile.progress }}%</span>
+          <span v-text="profile.progress + '%'" />
         </v-tooltip>
 
         <v-btn

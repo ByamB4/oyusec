@@ -14,7 +14,6 @@
         v-for="item in $t('drawer.leftMenu')"
         :key="item.icon"
         :to="item.link"
-        exact
       >
         <v-list-item-icon>
           <v-icon :color="item.color">{{ item.icon }}</v-icon>

@@ -71,7 +71,7 @@ export default {
   postedAt: "Posted at",
   loginRequired: "Login required",
   hideSolvedChallenges: "Hide solved challenges",
-
+  hint: "Hint",
   // rules
   max25Character: "Max 25 characters",
   required: "Required",
@@ -134,7 +134,7 @@ export default {
       },
       {
         icon: "mdi-sword",
-        color: "green accent-4",
+        color: "cyan accent-3",
         title: "Practice",
         link: "/challenges"
       },
@@ -144,12 +144,12 @@ export default {
         title: "Compete",
         link: "/competitions"
       },
-      // {
-      //   icon: "mdi-file-document-outline",
-      //   color: "purple lighten-2",
-      //   title: "Writeup",
-      //   link: "/writeup",
-      // },
+      {
+        icon: "mdi-school-outline",
+        color: "light-green accent-3",
+        title: "Academy",
+        link: "/academy"
+      },
       {
         icon: "mdi-chart-line",
         color: "#ffdf00",
