@@ -33,13 +33,18 @@
     .v-tabs > .v-tabs-bar
       background-color: transparent !important
 
-    .v-tab:not(.v-tab--active)
-      color: rgba(255, 255, 255, 0.6) !important
-      .v-icon
-        color: rgba(255, 255, 255, 0.6)
+    .v-tab
+      &--active
+        color: $white !important
+        .v-icon
+          color: $white !important
+      &:not(.v-tab--active)
+        color: $gray-400 !important
+        .v-icon
+          color: $gray-400 !important
 
     .v-input
-      input
+      input, textarea
         color: #fff !important
       .v-label
         color: rgba(255, 255, 255, 0.6) !important
@@ -81,15 +86,6 @@
         background-color: $gray-900
         .v-icon
           color: $white !important
-
-    // Challenge related
-    .v-expansion-panels
-      margin: 0 24px
-      .v-expansion-panel-header
-        height: 10px !important
-        background-color: #062a4e
-        &:hover, &--active
-          background-color: #083766
 
     .v-input input
       color: #fff !important

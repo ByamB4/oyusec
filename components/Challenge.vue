@@ -1,5 +1,5 @@
 <template>
-  <v-expansion-panel class="challenge mt-2 font-exo">
+  <v-expansion-panel class="mt-2 chall">
     <v-dialog v-model="dialog.show" max-width="400px">
       <v-simple-table class="user-bg font-exo" dark>
         <tbody>
@@ -47,7 +47,7 @@
           </v-chip>
           <v-chip small class="ml-1" color="purple darken-2">
             <strong v-text="$t('score')" />
-            <span class="ml-1" v-text="challenge.value" />
+            <span class="ml-1 col-white" v-text="challenge.value" />
           </v-chip>
           <v-chip small class="ml-1" color="teal darken-2">
             <strong v-text="$t('added')" />
@@ -253,6 +253,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-expansion-panel {
+  background-color: #1e1e1e !important;
+}
 .solved {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 }

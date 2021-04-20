@@ -12,9 +12,11 @@
             chall.solved ||
             ($auth.loggedIn && chall.author === $auth.user.username)
         }"
-        expand-icon="mdi-chevron-left-circle-outline"
       >
         <span v-text="chall.name" />
+        <template v-slot:actions>
+          <v-icon color="white">mdi-chevron-left-circle-outline</v-icon>
+        </template>
       </v-expansion-panel-header>
     </v-expansion-panel>
   </v-expansion-panels>

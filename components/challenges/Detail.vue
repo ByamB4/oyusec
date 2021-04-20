@@ -1,5 +1,5 @@
 <template>
-  <v-container class="challenge">
+  <v-container class="chall">
     <v-row v-if="!loading">
       <v-col cols="12" align="center">
         <h1 v-text="challenge.name" />

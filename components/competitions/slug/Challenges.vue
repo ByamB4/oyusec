@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="font-exo challenges">
+  <v-container fluid class="challenges">
     <v-row v-if="competition.status === 'Удахгүй'" justify="center">
       <v-col cols="12" align="center">
         <Counter

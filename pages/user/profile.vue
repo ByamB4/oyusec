@@ -19,7 +19,7 @@
             </v-row>
           </v-card-title>
           <v-card-text class="px-0 py-0">
-            <v-tabs v-model="activeTab" hide-slider>
+            <v-tabs v-model="activeTab">
               <v-tab v-for="tab in $t('profileTab.authMenu')" :key="tab.title">
                 <v-icon left v-text="tab.icon" />
                 <span class="ml-2" v-text="tab.title" />
