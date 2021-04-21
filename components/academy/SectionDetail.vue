@@ -1,6 +1,10 @@
 <template>
   <div v-if="section">
-    <div v-html="section.content" />
+    <div class="px-5 challenges">
+      <div class="chall f-18 text-justify">
+        <div v-html="section.content" />
+      </div>
+    </div>
     <template v-if="section.haveQuestion">
       <v-dialog v-model="dialog.show" max-width="300px">
         <v-card class="user-bg font-exo">
