@@ -18,6 +18,8 @@
         ></vue-typer>
       </v-col>
       <v-col
+        v-for="app in apps"
+        :key="app.name"
         cols="10"
         xs="10"
         sm="10"
@@ -30,18 +32,18 @@
         <v-card
           class="bg-transparent"
           elevation="0"
-          @click.native="to_('competitions')"
+          @click.native="to_(app.to)"
         >
-          <v-img src="/competition.png" height="225" class="zoom">
+          <v-img :src="app.img" height="225" class="zoom">
             <v-card-title class="font-exo">
               <v-row class="fill-height flex-column" justify="space-between">
                 <h2 class="text-center">
                   <v-icon
                     size="35"
-                    :color="$cs.competition.color"
-                    v-text="$cs.competition.icon"
+                    :color="app.icon.color"
+                    v-text="app.icon.icon"
                   />
-                  <span class="white--text" v-text="$t('competition')" />
+                  <span class="white--text" v-text="app.name" />
                 </h2>
               </v-row>
             </v-card-title>
@@ -49,122 +51,7 @@
               <span
                 style="line-height: 200%"
                 class="f-19 col-gray-300"
-                v-text="$t('pages.index.competitionDescription')"
-              />
-            </v-card-text>
-          </v-img>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="10"
-        xs="10"
-        sm="10"
-        md="6"
-        lg="6"
-        xl="6"
-        class="mt-10 text-center"
-        justify="center"
-      >
-        <v-card
-          class="bg-transparent"
-          elevation="0"
-          @click.native="to_('challenges')"
-        >
-          <v-img src="/practice.png" height="225" class="zoom">
-            <v-card-title class="font-exo">
-              <v-row class="fill-height flex-column" justify="space-between">
-                <h2 class="text-center">
-                  <v-icon
-                    size="35"
-                    :color="$cs.practice.color"
-                    v-text="$cs.practice.icon"
-                  />
-                  <span class="white--text" v-text="$t('challenge')" />
-                </h2>
-              </v-row>
-            </v-card-title>
-            <v-card-text>
-              <span
-                style="line-height: 200%"
-                class="f-19 col-gray-300"
-                v-text="$t('pages.index.challengeDescription')"
-              />
-            </v-card-text>
-          </v-img>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="10"
-        xs="10"
-        sm="10"
-        md="6"
-        lg="6"
-        xl="6"
-        class="mt-10 text-center"
-        justify="center"
-      >
-        <v-card
-          class="bg-transparent"
-          elevation="0"
-          target="_blank"
-          href="https://discord.gg/9fqVFEBAhv"
-        >
-          <v-img src="/discord.png" height="225" class="zoom">
-            <v-card-title class="font-exo">
-              <v-row class="fill-height flex-column" justify="space-between">
-                <h2 class="text-center">
-                  <v-icon
-                    size="35"
-                    :color="$cs.community.color"
-                    v-text="$cs.community.icon"
-                  />
-                  <span class="white--text" v-text="$t('community')" />
-                </h2>
-              </v-row>
-            </v-card-title>
-            <v-card-text>
-              <span
-                style="line-height: 200%"
-                class="f-19 col-gray-300"
-                v-text="$t('pages.index.communityDescription')"
-              />
-            </v-card-text>
-          </v-img>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="10"
-        xs="10"
-        sm="10"
-        md="6"
-        lg="6"
-        xl="6"
-        class="mt-10 text-center"
-        justify="center"
-      >
-        <v-card
-          class="bg-transparent"
-          elevation="0"
-          @click.native="to_('academy')"
-        >
-          <v-img src="/academy.png" height="225" class="zoom">
-            <v-card-title class="font-exo">
-              <v-row class="fill-height flex-column" justify="space-between">
-                <h2 class="text-center">
-                  <v-icon
-                    size="35"
-                    :color="$cs.academy.color"
-                    v-text="$cs.academy.icon"
-                  />
-                  <span class="white--text" v-text="$t('academy')" />
-                </h2>
-              </v-row>
-            </v-card-title>
-            <v-card-text>
-              <span
-                style="line-height: 200%"
-                class="f-19 col-gray-300"
-                v-text="$t('pages.index.academyDescription')"
+                v-text="app.description"
               />
             </v-card-text>
           </v-img>
@@ -180,6 +67,52 @@ export default {
   components: {
     "vue-typer": VueTyper
   },
+  computed: {
+    apps() {
+      return [
+        {
+          name: this.$t("competition"),
+          description: this.$t("pages.index.competitionDescription"),
+          to: "competitions",
+          img: "/competition.png",
+          icon: {
+            icon: this.$cs.competition.icon,
+            color: this.$cs.competition.color
+          }
+        },
+        {
+          name: this.$t("challenge"),
+          description: this.$t("pages.index.challengeDescription"),
+          to: "challenges",
+          img: "/practice.png",
+          icon: {
+            icon: this.$cs.practice.icon,
+            color: this.$cs.practice.color
+          }
+        },
+        {
+          name: this.$t("community"),
+          description: this.$t("pages.index.communityDescription"),
+          to: "community",
+          img: "/discord.png",
+          icon: {
+            icon: this.$cs.community.icon,
+            color: this.$cs.community.color
+          }
+        },
+        {
+          name: this.$t("academy"),
+          description: this.$t("pages.index.academyDescription"),
+          to: "academy",
+          img: "/academy.png",
+          icon: {
+            icon: this.$cs.academy.icon,
+            color: this.$cs.academy.color
+          }
+        }
+      ]
+    }
+  },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
@@ -187,15 +120,18 @@ export default {
         {
           hid: "description",
           name: "description",
-          content:
-            "Бодлого: Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх"
+          content: "test index page"
         }
       ]
     }
   },
   methods: {
     to_(to) {
-      this.$router.push(`/${to}`)
+      if (to === "community") {
+        window.open("https://discord.gg/9fqVFEBAhv", "_blank")
+      } else {
+        this.$router.push(`/${to}`)
+      }
     }
   }
 }

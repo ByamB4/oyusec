@@ -67,7 +67,14 @@ export default {
   // },
   head() {
     return {
-      title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title
+      title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "test challenge page"
+        }
+      ]
     }
   },
   computed: {
