@@ -37,9 +37,6 @@ export default {
   data: () => ({
     cats: []
   }),
-  created() {
-    this.cats = this.category.map((cat) => cat.name)
-  },
   computed: {
     ...mapGetters({
       category: "academy/getCategory"
@@ -49,6 +46,9 @@ export default {
     cats(a, b) {
       this.$emit("filter", a)
     }
+  },
+  created() {
+    this.cats = this.category.map((cat) => cat.name)
   }
 }
 </script>
