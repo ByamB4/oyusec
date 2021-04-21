@@ -1,16 +1,27 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
-      <v-col cols="8">
+      <v-col cols="12" sm="12" md="8" lg="9" xl="9">
         <v-row>
-          <v-col v-for="ac in academies" :key="ac.id" cols="6">
+          <v-col
+            v-for="ac in academies.filter(({ category }) =>
+              cat.includes(category)
+            )"
+            :key="ac.id"
+            cols="12"
+            sm="6"
+            md="6"
+            lg="3"
+            xl="3"
+          >
             <AcademyTutorial :tutorial="ac" />
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" sm="12" md="4" lg="3" xl="3">
         <AcademyTips />
-        <AcademyRate />
+        <AcademyContribute />
+        <AcademyFilter @filter="upFilter" />
       </v-col>
     </v-row>
   </v-container>
@@ -25,10 +36,18 @@ export default {
       context.store.dispatch("academy/updateAcademies", context)
     ])
   },
+  data: () => ({
+    cat: []
+  }),
   computed: {
     ...mapGetters({
       academies: "academy/getAcademies"
     })
+  },
+  methods: {
+    upFilter(_) {
+      this.cat = _
+    }
   }
 }
 </script>

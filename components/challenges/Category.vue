@@ -14,7 +14,7 @@
         }"
       >
         <span v-text="chall.name" />
-        <template v-slot:actions>
+        <template #actions>
           <v-icon color="white">mdi-chevron-left-circle-outline</v-icon>
         </template>
       </v-expansion-panel-header>
