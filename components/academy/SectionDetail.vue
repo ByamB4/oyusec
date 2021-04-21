@@ -1,7 +1,7 @@
 <template>
   <div v-if="section">
     <div class="px-5 challenges">
-      <div class="chall f-18 text-justify">
+      <div class="chall f-16 text-justify">
         <div v-html="section.content" />
       </div>
     </div>
