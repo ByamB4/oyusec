@@ -71,7 +71,7 @@ export default {
           return
         }
         const showTime = this.$time.timeLeft(distance)
-        this.displayTime = `${showTime.days}h ${showTime.hours}h ${showTime.minutes}m ${showTime.seconds}s`
+        this.displayTime = `${showTime.days}d ${showTime.hours}h ${showTime.minutes}m ${showTime.seconds}s`
       }, 1000)
     }
   }

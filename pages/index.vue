@@ -18,23 +18,42 @@
         ></vue-typer>
       </v-col>
       <v-col
-        cols="12"
-        xs="12"
-        sm="8"
-        md="8"
-        lg="8"
-        xl="8"
+        cols="10"
+        xs="10"
+        sm="10"
+        md="6"
+        lg="6"
+        xl="6"
         class="mt-10 text-center"
+        justify="center"
       >
-        <h2 class="text-center">
-          <v-icon size="35" color="yellow darken-2">mdi-trophy-outline</v-icon>
-          {{ $t("competition") }}
-        </h2>
-        <span
-          style="line-height: 200%"
-          class="f-19"
-          v-text="$t('pages.index.competitionDescription')"
-        />
+        <v-card
+          class="bg-transparent"
+          elevation="0"
+          @click.native="to_('competitions')"
+        >
+          <v-img src="/competition.png" height="225" class="zoom">
+            <v-card-title class="font-exo">
+              <v-row class="fill-height flex-column" justify="space-between">
+                <h2 class="text-center">
+                  <v-icon
+                    size="35"
+                    :color="$cs.competition.color"
+                    v-text="$cs.competition.icon"
+                  />
+                  <span class="white--text" v-text="$t('competition')" />
+                </h2>
+              </v-row>
+            </v-card-title>
+            <v-card-text>
+              <span
+                style="line-height: 200%"
+                class="f-19 col-gray-300"
+                v-text="$t('pages.index.competitionDescription')"
+              />
+            </v-card-text>
+          </v-img>
+        </v-card>
       </v-col>
       <v-col
         cols="10"
@@ -44,17 +63,35 @@
         lg="6"
         xl="6"
         class="mt-10 text-center"
+        justify="center"
       >
-        <h2 class="text-center">
-          <v-icon size="35" color="cyan accent-5">mdi-flag-checkered</v-icon>
-          {{ $t("challenge") }}
-        </h2>
-
-        <span
-          style="line-height: 200%"
-          class="f-19"
-          v-text="$t('pages.index.challengeDescription')"
-        />
+        <v-card
+          class="bg-transparent"
+          elevation="0"
+          @click.native="to_('challenges')"
+        >
+          <v-img src="/practice.png" height="225" class="zoom">
+            <v-card-title class="font-exo">
+              <v-row class="fill-height flex-column" justify="space-between">
+                <h2 class="text-center">
+                  <v-icon
+                    size="35"
+                    :color="$cs.practice.color"
+                    v-text="$cs.practice.icon"
+                  />
+                  <span class="white--text" v-text="$t('challenge')" />
+                </h2>
+              </v-row>
+            </v-card-title>
+            <v-card-text>
+              <span
+                style="line-height: 200%"
+                class="f-19 col-gray-300"
+                v-text="$t('pages.index.challengeDescription')"
+              />
+            </v-card-text>
+          </v-img>
+        </v-card>
       </v-col>
       <v-col
         cols="10"
@@ -64,46 +101,75 @@
         lg="6"
         xl="6"
         class="mt-10 text-center"
+        justify="center"
       >
-        <h2 class="text-center">
-          <v-icon size="35" color="light-blue accent-3"
-            >mdi-account-group</v-icon
-          >
-          {{ $t("community") }}
-        </h2>
-        <span
-          style="line-height: 200%"
-          class="f-19"
-          v-text="$t('pages.index.communityDescription')"
-        />
+        <v-card
+          class="bg-transparent"
+          elevation="0"
+          target="_blank"
+          href="https://discord.gg/9fqVFEBAhv"
+        >
+          <v-img src="/discord.png" height="225" class="zoom">
+            <v-card-title class="font-exo">
+              <v-row class="fill-height flex-column" justify="space-between">
+                <h2 class="text-center">
+                  <v-icon
+                    size="35"
+                    :color="$cs.community.color"
+                    v-text="$cs.community.icon"
+                  />
+                  <span class="white--text" v-text="$t('community')" />
+                </h2>
+              </v-row>
+            </v-card-title>
+            <v-card-text>
+              <span
+                style="line-height: 200%"
+                class="f-19 col-gray-300"
+                v-text="$t('pages.index.communityDescription')"
+              />
+            </v-card-text>
+          </v-img>
+        </v-card>
       </v-col>
-      <!-- <v-col
+      <v-col
         cols="10"
         xs="10"
         sm="10"
         md="6"
         lg="6"
         xl="6"
-        class="mt-10"
-        style="color: #616161"
+        class="mt-10 text-center"
+        justify="center"
       >
-        <v-tooltip bottom>
-          <template #activator="{ on, attrs }">
-            <div v-bind="attrs" v-on="on">
-              <h2 class="text-center">
-                <v-icon size="35" color="#616161">mdi-book-open-variant</v-icon>
-                {{ $t("learn") }}
-              </h2>
-              <span style="line-height: 200%" class="f-19 text-justify">
-                Бид анхлан суралцагчдад, зориулж чиглэл өгөх зорилгоор
-                <b>linux</b>, энгийн <b>ctf</b> бодлого, аюулгүй байдлын талаар
-                сонирхолтой байдлаар заах болно.
-              </span>
-            </div>
-          </template>
-          <span v-text="$t('comingSoon')" />
-        </v-tooltip>
-      </v-col> -->
+        <v-card
+          class="bg-transparent"
+          elevation="0"
+          @click.native="to_('academy')"
+        >
+          <v-img src="/academy.png" height="225" class="zoom">
+            <v-card-title class="font-exo">
+              <v-row class="fill-height flex-column" justify="space-between">
+                <h2 class="text-center">
+                  <v-icon
+                    size="35"
+                    :color="$cs.academy.color"
+                    v-text="$cs.academy.icon"
+                  />
+                  <span class="white--text" v-text="$t('academy')" />
+                </h2>
+              </v-row>
+            </v-card-title>
+            <v-card-text>
+              <span
+                style="line-height: 200%"
+                class="f-19 col-gray-300"
+                v-text="$t('pages.index.academyDescription')"
+              />
+            </v-card-text>
+          </v-img>
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -125,13 +191,11 @@ export default {
             "Бодлого: Мэдээллийн аюулгүй байдал, сүлжээний бодлогууд дээр өөрийн ур чадварыг шалган оноо цуглуулан бусадтай хөгжөөнт байдлаар бусадтайгаа өрсөлдөх"
         }
       ]
-      // script: [
-      //   {
-      //     src: "https://nextparticle.nextco.de/nextparticle.min.js",
-      //     hid: "stripe",
-      //     defer: true,
-      //   },
-      // ],
+    }
+  },
+  methods: {
+    to_(to) {
+      this.$router.push(`/${to}`)
     }
   }
 }
@@ -150,5 +214,19 @@ export default {
   padding-top: 11px;
   width: 10px;
   background-color: #fff;
+}
+.v-card {
+  transition: opacity 0.4s ease-in-out;
+}
+.zoom {
+  -webkit-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.zoom:hover {
+  -webkit-transform: rotate(3deg) scale(1.05);
+  transform: rotate(3deg) scale(1.05);
+  cursor: pointer;
 }
 </style>

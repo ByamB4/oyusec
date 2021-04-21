@@ -11,7 +11,7 @@
             class="big-small-circle"
           >
             <v-avatar size="90">
-              <v-img v-if="top.length" :src="top.user.img"> </v-img>
+              <v-img v-if="top.user" :src="top.user.img"> </v-img>
             </v-avatar>
           </v-progress-circular>
         </v-col>

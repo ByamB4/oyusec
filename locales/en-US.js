@@ -5,6 +5,7 @@ export default {
   community: "Community",
   competition: "Competition",
   learn: "Learn",
+  academy: "Academy",
   category: "Category",
   state: "State",
   flag: "Flag",
@@ -96,6 +97,8 @@ export default {
         "Build relationships with others, share your thoughts, and learn from each other's experiences. Feel free to contact us when you have any questions",
       competitionDescription:
         "You can participate in competitions, collect points and compete with others to improve your rank. We will announce the results of the competition on our website.",
+      academyDescription:
+        "We will teach beginners in an interesting way to learn about cybersecurity-related things, simple CTF challenges, guides, Linux operation systems, etc.",
       description: [
         "Learn cyber security",
         "Sharpen your skills",
@@ -139,8 +142,8 @@ export default {
         link: "/challenges"
       },
       {
-        icon: "mdi-sword-cross",
-        color: "blue ligthen-2",
+        icon: "mdi-trophy",
+        color: "pink",
         title: "Compete",
         link: "/competitions"
       },
@@ -152,7 +155,7 @@ export default {
       },
       {
         icon: "mdi-chart-line",
-        color: "#ffdf00",
+        color: "yellow darken-3",
         title: "Scoreboard",
         link: "/scoreboard"
       },
