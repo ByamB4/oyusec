@@ -9,7 +9,7 @@
           height="100"
           alt="oyusec logo"
         />
-        <!-- <client-only placeholder="loading...">
+        <client-only placeholder="loading...">
           <vue-typer
             class="font-press"
             :text="$t('pages.index.description')"
@@ -17,7 +17,7 @@
             :erase-delay="400"
             caret-animation="blink"
           ></vue-typer>
-        </client-only> -->
+        </client-only>
       </v-col>
       <v-col
         v-for="app in apps"
