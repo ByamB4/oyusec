@@ -4,7 +4,7 @@
       <v-col cols="12" align="center" class="mb-10">
         <v-img
           id="logo"
-          src="logo.png"
+          src="/logo.png"
           width="100"
           height="100"
           alt="oyusec logo"

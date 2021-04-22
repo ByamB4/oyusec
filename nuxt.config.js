@@ -61,7 +61,7 @@ export default {
       },
       {
         name: "og:image",
-        content: "logo.png"
+        content: "/logo.png"
       },
       {
         name: "og:url",
@@ -92,7 +92,7 @@ export default {
         content: "@byamb4"
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "logo.png" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }]
   },
   // loading: false,
   loading: {
