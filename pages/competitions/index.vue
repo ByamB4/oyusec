@@ -1,11 +1,11 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row justify="center">
       <v-col cols="12">
-        <v-tabs>
+        <v-tabs hide-slider>
           <v-tab v-for="tab in $t('competitionTab.menu')" :key="tab.title">
-            <v-icon v-text="tab.icon" />
-            <span class="ml-3" v-text="tab.title" />
+            <v-icon left v-text="tab.icon" />
+            <span v-text="tab.title" />
           </v-tab>
           <v-tab-item v-for="component in components" :key="component.title">
             <v-row>
@@ -61,9 +61,6 @@ export default {
       ]
     }
   },
-  // async fetch() {
-  //   await this.$store.dispatch("competition/updateCompetition")
-  // },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.competition.title

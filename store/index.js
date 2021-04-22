@@ -3,5 +3,5 @@ export const state = () => ({
 })
 
 export const mutations = {
-  SET_DRAWER: (s, p) => (s.drawer = p)
+  TOGGLE_DRAWER: (s) => (s.drawer = !s.drawer)
 }

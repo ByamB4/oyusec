@@ -7,7 +7,6 @@
             :size="100"
             :width="4"
             :value="100"
-            color="primary"
             class="big-small-circle"
           >
             <v-avatar size="90">

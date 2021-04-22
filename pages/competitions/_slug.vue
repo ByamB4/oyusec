@@ -1,5 +1,5 @@
 <template>
-  <v-container class="py-0">
+  <v-container fluid>
     <v-row>
       <v-col cols="12" align="center">
         <v-img
@@ -21,7 +21,7 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-tabs>
+        <v-tabs hide-slider>
           <v-tab v-for="tab in $t('competitionTab.slugMenu')" :key="tab.title">
             <v-icon>{{ tab.icon }}</v-icon>
             <span class="ml-3" v-text="tab.title" />

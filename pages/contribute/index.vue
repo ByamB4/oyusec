@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12">
-        <v-tabs class="font-exo">
+        <v-tabs class="font-exo" hide-slider>
           <v-tab
             v-for="item of $t('contribute.challengesTab')"
             :key="item.name"

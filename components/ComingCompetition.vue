@@ -8,14 +8,13 @@
             :width="4"
             value="100"
             class="big-small-circle"
-            color="primary"
           >
             <v-icon size="40" color="white">mdi-trophy</v-icon>
           </v-progress-circular>
         </v-col>
         <v-col cols="6" xs="6" sm="5" md="6" lg="5" xl="6">
           <span class="text-uppercase text-gray-400 f-15">
-            <span v-if="comp.length" v-text="$t('upcomingContest')" />
+            <span v-if="comp.name" v-text="$t('upcomingContest')" />
             <span v-else v-text="$t('noCompetitionFound')" />
           </span>
           <h3 v-text="comp.name" />

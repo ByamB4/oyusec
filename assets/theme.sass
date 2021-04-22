@@ -1,3 +1,4 @@
+// Theme created by: ByamB4
 .theme
   &--light
 
@@ -7,45 +8,33 @@
       .text--secondary
         color: rgba(255, 255, 255,0.5) !important
 
-    .v-app-bar, .v-main, .v-footer
-      background-color: #243250 !important
+    .v-app-bar, .v-main, .v-footer, .v-navigation-drawer
+      background-color: $light-core !important
       color: #fff !important
-    .v-navigation-drawer
-      background-color: #243250 !important
-      // background-color: #1c273f !important
-      .v-list-item
-        &__title
-          color: #fff !important
     .v-data-table
-      color: #fff !important
       background-color: transparent !important
       tr
         &:hover
           background-color: rgba(255, 255, 255, .05) !important
-    .v-card
-      &__text
-        color: #fff !important
 
     .v-list-item
-      &:hover, &--active
-        // background-color: rgba(255, 255, 255, .05) !important
-        background-color: rgba(255, 255, 255, .05) !important
-    .v-tabs > .v-tabs-bar
-      background-color: transparent !important
-
+      &--active
+        background-color: $light-item !important
+      &__title
+        color: #fff !important
+      &:not(&--active):hover
+        background-color: $light-item-light !important
     .v-tab
       &--active
-        color: $white !important
-        .v-icon
-          color: $white !important
-      &:not(.v-tab--active)
-        color: $gray-400 !important
-        .v-icon
-          color: $gray-400 !important
+        border-bottom: 4px solid $light-tab
+
+    .v-btn
+      &--block
+        background-color: $light-bg
+        // &:hover
+        //   background-color: $light-core
 
     .v-input
-      input, textarea
-        color: #fff !important
       .v-label
         color: rgba(255, 255, 255, 0.6) !important
       .v-counter
@@ -56,57 +45,70 @@
     .v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset
       color: rgba(255, 255, 255, 0.6) !important
 
-    .v-expansion-panels
-      margin: 0 24px !important
-      .v-expansion-panel-header
-        height: 10px !important
-        color: #fff !important
-        background-color: #3d4b6b !important
-        &:hover, &--active
-          background-color: #083766 !important
-    .v-sheet
-      color: #fff !important
+    .v-expansion-panel-header
+      &--active
+        border-left: 4px solid $light-tab !important
+        .v-icon
+          color: $light-tab !important
+      &:not(&--active):hover
+        border-left: 3px solid $light-tab-light !important
+        .v-icon
+          color: $light-tab-light !important
+
+    .v-progress-circular
+      color: $light-tab !important
 
     .user-bg
-      background-color: #3d4b6b !important
+      background-color: $light-supp !important
 
     .bg-transparent
-      background-color: #243250 !important
+      background-color: $light-core !important
 
   &--dark
-    .v-app-bar, .v-main, .v-footer
-      background-color: #0c1221 !important
-
+    .v-app-bar, .v-main, .v-footer, .v-navigation-drawer
+      background-color: $dark-core !important
     .v-tabs > .v-tabs-bar
       background-color: transparent !important
 
     .v-tab
       &--active
-        color: $white !important
-        background-color: $gray-900
+        border-bottom: 4px solid $dark-tab
+
+    .v-btn
+      &--block
+        background-color: $dark-bg
+        // &:hover
+        //   background-color: $dark-core
+
+    .v-expansion-panel-header
+      &--active
+        border-left: 4px solid $dark-tab !important
         .v-icon
-          color: $white !important
+          color: $dark-tab !important
+      &:not(&--active):hover
+        border-left: 3px solid $dark-tab-light !important
+        .v-icon
+          color: $dark-tab-light !important
 
-    .v-input input
-      color: #fff !important
-
-    .v-navigation-drawer
-      background-color: #0c1221 !important
-      // background-color: #111827 !important
+    .v-list-item
+      &--active
+        background-color: $dark-item !important
+      &:not(&--active):hover
+        background-color: $dark-item-light !important
 
     .v-data-table
       background-color: transparent !important
       tr
         &:hover
           background-color: rgba(255, 255, 255, .05) !important
-    .v-sheet
-      color: #fff !important
+
+    .v-progress-circular
+      color: $dark-tab !important
 
     .user-bg
-      background-color: #111827 !important
-
+      background-color: $dark-supp !important
     .light-bg
       background-color: #3d4b6b !important
 
     .bg-transparent
-      background-color: #0c1221 !important
+      background-color: $dark-core !important

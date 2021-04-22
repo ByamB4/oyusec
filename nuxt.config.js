@@ -1,5 +1,6 @@
 export default {
   // target: "static",
+  // ssr: false,
   head: {
     titleTemplate: "%s",
     title: "OyuSec",
@@ -236,9 +237,7 @@ export default {
   },
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
-    theme: {
-      dark: true
-    }
+    theme: {}
   },
   render: {
     static: {

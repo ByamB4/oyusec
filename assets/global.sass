@@ -10,26 +10,59 @@
 a
   text-decoration: none !important
   color: #fff !important
-  &:hover
-    color: #FFB300 !important
 // Vuetify custom classes
 
 .v-skeleton-loader
   &__list-item-avatar, &__text, &__bone, &__list-item-avatar-two-line
     background-color: transparent !important
 
-// .theme--dark .v-expansion-panels .v-expansion-panel-header--active
-//   .v-icon
-//     color: red !important
 .v-tabs-items
   background-color: transparent !important
 
-.v-list-item
-  &:hover, &--active
+// .v-list-item
+//   &:hover, &--active
     // background-color: #0d250d00 !important
-    background-color: #111827 !important
+    // background-color: #202030 !important
 .v-progress-linear:hover
   cursor: pointer
 
 #profile
   color: rgba(255, 255, 255,0.5) !important
+
+.v-tab
+  &--active
+    color: $white !important
+    font-weight: 700 !important
+    .v-icon
+      color: $white !important
+
+  &:not(.v-tab--active)
+    color: $gray-400 !important
+    .v-icon
+      color: $gray-400 !important
+
+.v-sheet
+  color: #fff !important
+
+.v-input
+  input, textarea
+    color: #fff !important
+
+.v-expansion-panels
+  .v-expansion-panel-header
+    color: #fff !important
+
+.v-card
+  &__text
+    color: #fff !important
+
+.v-data-table
+  color: #fff !important
+
+.v-list-item
+  &--active
+    font-weight: 700
+
+.v-tabs
+  .v-tabs-bar
+    background-color: transparent !important

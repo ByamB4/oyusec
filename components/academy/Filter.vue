@@ -4,7 +4,7 @@
       <span>Ангилал</span>
     </v-card-title>
     <v-card-text>
-      <v-list nav dark class="user-bg">
+      <v-list nav class="user-bg">
         <v-list-item-group v-model="cats" multiple>
           <template v-for="item in category">
             <v-list-item :key="item.name" :value="item.name">
@@ -12,7 +12,8 @@
                 <v-list-item-action>
                   <v-checkbox
                     :input-value="active"
-                    color="light-green accent-3"
+                    dark
+                    color="orange"
                   ></v-checkbox>
                 </v-list-item-action>
                 <v-list-item-content>

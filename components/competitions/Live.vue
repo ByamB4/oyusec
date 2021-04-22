@@ -17,7 +17,7 @@
     >
       <v-img
         height="150"
-        lazy-src="/loading-contest.png"
+        lazy-src="loading-contest.png"
         :src="competition.photo"
       />
       <v-card-title>
