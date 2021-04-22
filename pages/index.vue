@@ -9,7 +9,7 @@
           height="100"
           alt="oyusec logo"
         />
-        <client-only placeholder="loading...">
+        <client-only>
           <vue-typer
             class="font-press"
             :text="$t('pages.index.description')"
@@ -64,10 +64,18 @@
 </template>
 
 <script>
-import { VueTyper } from "vue-typer"
 export default {
-  components: {
-    "vue-typer": VueTyper
+  head() {
+    return {
+      title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "test index page"
+        }
+      ]
+    }
   },
   computed: {
     apps() {
@@ -111,18 +119,6 @@ export default {
             icon: this.$cs.academy.icon,
             color: this.$cs.academy.color
           }
-        }
-      ]
-    }
-  },
-  head() {
-    return {
-      title: this.$i18n.messages[this.$i18n.locale].pages.index.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: "test index page"
         }
       ]
     }

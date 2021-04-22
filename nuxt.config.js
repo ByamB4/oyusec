@@ -92,7 +92,7 @@ export default {
         content: "@byamb4"
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "logo.png" }]
   },
   // loading: false,
   loading: {
@@ -132,7 +132,11 @@ export default {
     fallbackLocale: "mn",
     strategy: "no_prefix"
   },
-  plugins: ["~/plugins/consts", "~/plugins/methods"],
+  plugins: [
+    "~/plugins/consts",
+    "~/plugins/methods",
+    { src: "~/plugins/vueTyper.js", mode: "client" }
+  ],
   components: true,
   buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify"],
   modules: [
