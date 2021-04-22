@@ -61,7 +61,7 @@ export default {
       },
       {
         name: "og:image",
-        content: "/logo.png"
+        content: "logo.png"
       },
       {
         name: "og:url",
