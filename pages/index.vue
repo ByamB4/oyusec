@@ -4,7 +4,7 @@
       <v-col cols="12" align="center" class="mb-10">
         <v-img
           id="logo"
-          src="/logo.png"
+          src="logo.png"
           width="100"
           height="100"
           alt="oyusec logo"
@@ -64,11 +64,11 @@
 </template>
 
 <script>
-// import { VueTyper } from "vue-typer"
+import { VueTyper } from "vue-typer"
 export default {
-  //   components: {
-  //     "vue-typer": VueTyper
-  //   },
+  components: {
+    "vue-typer": VueTyper
+  },
   computed: {
     apps() {
       return [
@@ -76,7 +76,7 @@ export default {
           name: this.$t("competition"),
           description: this.$t("pages.index.competitionDescription"),
           to: "competitions",
-          img: "/competition.png",
+          img: "competition.png",
           icon: {
             icon: this.$cs.competition.icon,
             color: this.$cs.competition.color
@@ -86,7 +86,7 @@ export default {
           name: this.$t("challenge"),
           description: this.$t("pages.index.challengeDescription"),
           to: "challenges",
-          img: "/practice.png",
+          img: "practice.png",
           icon: {
             icon: this.$cs.practice.icon,
             color: this.$cs.practice.color
@@ -96,7 +96,7 @@ export default {
           name: this.$t("community"),
           description: this.$t("pages.index.communityDescription"),
           to: "community",
-          img: "/discord.png",
+          img: "discord.png",
           icon: {
             icon: this.$cs.community.icon,
             color: this.$cs.community.color
@@ -106,7 +106,7 @@ export default {
           name: this.$t("academy"),
           description: this.$t("pages.index.academyDescription"),
           to: "academy",
-          img: "/academy.png",
+          img: "academy.png",
           icon: {
             icon: this.$cs.academy.icon,
             color: this.$cs.academy.color
