@@ -9,13 +9,15 @@
           height="100"
           alt="oyusec logo"
         />
-        <vue-typer
-          class="font-press"
-          :text="$t('pages.index.description')"
-          :shuffle="true"
-          :erase-delay="400"
-          caret-animation="blink"
-        ></vue-typer>
+        <!-- <client-only placeholder="loading...">
+          <vue-typer
+            class="font-press"
+            :text="$t('pages.index.description')"
+            :shuffle="true"
+            :erase-delay="400"
+            caret-animation="blink"
+          ></vue-typer>
+        </client-only> -->
       </v-col>
       <v-col
         v-for="app in apps"
@@ -62,11 +64,11 @@
 </template>
 
 <script>
-import { VueTyper } from "vue-typer"
+// import { VueTyper } from "vue-typer"
 export default {
-  components: {
-    "vue-typer": VueTyper
-  },
+  //   components: {
+  //     "vue-typer": VueTyper
+  //   },
   computed: {
     apps() {
       return [

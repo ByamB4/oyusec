@@ -1,6 +1,5 @@
 export default {
-  ssr: false,
-  target: "static",
+  // target: "static",
   head: {
     titleTemplate: "%s",
     title: "OyuSec",
@@ -201,6 +200,11 @@ export default {
   axios: {
     // baseURL: "http://localhost:8000"
     baseURL: "https://oyusec-server.herokuapp.com"
+  },
+  pwa: {
+    manifest: {
+      lang: "en"
+    }
   },
   toast: {
     theme: "bubble",
