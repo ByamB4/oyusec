@@ -17,6 +17,7 @@ export default {
           "Мэдээллийн аюулгүй байдлын талаарх үнэн зөв, бодитой ойлголт, мэдлэг, ур чадварыг нийтэд сургах, таниулах"
       },
       // TODO temporary
+      // We will change our meta data as soon as possible
 
       {
         name: "keywords",
