@@ -39,6 +39,18 @@ export default {
   data: () => ({
     cat: []
   }),
+  head() {
+    return {
+      title: this.$i18n.messages[this.$i18n.locale].pages.academy.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "test challenge page"
+        }
+      ]
+    }
+  },
   computed: {
     ...mapGetters({
       academies: "academy/getAcademies"

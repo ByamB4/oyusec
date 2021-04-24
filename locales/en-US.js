@@ -114,6 +114,9 @@ export default {
     challenges: {
       title: "Challenges"
     },
+    academy: {
+      title: "Academy"
+    },
     contribute: {
       title: "Contribute"
     },

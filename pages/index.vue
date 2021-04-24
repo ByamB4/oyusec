@@ -32,11 +32,17 @@
         justify="center"
       >
         <v-card
-          class="bg-transparent"
-          elevation="0"
+          class="bg-transparent rounded-xl"
+          elevation="6"
           @click.native="to_(app.to)"
+          min-width="500"
         >
-          <v-img :src="app.img" height="225" class="zoom">
+          <v-img
+            :src="app.img"
+            height="300"
+            min-width="500"
+            class="d-flex align-center zoom"
+          >
             <v-card-title class="font-exo">
               <v-row class="fill-height flex-column" justify="space-between">
                 <h2 class="text-center">
@@ -153,14 +159,17 @@ export default {
   transition: opacity 0.4s ease-in-out;
 }
 .zoom {
-  -webkit-transform: rotate(0deg) scale(1);
-  transform: rotate(0deg) scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
 .zoom:hover {
-  -webkit-transform: rotate(3deg) scale(1.05);
-  transform: rotate(3deg) scale(1.05);
+  -ms-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
   cursor: pointer;
 }
 </style>

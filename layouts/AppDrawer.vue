@@ -2,7 +2,6 @@
   <v-navigation-drawer
     mobile-breakpoint="960"
     :mini-variant="drawer"
-    permanent
     enable-resize-watcher
     app
     floating

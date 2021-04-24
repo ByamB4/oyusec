@@ -115,6 +115,9 @@ export default {
     challenges: {
       title: "Бодлогууд"
     },
+    academy: {
+      title: "Академи"
+    },
     contribute: {
       title: "Хувь нэмэр оруулах"
     },
@@ -151,7 +154,7 @@ export default {
       {
         icon: "mdi-school-outline",
         color: "light-green accent-3",
-        title: "Academy",
+        title: "Академи",
         link: "/academy"
       },
       {

@@ -31,10 +31,17 @@
     .v-btn
       &--block
         background-color: $light-bg
-        // &:hover
-        //   background-color: $light-core
+    .v-card
+      .v-btn.v-btn
+        &--disabled
+          color: #fff9 !important
+
+    .v-messages
+      color: #fff9 !important
 
     .v-input
+      input::placeholder, textarea::placeholder
+        color: #fff9 !important
       .v-label
         color: rgba(255, 255, 255, 0.6) !important
       .v-counter

@@ -48,9 +48,15 @@
 import { mapGetters } from "vuex"
 
 export default {
+  async asyncData(context) {
+    const { slug } = context.params
+    await Promise.all([
+      context.store.dispatch("competition/updateCompetition", slug)
+    ])
+  },
   head() {
     return {
-      title: `Тэмцээн | ${this.competition.name}`,
+      title: this.competition.name,
       meta: [
         {
           hid: "og:description",
@@ -65,12 +71,6 @@ export default {
     ...mapGetters({
       competition: "competition/getCompetition"
     })
-  },
-  created() {
-    this.$store.dispatch(
-      "competition/updateCompetition",
-      this.$route.path.split("/").pop()
-    )
   }
 }
 </script>

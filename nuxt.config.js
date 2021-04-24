@@ -1,6 +1,6 @@
 export default {
-  // target: "static",
-  // ssr: false,
+  target: "static",
+  ssr: false,
   head: {
     titleTemplate: "%s",
     title: "OyuSec",
@@ -96,7 +96,6 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }]
   },
-  // loading: false,
   loading: {
     color: "#b388ff",
     height: "1px",
