@@ -5,6 +5,7 @@
     enable-resize-watcher
     app
     floating
+    :permanent="drawer"
     width="200"
     class="font-exo"
   >
