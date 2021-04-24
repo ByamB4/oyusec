@@ -50,6 +50,7 @@ export default {
   dontHaveAnAccount: "Don't have an account ?",
   forgetYourPassword: "Forget your password ?",
   timeLeft: "Time left",
+  markAsComplete: "Mark as complete",
   day: "Day",
   edit: "Edit",
   upcomingContest: "Upcoming contest",

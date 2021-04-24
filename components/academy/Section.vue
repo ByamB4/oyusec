@@ -7,7 +7,8 @@
       <v-btn
         v-for="(section, i) in sections"
         :key="section.name"
-        class="btn-light mt-3"
+        class="mt-3"
+        elevation="1"
         :class="{ active: ind === i }"
         small
         block
@@ -38,8 +39,18 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.active
-  border-left: 3px solid $neon !important
-  border-right: 3px solid $neon !important
+<style lang="sass" scoped>
+.theme
+  &--light
+    &:not(.active).v-btn.v-btn--has-bg
+      background-color: $light-item-light !important
+    .active
+      background-color: $light-bg !important
+  &--dark
+    &:not(.active).v-btn.v-btn--has-bg
+      background-color: $dark-bg !important
+    .active
+      background-color: $light-bg !important
+.active, :not(.active).v-btn.v-btn--has-bg
+  color: #fff !important
 </style>

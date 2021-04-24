@@ -57,6 +57,7 @@ export default {
   youHaveSolvedThisChallenge: "Та аль хэдийн бодсон байна",
   youHaveAddedThisChallenge: "Та энэ бодлогыг нэмсэн байна",
   weNeverAbleToSeeYourPassword: "Бид таны нууц үгийг мэдэх ямар ч боломжгүй",
+  markAsComplete: "Ойлгосон",
   endsAt: "Дуусна",
   startsAt: "Эхэлнэ",
   finished: "Дууссан",
