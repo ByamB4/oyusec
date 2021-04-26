@@ -108,7 +108,7 @@ export default {
         Heading,
         {
           options: {
-            levels: [2, 3]
+            levels: [1, 2, 3]
           }
         }
       ],
