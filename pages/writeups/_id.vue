@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-row justify="center">
+    <v-row>
       <v-col cols="2" align="center">
         <div style="position: sticky !important; top: 20%" class="col-gray-300">
           <div>
@@ -28,7 +28,7 @@
           </div>
         </div>
       </v-col>
-      <v-col cols="10">
+      <v-col cols="8" class="challenges">
         <h2 class="font-press" v-text="wrt.name" />
         <div class="d-flex justify-space-between pa-3">
           <div class="d-flex align-center">
@@ -46,14 +46,14 @@
                 />
               </div>
               <div class="col-gray-300">
-                <span class="ml-1">4/22/2021</span>
+                <span class="ml-1" v-text="wrt.created_date" />
                 <span class="ml-1"> • </span>
-                <span class="ml-1">5 мин</span>
+                <span class="ml-1" v-text="wrt.time + 'мин'" />
               </div>
             </div>
           </div>
         </div>
-        <div class="tiptap-vuetify-editor__content" v-html="wrt.content" />
+        <div class="chall" v-html="wrt.content" />
       </v-col>
     </v-row>
   </v-container>
