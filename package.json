@@ -25,6 +25,7 @@
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.21.1",
     "nuxt-webfontloader": "^1.1.0",
+    "tiptap-vuetify": "^2.24.0",
     "vue-chartjs": "^3.5.1",
     "vue-typer": "^1.2.0"
   },

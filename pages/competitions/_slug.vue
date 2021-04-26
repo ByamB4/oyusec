@@ -23,7 +23,7 @@
       <v-col cols="12">
         <v-tabs hide-slider>
           <v-tab v-for="tab in $t('competitionTab.slugMenu')" :key="tab.title">
-            <v-icon>{{ tab.icon }}</v-icon>
+            <v-icon v-text="tab.icon" />
             <span class="ml-3" v-text="tab.title" />
           </v-tab>
           <v-tab-item>

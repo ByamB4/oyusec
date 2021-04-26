@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app height="50" elevation="0">
+  <v-app-bar app height="50" elevation="0" class="bg-transparent">
     <v-app-bar-nav-icon
       aria-label="toggle drawer"
       @click="$store.commit('TOGGLE_DRAWER')"
@@ -9,21 +9,6 @@
     <v-spacer />
     <client-only>
       <template v-if="$auth.loggedIn">
-        <!-- <template v-if="$auth.user.type === 'admin'">
-          <v-btn
-            v-for="link in $t('topBar.adminMenu')"
-            :key="link.title"
-            :color="link.color"
-            :to="localePath(link.to)"
-            small
-            text
-          >
-            <v-icon left>
-              {{ link.icon }}
-            </v-icon>
-            <span v-text="link.title" />
-          </v-btn>
-        </template> -->
         <v-tooltip bottom>
           <template #activator="{ on, attrs }">
             <v-progress-linear
@@ -54,7 +39,6 @@
       </template>
     </client-only>
 
-    <!-- Dirty code will update later -->
     <v-btn
       v-if="$i18n.locale === 'en'"
       aria-label="toggle mongolia"
@@ -89,7 +73,6 @@
     >
       <v-icon>mdi-moon-waning-crescent</v-icon>
     </v-btn>
-    <!-- End of dirty code -->
   </v-app-bar>
 </template>
 

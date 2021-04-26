@@ -26,10 +26,16 @@ const time = {
     }
   }
 }
-
+const rand = {
+  r: () => Math.floor(256 * Math.random()),
+  color() {
+    // console.log(`rgb(${this.r}, ${this.r}, ${this.r})`)
+    return `rgb(${this.r()}, ${this.r()}, ${this.r()})`
+  }
+}
 export default ({ app }, inject) => {
   inject("time", time)
-
+  inject("rand", rand)
   // rules
   const i18n = app.i18n
 
@@ -43,6 +49,18 @@ export default ({ app }, inject) => {
     },
     email: (value) => {
       const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return pattern.test(value) || i18n.t("checkAgain")
+    },
+    url: (value) => {
+      const pattern = new RegExp(
+        "^(https?:\\/\\/)?" +
+          "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
+          "((\\d{1,3}\\.){3}\\d{1,3}))" +
+          "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" +
+          "(\\?[;&a-z\\d%_.~+=-]*)?" +
+          "(\\#[-a-z\\d_]*)?$",
+        "i"
+      )
       return pattern.test(value) || i18n.t("checkAgain")
     }
   }

@@ -74,6 +74,7 @@ export default {
   loginRequired: "Login required",
   hideSolvedChallenges: "Hide solved challenges",
   hint: "Hint",
+  publish: "Publish",
   // rules
   max25Character: "Max 25 characters",
   required: "Required",
@@ -87,7 +88,7 @@ export default {
   exDescription:
     "You can **bold** and _italic_ text.\n> Also you can write note\n[Download](https://your-file-end-url.com)",
   exFlag: "oyusec{.*}",
-
+  writeups: "Writeups",
   // pages
   pages: {
     index: {
@@ -162,6 +163,12 @@ export default {
         color: "yellow darken-3",
         title: "Scoreboard",
         link: "/scoreboard"
+      },
+      {
+        icon: "mdi-script-text-outline",
+        color: "deep-purple lighten-2",
+        title: "Writeups",
+        link: "/writeups"
       },
       {
         icon: "mdi-cards-heart",
@@ -250,8 +257,9 @@ export default {
     }
   },
   contribute: {
-    challengesTab: [
-      { name: "Challenge", icon: "mdi-sword-cross" }
+    tab: [
+      { name: "Challenge", icon: "mdi-sword-cross" },
+      { name: "Writeup", icon: "mdi-script-text-outline" }
       // { name: "Standart", icon: "mdi-sword" },
     ]
   },

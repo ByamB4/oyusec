@@ -7,6 +7,8 @@
         color: #fff !important
       .text--secondary
         color: rgba(255, 255, 255,0.5) !important
+      .grey.lighten-4
+        background-color: #121923 !important
 
     .v-app-bar, .v-main, .v-footer, .v-navigation-drawer
       background-color: $light-core !important
@@ -34,6 +36,8 @@
         background-color: $light-bg
     // .theme--light.v-btn.v-btn--has-bg
     .v-card
+      background-color: $light-supp !important
+      color: #fff !important
       .v-btn.v-btn
         &--disabled
           color: #fff9 !important
@@ -67,8 +71,20 @@
     .v-progress-circular
       color: $light-tab !important
 
+    .v-pagination
+      &__item
+        background-color: #1f2937 !important
+        color: #fff !important
+        &--active
+          background-clip: $light-supp !important
+      &__navigation
+        background-color: $light-item-light !important
+        .v-icon
+          color: #fff !important
+
     .user-bg
       background-color: $light-supp !important
+    // Used to editor
 
     .bg-transparent
       background-color: $light-core !important
@@ -98,7 +114,8 @@
         border-left: 3px solid $dark-tab-light !important
         .v-icon
           color: $dark-tab-light !important
-
+    .v-card
+      background-color: $dark-supp !important
     .v-list-item
       &--active
         background-color: $dark-item !important
@@ -114,10 +131,19 @@
     .v-progress-circular
       color: $dark-tab !important
 
+    .v-pagination
+      &__item
+        background-color: #202030 !important
+        &--active
+          background-clip: $dark-supp !important
+      &__navigation
+        background-color: $dark-item-light !important
+
     .user-bg
       background-color: $dark-supp !important
-    .light-bg
-      background-color: #3d4b6b !important
+    // Used to editor
+    .user-toolbar
+      background-color: #202030 !important
 
     .bg-transparent
       background-color: $dark-core !important

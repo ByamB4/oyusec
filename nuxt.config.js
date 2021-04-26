@@ -136,6 +136,7 @@ export default {
   plugins: [
     "~/plugins/consts",
     "~/plugins/methods",
+    { src: "~/plugins/TiptapVuetify", mode: "client" },
     { src: "~/plugins/vueTyper.js", mode: "client" }
   ],
   components: true,
@@ -237,7 +238,9 @@ export default {
   },
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
-    theme: {}
+    theme: {
+      dark: true
+    }
   },
   render: {
     static: {

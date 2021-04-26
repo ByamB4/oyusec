@@ -75,6 +75,7 @@ export default {
   loginRequired: "Нэвтрэх шаардлагатай",
   hideSolvedChallenges: "Бодсон бодлого нуух",
   hint: "Тусламж",
+  publish: "Нийтлэх",
   // rules
   max25Character: "Ихдээ 25 тэмдэгт",
   required: "Заавал бөглөх ёстой",
@@ -88,6 +89,7 @@ export default {
   exDescription:
     "Та текстийн **bold** бас _italic_ болгох боломжтой.\n> Мөн санамж, бичиг зэрэг\n[Татах](https://your-file-end-url.com)",
   exFlag: "oyusec{.*}",
+  writeups: "Бодолтууд",
 
   // pages
   pages: {
@@ -163,6 +165,12 @@ export default {
         color: "#ffdf00",
         title: "Самбар",
         link: "/scoreboard"
+      },
+      {
+        icon: "mdi-script-text-outline",
+        color: "deep-purple lighten-2",
+        title: "Бодолт",
+        link: "/writeups"
       },
       {
         icon: "mdi-cards-heart",
@@ -254,8 +262,9 @@ export default {
     }
   },
   contribute: {
-    challengesTab: [
-      { name: "Бодлого", icon: "mdi-sword-cross" }
+    tab: [
+      { name: "Бодлого", icon: "mdi-sword-cross" },
+      { name: "Бодолт", icon: "mdi-script-text-outline" }
       // { name: "Стандарт", icon: "mdi-sword" },
     ]
   },

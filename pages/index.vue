@@ -34,8 +34,8 @@
         <v-card
           class="bg-transparent rounded-xl"
           elevation="6"
-          @click.native="to_(app.to)"
           min-width="500"
+          @click.native="to_(app.to)"
         >
           <v-img
             :src="app.img"
