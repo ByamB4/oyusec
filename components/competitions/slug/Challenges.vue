@@ -81,6 +81,10 @@ export default {
 
 <style lang="sass" scoped>
 .challenges
+  a
+    color: #52a5e9 !important
+  .v-expansion-panels
+    padding: 0 50px
   .category
     letter-spacing: 2px
     text-transform: capitalize

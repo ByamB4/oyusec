@@ -1,5 +1,5 @@
 <template>
-  <v-expansion-panel class="mt-2">
+  <v-expansion-panel class="mt-2 challenge">
     <v-dialog v-model="dialog.show" max-width="400px">
       <v-simple-table class="user-bg font-exo" dark>
         <tbody>
@@ -254,15 +254,36 @@ export default {
 
 <style lang="scss">
 @import "assets/scss/chall.scss";
-
-.v-expansion-panel {
+.theme {
+  &--light .challenge {
+    .v-expansion-panel-header {
+      background-color: $light-supp !important;
+      &--active {
+        background-color: #455575 !important;
+      }
+    }
+    .v-expansion-panel-content {
+      color: #fff !important;
+      background-color: rgba(41, 49, 69, 1) !important;
+    }
+  }
+  &--dark .challenge {
+    .v-expansion-panel-header {
+      background-color: $dark-panel !important;
+      &--active {
+        background-color: $dark-panel-active !important;
+      }
+    }
+  }
+}
+.v-expansion-panel.challenge {
   background-color: #1e1e1e !important;
   .v-expansion-panel-header {
+    height: 10px !important;
     a {
       color: #fff !important;
     }
     &--active {
-      border-left: 0px solid red !important;
       .v-icon {
         color: #fff !important;
       }
@@ -273,38 +294,39 @@ export default {
       }
     }
     &:not(&--active):hover {
-      border-left: 0px solid red !important;
       .v-icon {
         color: #fff !important;
       }
     }
   }
 }
-.solved {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-}
-.incorrect {
-  animation-name: shake;
-  animation-duration: 0.5s, 0.35s;
-  animation-iteration-count: 1, 2;
-}
-@keyframes shake {
-  0%,
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: translateX(10px);
+.challenge {
+  .solved {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: translateX(-10px);
+  .incorrect {
+    animation-name: shake;
+    animation-duration: 0.5s, 0.35s;
+    animation-iteration-count: 1, 2;
   }
-}
-.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
-  background-color: rgba(255, 255, 255, 0.12) !important;
+  @keyframes shake {
+    0%,
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(10px);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-10px);
+    }
+  }
+  .theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+  }
 }
 </style>

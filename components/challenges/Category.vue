@@ -76,9 +76,8 @@ export default {
           .v-icon
             color: $dark-tab-light !important
             height: 10px !important
-            background-color: #062a4e
         &:hover, &--active
           background-color: #083766
     .solved
-      border-left: 3px solid $dark-tab-light !important
+      border-left: 3px solid $dark-tab !important
 </style>

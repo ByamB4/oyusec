@@ -97,8 +97,10 @@ export const actions = {
     )
     commit("SET_CHALLENGES_SOLVES", data.data)
   },
-  async updateSolved({ commit }) {
-    const { data } = await this.$axios.get("api/user/solves/")
+  async updateSolved({ commit, state }) {
+    const { data } = await this.$axios.get(
+      `api/competition/${state.competition.slug}/challenges/user/solves/`
+    )
     if (data.success) {
       commit("SET_SOLVES", data.data)
     }

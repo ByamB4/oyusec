@@ -9,42 +9,41 @@
         />
       </v-col>
       <v-col v-if="canSubmit" cols="12">
-        <v-form
-          ref="form"
-          v-model="form.valid"
-          class="f-15"
-          @submit.prevent="submit"
-        >
-          <v-row class="d-flex justify-center">
-            <v-col cols="5">
-              <v-text-field
-                v-model="form.submission"
-                :class="{ incorrect }"
-                :rules="[$rules.required]"
-                :loading="form.loading"
-                color="white"
-                placeholder="oyusec{.*}"
-                dense
-              />
-            </v-col>
-            <v-col cols="2">
-              <v-btn
-                :disabled="!form.valid || form.loading"
-                :loading="form.loading"
-                type="submit"
-                depressed
-                small
-                color="primary"
-              >
-                <span v-text="$t('submit')" />
-                <template #loader>
-                  <span class="custom-loader">
-                    <v-icon light>mdi-cached</v-icon>
-                  </span>
-                </template>
-              </v-btn>
-            </v-col>
-          </v-row>
+        <v-form ref="form" v-model="form.valid" @submit.prevent="submit">
+          <v-container>
+            <v-row>
+              <v-col cols="10">
+                <v-text-field
+                  v-model="form.submission"
+                  :loading="form.loading"
+                  :rules="[$rules.required]"
+                  :class="{ incorrect }"
+                  label="Хариугаа оруулна уу"
+                  placeholder="oyusec{.*}"
+                  color="white"
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="2">
+                <v-btn
+                  :loading="form.loading"
+                  :disabled="!form.valid || form.loading"
+                  type="submit"
+                  block
+                  elevation="2"
+                  color="primary"
+                >
+                  <span v-text="$t('submit')" />
+                  <template #loader>
+                    <span class="custom-loader">
+                      <v-icon light>mdi-cached</v-icon>
+                    </span>
+                  </template>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-form>
       </v-col>
     </v-row>
