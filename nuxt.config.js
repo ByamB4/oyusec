@@ -106,7 +106,7 @@ export default {
     "~/assets/global.sass",
     "~/assets/class.sass",
     "~/assets/theme.sass",
-    "~/assets/sass/challenges.sass",
+    "~/assets/sass/competition.sass",
     {
       src: "~/node_modules/highlight.js/styles/monokai-sublime.css",
       lang: "css"
@@ -204,8 +204,8 @@ export default {
   },
 
   axios: {
-    // baseURL: "http://localhost:8000"
-    baseURL: "https://oyusec-server.herokuapp.com"
+    baseURL: "http://localhost:8000"
+    // baseURL: "https://oyusec-server.herokuapp.com"
   },
   pwa: {
     manifest: {

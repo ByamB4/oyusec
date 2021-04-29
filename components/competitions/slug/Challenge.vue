@@ -1,5 +1,5 @@
 <template>
-  <v-expansion-panel class="mt-2 chall">
+  <v-expansion-panel class="mt-2">
     <v-dialog v-model="dialog.show" max-width="400px">
       <v-simple-table class="user-bg font-exo" dark>
         <tbody>
@@ -252,9 +252,33 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import "assets/scss/chall.scss";
+
 .v-expansion-panel {
   background-color: #1e1e1e !important;
+  .v-expansion-panel-header {
+    a {
+      color: #fff !important;
+    }
+    &--active {
+      border-left: 0px solid red !important;
+      .v-icon {
+        color: #fff !important;
+      }
+    }
+    &:hover {
+      .v-icon {
+        color: #fff !important;
+      }
+    }
+    &:not(&--active):hover {
+      border-left: 0px solid red !important;
+      .v-icon {
+        color: #fff !important;
+      }
+    }
+  }
 }
 .solved {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);

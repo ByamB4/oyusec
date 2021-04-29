@@ -47,8 +47,6 @@
   </v-container>
 </template>
 <script>
-// import { mapGetters } from "vuex"
-
 export default {
   async asyncData(context) {
     await Promise.all([
@@ -61,10 +59,6 @@ export default {
     challenge: {},
     viewChallenge: false
   }),
-  // async fetch() {
-  //   await this.$store.dispatch("challenge/updateChallenges")
-  //   await this.$store.dispatch("challenge/updateChallengesSolves")
-  // },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.challenges.title,

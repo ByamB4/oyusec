@@ -9,14 +9,14 @@
     width="200"
     class="font-exo"
   >
-    <v-list nav min-height="200">
+    <v-list nav class="py-2">
       <v-list-item
         v-for="item in $t('drawer.leftMenu')"
         :key="item.icon"
         :to="item.link"
       >
         <v-list-item-icon>
-          <v-icon :color="item.color">{{ item.icon }}</v-icon>
+          <v-icon :color="item.color" v-text="item.icon" />
         </v-list-item-icon>
 
         <v-list-item-content>

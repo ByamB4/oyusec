@@ -29,7 +29,7 @@
             <h2 class="font-play" v-text="category.name" />
           </div>
           <v-expansion-panels popout tile inset>
-            <Challenge
+            <CompetitionsSlugChallenge
               v-for="challenge in category.challenges.filter(
                 ({ solved }) => !isHideSolved || !solved
               )"
@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .challenges
   .category
     letter-spacing: 2px

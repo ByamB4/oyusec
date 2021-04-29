@@ -50,7 +50,35 @@ export default {
 </script>
 <style lang="sass" scoped>
 .theme
+  &--light
+    .v-expansion-panels
+      .v-expansion-panel-header
+        &--active
+          border-left: 4px solid $light-tab !important
+          .v-icon
+            color: $light-tab !important
+        &:not(&--active):hover
+          border-left: 3px solid $light-tab-light !important
+          .v-icon
+            color: $light-tab-light !important
+    .solved
+      border-left: 3px solid $light-tab !important
   &--dark
+    .v-expansion-panels
+      margin: 0 24px
+      .v-expansion-panel-header
+        &--active
+          border-left: 4px solid $dark-tab !important
+          .v-icon
+            color: $dark-tab !important
+        &:not(&--active):hover
+          border-left: 3px solid $dark-tab-light !important
+          .v-icon
+            color: $dark-tab-light !important
+            height: 10px !important
+            background-color: #062a4e
+        &:hover, &--active
+          background-color: #083766
     .solved
       border-left: 3px solid $dark-tab-light !important
 </style>

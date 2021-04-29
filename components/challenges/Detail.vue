@@ -1,17 +1,8 @@
 <template>
-  <v-container class="chall">
+  <v-container class="practice">
     <v-row v-if="!loading">
       <v-col cols="12" align="center">
         <h1 v-text="challenge.name" />
-        <!-- <v-icon>mdi-account-circle</v-icon> -->
-        <!-- <span>Бодсон</span> -->
-        <!-- <span v-text="solves" /> -->
-        <!-- <v-icon>mdi-star</v-icon> -->
-        <!-- <span>Оноо</span> -->
-        <!-- <span v-text="challenge.value" /> -->
-        <!-- <span>Нэмсэн</span> -->
-        <!-- <v-icon>mdi-star</v-icon> -->
-        <!-- <span v-text="author" /> -->
         <div
           class="text-justify mt-3"
           v-html="$md.render(challenge.description)"
@@ -160,7 +151,19 @@ export default {
 </script>
 
 <style lang="scss">
-.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
-  background-color: rgba(255, 255, 255, 0.12) !important;
+@import "assets/scss/chall.scss";
+
+.practice {
+  color: $light-yellow !important;
+  text-align: justify !important;
+  a {
+    color: #2196f3 !important;
+  }
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+  .theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+  }
 }
 </style>

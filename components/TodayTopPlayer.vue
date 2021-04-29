@@ -28,7 +28,7 @@
               class="text-uppercase text-gray-400 f-15"
               v-text="$t('todayTopPlayer')"
             />
-            <h3 v-if="top.length" v-text="top.user.username" />
+            <h3 v-if="top.user" v-text="top.user.fullname" />
           </v-col>
           <v-col cols="12" xs="6" sm="5" md="4" lg="5" xl="4">
             <v-row no-gutters>
