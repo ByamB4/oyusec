@@ -251,5 +251,6 @@ export default {
   build: {},
   generate: {
     fallback: true
-  }
+  },
+  cache: true
 }
