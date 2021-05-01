@@ -2,5 +2,5 @@
 
 yarn build
 yarn generate
-echo 'www.oyusec.ml' > ./dist/CNAME
+echo 'oyusec.ml' > ./dist/CNAME
 yarn deploy
