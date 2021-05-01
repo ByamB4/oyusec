@@ -33,36 +33,36 @@
       >
         <v-card
           class="bg-transparent rounded-xl"
-          elevation="6"
+          elevation="0"
           min-width="500"
           @click.native="to_(app.to)"
         >
-          <v-img
+          <!-- <v-img
             :src="app.img"
             height="300"
             min-width="500"
             class="d-flex align-center zoom"
-          >
-            <v-card-title class="font-exo">
-              <v-row class="fill-height flex-column" justify="space-between">
-                <h2 class="text-center">
-                  <v-icon
-                    size="35"
-                    :color="app.icon.color"
-                    v-text="app.icon.icon"
-                  />
-                  <span class="white--text" v-text="app.name" />
-                </h2>
-              </v-row>
-            </v-card-title>
-            <v-card-text>
-              <span
-                style="line-height: 200%"
-                class="f-19 col-gray-300"
-                v-text="app.description"
-              />
-            </v-card-text>
-          </v-img>
+          > -->
+          <v-card-title class="font-exo">
+            <v-row class="fill-height flex-column" justify="space-between">
+              <h2 class="text-center">
+                <v-icon
+                  size="35"
+                  :color="app.icon.color"
+                  v-text="app.icon.icon"
+                />
+                <span class="white--text" v-text="app.name" />
+              </h2>
+            </v-row>
+          </v-card-title>
+          <v-card-text>
+            <span
+              style="line-height: 200%"
+              class="f-19 col-gray-300"
+              v-text="app.description"
+            />
+          </v-card-text>
+          <!-- </v-img> -->
         </v-card>
       </v-col>
     </v-row>
@@ -100,7 +100,7 @@ export default {
           name: this.$t("challenge"),
           description: this.$t("pages.index.challengeDescription"),
           to: "challenges",
-          img: "practice.png",
+          img: "test.jpg",
           icon: {
             icon: this.$app.practice.icon,
             color: this.$app.practice.color
