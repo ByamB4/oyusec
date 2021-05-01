@@ -229,7 +229,7 @@ export default {
   },
   competitionTab: {
     menu: [
-      { title: "Live", icon: "mdi-record-circle-outline" },
+      { title: "Live", icon: "mdi-fire" },
       { title: "Upcoming", icon: "mdi-circle-slice-5" },
       { title: "Archived", icon: "mdi-archive" }
     ],

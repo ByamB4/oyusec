@@ -92,8 +92,8 @@ export default {
           to: "competitions",
           img: "competition.png",
           icon: {
-            icon: this.$cs.competition.icon,
-            color: this.$cs.competition.color
+            icon: this.$app.competition.icon,
+            color: this.$app.competition.color
           }
         },
         {
@@ -102,8 +102,8 @@ export default {
           to: "challenges",
           img: "practice.png",
           icon: {
-            icon: this.$cs.practice.icon,
-            color: this.$cs.practice.color
+            icon: this.$app.practice.icon,
+            color: this.$app.practice.color
           }
         },
         {
@@ -112,8 +112,8 @@ export default {
           to: "community",
           img: "discord.png",
           icon: {
-            icon: this.$cs.community.icon,
-            color: this.$cs.community.color
+            icon: this.$app.community.icon,
+            color: this.$app.community.color
           }
         },
         {
@@ -122,8 +122,8 @@ export default {
           to: "academy",
           img: "academy.png",
           icon: {
-            icon: this.$cs.academy.icon,
-            color: this.$cs.academy.color
+            icon: this.$app.academy.icon,
+            color: this.$app.academy.color
           }
         }
       ]

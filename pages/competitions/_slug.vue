@@ -10,10 +10,27 @@
           height="200"
           contain
         />
-        <h1 class="font-exo">
-          {{ competition.name }}
+        <h1>
+          <span v-text="competition.name" />
           <v-chip class="ma-2" color="indigo darken-3">
-            <v-icon color="white" left> mdi-fire </v-icon>
+            <v-icon
+              v-if="competition.status === $app.competition.live.mn"
+              left
+              :color="$app.competition.live.color"
+              v-text="$app.competition.live.icon"
+            />
+            <v-icon
+              v-else-if="competition.status === $app.competition.coming.mn"
+              left
+              :color="$app.competition.coming.color"
+              v-text="$app.competition.coming.icon"
+            />
+            <v-icon
+              v-else-if="competition.status === $app.competition.archive.mn"
+              left
+              :color="$app.competition.archive.color"
+              v-text="$app.competition.archive.icon"
+            />
             <span class="white--text" v-text="competition.status" />
           </v-chip>
         </h1>

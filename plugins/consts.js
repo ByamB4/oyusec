@@ -1,5 +1,5 @@
 export default ({ app }, inject) => {
-  inject("cs", {
+  inject("app", {
     VISIBLE_MN: "Ил харагдана",
     academy: {
       icon: "mdi-school-outline",
@@ -11,7 +11,25 @@ export default ({ app }, inject) => {
     },
     competition: {
       icon: "mdi-trophy",
-      color: "pink"
+      color: "pink",
+      live: {
+        mn: "Шууд",
+        en: "Live",
+        icon: "mdi-fire",
+        color: "white"
+      },
+      coming: {
+        mn: "Удахгүй",
+        en: "Coming",
+        icon: "mdi-circle-slice-5",
+        color: "white"
+      },
+      archive: {
+        mn: "Дууссан",
+        en: "Archive",
+        icon: "mdi-archive",
+        color: "white"
+      }
     },
     practice: {
       icon: "mdi-sword",
