@@ -4,19 +4,18 @@
 </p></a>
 
 <p align="center">
-  <strong>Making it better place to learn, practice, compete in security field 🇲🇳</strong>
+  <strong>Make it better place to learn, practice, compete in security field 🇲🇳</strong>
 </p>
 
 ---
 
 ## Structure
 
-| Codebase             |      Description       |
-| :------------------- | :--------------------: |
-| [cat](cat)           |     Django backend     |
-| [dog](dog)           | Next.js frontend (dev) |
-| [mouse](mouse)       |    Nuxt.js frontend    |
-
+| Codebase       |      Description       |
+| :------------- | :--------------------: |
+| [cat](cat)     |     Django backend     |
+| [dog](dog)     | Next.js frontend (dev) |
+| [mouse](mouse) |    Nuxt.js frontend    |
 
 ## Contributions
 
