@@ -1,11 +1,8 @@
+<a href="https://oyusec.ml"><p align="center">
+<img height=100 src="https://raw.githubusercontent.com/oyusec/oyusec/master/public/img/shield.png"/>
+
+</p></a>
+
 <p align="center">
-  <a href="https://github.com/ByamB4/https://github.com/oyusec/oyusec.github.io">
-    <img src="public/img/shield.png" alt="Logo" width="100" height="100">
-  </a>
-
-  <h3 align="center">OyuSec</h3>
-
-  <p align="center">
-    Currently mostly focused on the development
-  </p>
+  <strong>Making it better place to learn, practice, compete in security field 🇲🇳</strong>
 </p>
