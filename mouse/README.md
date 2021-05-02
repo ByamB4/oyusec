@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="https://github.com/ByamB4/https://github.com/oyusec/oyusec.github.io">
-    <img src="public/img/shield.png" alt="Logo" width="100" height="100">
-  </a>
+# What is this folder ?
 
-  <h3 align="center">OyuSec</h3>
-
-  <p align="center">
-    Currently mostly focused on the development
-  </p>
-</p>
+This folder is called mouse, which is inspired by [mouse](https://en.wikipedia.org/wiki/Mouse_(TV_series)), and currently used for Nuxt.js frontend.
