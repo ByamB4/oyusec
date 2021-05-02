@@ -19,6 +19,6 @@
 
 ## Contributions
 
-We currently accepts public challenges, academy contributions. Not supporting directly code support. If you really want you can reach our [CODEOWNERS](https://github.com/oyusec/oyusec/master/CODEOWNERS.md)
+We currently accepts public challenges, academy contributions. Not supporting directly code support. If you really want you can reach our [CODEOWNERS](https://github.com/oyusec/oyusec/blob/master/CODEOWNERS)
 
-Please read [CONTRIBUTING.md](https://github.com/oyusec/oyusec/master/CONTRIBUTING.md) for details on this project.
+Please read [CONTRIBUTING.md](https://github.com/oyusec/oyusec/blob/master/CONTRIBUTING) for details on this project.
