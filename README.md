@@ -11,10 +11,11 @@
 
 ## Structure
 
-| Codebase             |      Description      |
-| :------------------- | :-------------------: |
-| [mouse](mouse)       |    Nuxt.js frontend   |
-| [cat](cat)           |     Django backend    |
+| Codebase             |      Description       |
+| :------------------- | :--------------------: |
+| [cat](cat)           |     Django backend     |
+| [dog](dog)           | Next.js frontend (dev) |
+| [mouse](mouse)       |    Nuxt.js frontend    |
 
 
 ## Contributions
