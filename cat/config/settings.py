@@ -5,8 +5,8 @@ from os import path, getenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv('OYUSEC_SECRET', 'CHANGEMEINPRODUCTION')
 
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

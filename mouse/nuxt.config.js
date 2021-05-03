@@ -14,11 +14,8 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "Мэдээллийн аюулгүй байдлын талаарх үнэн зөв, бодитой ойлголт, мэдлэг, ур чадварыг нийтэд сургах, таниулах"
+          "Make it better place to learn, practice, compete in security field in 🇲🇳 "
       },
-      // TODO temporary
-      // We will change our meta data as soon as possible
-
       {
         name: "keywords",
         content:
@@ -236,6 +233,7 @@ export default {
       ]
     }
   },
+  // Default theme is light
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
