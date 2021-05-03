@@ -1,6 +1,6 @@
 export default {
-  target: "static",
-  ssr: false,
+  // target: "static",
+  ssr: true,
   head: {
     titleTemplate: "%s",
     title: "OyuSec",
