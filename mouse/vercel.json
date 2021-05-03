@@ -8,5 +8,8 @@
         "serverFiles": ["package.json"]
       }
     }
-  ]
+  ],
+  "github": {
+    "sient": true
+  }
 }
