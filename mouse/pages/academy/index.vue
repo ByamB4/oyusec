@@ -31,11 +31,11 @@
 import { mapGetters } from "vuex"
 
 export default {
-  async asyncData(context) {
-    await Promise.all([
-      context.store.dispatch("academy/updateAcademies", context)
-    ])
-  },
+  // async asyncData(context) {
+  //   await Promise.all([
+  //     context.store.dispatch("academy/updateAcademies", context)
+  //   ])
+  // },
   data: () => ({
     cat: []
   }),
@@ -55,6 +55,9 @@ export default {
     ...mapGetters({
       academies: "academy/getAcademies"
     })
+  },
+  mounted() {
+    this.$store.dispatch("academy/updateAcademies")
   },
   methods: {
     upFilter(_) {

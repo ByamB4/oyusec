@@ -1,6 +1,6 @@
 export default {
-  // target: "static",
-  ssr: true,
+  ssr: false,
+  target: "static",
   head: {
     titleTemplate: "%s",
     title: "OyuSec",
@@ -201,8 +201,8 @@ export default {
   },
 
   axios: {
-    // baseURL: "http://localhost:8000"
-    baseURL: "https://oyusec-server.herokuapp.com"
+    baseURL: "http://localhost:8000"
+    // baseURL: "https://oyusec-server.herokuapp.com"
   },
   pwa: {
     manifest: {
@@ -245,10 +245,11 @@ export default {
       maxAge: 60 * 60 * 24 * 365 * 1000
     }
   },
-  fetchOnServer: false,
   build: {},
   generate: {
     fallback: true
+    // minify: false,
+    // routes: ["/challenges"]
   },
   cache: true
 }

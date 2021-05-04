@@ -38,11 +38,12 @@
 
 <script>
 export default {
-  async asyncData(context) {
-    await Promise.all([
-      context.store.dispatch("competition/updateCompetitions", context)
-    ])
-  },
+  // async asyncData(context) {
+  //   await Promise.all([
+  //     context.store.dispatch("competition/updateCompetitions", context)
+  //   ])
+  // },
+
   data() {
     return {
       components: [
@@ -65,6 +66,9 @@ export default {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.competition.title
     }
+  },
+  created() {
+    this.$store.dispatch("competition/updateCompetitions")
   }
 }
 </script>

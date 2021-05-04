@@ -96,9 +96,9 @@
 import { mapGetters } from "vuex"
 
 export default {
-  async asyncData(context) {
-    await context.store.dispatch("scoreboard/update")
-  },
+  // async asyncData(context) {
+  //   await context.store.dispatch("scoreboard/update")
+  // },
 
   data: () => ({
     search: "",
@@ -117,6 +117,9 @@ export default {
     ...mapGetters({
       scoreboard: "scoreboard/getScoreboard"
     })
+  },
+  mounted() {
+    this.$store.dispatch("scoreboard/update")
   },
   created() {
     this.loading = false
