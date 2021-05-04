@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row justify="center">
       <v-col cols="12">
         <v-card class="user-bg" dark>
