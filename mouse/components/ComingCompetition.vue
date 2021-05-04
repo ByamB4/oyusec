@@ -1,17 +1,14 @@
 <template>
   <v-hover v-slot="{ hover }">
-    <v-card
-      class="user-bg"
-      :elevation="hover ? 12 : 2"
-      @click.native="
+    <v-card class="user-bg" :elevation="hover ? 12 : 2">
+      <!-- @click.native="
         $router.push({
           name: 'competitions-slug',
           params: {
             slug: comp.slug
           }
         })
-      "
-    >
+      " -->
       <v-card-title>
         <v-row align="center">
           <v-col cols="6" xs="6" sm="2" md="2" lg="2" xl="2">
