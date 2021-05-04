@@ -31,12 +31,8 @@
         class="mt-10 text-center"
         justify="center"
       >
-        <v-card
-          class="bg-transparent rounded-xl"
-          elevation="0"
-          min-width="500"
-          @click.native="to_(app.to)"
-        >
+        <v-card class="bg-transparent rounded-xl" elevation="0" min-width="500">
+          <!-- @click.native="to_(app.to)" -->
           <!-- <v-img
             :src="app.img"
             height="300"

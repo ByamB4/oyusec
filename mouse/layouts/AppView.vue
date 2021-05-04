@@ -1,6 +1,6 @@
 <template>
   <v-main class="font-exo">
-    <nuxt keep-alive />
+    <nuxt keep-alive :keep-alive-props="{ max: 10 }" />
   </v-main>
 </template>
 

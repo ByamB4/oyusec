@@ -22,11 +22,11 @@
 import { mapGetters } from "vuex"
 
 export default {
-  async asyncData(context) {
-    await Promise.all([
-      context.store.dispatch("writeup/updateWriteups", context)
-    ])
-  },
+  // async asyncData(context) {
+  //   await Promise.all([
+  //     context.store.dispatch("writeup/updateWriteups", context)
+  //   ])
+  // },
   data: () => ({
     pageSize: 10,
     current: 1
@@ -44,6 +44,9 @@ export default {
     paginated() {
       return this.writeups.slice(this.indexStart, this.indexEnd)
     }
+  },
+  mounted() {
+    this.$store.dispatch("writeup/updateWriteups")
   }
 }
 </script>
