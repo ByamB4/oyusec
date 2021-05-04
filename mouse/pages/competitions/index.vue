@@ -9,11 +9,7 @@
           </v-tab>
           <v-tab-item v-for="component in components" :key="component.title">
             <v-row>
-              <v-col
-                v-if="component.data.length === 0"
-                align="center"
-                class="mt-5"
-              >
+              <v-col v-if="component.length === 0" align="center" class="mt-5">
                 <h3 v-text="$t('noCompetitionFound')" />
               </v-col>
               <v-col
@@ -37,37 +33,20 @@
 </template>
 
 <script>
-export default {
-  // async asyncData(context) {
-  //   await Promise.all([
-  //     context.store.dispatch("competition/updateCompetitions", context)
-  //   ])
-  // },
+import { mapGetters } from "vuex"
 
-  data() {
-    return {
-      components: [
-        {
-          title: "CompetitionsLive",
-          data: this.$store.state.competition.competitions.live
-        },
-        {
-          title: "CompetitionsComing",
-          data: this.$store.state.competition.competitions.coming
-        },
-        {
-          title: "CompetitionsArchive",
-          data: this.$store.state.competition.competitions.archive
-        }
-      ]
-    }
-  },
+export default {
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].pages.competition.title
     }
   },
-  created() {
+  computed: {
+    ...mapGetters({
+      components: "competition/getComponents"
+    })
+  },
+  mounted() {
     this.$store.dispatch("competition/updateCompetitions")
   }
 }
