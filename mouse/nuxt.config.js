@@ -1,6 +1,6 @@
 export default {
-  target: "static",
   ssr: false,
+  target: "static",
   head: {
     titleTemplate: "%s",
     title: "OyuSec",
@@ -245,10 +245,11 @@ export default {
       maxAge: 60 * 60 * 24 * 365 * 1000
     }
   },
-  fetchOnServer: false,
   build: {},
   generate: {
     fallback: true
+    // minify: false,
+    // routes: ["/challenges"]
   },
   cache: true
 }

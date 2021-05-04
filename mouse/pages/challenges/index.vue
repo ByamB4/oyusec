@@ -48,12 +48,6 @@
 </template>
 <script>
 export default {
-  async asyncData(context) {
-    await Promise.all([
-      context.store.dispatch("challenge/updateChallenges", context),
-      context.store.dispatch("challenge/updateChallengesSolves", context)
-    ])
-  },
   data: () => ({
     loading: false,
     challenge: {},
@@ -100,6 +94,10 @@ export default {
       )
       return t
     }
+  },
+  mounted() {
+    this.$store.dispatch("challenge/updateChallenges")
+    this.$store.dispatch("challenge/updateChallengesSolves")
   },
   methods: {
     updateChall(chall) {

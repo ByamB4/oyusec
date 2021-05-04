@@ -45,7 +45,32 @@ export const getters = {
         const orderA = categoryOrders.indexOf(a.name.toLowerCase())
         const orderB = categoryOrders.indexOf(b.name.toLowerCase())
         return (orderA === -1 ? 9999 : orderA) - (orderB === -1 ? 9999 : orderB)
-      })
+      }),
+  getComponents(state, getters) {
+    // const liveComps = getters.getLive
+
+    if (state.competitions.live !== undefined) {
+      return [
+        {
+          title: "CompetitionsLive",
+          data: state.competitions.live,
+          length: state.competitions.live.length
+        },
+        {
+          title: "CompetitionsComing",
+          data: state.competitions.coming,
+          length: state.competitions.coming.length
+        },
+        {
+          title: "CompetitionsArchive",
+          data: state.competitions.archive,
+          length: state.competitions.archive.length
+        }
+      ]
+    } else {
+      return []
+    }
+  }
 }
 
 export const mutations = {
