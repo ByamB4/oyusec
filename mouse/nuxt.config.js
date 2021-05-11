@@ -1,4 +1,4 @@
-export default {
+const config = {
   ssr: false,
   target: "static",
   head: {
@@ -201,8 +201,7 @@ export default {
   },
 
   axios: {
-    // baseURL: "http://localhost:8000"
-    baseURL: "https://oyusec-server.herokuapp.com"
+    baseURL: process.env.REMOTE_BACK
   },
   pwa: {
     manifest: {
@@ -253,3 +252,7 @@ export default {
   },
   cache: true
 }
+if (process.env.DEV) {
+  config.axios.baseURL = process.env.DEV_BACK
+}
+module.exports = config
