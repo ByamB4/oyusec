@@ -1,22 +1,17 @@
 <template>
   <v-container fluid>
-    <v-row>
-      <v-col cols="12" sm="7" md="7" lg="8" xl="8">
-        <AcademySectionDetail />
-      </v-col>
-      <v-col cols="12" sm="5" md="5" lg="4" xl="4">
-        <AcademySection />
-        <AcademyRate />
-      </v-col>
-    </v-row>
+    <Layout />
   </v-container>
 </template>
 
 <script>
 export default {
+  components: {
+    Layout: () => import("@/layouts/Academy/Slug/"),
+  },
   async asyncData(context) {
-    const { slug } = context.params
-    await Promise.all([context.store.dispatch("academy/updateAcademy", slug)])
-  }
-}
+    const { slug } = context.params;
+    await Promise.all([context.store.dispatch("academy/updateAcademy", slug)]);
+  },
+};
 </script>

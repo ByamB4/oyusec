@@ -56,18 +56,18 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
       form: {},
-      loading: false
-    }
+      loading: false,
+    };
   },
   computed: {
     ...mapGetters({
-      profile: "user/getProfile"
-    })
+      profile: "user/getProfile",
+    }),
   },
   // created() {
   //   this.profile.socials.forEach((element) => {
@@ -76,19 +76,19 @@ export default {
   // },
   methods: {
     socialSubmit() {
-      this.loading = true
+      this.loading = true;
       this.$store.dispatch("user/updateSocial", {
-        form: this.form
-      })
-      this.reset()
+        form: this.form,
+      });
+      this.reset();
     },
     reset() {
       // this.form = {}
-      this.loading = false
+      this.loading = false;
       // this.$refs.form.resetValidation()
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style></style>

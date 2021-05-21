@@ -74,9 +74,9 @@ export default {
       username: "",
       password: "",
       email: "",
-      loading: false
+      loading: false,
     },
-    showPassword: false
+    showPassword: false,
   }),
   methods: {
     reset() {
@@ -84,22 +84,22 @@ export default {
         username: "",
         email: "",
         password: "",
-        loading: false
-      }
-      this.$refs.form.resetValidation()
+        loading: false,
+      };
+      this.$refs.form.resetValidation();
     },
     async submit() {
-      this.form.loading = true
+      this.form.loading = true;
       const success = await this.$store.dispatch("user/registerUser", {
         nuxt: this.$nuxt,
-        form: this.form
-      })
-      this.reset()
+        form: this.form,
+      });
+      this.reset();
       if (success) {
-        this.$emit("switch")
+        this.$emit("switch");
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style scoped lang="sass"></style>

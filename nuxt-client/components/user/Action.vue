@@ -46,29 +46,29 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 export default {
   props: {
     edit: {
       type: Boolean,
       required: true,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     ...mapGetters({
-      profile: "user/getProfile"
-    })
+      profile: "user/getProfile",
+    }),
   },
   // mounted() {
   //   this.$store.dispatch("reports/getData")
   // },
   methods: {
     async logout() {
-      this.$auth.logout()
-      await this.$auth.logout()
-      await this.$store.commit("competition/SET_SOLVES", [])
-      await this.$store.commit("challenge/SET_SOLVES", [])
+      this.$auth.logout();
+      await this.$auth.logout();
+      await this.$store.commit("competition/SET_SOLVES", []);
+      await this.$store.commit("challenge/SET_SOLVES", []);
       // this.$store.dispatch("user/getGuest", { id: this.$route.params.id })
       // if (this.edit === true) {
       //   this.$emit("toggleEdit")
@@ -77,34 +77,34 @@ export default {
     async reportUser(type) {
       if (!this.$auth.loggedIn) {
         this.$toast.show("Эхлээд нэвтэрнэ үү", {
-          icon: "alert-circle"
-        })
+          icon: "alert-circle",
+        });
       } else {
         const { data } = await this.$axios.post("api/v1/report/", {
           data: {
             _to: this.guest.id,
             _from: this.$auth.user.id,
-            _type: type
-          }
-        })
+            _type: type,
+          },
+        });
         if (data.success) {
           if (type === "report") {
             this.$store.commit("reports/ADD_REPORT", {
               guestID: this.guest.id,
-              profileID: this.$auth.user.id
-            })
+              profileID: this.$auth.user.id,
+            });
           } else {
             this.$store.commit("reports/REMOVE_REPORT", {
               guestID: this.guest.id,
-              profileID: this.$auth.user.id
-            })
+              profileID: this.$auth.user.id,
+            });
           }
         }
       }
     },
     contains(val) {
-      return this.reports.filter((report) => report === val).length > 0
-    }
-  }
-}
+      return this.reports.filter((report) => report === val).length > 0;
+    },
+  },
+};
 </script>

@@ -31,12 +31,12 @@
 <script>
 export default {
   data: () => ({
-    form: {}
+    form: {},
   }),
   methods: {
-    onSubmit() {}
-  }
-}
+    onSubmit() {},
+  },
+};
 </script>
 
 <style></style>

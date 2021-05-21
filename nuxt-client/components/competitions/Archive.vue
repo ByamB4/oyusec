@@ -7,8 +7,8 @@
         params: {
           slug: competition.slug,
           id: competition.id,
-          name: competition.name
-        }
+          name: competition.name,
+        },
       }"
       class="my-3 user-bg"
       max-width="350"
@@ -34,30 +34,30 @@ export default {
   props: {
     competition: {
       required: true,
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     end_date() {
-      const date = new Date(this.competition.end_date)
+      const date = new Date(this.competition.end_date);
       return `${date.getFullYear()}-${
         date.getMonth() + 1
       }-${date.getDate()} ${this.formatNum(date.getHours())}:${this.formatNum(
         date.getMinutes()
-      )}`
+      )}`;
     },
     description() {
-      return String(this.competition.description)
+      return String(this.competition.description);
     },
     rule() {
-      return String(this.competition.rule)
+      return String(this.competition.rule);
     },
     prize() {
-      return String(this.competition.prize)
-    }
+      return String(this.competition.prize);
+    },
   },
   methods: {
-    formatNum: (num) => (num < 10 ? "0" + num : num)
-  }
-}
+    formatNum: (num) => (num < 10 ? "0" + num : num),
+  },
+};
 </script>

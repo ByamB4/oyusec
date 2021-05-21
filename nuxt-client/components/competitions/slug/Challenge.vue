@@ -9,7 +9,7 @@
                 :to="
                   localePath({
                     name: 'user-slug',
-                    params: { slug: user.slug }
+                    params: { slug: user.slug },
                   })
                 "
                 ><span class="f-18 white--text" v-text="user.username" />
@@ -25,7 +25,8 @@
       :class="{
         solved:
           $auth.loggedIn &&
-          (challenge.solved || $auth.user.username == challenge.author.username)
+          (challenge.solved ||
+            $auth.user.username == challenge.author.username),
       }"
     >
       <v-row align="center" no-gutters>
@@ -55,7 +56,7 @@
               :to="
                 localePath({
                   name: 'user-slug',
-                  params: { slug: challenge.author.slug }
+                  params: { slug: challenge.author.slug },
                 })
               "
             >
@@ -155,101 +156,104 @@ export default {
   props: {
     challenge: {
       required: true,
-      type: Object
+      type: Object,
     },
     status: {
       required: false,
-      type: String
-    }
+      type: String,
+    },
   },
   data: () => ({
     incorrect: false,
     dialog: {
       show: false,
-      itemID: null
+      itemID: null,
     },
     solvers: [],
     form: {
       submission: "",
       valid: true,
-      loading: false
+      loading: false,
     },
     scrollOptions: {
       duration: 1500,
       offset: 0,
-      easing: "easeInOutQuad"
+      easing: "easeInOutQuad",
     },
     rules: {
-      required: (value) => !!value || "Заавал бөглөх ёстой"
-    }
+      required: (value) => !!value || "Заавал бөглөх ёстой",
+    },
   }),
   methods: {
     reset() {
       this.form = {
         submission: "",
         valid: true,
-        loading: false
-      }
-      this.$refs.form.resetValidation()
-      this.form.loading = false
+        loading: false,
+      };
+      this.$refs.form.resetValidation();
+      this.form.loading = false;
     },
     async submit() {
-      this.incorrect = false
-      this.form.loading = true
+      this.incorrect = false;
+      this.form.loading = true;
       const { data } = await this.$axios.post("api/challenges/attempt/", {
         challenge_id: this.challenge.id,
-        submission: this.form.submission
-      })
+        submission: this.form.submission,
+      });
       if (!data.success) {
         this.$toast.error(data.detail, {
-          icon: "alert-circle"
-        })
-        this.reset()
-        return
+          icon: "alert-circle",
+        });
+        this.reset();
+        return;
       }
       if (data.status === "correct") {
-        this.reset()
-        this.isSolved = true
+        this.reset();
+        this.isSolved = true;
         if (this.challenge.competition) {
           this.$store.commit(
             "competition/ADD_CHALLENGE_SOLVE",
             this.challenge.id
-          )
-          await this.$store.dispatch("competition/updateSolved")
-          await this.$store.dispatch("competition/updateScoreboard")
+          );
+          await this.$store.dispatch("competition/updateSolved");
+          await this.$store.dispatch("competition/updateScoreboard");
         } else {
-          this.$store.commit("challenge/ADD_CHALLENGE_SOLVE", this.challenge.id)
-          await this.$store.dispatch("challenge/updateSolved")
+          this.$store.commit(
+            "challenge/ADD_CHALLENGE_SOLVE",
+            this.challenge.id
+          );
+          await this.$store.dispatch("challenge/updateSolved");
           await this.$store.dispatch("user/getProfile", {
-            slug: this.$auth.user.slug
-          })
+            slug: this.$auth.user.slug,
+          });
         }
       } else {
-        this.reset()
-        this.incorrect = true
+        this.reset();
+        this.incorrect = true;
         if (this.challenge.competition) {
-          await this.$store.dispatch("competition/updateScoreboard")
+          await this.$store.dispatch("competition/updateScoreboard");
         }
         setTimeout(() => {
-          this.incorrect = false
-        }, 500)
+          this.incorrect = false;
+        }, 500);
       }
     },
     async showSolves() {
-      this.dialog.show = true
+      this.dialog.show = true;
       const { data } = await this.$axios.get(
         `api/challenge/${this.challenge.id}/solves/`
-      )
+      );
       if (data.success) {
-        this.solvers = data.data
+        this.solvers = data.data;
       } else {
         this.$toast.error(data.detail, {
-          icon: "alert-circle"
-        })
+          icon: "alert-circle",
+        });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">

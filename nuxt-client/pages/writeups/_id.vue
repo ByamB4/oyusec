@@ -60,31 +60,31 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 export default {
   async asyncData(context) {
-    const { id } = context.params
-    await Promise.all([context.store.dispatch("writeup/updateWriteup", id)])
+    const { id } = context.params;
+    await Promise.all([context.store.dispatch("writeup/updateWriteup", id)]);
   },
   computed: {
     ...mapGetters({
-      wrt: "writeup/getWriteup"
-    })
+      wrt: "writeup/getWriteup",
+    }),
   },
   methods: {
     addLike() {
       if (!this.$auth.loggedIn) {
         this.$toast.show("Эхлээд нэвтэрнэ үү", {
-          icon: "alert-circle"
-        })
-        return
+          icon: "alert-circle",
+        });
+        return;
       }
       this.$store.dispatch("writeup/like", {
-        wrt: this.wrt
-      })
-    }
-  }
-}
+        wrt: this.wrt,
+      });
+    },
+  },
+};
 </script>
 <style scoped lang="sass">
 .v-icon.liked

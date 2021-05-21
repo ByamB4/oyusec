@@ -1,23 +1,23 @@
 export const state = () => ({
-  scoreboard: []
-})
+  scoreboard: [],
+});
 
 export const getters = {
-  getScoreboard: (state) => state.scoreboard
-}
+  getScoreboard: (state) => state.scoreboard,
+};
 
 export const mutations = {
-  SET_SCOREBOARD: (s, p) => (s.scoreboard = p)
-}
+  SET_SCOREBOARD: (s, p) => (s.scoreboard = p),
+};
 
 export const actions = {
   async update({ dispatch }) {
-    await Promise.all([dispatch("updateScoreboard")])
+    await Promise.all([dispatch("updateScoreboard")]);
   },
   async updateScoreboard({ commit }) {
-    const { data } = await this.$axios.get("api/scoreboard/")
+    const { data } = await this.$axios.get("api/scoreboard/");
     if (data.success) {
-      commit("SET_SCOREBOARD", data.data)
+      commit("SET_SCOREBOARD", data.data);
     }
-  }
-}
+  },
+};

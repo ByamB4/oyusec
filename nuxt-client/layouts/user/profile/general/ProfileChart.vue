@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -21,51 +21,51 @@ export default {
             // pointRadius: 3,
             pointHitRadius: 10,
             // pointHoverBorderWidth: 6,
-            pointBorderWidth: 3
-          }
-        ]
+            pointBorderWidth: 3,
+          },
+        ],
       },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false,
         pointStyle: "circle",
         legend: {
-          display: false
+          display: false,
         },
         tooltips: {
           backgroundColor: "rgba(258, 255, 255, 0.1)",
           displayColors: false,
-          titleFontColor: "rgb(3, 255,255)"
+          titleFontColor: "rgb(3, 255,255)",
         },
         scale: {
           gridLines: {
-            borderColor: "#fff"
+            borderColor: "#fff",
           },
           ticks: {
             display: false,
             maxTicksLimit: 3,
             beginAtZero: true,
-            suggestedMin: 0
+            suggestedMin: 0,
           },
           pointLabels: {
             fontFamily: "'Exo 2', sans-serif",
             fontColor: "#d1d5db",
             fontSize: 12,
-            fontStyle: "bold"
-          }
-        }
-      }
-    }
+            fontStyle: "bold",
+          },
+        },
+      },
+    };
   },
   computed: {
     ...mapGetters({
-      profile: "user/getProfile"
-    })
+      profile: "user/getProfile",
+    }),
   },
   created() {
-    this.chartData.datasets[0].data[0] = this.profile.challenge_count
-    this.chartData.datasets[0].data[1] = this.profile.competition_count
-    this.chartData.datasets[0].data[2] = this.profile.added_challenge
-  }
-}
+    this.chartData.datasets[0].data[0] = this.profile.challenge_count;
+    this.chartData.datasets[0].data[1] = this.profile.competition_count;
+    this.chartData.datasets[0].data[2] = this.profile.added_challenge;
+  },
+};
 </script>

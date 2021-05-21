@@ -107,30 +107,30 @@ export default {
         "Compete others",
         "OyuSec",
         "Challenge your friends",
-        "Be a top player"
-      ]
+        "Be a top player",
+      ],
     },
     competition: {
-      title: "Competitions"
+      title: "Competitions",
     },
     challenges: {
-      title: "Challenges"
+      title: "Challenges",
     },
     academy: {
-      title: "Academy"
+      title: "Academy",
     },
     contribute: {
-      title: "Contribute"
+      title: "Contribute",
     },
     rankings: {
-      title: "Rankings"
+      title: "Rankings",
     },
     register: {
-      title: "Register"
+      title: "Register",
     },
     login: {
-      title: "Login"
-    }
+      title: "Login",
+    },
   },
   drawer: {
     leftMenu: [
@@ -138,53 +138,53 @@ export default {
         icon: "mdi-home",
         color: "orange darken-3",
         title: "Home",
-        link: "/"
+        link: "/",
       },
       {
         icon: "mdi-sword",
         color: "cyan accent-3",
         title: "Practice",
-        link: "/challenges"
+        link: "/challenges",
       },
       {
         icon: "mdi-trophy",
         color: "pink",
         title: "Compete",
-        link: "/competitions"
+        link: "/competitions",
       },
       {
         icon: "mdi-school-outline",
         color: "light-green accent-3",
         title: "Academy",
-        link: "/academy"
+        link: "/academy",
       },
       {
         icon: "mdi-chart-line",
         color: "yellow darken-3",
         title: "Scoreboard",
-        link: "/scoreboard"
+        link: "/scoreboard",
       },
       {
         icon: "mdi-script-text-outline",
         color: "deep-purple lighten-2",
         title: "Writeups",
-        link: "/writeups"
+        link: "/writeups",
       },
       {
         icon: "mdi-cards-heart",
         color: "#e31b23",
         title: "Contribute",
-        link: "/contribute"
-      }
+        link: "/contribute",
+      },
     ],
     authMenu: [
       {
         icon: "mdi-login",
         color: "orange darken-4",
         name: "Login",
-        link: "/auth"
-      }
-    ]
+        link: "/auth",
+      },
+    ],
   },
   topBar: {
     adminMenu: [
@@ -192,15 +192,15 @@ export default {
         icon: "mdi-wrench",
         title: "Config",
         color: "red",
-        to: "/admin/config"
+        to: "/admin/config",
       },
       {
         icon: "mdi-sword-cross",
         title: "Challenges",
         color: "blue",
-        to: "/admin/challenges"
-      }
-    ]
+        to: "/admin/challenges",
+      },
+    ],
   },
   profileTab: {
     authMenu: [
@@ -208,13 +208,13 @@ export default {
       { title: "Teams", icon: "mdi-account-group" },
       {
         title: "Edit",
-        icon: "mdi-account-edit"
-      }
+        icon: "mdi-account-edit",
+      },
     ],
     menu: [
       { title: "General", icon: "mdi-account-outline" },
-      { title: "Teams", icon: "mdi-account-group" }
-    ]
+      { title: "Teams", icon: "mdi-account-group" },
+    ],
   },
   challengesTab: {
     menu: [
@@ -224,21 +224,21 @@ export default {
       { title: "Web", icon: "mdi-web" },
       { title: "Pwn", icon: "mdi-skull-outline" },
       { title: "Reversing", icon: "mdi-bug" },
-      { title: "Requested", icon: "mdi-cube-scan" }
-    ]
+      { title: "Requested", icon: "mdi-cube-scan" },
+    ],
   },
   competitionTab: {
     menu: [
       { title: "Live", icon: "mdi-fire" },
       { title: "Upcoming", icon: "mdi-circle-slice-5" },
-      { title: "Archived", icon: "mdi-archive" }
+      { title: "Archived", icon: "mdi-archive" },
     ],
     slugMenu: [
       { title: "About", icon: "mdi-script-text-outline" },
       { title: "Challenges", icon: "mdi-sword-cross" },
       { title: "Scoreboard", icon: "mdi-chart-line" },
-      { title: "Statistic", icon: "mdi-chart-bar" }
-    ]
+      { title: "Statistic", icon: "mdi-chart-bar" },
+    ],
   },
   userTab: {
     profile: {
@@ -246,22 +246,22 @@ export default {
         { name: "Place" },
         { name: "Event" },
         { name: "CTF points" },
-        { name: "Rating points" }
+        { name: "Rating points" },
       ],
       solvesTab: [
         { name: "Date" },
         { name: "Category" },
         { name: "Name" },
-        { name: "Point" }
-      ]
-    }
+        { name: "Point" },
+      ],
+    },
   },
   contribute: {
     tab: [
       { name: "Challenge", icon: "mdi-sword-cross" },
-      { name: "Writeup", icon: "mdi-script-text-outline" }
+      { name: "Writeup", icon: "mdi-script-text-outline" },
       // { name: "Standart", icon: "mdi-sword" },
-    ]
+    ],
   },
   scoreboard: {
     headers: [
@@ -270,43 +270,43 @@ export default {
         align: "center",
         sortable: false,
         value: "place",
-        width: "10%"
+        width: "10%",
       },
       {
         text: "Player",
         value: "username",
         sortable: false,
-        width: "15%"
+        width: "15%",
       },
       {
         text: "Challenges",
         value: "total_solved_challs",
         sortable: true,
         width: "15%",
-        align: "center"
+        align: "center",
       },
       {
         text: "Ownership",
         value: "progress",
         sortable: false,
         align: "center",
-        width: "20%"
+        width: "20%",
       },
       {
         text: "Competition",
         value: "total_rating",
         sortable: true,
         align: "center",
-        width: "20%"
-      }
-    ]
+        width: "20%",
+      },
+    ],
   },
   admin: {
     challengesTab: [
       { name: "Standart", icon: "mdi-sword" },
       { name: "Dynamic", icon: "mdi-sword-cross" },
       { name: "Challenges" },
-      { name: "Challenge" }
+      { name: "Challenge" },
     ],
     challengesHeaders: [
       { text: "Name", value: "name", sortable: false },
@@ -314,22 +314,22 @@ export default {
       { text: "Score", value: "value" },
       { text: "Type", value: "type", sortable: false },
       { text: "State", value: "state", sortable: false },
-      { text: "Actions", value: "actions", sortable: false }
+      { text: "Actions", value: "actions", sortable: false },
     ],
     challengeEditHintHeaders: [
       { text: "Content", value: "content", sortable: false },
       { text: "Cost", value: "cost", sortable: false },
       { text: "State", value: "state", sortable: false },
-      { text: "Actions", value: "actions", sortable: false }
+      { text: "Actions", value: "actions", sortable: false },
     ],
     challengeEditFlagHeaders: [
       { text: "Content", value: "content", sortable: false },
-      { text: "Actions", value: "actions", sortable: false }
+      { text: "Actions", value: "actions", sortable: false },
     ],
     challengeEditTagHeaders: [
       { text: "Content", value: "content", sortable: false },
-      { text: "Actions", value: "actions", sortable: false }
+      { text: "Actions", value: "actions", sortable: false },
     ],
-    challengeEditTab: ["General", "Hints", "Flag", "Tag"]
-  }
-}
+    challengeEditTab: ["General", "Hints", "Flag", "Tag"],
+  },
+};

@@ -55,41 +55,41 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
     ...mapGetters({
-      competition: "competition/getCompetition"
+      competition: "competition/getCompetition",
     }),
     start_date() {
-      const date = new Date(this.competition.start_date)
+      const date = new Date(this.competition.start_date);
       return `${date.getFullYear()}-${
         date.getMonth() + 1
       }-${date.getDate()} ${this.formatNum(date.getHours())}:${this.formatNum(
         date.getMinutes()
-      )}`
+      )}`;
     },
     end_date() {
-      const date = new Date(this.competition.end_date)
+      const date = new Date(this.competition.end_date);
       return `${date.getFullYear()}-${
         date.getMonth() + 1
       }-${date.getDate()} ${this.formatNum(date.getHours())}:${this.formatNum(
         date.getMinutes()
-      )}`
+      )}`;
     },
     description() {
-      return String(this.competition.description)
+      return String(this.competition.description);
     },
     rule() {
-      return String(this.competition.rule)
+      return String(this.competition.rule);
     },
     prize() {
-      return String(this.competition.prize)
-    }
+      return String(this.competition.prize);
+    },
   },
   methods: {
-    formatNum: (num) => (num < 10 ? "0" + num : num)
-  }
-}
+    formatNum: (num) => (num < 10 ? "0" + num : num),
+  },
+};
 </script>

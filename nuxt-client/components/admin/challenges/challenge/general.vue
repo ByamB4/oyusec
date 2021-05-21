@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState } from "vuex";
 
 export default {
   data: () => ({
@@ -80,37 +80,37 @@ export default {
     form: {
       name: "",
       state: "Ил харагдана",
-      type: "dynamic"
+      type: "dynamic",
     },
-    stateItems: ["Ил харагдана", "Нууцлагдмал"]
+    stateItems: ["Ил харагдана", "Нууцлагдмал"],
   }),
   computed: {
-    ...mapState({ challenge: (state) => state.admin.activeChallenge })
+    ...mapState({ challenge: (state) => state.admin.activeChallenge }),
   },
 
   watch: {
     challenge: {
       immediate: true,
       handler(newVal, oldVal) {
-        this.form.type = this.challenge.type
-        this.form.name = this.challenge.name
-        this.form.category = this.challenge.category
-        this.form.state = this.challenge.state
-        this.form.minimum = this.challenge.minimum
-        this.form.decay = this.challenge.decay
-        this.form.description = this.challenge.description
-        this.form.value = this.challenge.value
-        this.form.id = this.challenge.id
-      }
-    }
+        this.form.type = this.challenge.type;
+        this.form.name = this.challenge.name;
+        this.form.category = this.challenge.category;
+        this.form.state = this.challenge.state;
+        this.form.minimum = this.challenge.minimum;
+        this.form.decay = this.challenge.decay;
+        this.form.description = this.challenge.description;
+        this.form.value = this.challenge.value;
+        this.form.id = this.challenge.id;
+      },
+    },
   },
 
   methods: {
     submit() {
       this.$store.dispatch("admin/updateChallenge", {
-        form: this.form
-      })
-    }
-  }
-}
+        form: this.form,
+      });
+    },
+  },
+};
 </script>

@@ -1,12 +1,12 @@
-import get from "lodash/get"
-import groupBy from "lodash/groupBy"
+import get from "lodash/get";
+import groupBy from "lodash/groupBy";
 
 const categoryOrders = [
   // Default category order, not editable
   "misc",
   "crypto",
-  "reverse"
-]
+  "reverse",
+];
 
 export const state = () => ({
   competition: {},
@@ -14,8 +14,8 @@ export const state = () => ({
   scoreboard: [],
   challenges: [],
   challengesSolves: [],
-  solves: new Set()
-})
+  solves: new Set(),
+});
 
 export const getters = {
   getLive: (state) => state.competitions.live,
@@ -33,18 +33,20 @@ export const getters = {
         ),
         "solves",
         0
-      )
+      ),
     })),
   getCategories: (state, getters) =>
     Object.entries(groupBy(getters.getChallenges, ({ category }) => category))
       .map(([name, challenges]) => ({
         name,
-        challenges: challenges.sort((a, b) => a.value - b.value)
+        challenges: challenges.sort((a, b) => a.value - b.value),
       }))
       .sort((a, b) => {
-        const orderA = categoryOrders.indexOf(a.name.toLowerCase())
-        const orderB = categoryOrders.indexOf(b.name.toLowerCase())
-        return (orderA === -1 ? 9999 : orderA) - (orderB === -1 ? 9999 : orderB)
+        const orderA = categoryOrders.indexOf(a.name.toLowerCase());
+        const orderB = categoryOrders.indexOf(b.name.toLowerCase());
+        return (
+          (orderA === -1 ? 9999 : orderA) - (orderB === -1 ? 9999 : orderB)
+        );
       }),
   getComponents(state, getters) {
     // const liveComps = getters.getLive
@@ -54,24 +56,24 @@ export const getters = {
         {
           title: "CompetitionsLive",
           data: state.competitions.live,
-          length: state.competitions.live.length
+          length: state.competitions.live.length,
         },
         {
           title: "CompetitionsComing",
           data: state.competitions.coming,
-          length: state.competitions.coming.length
+          length: state.competitions.coming.length,
         },
         {
           title: "CompetitionsArchive",
           data: state.competitions.archive,
-          length: state.competitions.archive.length
-        }
-      ]
+          length: state.competitions.archive.length,
+        },
+      ];
     } else {
-      return []
+      return [];
     }
-  }
-}
+  },
+};
 
 export const mutations = {
   SET_COMPETITIONS: (s, p) => (s.competitions = p),
@@ -84,56 +86,56 @@ export const mutations = {
   ADD_CHALLENGE_SOLVE(s, p) {
     const target = s.challengesSolves.find(
       (challenge) => challenge.challengeID === p
-    )
+    );
     Object.assign(target, {
-      solves: target.solves + 1
-    })
-  }
-}
+      solves: target.solves + 1,
+    });
+  },
+};
 
 export const actions = {
   async updateCompetition({ commit, state }, slug = false) {
     if (slug) {
-      const { data } = await this.$axios.get(`api/competition/${slug}/`)
-      commit("SET_COMPETITION", data.data)
+      const { data } = await this.$axios.get(`api/competition/${slug}/`);
+      commit("SET_COMPETITION", data.data);
     } else {
       const { data } = await this.$axios.get(
         `api/competition/${state.competition.slug}/`
-      )
-      commit("SET_COMPETITION", data.data)
+      );
+      commit("SET_COMPETITION", data.data);
     }
   },
   async updateCompetitions({ commit, dispatch }) {
-    const { data } = await this.$axios.get("api/competitions/")
-    commit("SET_COMPETITIONS", data.data)
+    const { data } = await this.$axios.get("api/competitions/");
+    commit("SET_COMPETITIONS", data.data);
   },
   async updateChallenges({ commit, dispatch, state }) {
     const { data } = await this.$axios.get(
       `api/competition/${state.competition.slug}/challenges/`
-    )
+    );
     if (data.success) {
-      commit("SET_CHALLENGES", data.data)
+      commit("SET_CHALLENGES", data.data);
     }
-    await dispatch("updateSolved")
+    await dispatch("updateSolved");
   },
   async updateChallengesSolves({ commit, state }) {
     const { data } = await this.$axios.get(
       `api/competition/${state.competition.slug}/challenges/solves/`
-    )
-    commit("SET_CHALLENGES_SOLVES", data.data)
+    );
+    commit("SET_CHALLENGES_SOLVES", data.data);
   },
   async updateSolved({ commit, state }) {
     const { data } = await this.$axios.get(
       `api/competition/${state.competition.slug}/challenges/user/solves/`
-    )
+    );
     if (data.success) {
-      commit("SET_SOLVES", data.data)
+      commit("SET_SOLVES", data.data);
     }
   },
   async updateScoreboard({ commit, state }) {
     const { data } = await this.$axios.get(
       `api/competition/${state.competition.slug}/scoreboard/`
-    )
-    commit("SET_SCOREBOARD", data.data)
-  }
-}
+    );
+    commit("SET_SCOREBOARD", data.data);
+  },
+};

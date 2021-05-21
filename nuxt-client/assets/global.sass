@@ -29,17 +29,23 @@ a
 #profile
   color: rgba(255, 255, 255,0.5) !important
 
-.v-tab
-  &--active
-    color: $white !important
-    font-weight: 700 !important
-    .v-icon
+.v-tabs
+  .v-tab
+    &--active
       color: $white !important
+      font-weight: 700 !important
+      .v-icon
+        color: $white !important
 
-  &:not(.v-tab--active)
-    color: $gray-400 !important
-    .v-icon
+    &:not(.v-tab--active)
       color: $gray-400 !important
+      .v-icon
+        color: $gray-400 !important
+
+  .v-tabs-slider-wrapper
+    height: 4px !important
+    .v-tabs-slider
+      color: $dark-tab !important
 
 .v-sheet
   color: #fff !important

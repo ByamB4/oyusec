@@ -109,30 +109,30 @@ export default {
         "Бусадтай өрсөлдөх",
         "OyuSec",
         "Найзуудаа уриалах",
-        "Шилдэг нь болох"
-      ]
+        "Шилдэг нь болох",
+      ],
     },
     competition: {
-      title: "Тэмцээн"
+      title: "Тэмцээн",
     },
     challenges: {
-      title: "Бодлогууд"
+      title: "Бодлогууд",
     },
     academy: {
-      title: "Академи"
+      title: "Академи",
     },
     contribute: {
-      title: "Хувь нэмэр оруулах"
+      title: "Хувь нэмэр оруулах",
     },
     rankings: {
-      title: "Онооны самбар"
+      title: "Онооны самбар",
     },
     register: {
-      title: "Бүртгүүлэх"
+      title: "Бүртгүүлэх",
     },
     login: {
-      title: "Нэвтрэх"
-    }
+      title: "Нэвтрэх",
+    },
   },
   drawer: {
     leftMenu: [
@@ -140,53 +140,53 @@ export default {
         icon: "mdi-home",
         color: "orange darken-3",
         title: "Нүүр хуудас",
-        link: "/"
+        link: "/",
       },
       {
         icon: "mdi-sword",
         color: "cyan accent-3",
         title: "Бодлого",
-        link: "/challenges"
+        link: "/challenges",
       },
       {
         icon: "mdi-trophy",
         color: "pink",
         title: "Тэмцээн",
-        link: "/competitions"
+        link: "/competitions",
       },
       {
         icon: "mdi-school-outline",
         color: "light-green accent-3",
         title: "Академи",
-        link: "/academy"
+        link: "/academy",
       },
       {
         icon: "mdi-chart-line",
         color: "#ffdf00",
         title: "Самбар",
-        link: "/scoreboard"
+        link: "/scoreboard",
       },
       {
         icon: "mdi-script-text-outline",
         color: "deep-purple lighten-2",
         title: "Бодолт",
-        link: "/writeups"
+        link: "/writeups",
       },
       {
         icon: "mdi-cards-heart",
         color: "#e31b23",
         title: "Хувь нэмэр",
-        link: "/contribute"
-      }
+        link: "/contribute",
+      },
     ],
     authMenu: [
       {
         icon: "mdi-login",
         color: "orange darken-4",
         name: "Нэвтрэх",
-        link: "/auth"
-      }
-    ]
+        link: "/auth",
+      },
+    ],
   },
   topBar: {
     adminMenu: [
@@ -194,15 +194,15 @@ export default {
         icon: "mdi-wrench",
         title: "Тохиргоо",
         color: "red",
-        to: "/admin/config"
+        to: "/admin/config",
       },
       {
         icon: "mdi-sword-cross",
         title: "Бодлогууд",
         color: "blue",
-        to: "/admin/challenges"
-      }
-    ]
+        to: "/admin/challenges",
+      },
+    ],
   },
   profileTab: {
     authMenu: [
@@ -210,13 +210,13 @@ export default {
       { title: "Баг", icon: "mdi-account-group" },
       {
         title: "Засах",
-        icon: "mdi-account-edit"
-      }
+        icon: "mdi-account-edit",
+      },
     ],
     menu: [
       { title: "Ерөнхий", icon: "mdi-account-outline" },
-      { title: "Баг", icon: "mdi-account-group" }
-    ]
+      { title: "Баг", icon: "mdi-account-group" },
+    ],
   },
   challengesTab: {
     menu: [
@@ -229,21 +229,21 @@ export default {
       // { title: "Mobile", icon: "mdi-cellphone-cog" },
       // { title: "OSINT", icon: "mdi-cloud-search" },
       // { title: "Дууссан", icon: "mdi-skull-scan" },
-      { title: "Хүсэлт", icon: "mdi-cube-scan" }
-    ]
+      { title: "Хүсэлт", icon: "mdi-cube-scan" },
+    ],
   },
   competitionTab: {
     menu: [
       { title: "Шууд", icon: "mdi-record-circle-outline" },
       { title: "Удахгүй", icon: "mdi-circle-slice-5" },
-      { title: "Дууссан", icon: "mdi-archive" }
+      { title: "Дууссан", icon: "mdi-archive" },
     ],
     slugMenu: [
       { title: "Тухай", icon: "mdi-script-text-outline" },
       { title: "Бодлогууд", icon: "mdi-sword-cross" },
       { title: "Онооны самбар", icon: "mdi-chart-line" },
-      { title: "Үзүүлэлт", icon: "mdi-chart-bar" }
-    ]
+      { title: "Үзүүлэлт", icon: "mdi-chart-bar" },
+    ],
   },
   userTab: {
     profile: {
@@ -251,22 +251,22 @@ export default {
         { name: "Байр" },
         { name: "Арга хэмжээ" },
         { name: "CTF оноо" },
-        { name: "Чансаа оноо" }
+        { name: "Чансаа оноо" },
       ],
       solvesTab: [
         { name: "Огноо" },
         { name: "Төрөл" },
         { name: "Нэр" },
-        { name: "Оноо" }
-      ]
-    }
+        { name: "Оноо" },
+      ],
+    },
   },
   contribute: {
     tab: [
       { name: "Бодлого", icon: "mdi-sword-cross" },
-      { name: "Бодолт", icon: "mdi-script-text-outline" }
+      { name: "Бодолт", icon: "mdi-script-text-outline" },
       // { name: "Стандарт", icon: "mdi-sword" },
-    ]
+    ],
   },
   scoreboard: {
     headers: [
@@ -275,43 +275,43 @@ export default {
         align: "center",
         sortable: false,
         value: "place",
-        width: "10%"
+        width: "10%",
       },
       {
         text: "Тоглогч",
         value: "username",
         sortable: false,
-        width: "15%"
+        width: "15%",
       },
       {
         text: "Бодлогууд",
         value: "total_solved_challs",
         sortable: true,
         width: "15%",
-        align: "center"
+        align: "center",
       },
       {
         text: "Нийт",
         value: "progress",
         sortable: false,
         align: "center",
-        width: "20%"
+        width: "20%",
       },
       {
         text: "Тэмцээн",
         value: "total_rating",
         sortable: true,
         align: "center",
-        width: "20%"
-      }
-    ]
+        width: "20%",
+      },
+    ],
   },
   admin: {
     challengesTab: [
       { name: "Стандарт", icon: "mdi-sword" },
       { name: "Динамик", icon: "mdi-sword-cross" },
       { name: "Бодлогууд" },
-      { name: "Бодлого" }
+      { name: "Бодлого" },
     ],
     challengesHeaders: [
       { text: "Нэр", value: "name", sortable: false },
@@ -319,22 +319,22 @@ export default {
       { text: "Оноо", value: "value" },
       { text: "Төрөл", value: "type", sortable: false },
       { text: "Төлөв", value: "state", sortable: false },
-      { text: "Үйлдэл:", value: "actions", sortable: false }
+      { text: "Үйлдэл:", value: "actions", sortable: false },
     ],
     challengeEditTab: ["Ерөнхий", "Зөвлөгөө", "Флаг", "Шошго"],
     challengeEditHintHeaders: [
       { text: "Агуулга", value: "content", sortable: false },
       { text: "Татвар", value: "cost", sortable: false },
       { text: "Төлөв", value: "state", sortable: false },
-      { text: "Үйлдэл", value: "actions", sortable: false }
+      { text: "Үйлдэл", value: "actions", sortable: false },
     ],
     challengeEditFlagHeaders: [
       { text: "Агуулга", value: "content", sortable: false },
-      { text: "Үйлдэл", value: "actions", sortable: false }
+      { text: "Үйлдэл", value: "actions", sortable: false },
     ],
     challengeEditTagHeaders: [
       { text: "Агуулга", value: "content", sortable: false },
-      { text: "Үйлдэл", value: "actions", sortable: false }
-    ]
-  }
-}
+      { text: "Үйлдэл", value: "actions", sortable: false },
+    ],
+  },
+};

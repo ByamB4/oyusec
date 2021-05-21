@@ -30,7 +30,7 @@
                 :to="
                   localePath({
                     name: 'user-slug',
-                    params: { slug: item.slug }
+                    params: { slug: item.slug },
                   })
                 "
               >
@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 
 export default {
   // async asyncData(context) {
@@ -102,27 +102,27 @@ export default {
 
   data: () => ({
     search: "",
-    loading: true
+    loading: true,
   }),
   // async fetch() {
   //   await this.$store.dispatch("scoreboard/update")
   // },
   head() {
     return {
-      title: this.$i18n.messages[this.$i18n.locale].pages.rankings.title
-    }
+      title: this.$i18n.messages[this.$i18n.locale].pages.rankings.title,
+    };
   },
 
   computed: {
     ...mapGetters({
-      scoreboard: "scoreboard/getScoreboard"
-    })
+      scoreboard: "scoreboard/getScoreboard",
+    }),
   },
   mounted() {
-    this.$store.dispatch("scoreboard/update")
+    this.$store.dispatch("scoreboard/update");
   },
   created() {
-    this.loading = false
-  }
-}
+    this.loading = false;
+  },
+};
 </script>

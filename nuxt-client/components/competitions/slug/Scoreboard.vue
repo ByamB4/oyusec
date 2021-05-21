@@ -43,7 +43,7 @@
                   :to="
                     localePath({
                       name: 'user-slug',
-                      params: { slug: user.username }
+                      params: { slug: user.username },
                     })
                   "
                   ><span class="f-18" v-text="user.username" />
@@ -59,28 +59,28 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
     ...mapGetters({
       scoreboard: "competition/getScoreboard",
-      competition: "competition/getCompetition"
-    })
+      competition: "competition/getCompetition",
+    }),
   },
   created() {
     // If component loaded run once time
-    this.$store.dispatch("competition/updateScoreboard")
+    this.$store.dispatch("competition/updateScoreboard");
   },
   mounted() {
     this.interval = setInterval(() => {
       if (this.competition.status === "Шууд") {
-        this.$store.dispatch("competition/updateScoreboard")
+        this.$store.dispatch("competition/updateScoreboard");
       }
-    }, 10 * 5000)
+    }, 10 * 5000);
   },
   destroyed() {
-    clearInterval(this.interval)
-  }
-}
+    clearInterval(this.interval);
+  },
+};
 </script>

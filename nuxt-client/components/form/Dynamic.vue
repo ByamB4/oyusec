@@ -102,33 +102,33 @@ export default {
       minimum: "",
       value: "",
       flag: "",
-      loading: false
+      loading: false,
     },
     rules: {
       required: (value) => !!value || "Заавал бөглөх ёстой",
-      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт"
-    }
+      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт",
+    },
   }),
   methods: {
     reset() {
-      this.form.name = ""
-      this.form.description = ""
-      this.form.value = ""
-      this.form.category = ""
-      this.form.flag = ""
-      this.form.decay = ""
-      this.form.minimum = ""
-      this.$refs.form.resetValidation()
+      this.form.name = "";
+      this.form.description = "";
+      this.form.value = "";
+      this.form.category = "";
+      this.form.flag = "";
+      this.form.decay = "";
+      this.form.minimum = "";
+      this.$refs.form.resetValidation();
     },
 
     submit() {
-      this.$toast.success("Удахгүй шинэчлэгдэнэ :')", { icon: "check-circle" })
+      this.$toast.success("Удахгүй шинэчлэгдэнэ :')", { icon: "check-circle" });
       // this.$store.dispatch("admin/addChallenge", {
       //   $form: this.form,
       //   $type: "dynamic",
       // })
-      this.reset()
-    }
-  }
-}
+      this.reset();
+    },
+  },
+};
 </script>

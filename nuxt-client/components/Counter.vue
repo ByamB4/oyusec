@@ -28,22 +28,22 @@ export default {
     hour: { type: Number },
     minute: { type: Number },
     second: { type: Number },
-    millisecond: { type: Number }
+    millisecond: { type: Number },
   },
   data: () => ({
     displayTime: {},
-    loaded: false
+    loaded: false,
   }),
   created() {
-    this.showRemaining()
+    this.showRemaining();
   },
   destroyed() {
-    clearInterval(this.timer)
+    clearInterval(this.timer);
   },
   methods: {
     showRemaining() {
       const timer = setInterval(() => {
-        const now = new Date()
+        const now = new Date();
         const end = new Date(
           this.year,
           this.month,
@@ -52,21 +52,21 @@ export default {
           this.minute,
           this.second,
           this.millisecond
-        )
-        const distance = end.getTime() - now.getTime()
+        );
+        const distance = end.getTime() - now.getTime();
         if (distance < 0) {
-          clearInterval(timer)
-          this.loaded = true
-          this.expired = true
-          return
+          clearInterval(timer);
+          this.loaded = true;
+          this.expired = true;
+          return;
         }
-        this.displayTime = this.$time.timeLeft(distance)
+        this.displayTime = this.$time.timeLeft(distance);
 
-        this.loaded = true
-      }, 1000)
-    }
-  }
-}
+        this.loaded = true;
+      }, 1000);
+    },
+  },
+};
 </script>
 
 <style>
@@ -85,8 +85,9 @@ export default {
 }
 .vuejs-countdown li:after {
   content: ":";
+  /* margin-top: 5px; */
   position: absolute;
-  top: 0;
+  top: 20%;
   right: -13px;
   font-size: 38px;
 }

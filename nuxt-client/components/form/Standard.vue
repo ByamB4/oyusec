@@ -80,31 +80,31 @@ export default {
       description: "",
       value: "",
       flag: "",
-      loading: false
+      loading: false,
     },
     rules: {
       required: (value) => !!value || "Заавал бөглөх ёстой",
-      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт"
-    }
+      counter: (value) => value.length <= 25 || "Ихдээ 25 тэмдэгт",
+    },
   }),
   methods: {
     reset() {
-      this.form.name = ""
-      this.form.description = ""
-      this.form.category = ""
-      this.form.value = ""
-      this.form.flag = ""
-      this.$refs.form.resetValidation()
+      this.form.name = "";
+      this.form.description = "";
+      this.form.category = "";
+      this.form.value = "";
+      this.form.flag = "";
+      this.$refs.form.resetValidation();
     },
 
     submit() {
-      this.$toast.success("Удахгүй шинэчлэгдэнэ :')", { icon: "check-circle" })
+      this.$toast.success("Удахгүй шинэчлэгдэнэ :')", { icon: "check-circle" });
       // this.$store.dispatch("admin/addChallenge", {
       //   $form: this.form,
       //   $type: "standard",
       // })
-      this.reset()
-    }
-  }
-}
+      this.reset();
+    },
+  },
+};
 </script>

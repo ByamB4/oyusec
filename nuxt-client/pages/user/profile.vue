@@ -42,34 +42,34 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     general: () => import("~/layouts/user/profile/general"),
     team: () => import("~/layouts/user/profile/team"),
-    edit: () => import("~/layouts/user/profile/edit")
+    edit: () => import("~/layouts/user/profile/edit"),
   },
   middleware: "auth",
   async asyncData(context) {
-    const { slug } = context.app.$auth.user
+    const { slug } = context.app.$auth.user;
     await context.store.dispatch("user/getProfile", {
-      slug
-    })
+      slug,
+    });
   },
   data: () => ({
     activeTab: null,
-    comps: ["general", "team", "edit"]
+    comps: ["general", "team", "edit"],
   }),
   head() {
     return {
-      title: this.profile.fullname
-    }
+      title: this.profile.fullname,
+    };
   },
   computed: {
     ...mapGetters({
-      profile: "user/getProfile"
-    })
-  }
-}
+      profile: "user/getProfile",
+    }),
+  },
+};
 </script>

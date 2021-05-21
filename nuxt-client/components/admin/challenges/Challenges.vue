@@ -69,41 +69,41 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState } from "vuex";
 export default {
   data: () => ({
     search: "",
     dialog: {
       show: false,
-      itemID: null
-    }
+      itemID: null,
+    },
   }),
 
   computed: {
     ...mapState({
-      challenges: (state) => state.admin.challenges
-    })
+      challenges: (state) => state.admin.challenges,
+    }),
   },
 
   created() {
-    this.$store.dispatch("admin/getChallenges")
+    this.$store.dispatch("admin/getChallenges");
   },
 
   methods: {
     deleteItem(item) {
-      this.dialog.itemID = item.id
-      this.dialog.show = true
+      this.dialog.itemID = item.id;
+      this.dialog.show = true;
     },
     deleteConfirm() {
-      this.$store.dispatch("admin/deleteChallenge", this.dialog.itemID)
-      this.dialog.show = false
+      this.$store.dispatch("admin/deleteChallenge", this.dialog.itemID);
+      this.dialog.show = false;
     },
     editItem(item) {
       this.$store.dispatch("admin/getChallenge", {
-        id: item.id
-      })
-      this.$store.commit("admin/SET_TAB", 3)
-    }
-  }
-}
+        id: item.id,
+      });
+      this.$store.commit("admin/SET_TAB", 3);
+    },
+  },
+};
 </script>

@@ -62,16 +62,16 @@ export default {
   props: {
     chall: {
       required: true,
-      type: Object
+      type: Object,
     },
     canSubmit: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
     challenge: {
-      description: ""
+      description: "",
     },
     solves: null,
     solved: false,
@@ -80,73 +80,73 @@ export default {
     loading: false,
     form: {
       submission: "",
-      loading: false
-    }
+      loading: false,
+    },
   }),
   watch: {
     async chall(a, b) {
-      this.loading = true
-      this.solves = a.solves
-      this.solved = a.solved
-      this.author = a.author
+      this.loading = true;
+      this.solves = a.solves;
+      this.solved = a.solved;
+      this.author = a.author;
       this.challenge = await this.$store.dispatch("challenge/getChallenge", {
-        id: a.uuid
-      })
-      this.loading = false
-    }
+        id: a.uuid,
+      });
+      this.loading = false;
+    },
   },
   mounted() {
-    this.initData()
+    this.initData();
     // this.loading = true
     // this.solves = this.chall.solves
     // this.challenge = await this.
   },
   methods: {
     async initData() {
-      this.loading = true
-      this.solves = this.chall.solves
-      this.author = this.chall.author
+      this.loading = true;
+      this.solves = this.chall.solves;
+      this.author = this.chall.author;
       this.challenge = await this.$store.dispatch("challenge/getChallenge", {
-        id: this.chall.uuid
-      })
-      this.loading = false
+        id: this.chall.uuid,
+      });
+      this.loading = false;
     },
     reset() {
       this.form = {
         submission: "",
-        loading: false
-      }
-      this.$refs.form.resetValidation()
+        loading: false,
+      };
+      this.$refs.form.resetValidation();
     },
     async submit() {
-      this.incorrect = false
-      this.form.loading = true
+      this.incorrect = false;
+      this.form.loading = true;
       const { data } = await this.$axios.post("api/challenges/attempt/", {
         challenge_id: this.challenge.id,
-        submission: this.form.submission
-      })
-      this.reset()
+        submission: this.form.submission,
+      });
+      this.reset();
       if (!data.success) {
         this.$toast.error(data.detail, {
-          icon: "alert-circle"
-        })
-        return
+          icon: "alert-circle",
+        });
+        return;
       }
       if (data.status === "correct") {
-        this.$emit("solved")
-        this.$store.commit("challenge/ADD_CHALLENGE_SOLVE", this.challenge.id)
+        this.$emit("solved");
+        this.$store.commit("challenge/ADD_CHALLENGE_SOLVE", this.challenge.id);
         await this.$store.dispatch("user/getProfile", {
-          slug: this.$auth.user.slug
-        })
+          slug: this.$auth.user.slug,
+        });
       } else {
-        this.incorrect = true
+        this.incorrect = true;
         setTimeout(() => {
-          this.incorrect = false
-        }, 500)
+          this.incorrect = false;
+        }, 500);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">

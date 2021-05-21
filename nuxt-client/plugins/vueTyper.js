@@ -1,4 +1,4 @@
-import Vue from "vue"
-import { VueTyper } from "vue-typer"
+import Vue from "vue";
+import { VueTyper } from "vue-typer";
 
-Vue.component("VueTyper", VueTyper)
+Vue.component("VueTyper", VueTyper);

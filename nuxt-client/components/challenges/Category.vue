@@ -10,7 +10,7 @@
         :class="{
           solved:
             chall.solved ||
-            ($auth.loggedIn && chall.author === $auth.user.username)
+            ($auth.loggedIn && chall.author === $auth.user.username),
         }"
       >
         <span v-text="chall.name" />
@@ -27,26 +27,26 @@ export default {
   props: {
     category: {
       type: String,
-      required: true
+      required: true,
     },
     panel: {
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    activePanel: null
+    activePanel: null,
   }),
   computed: {
     challenges() {
-      return this.$store.getters["challenge/getChallenges"](this.category)
-    }
+      return this.$store.getters["challenge/getChallenges"](this.category);
+    },
   },
   watch: {
     panel(a, b) {
-      this.activePanel = []
-    }
-  }
-}
+      this.activePanel = [];
+    },
+  },
+};
 </script>
 <style lang="sass" scoped>
 .theme

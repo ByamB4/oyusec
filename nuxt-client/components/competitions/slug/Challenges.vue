@@ -45,38 +45,38 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex"
+import { mapGetters, mapState } from "vuex";
 
 export default {
   data: () => ({
-    isHideSolved: false
+    isHideSolved: false,
   }),
   computed: {
     ...mapGetters({
       competition: "competition/getCompetition",
-      categories: "competition/getCategories"
+      categories: "competition/getCategories",
     }),
     ...mapState({
-      loggedIn: (state) => state.auth.loggedIn
+      loggedIn: (state) => state.auth.loggedIn,
     }),
     start_date() {
-      return new Date(this.competition.start_date)
-    }
+      return new Date(this.competition.start_date);
+    },
   },
   created() {
-    this.$store.dispatch("competition/updateChallenges")
-    this.$store.dispatch("competition/updateChallengesSolves")
+    this.$store.dispatch("competition/updateChallenges");
+    this.$store.dispatch("competition/updateChallengesSolves");
   },
   mounted() {
     this.interval = setInterval(() => {
-      this.$store.dispatch("competition/updateChallenges")
-      this.$store.dispatch("competition/updateChallengesSolves")
-    }, 10 * 60000)
+      this.$store.dispatch("competition/updateChallenges");
+      this.$store.dispatch("competition/updateChallengesSolves");
+    }, 10 * 60000);
   },
   destroyed() {
-    clearInterval(this.interval)
-  }
-}
+    clearInterval(this.interval);
+  },
+};
 </script>
 
 <style lang="sass" scoped>

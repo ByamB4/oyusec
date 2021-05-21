@@ -10,9 +10,11 @@
       .grey.lighten-4
         background-color: #121923 !important
 
-    .v-app-bar, .v-main, .v-footer, .v-navigation-drawer
+    .v-app-bar, .v-main, .v-footer
       background-color: $light-core !important
       color: #fff !important
+    .v-navigation-drawer
+      background-color: $dark-bg !important
     .v-data-table
       background-color: transparent !important
       tr
@@ -27,9 +29,6 @@
         color: #fff !important
       &:not(&--active):hover
         background-color: $light-item-light !important
-    .v-tab
-      &--active
-        border-bottom: 4px solid $light-tab
 
     .v-btn
       &--block
@@ -84,10 +83,6 @@
       background-color: $dark-core !important
     .v-tabs > .v-tabs-bar
       background-color: transparent !important
-
-    .v-tab
-      &--active
-        border-bottom: 4px solid $dark-tab
 
     .v-btn
       &--block

@@ -27,22 +27,22 @@
 <script>
 export default {
   data: () => ({
-    profile: {}
+    profile: {},
   }),
   created() {
-    this.getUserProfile()
+    this.getUserProfile();
   },
   methods: {
     async getUserProfile() {
       const { data } = await this.$axios.get(
         `api/user/profile/${this.$route.params.slug.toLowerCase()}/`
-      )
+      );
       if (data.success) {
-        this.profile = data.data
+        this.profile = data.data;
       } else {
-        this.$toast.error(data.detail, { icon: "alert-circle" })
+        this.$toast.error(data.detail, { icon: "alert-circle" });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

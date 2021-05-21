@@ -35,7 +35,7 @@ export default {
   //     { name: "Цаг", icon: "mdi-camera-timer" },
   //   ],
   // }),
-}
+};
 // <style>
 // .v-card
 //   background-color: transparent !important

@@ -22,17 +22,17 @@ export default {
   // },
   middleware: ["admin"],
   data: () => ({
-    comps: ["Standard", "Dynamic", "Challenges", "Challenge"]
+    comps: ["Standard", "Dynamic", "Challenges", "Challenge"],
   }),
   computed: {
     tab: {
       set(tab) {
-        this.$store.commit("admin/SET_TAB", tab)
+        this.$store.commit("admin/SET_TAB", tab);
       },
       get() {
-        return this.$store.state.admin.tab
-      }
-    }
-  }
-}
+        return this.$store.state.admin.tab;
+      },
+    },
+  },
+};
 </script>
