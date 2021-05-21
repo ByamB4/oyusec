@@ -35,21 +35,24 @@
         </v-chip>
         <v-chip color="indigo darken-3" class="ma-2">
           <v-icon left color="white">mdi-star</v-icon>
-          <span class="font-semibold white--text">35</span>
+          <span class="font-semibold white--text" v-text="competition.weight" />
         </v-chip>
         <v-chip color="indigo darken-3" class="ma-2">
           <v-icon left color="white">mdi-account</v-icon>
-          <span class="font-semibold white--text">72</span>
+          <span
+            class="font-semibold white--text"
+            v-text="competition.user_count"
+          />
         </v-chip>
       </div>
       <v-avatar
-        v-for="i in 4"
-        :key="i"
+        v-for="_ in competition.authors"
+        :key="_.username"
         size="50"
         rounded
-        class="ma-1 author-image"
+        class="ma-1"
       >
-        <v-img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+        <v-img :src="_.photo" :alt="_.username" />
       </v-avatar>
     </v-col>
   </v-row>

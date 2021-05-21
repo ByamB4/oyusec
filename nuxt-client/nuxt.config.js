@@ -259,7 +259,7 @@ const config = {
   },
   cache: true,
 };
-if (process.env.DEV === true) {
+if (process.env.DEV === "true") {
   config.axios.baseURL = process.env.DEV_BACK;
 }
 export default config;
