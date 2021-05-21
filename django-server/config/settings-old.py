@@ -1,11 +1,17 @@
 from pathlib import Path
 from datetime import timedelta
 from os import path, getenv
+import environ
 
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = getenv('OYUSEC_SECRET')
-DEBUG = False
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -73,11 +79,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': getenv('POSTGRES_DB_NAME'),
-            'USER': getenv('POSTGRES_DB_USERNAME'),
-            'PASSWORD': getenv('POSTGRES_DB_PASSWORD'),
-            'HOST': getenv('POSTGRES_DB_HOST'),
-            'PORT': getenv('POSTGRES_DB_PORT'),
+            'NAME': env('POSTGRES_DB_NAME'),
+            'USER': env('POSTGRES_DB_USERNAME'),
+            'PASSWORD': env('POSTGRES_DB_PASSWORD'),
+            'HOST': env('POSTGRES_DB_HOST'),
+            'PORT': env('POSTGRES_DB_PORT'),
         }
     }
 
