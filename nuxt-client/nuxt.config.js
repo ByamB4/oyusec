@@ -135,7 +135,6 @@ const config = {
     "~/plugins/consts",
     "~/plugins/methods",
     { src: "~/plugins/TiptapVuetify", mode: "client" },
-    { src: "~/plugins/vueTyper.js", mode: "client" },
   ],
   components: true,
   buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify"],
@@ -260,8 +259,7 @@ const config = {
   },
   cache: true,
 };
-if (process.env.DEV !== false) {
-  console.log(process.env.DEV);
+if (process.env.DEV === true) {
   config.axios.baseURL = process.env.DEV_BACK;
 }
 export default config;

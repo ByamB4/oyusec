@@ -1,7 +1,10 @@
 <template>
   <v-row no-gutters>
     <v-col cols="12" class="text-center">
-      <h2>Sponsors</h2>
+      <h2>
+        Sponsors
+        <v-chip small color="primary">demo</v-chip>
+      </h2>
     </v-col>
     <v-col cols="12" class="ma-1">
       <!-- <v-avatar size="70" rounded class="ma-1">
