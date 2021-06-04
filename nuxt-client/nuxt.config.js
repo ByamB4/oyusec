@@ -1,6 +1,6 @@
-const config = {
-  ssr: false,
-  target: "static",
+export default {
+  // ssr: false,
+  // target: "static",
   head: {
     titleTemplate: "%s",
     title: "OyuSec",
@@ -251,7 +251,9 @@ const config = {
       maxAge: 60 * 60 * 24 * 365 * 1000,
     },
   },
-  build: {},
+  build: {
+    transpile: ["vue-instantsearch", "instantsearch.js/es"],
+  },
   generate: {
     fallback: true,
     // minify: false,
@@ -259,7 +261,8 @@ const config = {
   },
   cache: true,
 };
-if (process.env.DEV === "true") {
-  config.axios.baseURL = process.env.DEV_BACK;
-}
-export default config;
+// if (process.env.DEV === "true") {
+//   config.axios.baseURL = process.env.DEV_BACK;
+// }
+// module.exports = config;
+// export default config;
