@@ -110,3 +110,14 @@ class CompetitionUser(BaseModel):
     @classmethod
     def get_user_count(cls, _user):
         return cls.objects.filter(user=_user, competition__status=COMPETITION_ARCHIVE).count()
+
+
+class CompetitionAuthor(BaseModel):
+    user = models.ForeignKey(BaseUser, on_delete=models.CASCADE)
+    competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Competition Author'
+
+    def __str__(self):
+        return f'{self.user.username} | {self.competition.name}'

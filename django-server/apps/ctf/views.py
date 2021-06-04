@@ -2,6 +2,8 @@ from django.db.models import F, Count
 from datetime import datetime, timezone
 from rest_framework.response import Response
 import re
+import requests
+import os
 from apps.api.views import BaseView
 from .consts import *
 from .utils import *
@@ -97,20 +99,36 @@ class ChallengeAttempt(BaseView):
             status, message = challenge.attempt(challenge, request)
 
             # If user submit flag and it's correct, then we register user as participant
-            if status:
-                compUser = CompetitionUser.objects.filter(
-                    user=user, competition=challenge.competition)
+            # UPDATE: Registering user if he/she juts submitting flags
+            # Dude that's awesome idea
+            # LOL ARE YOU SERIOUS
 
-                if not compUser:
-                    compUser = CompetitionUser.objects.create(
-                        user=user,
-                        competition=challenge.competition,
-                    )
+            compUser = CompetitionUser.objects.filter(
+                user=user, competition=challenge.competition)
+
+            if not compUser:
+                compUser = CompetitionUser.objects.create(
+                    user=user,
+                    competition=challenge.competition,
+                )
+
+            if status:
+                # UPDATE: If that solve it's first time we send notification to discord
+                solve = Solve.objects.filter(challenge=challenge)
+                if not solve:
+                    # Here we will implement discord
+                    # TODO: Write plugins as a function
+                    self.discord_hook({
+                        'name': user.username,
+                        'challenge': {
+                            'name': challenge.name,
+                            'category': challenge.category,
+                        }
+                    })
 
                 challenge.solve(
                     user=user, challenge=challenge, request=request
                 )
-
         else:
             status, message = challenge.attempt(challenge, request)
             if status:
@@ -118,11 +136,35 @@ class ChallengeAttempt(BaseView):
                     user=user, challenge=challenge, request=request
                 )
 
+        if not status:
+            Submission.objects.create(
+                user=user,
+                challenge=challenge,
+                submission=request.data['submission'].strip()
+            )
+
         return Response({
             "success": True,
             "status": "correct" if status else "incorrect",
             "detail": message
         })
+
+    def discord_hook(self, data=None):
+
+        CHANNEL_URL = os.getenv('OYUSEC_DISCORD_URL')
+
+        _ = {
+            'content': f"First Blood 🩸 **{data['name']}** solved **{data['challenge']['category']}** / **{data['challenge']['name']}**"}
+        res = requests.post(
+            url=CHANNEL_URL,
+            headers={
+                'Content-type': 'application/json',
+                'User-Agent': 'DTB backend'
+            },
+            json=_
+        )
+        if res.status_code not in range(200, 299):
+            return
 
 
 class ChallengeSolves(BaseView):

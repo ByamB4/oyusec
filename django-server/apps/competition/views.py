@@ -1,3 +1,4 @@
+from django.db import models
 from django.shortcuts import get_object_or_404
 from django.utils.timezone import localdate
 from rest_framework import status
@@ -13,10 +14,12 @@ from apps.core.models import (
 from apps.core.utils import *
 from apps.ctf.models import (
     Challenge,
-    Solve
+    Solve,
+    Submission
 )
 from apps.api.views import BaseView
 from .models import (
+    CompetitionAuthor,
     CompetitionUser,
     Competition,
 )
@@ -63,6 +66,16 @@ class CompetitionView(BaseView):
         return Response({'success': True, 'data': response})
 
     def serialize(self, competition):
+        challs = Challenge.objects.filter(
+            competition=competition, state=STATE_VISIBLE)
+        authors = []
+        for _ in CompetitionAuthor.objects.filter(
+                competition=competition).values('user__username', 'user__photo'):
+            authors.append({
+                'username': _['user__username'],
+                'photo': _['user__photo'],
+            })
+
         result = {
             'name': competition.name,
             'description': competition.description,
@@ -76,6 +89,10 @@ class CompetitionView(BaseView):
             'start_date': convert_to_localtime(competition.start_date),
             'end_date': convert_to_localtime(competition.end_date),
             'status': get_status(competition.status),
+            'max_score': challs.aggregate(models.Sum('value'))['value__sum'],
+            'submission_count': Submission.objects.filter(challenge__in=challs).count(),
+            'user_count': CompetitionUser.objects.filter(competition=competition).count(),
+            'authors': authors,
         }
         return result
 

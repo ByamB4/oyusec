@@ -2,4 +2,4 @@
 
 git add .
 git commit -a --allow-empty-message -m ''
-git push heroku master
+git push -f heroku master
