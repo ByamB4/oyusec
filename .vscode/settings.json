@@ -1,7 +1,0 @@
-{
-  "git.ignoreLimitWarning": true,
-  "emmet.triggerExpansionOnTab": true,
-  "emmet.showSuggestionsAsSnippets": true,
-  "editor.snippetSuggestions": "top",
-  "python.pythonPath": "/home/l3yam134/.cache/pypoetry/virtualenvs/oyucode-server-nEkd70VT-py3.8/bin/python"
-}

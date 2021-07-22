@@ -1,6 +1,21 @@
 .DS_Store
 node_modules
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+# Ignore all local history of files
+.history
+.ionide
+
 # Local Netlify folder
 .netlify
 
