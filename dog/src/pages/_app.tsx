@@ -1,25 +1,37 @@
-import React from "react";
+import * as React from "react";
 import "tailwindcss/tailwind.css";
-// import "../styles/css/global.css";
-// import "../styles/sass/index.sass";
-import { ThemeProvider } from "@material-ui/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { MuiTheme, MediaContextProvider } from "initialize";
+import "styles/css/globals.css";
+import Head from "next/head";
 import { AppProps } from "next/app";
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import { MuiTheme, createEmotionCache } from "initialize";
+import { APP_NAME } from "configs";
 
-export default function _({ Component, pageProps }: AppProps) {
-  React.useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  });
+const clientSideEmotionCache = createEmotionCache();
+
+interface Props extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+export default function _({
+  Component,
+  emotionCache = clientSideEmotionCache,
+  pageProps,
+}: Props) {
   return (
-    <MediaContextProvider>
-      <ThemeProvider theme={MuiTheme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </MediaContextProvider>
+    <>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <title>{APP_NAME}</title>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ThemeProvider theme={MuiTheme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CacheProvider>
+    </>
   );
 }

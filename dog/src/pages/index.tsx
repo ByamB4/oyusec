@@ -1,15 +1,29 @@
-import React from "react";
-import { DesktopLayout } from "layouts";
-import { NextPage } from "next";
+import * as React from "react";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import ProTip from "../ProTip";
+import Link from "../Link";
+import Copyright from "../Copyright";
 
-interface Props {}
-
-const Landing: NextPage<Props> = ({}) => {
+export default function Index() {
   return (
-    <DesktopLayout>
-      <h1>Test</h1>
-    </DesktopLayout>
+    <Container maxWidth="sm">
+      <Box sx={{ my: 4 }}>
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          className="bg-red-300"
+        >
+          Next.js v5-beta with TypeScript example
+        </Typography>
+        <Link href="/about" color="secondary">
+          Go to the about page
+        </Link>
+        <ProTip />
+        <Copyright />
+      </Box>
+    </Container>
   );
-};
-
-export default Landing;
+}

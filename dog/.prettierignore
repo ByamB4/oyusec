@@ -1,6 +1,0 @@
-*.spec.tsx
-*.spec.tsx.snap
-node_modules
-.serverless
-.webpack
-src/generated/
