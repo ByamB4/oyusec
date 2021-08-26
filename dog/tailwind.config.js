@@ -17,8 +17,14 @@ module.exports = {
         secondary: {
           orange: colors.secondary.orange,
           cyan: colors.secondary.cyan,
+          pink: colors.secondary.pink,
+          violet: colors.secondary.violet,
+          blue: colors.secondary.blue,
+          neonGreen: colors.secondary.neonGreen,
+          red: colors.secondary.red,
         },
         text: {
+          white: colors.text.white,
           darkGrey: colors.text.darkGrey,
         },
       },

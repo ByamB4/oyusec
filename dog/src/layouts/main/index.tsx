@@ -35,7 +35,7 @@ const MainLayout: React.FC<Props> = ({
             style={style}
             children={children}
           />
-          <AppFooter className="bg-primary-dark text-white" />
+          <AppFooter className="" />
         </div>
       </div>
     </>
