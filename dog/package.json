@@ -11,7 +11,8 @@
     "clsx": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "sass": "^1.39.0"
   },
   "scripts": {
     "dev": "next",

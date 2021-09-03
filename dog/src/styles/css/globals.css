@@ -111,3 +111,59 @@
   font-weight: 900;
   font-style: italic;
 }
+
+/* Museo */
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-Thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-ExtraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+  src: url("/fonts/Museo/MuseoModerno-Black.ttf");
+  font-weight: 900;
+  font-style: normal;
+}

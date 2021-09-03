@@ -11,6 +11,7 @@ interface Props {
   title?: string;
   style?: CSSProperties;
   children: React.ReactNode;
+  NO_PADDING?: Boolean;
 }
 
 const MainLayout: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const MainLayout: React.FC<Props> = ({
   className = "",
   title = DEFAULT.title,
   style,
+  NO_PADDING = false,
 }) => {
   return (
     <>
@@ -31,7 +33,9 @@ const MainLayout: React.FC<Props> = ({
         <div className="flex flex-col justify-between w-full h-full">
           <AppNavbar className={`bg-primary-dark text-white`} />
           <AppView
-            className={`h-full bg-primary-light text-white rounded-l-3xl p-4 ${className}`}
+            className={`h-full bg-primary-light text-white rounded-l-3xl ${
+              NO_PADDING ? "" : "p-4"
+            } ${className}`}
             style={style}
             children={children}
           />

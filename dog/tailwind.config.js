@@ -31,6 +31,9 @@ module.exports = {
       width: {
         "5px": "5px",
       },
+      backgroundImage: theme => ({
+        'index-pattern': "url('/img/Home/Pattern.png')"
+      })
     },
   },
   variants: {

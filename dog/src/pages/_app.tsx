@@ -1,6 +1,7 @@
 import * as React from "react";
 import "tailwindcss/tailwind.css";
 import "styles/css/globals.css";
+import "styles/sass/index.sass";
 import Head from "next/head";
 import { AppProps } from "next/app";
 import { ThemeProvider } from "@material-ui/core/styles";
