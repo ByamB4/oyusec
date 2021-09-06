@@ -4,6 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import Button from "@material-ui/core/Button";
 import { NextPage, GetServerSideProps } from "next";
+import Challenge from "components/Challenge";
+import { IChallenge } from "interfaces";
 
 interface Props {}
 
@@ -25,10 +27,20 @@ const Index: NextPage<Props> = ({}) => {
       });
     }
   }, []);
-  const randomPosition = () => {
-    console.log(dimension.width);
-    console.log(dimension.height);
-    return "50";
+
+  const randomPosition = (pos: string) => {
+    switch (pos) {
+      case "y":
+        const value = Math.floor(Math.random() * dimension.height);
+        if (value > dimension.height / 2) {
+          return value - 100;
+        }
+        return value;
+      case "x":
+        return 100 + Math.floor(Math.random() * dimension.width);
+      default:
+        return 0;
+    }
   };
 
   return (
@@ -38,42 +50,45 @@ const Index: NextPage<Props> = ({}) => {
         ref={rootRef}
       >
         {/* BEGIN: Patterns */}
-        <div
-          className="absolute animate-pulse animate-pulse"
-          style={{
-            top: `${randomPosition()}px`,
-            left: "300px",
-          }}
-        >
-          <Image src="/img/Home/pattern-6.png" width="110px" height="155px" />
-        </div>
-        <div className="absolute left-48 top-1/2">
-          <Image src="/img/Home/line-1.png" width="10px" height="284px" />
-        </div>
-        <div className="absolute left-32 top-1/2">
-          <Image src="/img/Home/line-2.png" width="10px" height="284px" />
-        </div>
-        <div className="absolute left-32 top-32">
-          <Image src="/img/Home/line-3.png" width="10px" height="284px" />
-        </div>
-        <div className="absolute left-52 bottom-9">
-          <Image src="/img/Home/line-solid.png" width="10px" height="284px" />
-        </div>
-        <div className="absolute left-2/3 top-32">
-          <Image
-            src="/img/Home/line-background.png"
-            width="10px"
-            height="10px"
-            className="opacity-5"
-          />
-        </div>
-        <div className="absolute left-2/3 top-32">
-          <Image src="/img/Home/line-short.png" width="10px" height="284px" />
-        </div>
-        <div className="absolute left-2/3 top-3/4 animate-pulse">
-          <Image src="/img/Home/square-small.png" width="110px" height="95px" />
-        </div>
+        {Array.from({ length: 3 }).map((_, index) => (
+          <div
+            key={index}
+            className="absolute animate-pulse"
+            style={{
+              top: `${randomPosition("y")}px`,
+              left: `${randomPosition("x")}px`,
+            }}
+          >
+            <Image
+              src="/img/Home/square-small.png"
+              width="110px"
+              height="95px"
+            />
+          </div>
+        ))}
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div
+            key={index}
+            className="absolute animate-pulse"
+            style={{
+              top: `${randomPosition("y")}px`,
+              left: `${randomPosition("x")}px`,
+            }}
+          >
+            <Image
+              src="/img/Home/line-solid.png"
+              width="10px"
+              height="284px"
+              className="opacity-20"
+            />
+          </div>
+        ))}
         {/* END: Patterns */}
+        {/* START: Components */}
+        <Challenge
+          challenge={fakeChallenge}
+          className="w-2/5 absolute bottom-1/4 right-1/4 left-1/2"
+        />
         <div className="flex flex-col h-full justify-center gap-14 p-10">
           <div className="font-museo text-7xl">
             <span className="text-white">Oyu</span>
@@ -87,7 +102,7 @@ const Index: NextPage<Props> = ({}) => {
           </div>
           <div>
             {/* TODO: Convert me to component */}
-            <Button variant="primary" size="small">
+            <Button variant="primary" size="large">
               Бүртгүүлэх
             </Button>
           </div>
@@ -97,9 +112,11 @@ const Index: NextPage<Props> = ({}) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log(context);
+const fakeChallenge: IChallenge = {
+  name: "Day 4 - Twin towers ",
+};
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {},
   };

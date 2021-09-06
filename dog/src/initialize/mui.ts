@@ -64,6 +64,9 @@ export const MuiTheme = createTheme({
           textTransform: "none",
           fontWeight: "normal",
         },
+        sizeLarge: {
+          padding: "12px 24px",
+        }
       },
 
       variants: [
@@ -76,7 +79,6 @@ export const MuiTheme = createTheme({
             boxShadow: "0px 4px 20px rgba(33, 150, 243, 0.2)",
             // backgroundColor: "red",
           },
-
         },
       ],
     },
