@@ -8,11 +8,43 @@ import { NextPage, GetServerSideProps } from "next";
 interface Props {}
 
 const Index: NextPage<Props> = ({}) => {
+  const rootRef = React.useRef<HTMLDivElement>(null);
+  const [dimension, setDimension] = React.useState<{
+    width: number;
+    height: number;
+  }>({
+    width: 0,
+    height: 0,
+  });
+
+  React.useLayoutEffect(() => {
+    if (rootRef.current) {
+      setDimension({
+        width: rootRef.current.offsetWidth,
+        height: rootRef.current.offsetHeight,
+      });
+    }
+  }, []);
+  const randomPosition = () => {
+    console.log(dimension.width);
+    console.log(dimension.height);
+    return "50";
+  };
+
   return (
     <MainLayout NO_PADDING>
-      <div className="w-full h-full p-0 bg-contain bg-no-repeat rounded-3xl xl:bg-index-pattern">
+      <div
+        className="w-full h-full p-0 bg-contain bg-no-repeat rounded-3xl xl:bg-index-pattern"
+        ref={rootRef}
+      >
         {/* BEGIN: Patterns */}
-        <div className="absolute left-1/4 top-24">
+        <div
+          className="absolute animate-pulse animate-pulse"
+          style={{
+            top: `${randomPosition()}px`,
+            left: "300px",
+          }}
+        >
           <Image src="/img/Home/pattern-6.png" width="110px" height="155px" />
         </div>
         <div className="absolute left-48 top-1/2">
@@ -38,7 +70,7 @@ const Index: NextPage<Props> = ({}) => {
         <div className="absolute left-2/3 top-32">
           <Image src="/img/Home/line-short.png" width="10px" height="284px" />
         </div>
-        <div className="absolute left-2/3 top-3/4">
+        <div className="absolute left-2/3 top-3/4 animate-pulse">
           <Image src="/img/Home/square-small.png" width="110px" height="95px" />
         </div>
         {/* END: Patterns */}

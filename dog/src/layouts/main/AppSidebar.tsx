@@ -7,7 +7,9 @@ import IconSettings from "icons/Lined/Settings";
 import IconSchool from "icons/Outlined/School";
 import IconScript from "icons/Outlined/Script";
 import IconAccount from "icons/Outlined/Account";
+
 import { colors } from "configs";
+import { useRouter } from "next/router";
 
 interface Props {
   className?: string;
@@ -15,7 +17,14 @@ interface Props {
 
 const AppSidebar: React.FC<Props> = ({ className = "" }) => {
   const [activePage, setActivePage] = React.useState(0);
+  const router = useRouter();
 
+  const checkActivePage = (link: string) => {
+    if (router.pathname === link) {
+      return true;
+    }
+    return false;
+  };
   const middleLinks = [
     {
       icon: (
@@ -23,10 +32,13 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
           width={36}
           height={36}
           stroke={
-            activePage === 0 ? colors.secondary.orange : colors.text.darkGrey
+            router.pathname === "/"
+              ? colors.secondary.orange
+              : colors.text.darkGrey
           }
         />
       ),
+      link: "/",
       active: {
         className: "bg-secondary-orange",
       },
@@ -39,9 +51,14 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
         <IconSword
           width={36}
           height={36}
-          fill={activePage === 1 ? colors.secondary.cyan : colors.text.darkGrey}
+          fill={
+            checkActivePage("/challenges")
+              ? colors.secondary.cyan
+              : colors.text.darkGrey
+          }
         />
       ),
+      link: "/challenges",
       active: {
         className: "bg-secondary-cyan",
       },
@@ -54,9 +71,14 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
         <IconTrophy
           width={36}
           height={36}
-          fill={activePage === 2 ? colors.secondary.pink : colors.text.darkGrey}
+          fill={
+            checkActivePage("/competitions")
+              ? colors.secondary.pink
+              : colors.text.darkGrey
+          }
         />
       ),
+      link: "/competitions",
       active: {
         className: "bg-secondary-pink",
       },
@@ -70,10 +92,13 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
           width={36}
           height={36}
           fill={
-            activePage === 3 ? colors.secondary.neonGreen : colors.text.darkGrey
+            checkActivePage("/academy")
+              ? colors.secondary.neonGreen
+              : colors.text.darkGrey
           }
         />
       ),
+      link: "/academy",
       active: {
         className: "bg-secondary-neonGreen",
       },
@@ -87,10 +112,13 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
           width={36}
           height={36}
           fill={
-            activePage === 4 ? colors.secondary.violet : colors.text.darkGrey
+            checkActivePage("/writeups")
+              ? colors.secondary.violet
+              : colors.text.darkGrey
           }
         />
       ),
+      link: "/writeups",
       active: {
         className: "bg-secondary-violet",
       },
@@ -103,9 +131,14 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
         <IconAccount
           width={36}
           height={36}
-          fill={activePage === 5 ? colors.secondary.blue : colors.text.darkGrey}
+          fill={
+            checkActivePage("/user")
+              ? colors.secondary.blue
+              : colors.text.darkGrey
+          }
         />
       ),
+      link: "/user",
       active: {
         className: "bg-secondary-blue",
       },
@@ -124,13 +157,15 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
           <div className="flex gap-2" key={_}>
             <div
               className={`h-full w-5px rounded-r-3xl ${
-                activePage === _ ? it.active.className : it.passive.className
+                checkActivePage(it.link)
+                  ? it.active.className
+                  : it.passive.className
               }`}
             />
             <IconButton
               className="p-1"
               icon={it.icon}
-              onClick={() => setActivePage(_)}
+              onClick={() => router.push(it.link)}
             />
           </div>
         ))}
