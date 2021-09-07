@@ -13,6 +13,9 @@ module.exports = {
         primary: {
           dark: colors.primary.dark,
           light: colors.primary.light,
+          light1: colors.primary.light1,
+          deepBlue: colors.primary.deepBlue,
+          darkViolet: colors.primary.darkViolet,
         },
         secondary: {
           orange: colors.secondary.orange,
@@ -24,6 +27,7 @@ module.exports = {
           red: colors.secondary.red,
         },
         text: {
+          grey: colors.text.grey,
           white: colors.text.white,
           darkGrey: colors.text.darkGrey,
         },
@@ -31,9 +35,9 @@ module.exports = {
       width: {
         "5px": "5px",
       },
-      backgroundImage: theme => ({
-        'index-pattern': "url('/img/Home/Pattern.png')"
-      })
+      backgroundImage: (theme) => ({
+        "index-pattern": "url('/img/Home/Pattern.png')",
+      }),
     },
   },
   variants: {

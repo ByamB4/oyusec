@@ -2,6 +2,9 @@ module.exports = {
   primary: {
     dark: "#1A2332",
     light: "#1C273F",
+    light1: "#344261",
+    deepBlue: "#283593",
+    darkViolet: "#7B1FA2",
   },
   secondary: {
     orange: "#EF6C00",
@@ -14,6 +17,7 @@ module.exports = {
   },
   text: {
     white: "#fff",
+    grey: "#92929D",
     darkGrey: "#696974",
   },
 };
