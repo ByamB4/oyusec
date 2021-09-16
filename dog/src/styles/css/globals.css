@@ -167,3 +167,20 @@
   font-weight: 900;
   font-style: normal;
 }
+
+.up-down-object {
+  animation: MoveUpDown 5s linear infinite;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 100px;
+  }
+}

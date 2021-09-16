@@ -9,7 +9,7 @@
     "@emotion/styled": "latest",
     "@material-ui/core": "next",
     "clsx": "latest",
-    "next": "latest",
+    "next": "^11.1.2",
     "react": "latest",
     "react-dom": "latest",
     "sass": "^1.39.0"
@@ -21,12 +21,12 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
+    "@types/node": "^16.9.1",
+    "@types/react": "^17.0.20",
     "@types/react-dom": "latest",
     "autoprefixer": "^10.3.2",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.7",
-    "typescript": "latest"
+    "typescript": "^4.4.3"
   }
 }

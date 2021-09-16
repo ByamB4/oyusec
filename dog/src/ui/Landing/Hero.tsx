@@ -41,10 +41,6 @@ const CusCircularProgress: React.FC<ICircularProgressProps> = (props) => {
         variant="determinate"
         value={20}
         sx={{
-          // color: (theme) =>
-          //   theme.palette.mode === "light"
-          //     ? "linearGradient(90deg, #6A4BFF 0%, #2196F3 100%)"
-          //     : "#308fe8",
           color: color,
           animationDuration: "550ms",
           position: "absolute",
@@ -75,7 +71,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
     height: 0,
   });
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (rootRef.current) {
       setDimension({
         width: rootRef.current.offsetWidth,
@@ -106,7 +102,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
     >
       {/* BEGIN: Patterns */}
       <div className="">
-        {Array.from({ length: 4 }).map((_, index) => (
+        {Array.from({ length: 3 }).map((_, index) => (
           <div
             key={index}
             className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
@@ -119,15 +115,14 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
               src="/img/Home/square-small.png"
               width="110px"
               height="95px"
-              className={`opacity-${(Math.floor(Math.random() * 5) + 0) * 10}`}
+              className={`opacity-${(Math.floor(Math.random() * 5) + 1) * 10}`}
             />
           </div>
         ))}
-        {Array.from({ length: 7 }).map((_, index) => (
+        {/* {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}
-            // className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
-            className="absolute"
+            className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
             style={{
               top: `${randomPosition("y")}px`,
               left: `${randomPosition("x")}px`,
@@ -137,10 +132,10 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
               src="/img/Home/line-solid.png"
               width="10px"
               height="284px"
-              className={`opacity-${(Math.floor(Math.random() * 5) + 0) * 10}`}
+              className={`opacity-${(Math.floor(Math.random() * 3) + 1) * 10}`}
             />
           </div>
-        ))}
+        ))} */}
       </div>
       {/* END: Patterns */}
       <div className="grid grid-cols-2 h-full">
@@ -156,11 +151,11 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
               in 🇲🇳
             </Typography>
           </div>
-          <div>
-            {/* TODO: Convert me to component */}
+          <div className="flex gap-8">
             <Button variant="primary" size="large">
               Бүртгүүлэх
             </Button>
+            <Button variant="outlined">Санал хүсэлт</Button>
           </div>
         </div>
         {/* END: Content */}
@@ -168,10 +163,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
         <div className="relative">
           <Challenge
             challenge={fakeChallenge}
-            className="absolute w-2/3"
-            style={{
-              top: "650px",
-            }}
+            className={`absolute w-2/3 up-down-object`}
           />
           <div
             className="flex flex-col bg-primary-light1 items-start gap-4 absolute p-4 rounded-xl"

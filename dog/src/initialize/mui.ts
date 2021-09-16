@@ -109,24 +109,87 @@ export const MuiTheme = createTheme({
           textTransform: "none",
           fontWeight: "normal",
         },
-        sizeMedium: {
-          fontSize: "16px",
-        },
-        sizeLarge: {
-          padding: "12px 24px",
-          fontSize: "18px",
-        },
+        // sizeMedium: {
+        //   fontSize: "16px",
+        // },
+        // sizeLarge: {
+        //   padding: "12px 24px",
+        //   fontSize: "18px",
+        // },
       },
 
+      // variants: [
+      //   {
+      //     props: {
+      //       variant: "primary",
+      //     },
+      //     style: {
+      //       background: "linear-gradient(90deg, #6A4BFF 0%, #2196F3 100%)",
+      //       boxShadow: "0px 4px 20px rgba(33, 150, 243, 0.2)",
+      //       // backgroundColor: "red",
+      //     },
+      //   },
+      //   {
+      //     props: {
+      //       variant: "outlined",
+      //     },
+      //     style: {
+      //       color: colors.text.white,
+      //       // borderRadius: "14px",
+      //       fontWeight: 700,
+      //       borderColor: colors.primary.purple,
+      //       "&:hover": {
+      //         borderColor: colors.primary.deepBlue,
+      //       },
+      //     },
+      //   },
+      // ],
       variants: [
         {
           props: {
             variant: "primary",
           },
           style: {
-            background: "linear-gradient(90deg, #6A4BFF 0%, #2196F3 100%)",
-            boxShadow: "0px 4px 20px rgba(33, 150, 243, 0.2)",
-            // backgroundColor: "red",
+            background: colors.primary.purple,
+            fontWeight: 700,
+            fontFamily: "Manrope, 'sans-serif'",
+            padding: "10px 32px",
+            borderRadius: "14px",
+            color: "white",
+            "&:hover": {
+              backgroundColor: colors.primary.purpleDark,
+            },
+          },
+        },
+        {
+          props: {
+            variant: "text",
+          },
+          style: {
+            color: colors.text.grey,
+            // fontFamily: "Manrope, 'sans-serif'",
+            // fontWeight: 700,
+            padding: "10px 32px",
+            "&:hover": {
+              color: "#fff",
+              backgroundColor: "transparent",
+            },
+          },
+        },
+        {
+          props: {
+            variant: "outlined",
+          },
+          style: {
+            color: colors.text.white,
+            borderRadius: "14px",
+            borderColor: colors.primary.purple,
+            padding: "10px 32px",
+            // fontWeight: 700,
+            // fontFamily: "Manrope, 'sans-serif'",
+            "&:hover": {
+              borderColor: colors.primary.purpleDark,
+            },
           },
         },
       ],
