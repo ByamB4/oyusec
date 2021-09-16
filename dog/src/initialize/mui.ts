@@ -43,12 +43,6 @@ export const MuiTheme = createTheme({
       fontWeight: "normal",
       fontSize: "16px",
     },
-    h7: {
-      fontFamily: "Exo 2, sans-serif",
-      fontStyle: "normal",
-      fontWeight: "normal",
-      fontSize: "14px",
-    },
     body1: {
       fontFamily: "Exo 2, sans-serif",
       fontStyle: "normal",
@@ -57,6 +51,21 @@ export const MuiTheme = createTheme({
     },
   },
   components: {
+    MuiTypography: {
+      variants: [
+        {
+          props: {
+            variant: "h7",
+          },
+          style: {
+            fontFamily: "Exo 2, sans-serif",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "14px",
+          },
+        },
+      ],
+    },
     MuiInputBase: {
       styleOverrides: {
         root: {
@@ -109,53 +118,38 @@ export const MuiTheme = createTheme({
           textTransform: "none",
           fontWeight: "normal",
         },
-        // sizeMedium: {
-        //   fontSize: "16px",
-        // },
-        // sizeLarge: {
-        //   padding: "12px 24px",
-        //   fontSize: "18px",
-        // },
+        sizeSmall: {
+          padding: "14px 10px",
+          fontFamily: "Exo 2 'sans-serif'",
+          fontSize: "12px",
+          fontWeight: "normal",
+        },
+        sizeMedium: {
+          padding: "10px 16px",
+          fontFamily: "Exo 2, 'sans-serif'",
+          fontSize: "16px",
+          fontWeight: "normal",
+        },
+        sizeLarge: {
+          padding: "16px 28px",
+          fontFamily: "Exo 2, 'sans-serif'",
+          fontSize: "18px",
+          fontWeight: "bold",
+        },
       },
 
-      // variants: [
-      //   {
-      //     props: {
-      //       variant: "primary",
-      //     },
-      //     style: {
-      //       background: "linear-gradient(90deg, #6A4BFF 0%, #2196F3 100%)",
-      //       boxShadow: "0px 4px 20px rgba(33, 150, 243, 0.2)",
-      //       // backgroundColor: "red",
-      //     },
-      //   },
-      //   {
-      //     props: {
-      //       variant: "outlined",
-      //     },
-      //     style: {
-      //       color: colors.text.white,
-      //       // borderRadius: "14px",
-      //       fontWeight: 700,
-      //       borderColor: colors.primary.purple,
-      //       "&:hover": {
-      //         borderColor: colors.primary.deepBlue,
-      //       },
-      //     },
-      //   },
-      // ],
       variants: [
         {
           props: {
-            variant: "primary",
+            variant: "contained",
           },
           style: {
             background: colors.primary.purple,
-            fontWeight: 700,
-            fontFamily: "Manrope, 'sans-serif'",
-            padding: "10px 32px",
-            borderRadius: "14px",
+            borderRadius: "4px",
             color: "white",
+            boxShadow:
+              "0px 1.3037036657333374px 1.3037036657333374px 0px #6A4BFF0C, 0px 6.162962913513184px 5.096296310424805px 0px #6A4BFF13, 0px 16px 16px 0px #6A4BFF1F",
+
             "&:hover": {
               backgroundColor: colors.primary.purpleDark,
             },

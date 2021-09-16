@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         primary: {
           dark: colors.primary.dark,
+          purple: colors.primary.purple,
           light: colors.primary.light,
           light1: colors.primary.light1,
           deepBlue: colors.primary.deepBlue,

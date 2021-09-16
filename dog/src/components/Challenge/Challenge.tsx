@@ -9,24 +9,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import { IChallenge } from "interfaces";
 import { Button, Chip, IconButton, Input, TextField } from "@material-ui/core";
-import IconEye from "icons/Outlined/Eye";
-
-// const AccordionSummary = styled((props: AccordionSummaryProps) => (
-//   <MuiAccordionSummary
-//     // expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
-//     {...props}
-//   />
-// ))(({ theme }) => ({
-//   background:
-//     "linear-gradient(90.01deg, #4E5D7F 0.01%, #6A4BFF 99.99%, #6A4BFF 99.99%)",
-//   flexDirection: "row-reverse",
-//   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-//     transform: "rotate(90deg)",
-//   },
-//   "& .MuiAccordionSummary-content": {
-//     marginLeft: theme.spacing(1),
-//   },
-// }));
+import IconEye from "icons/Lined/Eye";
 
 interface Props {
   challenge: IChallenge;

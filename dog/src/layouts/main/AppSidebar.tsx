@@ -4,9 +4,9 @@ import IconHome from "icons/Lined/Home";
 import IconSword from "icons/Lined/Sword";
 import IconTrophy from "icons/Lined/Trophy";
 import IconSettings from "icons/Lined/Settings";
-import IconSchool from "icons/Outlined/School";
-import IconScript from "icons/Outlined/Script";
-import IconAccount from "icons/Outlined/Account";
+import IconSchool from "icons/Lined/School";
+import IconScript from "icons/Lined/Script";
+import IconAccount from "icons/Lined/Account";
 
 import { colors } from "configs";
 import { useRouter } from "next/router";
