@@ -119,7 +119,7 @@ export const MuiTheme = createTheme({
           fontWeight: "normal",
         },
         sizeSmall: {
-          padding: "14px 10px",
+          padding: "10px 14px",
           fontFamily: "Exo 2 'sans-serif'",
           fontSize: "12px",
           fontWeight: "normal",
@@ -131,7 +131,7 @@ export const MuiTheme = createTheme({
           fontWeight: "normal",
         },
         sizeLarge: {
-          padding: "16px 28px",
+          padding: "28px 16px",
           fontFamily: "Exo 2, 'sans-serif'",
           fontSize: "18px",
           fontWeight: "bold",

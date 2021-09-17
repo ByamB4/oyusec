@@ -1,29 +1,39 @@
 import * as React from "react";
-// import { styled } from "@material-ui/core/styles";
-// import ArrowForwardIosSharpIcon from "@material-ui/core/icons-material/ArrowForwardIosSharp";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 
-// import { MuiAccordionDetails } from "@material-ui/core/";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
-import { IChallenge } from "interfaces";
-import { Button, Chip, IconButton, Input, TextField } from "@material-ui/core";
+import { Button, Chip, IconButton } from "@material-ui/core";
 import IconEye from "icons/Lined/Eye";
+import { Input } from "components/Input";
 
 interface Props {
-  challenge: IChallenge;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Challenge: React.FC<Props> = ({ challenge, className = "", style }) => {
+const Challenge: React.FC<Props> = ({ className = "", style }) => {
   const [expanded, setExpanded] = React.useState<string | false>("panel1");
-
+  const [value, setValue] = React.useState<string>("");
+  const chall = {
+    name: "Day 4 - Twin towers ",
+    title: "blhfrp{j0j_x33c_t01aT}",
+    solve: "oyusec{w0w_k33p_g01nG}",
+  };
   const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+    (panel: string) =>
+    (
+      event: React.SyntheticEvent,
+      newExpanded: boolean
+    ) => {
       setExpanded(newExpanded ? panel : false);
     };
+
+  const onSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log("submitting", value);
+  };
 
   return (
     <Accordion
@@ -46,7 +56,7 @@ const Challenge: React.FC<Props> = ({ challenge, className = "", style }) => {
       >
         <div className="flex justify-between items-center w-full">
           <div>
-            <Typography variant="h5">{challenge.name}</Typography>
+            <Typography variant="h5">{chall.name}</Typography>
           </div>
           <div className="flex gap-4">
             <Chip
@@ -73,15 +83,22 @@ const Challenge: React.FC<Props> = ({ challenge, className = "", style }) => {
         style={{ background: "#26334E" }}
       >
         <Typography variant="h5">Нууцыг минь тайлж чадах уу 🤔</Typography>
-        <div className="flex gap-8">
-          <TextField
-            className="w-full"
-            size="small"
-            variant="outlined"
-            placeholder="Хариугаа оруулна уу"
-          ></TextField>
-          <Button variant="primary">Илгээх</Button>
+        <div className="flex h-full bg-secondary-darkGrey ">
+          <div className="h-auto w-2 bg-secondary-yellow" />
+          <Typography variant="h4" className="p-2">
+            {chall.title}
+          </Typography>
         </div>
+        <form className="flex items-center gap-8" onSubmit={onSubmit}>
+          <Input
+            value={value}
+            onChange={(e: any) => setValue(e.target.value)}
+            className="w-full h-full"
+          />
+          <Button type="submit" variant="contained" size="medium">
+            Илгээх
+          </Button>
+        </form>
       </AccordionDetails>
     </Accordion>
   );

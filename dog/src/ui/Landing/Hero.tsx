@@ -2,8 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import Button from "@material-ui/core/Button";
-import Challenge from "components/Challenge";
-import { IChallenge } from "interfaces";
+import DemoChallenge from "components/DemoChallenge";
 import CircularProgress, {
   CircularProgressProps,
   circularProgressClasses,
@@ -161,10 +160,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
         {/* END: Content */}
         {/* START: Components */}
         <div className="relative">
-          <Challenge
-            challenge={fakeChallenge}
-            className={`absolute w-2/3 up-down-object`}
-          />
+          <DemoChallenge className={`absolute w-2/3 up-down-object`} />
           <div
             className="flex flex-col bg-primary-light1 items-start gap-4 absolute p-4 rounded-xl"
             style={{
@@ -230,10 +226,6 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
       </div>
     </div>
   );
-};
-
-const fakeChallenge: IChallenge = {
-  name: "Day 4 - Twin towers ",
 };
 
 export default Hero;

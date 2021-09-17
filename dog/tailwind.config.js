@@ -19,6 +19,7 @@ module.exports = {
           darkViolet: colors.primary.darkViolet,
         },
         secondary: {
+          yellow: colors.secondary.yellow,
           orange: colors.secondary.orange,
           cyan: colors.secondary.cyan,
           pink: colors.secondary.pink,
@@ -26,6 +27,7 @@ module.exports = {
           blue: colors.secondary.blue,
           neonGreen: colors.secondary.neonGreen,
           red: colors.secondary.red,
+          darkGrey: colors.secondary.darkGrey,
         },
         text: {
           grey: colors.text.grey,
