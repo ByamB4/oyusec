@@ -41,6 +41,9 @@ module.exports = {
       backgroundImage: (theme) => ({
         "index-pattern": "url('/img/Home/Pattern.png')",
       }),
+      transitionProperty: {
+        width: "width",
+      },
     },
   },
   variants: {

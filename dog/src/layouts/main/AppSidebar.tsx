@@ -1,4 +1,4 @@
-import IconButton from "components/IconButton";
+// import IconButton from "components/IconButton";
 import React from "react";
 import IconHome from "icons/Lined/Home";
 import IconSword from "icons/Lined/Sword";
@@ -10,6 +10,7 @@ import IconAccount from "icons/Lined/Account";
 
 import { colors } from "configs";
 import { useRouter } from "next/router";
+import { IconButton } from "@mui/material";
 
 interface Props {
   className?: string;
@@ -162,11 +163,9 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
                   : it.passive.className
               }`}
             />
-            <IconButton
-              className="p-1"
-              icon={it.icon}
-              onClick={() => router.push(it.link)}
-            />
+            <IconButton className="p-1" onClick={() => router.push(it.link)}>
+              {it.icon}
+            </IconButton>
           </div>
         ))}
       </div>
@@ -176,17 +175,13 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
             activePage === 6 ? "bg-white" : "bg-transparent"
           }`}
         />
-        <IconButton
-          className="p-1"
-          icon={
-            <IconSettings
-              width={36}
-              height={36}
-              fill={activePage === 6 ? colors.text.white : colors.text.darkGrey}
-            />
-          }
-          onClick={() => setActivePage(6)}
-        />
+        <IconButton className="p-1" onClick={() => setActivePage(6)}>
+          <IconSettings
+            width={36}
+            height={36}
+            fill={activePage === 6 ? colors.text.white : colors.text.darkGrey}
+          />
+        </IconButton>
       </div>
     </div>
   );

@@ -1,12 +1,19 @@
 import * as React from "react";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import Typography from "@material-ui/core/Typography";
-import { Button, Chip, IconButton } from "@material-ui/core";
 import IconEye from "icons/Lined/Eye";
+import IconStar from "icons/Lined/Star";
 import { Input } from "components/Input";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  // Chip,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import { useSnackbar } from "contexts/snackbar";
+import { FAIL_SOLVE, SUCCESS_SOLVE } from "constants/Text";
+import Chip from "components/Chip";
 
 interface Props {
   className?: string;
@@ -16,23 +23,27 @@ interface Props {
 const Challenge: React.FC<Props> = ({ className = "", style }) => {
   const [expanded, setExpanded] = React.useState<string | false>("panel1");
   const [value, setValue] = React.useState<string>("");
+  const { addSnackbar } = useSnackbar();
+
+  // Just demo
   const chall = {
     name: "Day 4 - Twin towers ",
     title: "blhfrp{j0j_x33c_t01aT}",
     solve: "oyusec{w0w_k33p_g01nG}",
   };
+
   const handleChange =
-    (panel: string) =>
-    (
-      event: React.SyntheticEvent,
-      newExpanded: boolean
-    ) => {
+    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("submitting", value);
+    if (value === chall.solve) {
+      addSnackbar(SUCCESS_SOLVE, "success");
+    } else {
+      addSnackbar(FAIL_SOLVE, "error");
+    }
   };
 
   return (
@@ -59,22 +70,20 @@ const Challenge: React.FC<Props> = ({ className = "", style }) => {
             <Typography variant="h5">{chall.name}</Typography>
           </div>
           <div className="flex gap-4">
-            <Chip
-              icon={
-                <IconButton onClick={() => console.log("test")}>
-                  <IconEye width={20} height={20} stroke="#fff" />
-                </IconButton>
-              }
-              label={"Solved 7"}
-              className="bg-primary-deepBlue"
-              // onDelete={data.label === "React" ? undefined : handleDelete(data)}
-            />
-            <Chip
-              icon={<IconEye stroke="#fff" />}
-              label={"Score 960"}
-              className="bg-primary-darkViolet"
-              // onDelete={data.label === "React" ? undefined : handleDelete(data)}
-            />
+            <Chip color="deepBlue">
+              <Typography variant="h5" className="flex gap-2">
+                <IconEye />
+                <span className="font-medium">Solved</span>
+                <span>7</span>
+              </Typography>
+            </Chip>
+            <Chip color="darkViolet">
+              <Typography variant="h5" className="flex gap-2">
+                <IconStar width={24} height={24} />
+                <span className="font-medium">Score</span>
+                <span>960</span>
+              </Typography>
+            </Chip>
           </div>
         </div>
       </AccordionSummary>
@@ -85,7 +94,7 @@ const Challenge: React.FC<Props> = ({ className = "", style }) => {
         <Typography variant="h5">Нууцыг минь тайлж чадах уу 🤔</Typography>
         <div className="flex h-full bg-secondary-darkGrey ">
           <div className="h-auto w-2 bg-secondary-yellow" />
-          <Typography variant="h4" className="p-2">
+          <Typography variant="h5" className="p-2">
             {chall.title}
           </Typography>
         </div>

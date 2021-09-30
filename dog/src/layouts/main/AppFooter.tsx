@@ -1,14 +1,10 @@
 import React from "react";
 import IconTrophy from "icons/Lined/Trophy";
-import { Typography } from "@material-ui/core";
-import LinearProgress, {
-  linearProgressClasses,
-} from "@material-ui/core/LinearProgress";
-import { styled } from "@material-ui/core/styles";
 import { colors } from "configs";
 import IconSword from "icons/Lined/Sword";
 import IconScript from "icons/Lined/Script";
 import IconFire from "icons/Filled/Fire";
+import { styled, linearProgressClasses, LinearProgress, Typography } from "@mui/material";
 
 interface Props {
   className?: string;

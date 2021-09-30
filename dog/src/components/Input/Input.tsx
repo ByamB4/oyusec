@@ -1,11 +1,18 @@
 import React from "react";
-import InputBase from "@material-ui/core/InputBase";
-import InputLabel from "@material-ui/core/InputLabel";
-import Typography from "@material-ui/core/Typography";
-import clsx from "clsx";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import IconButton from "components/IconButton";
+// import InputBase from "@material-ui/core/InputBase";
+// import InputLabel from "@material-ui/core/InputLabel";
+// import Typography from "@material-ui/core/Typography";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+// import IconButton from "components/IconButton";
 import IconClose from "icons/Filled/Close";
+import clsx from "clsx";
+import {
+  IconButton,
+  InputAdornment,
+  InputBase,
+  InputLabel,
+  Typography,
+} from "@mui/material";
 
 interface InputProps {
   label?: string;
@@ -75,11 +82,9 @@ const Input: React.FC<InputProps> = ({
           onDelete &&
           ("" + value).length >= 1 && (
             <InputAdornment position="end">
-              <IconButton
-                size="small"
-                onClick={onDelete}
-                icon={<IconClose fill="#000" />}
-              />
+              <IconButton size="small" onClick={onDelete}>
+                <IconClose fill="#000" />
+              </IconButton>
             </InputAdornment>
           )
         }

@@ -148,10 +148,19 @@ export const MuiTheme = createTheme({
             borderRadius: "4px",
             color: "white",
             boxShadow:
-              "0px 1.3037036657333374px 1.3037036657333374px 0px #6A4BFF0C, 0px 6.162962913513184px 5.096296310424805px 0px #6A4BFF13, 0px 16px 16px 0px #6A4BFF1F",
-
+              "0px 10px 20px rgba(106, 75, 255, 0.18), 0px 7.7037px 6.37037px rgba(106, 75, 255, 0.109333), 0px 1.62963px 1.62963px rgba(106, 75, 255, 0.0706667)",
             "&:hover": {
-              backgroundColor: colors.primary.purpleDark,
+              backgroundColor: "#7B61FF",
+              boxShadow:
+                "0px 10px 20px rgba(123, 97, 255, 0.18), 0px 7.7037px 6.37037px rgba(123, 97, 255, 0.109333), 0px 1.62963px 1.62963px rgba(123, 97, 255, 0.0706667)",
+            },
+            "&:focus": {
+              backgroundColor: "#6548F6",
+              boxShadow:
+                "0px 10px 20px rgba(101, 72, 246, 0.18), 0px 7.7037px 6.37037px rgba(101, 72, 246, 0.109333), 0px 1.62963px 1.62963px rgba(101, 72, 246, 0.0706667)",
+            },
+            "&:active": {
+              backgroundColor: "#785CFE",
             },
           },
         },
