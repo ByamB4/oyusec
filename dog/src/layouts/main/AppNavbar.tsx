@@ -1,6 +1,6 @@
 import React from "react";
 import { Searchbar } from "components/Searchbar";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import IconGoogle from "icons/Filled/Google";
 interface Props {
   className?: string;

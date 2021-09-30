@@ -1,14 +1,15 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
-import Button from "@material-ui/core/Button";
 import DemoChallenge from "components/DemoChallenge";
-import CircularProgress, {
-  CircularProgressProps,
-  circularProgressClasses,
-} from "@material-ui/core/CircularProgress";
-import Box from "@material-ui/core/Box";
 import { colors } from "configs";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  CircularProgressProps,
+  Typography,
+  circularProgressClasses,
+} from "@mui/material";
 
 interface ICircularProgressProps extends CircularProgressProps {
   className?: string;
@@ -145,15 +146,13 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
             <span className="brand-text">Security</span>
           </div>
           <div>
-            <Typography variant="h2" className="font-normal">
+            <Typography variant="h3" className="font-normal">
               Make it better place to learn, practice, compete in security field
               in 🇲🇳
             </Typography>
           </div>
           <div className="flex gap-8">
-            <Button variant="primary" size="large">
-              Бүртгүүлэх
-            </Button>
+            <Button variant="contained">Бүртгүүлэх</Button>
             <Button variant="outlined">Санал хүсэлт</Button>
           </div>
         </div>
@@ -191,7 +190,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
               </div>
             </div>
           </div>
-          <div
+          {/* <div
             className="flex bg-primary-light1 items-start gap-4 absolute p-4 rounded-xl"
             style={{
               top: `400px`,
@@ -220,7 +219,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
                 </Typography>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* END: Components */}
       </div>

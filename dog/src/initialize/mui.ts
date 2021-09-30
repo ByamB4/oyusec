@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 import { colors } from "configs";
 
 export const MuiTheme = createTheme({
@@ -131,7 +131,7 @@ export const MuiTheme = createTheme({
           fontWeight: "normal",
         },
         sizeLarge: {
-          padding: "28px 16px",
+          padding: "16px 28px",
           fontFamily: "Exo 2, 'sans-serif'",
           fontSize: "18px",
           fontWeight: "bold",
@@ -163,7 +163,7 @@ export const MuiTheme = createTheme({
             color: colors.text.grey,
             // fontFamily: "Manrope, 'sans-serif'",
             // fontWeight: 700,
-            padding: "10px 32px",
+            // padding: "10px 32px",
             "&:hover": {
               color: "#fff",
               backgroundColor: "transparent",
@@ -176,12 +176,15 @@ export const MuiTheme = createTheme({
           },
           style: {
             color: colors.text.white,
-            borderRadius: "14px",
+            borderRadius: "4px",
+            borderWidth: "2px",
             borderColor: colors.primary.purple,
-            padding: "10px 32px",
+            // padding: "10px 32px",
             // fontWeight: 700,
             // fontFamily: "Manrope, 'sans-serif'",
             "&:hover": {
+              borderRadius: "4px",
+              borderWidth: "2px",
               borderColor: colors.primary.purpleDark,
             },
           },

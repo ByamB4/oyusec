@@ -1,6 +1,6 @@
-import { ButtonPropsColorOverrides } from "@material-ui/core/Button/Button";
+import { ButtonPropsColorOverrides } from "@mui/material/Button/Button";
 
-declare module "@material-ui/core/Button" {
+declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     primary: true;
     secondary: true;

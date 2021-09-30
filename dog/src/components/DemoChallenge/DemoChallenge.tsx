@@ -62,7 +62,7 @@ const Challenge: React.FC<Props> = ({ className = "", style }) => {
             <Chip
               icon={
                 <IconButton onClick={() => console.log("test")}>
-                  <IconEye width={24} height={24} stroke="#fff" />
+                  <IconEye width={20} height={20} stroke="#fff" />
                 </IconButton>
               }
               label={"Solved 7"}

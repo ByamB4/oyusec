@@ -1,6 +1,6 @@
-import { TypographyPropsVariantOverrides } from "@material-ui/core/Typography/Typography";
+import { TypographyPropsVariantOverrides } from "@mui/material/Typography/Typography";
 
-declare module "@material-ui/core/Typography" {
+declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     h7: true;
   }
