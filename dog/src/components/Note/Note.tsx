@@ -6,7 +6,7 @@ interface Props {
   text: string;
 }
 
-const Note: React.FC<Props> = ({ className = "", text = "" }) => {
+const Note: React.FC<Props> = ({ className = "", text = "" }):React.ReactElement => {
   return (
     <div className={`flex h-full bg-secondary-darkGrey ${className}`}>
       <div className="h-auto w-2 bg-secondary-yellow" />

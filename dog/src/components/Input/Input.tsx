@@ -34,7 +34,7 @@ const Input: React.FC<Props> = ({
   type = "text",
   onBlur,
   disabled = false,
-}) => {
+}): React.ReactElement => {
   const [focused, setFocused] = React.useState(false);
   const focusedClassNames = "border-text-white";
   const unfocusedClassNames = "border-text-grey";

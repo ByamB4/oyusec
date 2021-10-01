@@ -18,7 +18,10 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const Challenge: React.FC<Props> = ({ className = "", style }) => {
+const Challenge: React.FC<Props> = ({
+  className = "",
+  style,
+}): React.ReactElement => {
   const [expanded, setExpanded] = React.useState<boolean>(true);
   const [value, setValue] = React.useState<string>("");
   const { addSnackbar } = useSnackbar();

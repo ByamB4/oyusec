@@ -34,7 +34,7 @@ const _IconButton: React.FC<Props> = ({
   className = "",
   size = "medium",
   onClick,
-}) => {
+}): React.ReactElement => {
   const classNames: string = `rounded-lg ${ButtonTypes[variant]} ${ButtonSize[size]} ${className}`;
   // const styles: React.CSSProperties = ButtonStyle[
   //   variant

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgHome(props: React.SVGProps<SVGSVGElement>) {
+const SvgHome = (props: React.SVGProps<SVGSVGElement>): React.ReactElement => {
   const { stroke } = props;
 
   return (
@@ -21,6 +21,6 @@ function SvgHome(props: React.SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+};
 
 export default SvgHome;

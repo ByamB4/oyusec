@@ -1,6 +1,8 @@
 import * as React from "react";
 
-function SvgCloseCircle(props: React.SVGProps<SVGSVGElement>) {
+const SvgCloseCircle = (
+  props: React.SVGProps<SVGSVGElement>
+): React.ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,6 +21,6 @@ function SvgCloseCircle(props: React.SVGProps<SVGSVGElement>) {
       </g>
     </svg>
   );
-}
+};
 
 export default SvgCloseCircle;

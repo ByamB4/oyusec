@@ -1,6 +1,8 @@
 import * as React from "react";
 
-function SvgGoogle(props: React.SVGProps<SVGSVGElement>) {
+const SvgGoogle = (
+  props: React.SVGProps<SVGSVGElement>
+): React.ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,6 +22,6 @@ function SvgGoogle(props: React.SVGProps<SVGSVGElement>) {
       </g>
     </svg>
   );
-}
+};
 
 export default SvgGoogle;

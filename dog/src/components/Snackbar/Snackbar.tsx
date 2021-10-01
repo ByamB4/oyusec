@@ -18,7 +18,7 @@ const SnackBar: React.FC<Props> = ({
   variant = "success",
   value,
   onClose,
-}) => {
+}): React.ReactElement => {
   const classes = `rounded-lg flex items-center py-2 px-4 justify-between h-14 ${variants[variant]}`;
 
   return (
@@ -32,9 +32,7 @@ const SnackBar: React.FC<Props> = ({
           </IconButton>
         }
       >
-        <Typography variant="h6">
-          {value}
-        </Typography>
+        <Typography variant="h6">{value}</Typography>
       </Alert>
     </Slide>
   );

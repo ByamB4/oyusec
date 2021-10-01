@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgStar(props: React.SVGProps<SVGSVGElement>) {
+const SvgStar = (props: React.SVGProps<SVGSVGElement>): React.ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +18,6 @@ function SvgStar(props: React.SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+};
 
 export default SvgStar;

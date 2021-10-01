@@ -1,6 +1,8 @@
 import * as React from "react";
 
-function SvgScript(props: React.SVGProps<SVGSVGElement>) {
+const SvgScript = (
+  props: React.SVGProps<SVGSVGElement>
+): React.ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,11 +15,9 @@ function SvgScript(props: React.SVGProps<SVGSVGElement>) {
       fill="currentColor"
       {...props}
     >
-      <path
-        d="M15 20a1 1 0 0 0 1-1V4H8a1 1 0 0 0-1 1v11H5V5a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3v1h-2V5a1 1 0 0 0-1-1a1 1 0 0 0-1 1v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-1h11a2 2 0 0 0 2 2M9 6h5v2H9V6m0 4h5v2H9v-2m0 4h5v2H9v-2z"
-      />
+      <path d="M15 20a1 1 0 0 0 1-1V4H8a1 1 0 0 0-1 1v11H5V5a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3v1h-2V5a1 1 0 0 0-1-1a1 1 0 0 0-1 1v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-1h11a2 2 0 0 0 2 2M9 6h5v2H9V6m0 4h5v2H9v-2m0 4h5v2H9v-2z" />
     </svg>
   );
-}
+};
 
 export default SvgScript;
