@@ -9,11 +9,11 @@ interface Props {}
 
 const SearchContext = React.createContext<ISearch>({
   setIsSearch: () => {},
-  isSearch: true,
+  isSearch: false,
 });
 
 export const SearchProvider: React.FC<Props> = ({ children }) => {
-  const [isSearch, setIsSearch] = React.useState<boolean>(true);
+  const [isSearch, setIsSearch] = React.useState<boolean>(false);
   // const searchRoot = React.useRef('search-root')
 
   const handleKeyPress = (event: any) => {
