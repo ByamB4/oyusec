@@ -1,6 +1,6 @@
 import React from "react";
 import IconTrophy from "icons/Lined/Trophy";
-import { colors } from "configs";
+import { colors, DEFAULT } from "configs";
 import IconSword from "icons/Lined/Sword";
 import IconScript from "icons/Lined/Script";
 import IconFire from "icons/Filled/Fire";
@@ -10,6 +10,7 @@ import {
   LinearProgress,
   Typography,
 } from "@mui/material";
+import UserTitle from "components/UserTitle";
 
 interface Props {
   className?: string;
@@ -36,15 +37,7 @@ const AppFooter: React.FC<Props> = ({ className = "" }): React.ReactElement => {
           <IconTrophy width={32} height={32} />
           <Typography variant="h3">#2</Typography>
         </div>
-        <div className="flex flex-col">
-          <Typography variant="h4">
-            <span>Byam</span>
-            <span className="text-secondary-red">B4</span>
-          </Typography>
-          <Typography variant="body1" className="text-text-darkGrey">
-            Hecker
-          </Typography>
-        </div>
+        <UserTitle user={DEFAULT.user} />
       </div>
       <div className="flex gap-10 max-w-3xl w-full">
         <div className="w-full flex flex-col gap-2">
