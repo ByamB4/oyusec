@@ -96,49 +96,8 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
   };
 
   return (
-    <div
-      className={`w-full h-full p-0 bg-contain bg-no-repeat rounded-3xl xl:bg-index-pattern ${className}`}
-      ref={rootRef}
-    >
-      {/* BEGIN: Patterns */}
-      <div className="">
-        {Array.from({ length: 3 }).map((_, index) => (
-          <div
-            key={index}
-            className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
-            style={{
-              top: `${randomPosition("y")}px`,
-              left: `${randomPosition("x")}px`,
-            }}
-          >
-            <Image
-              src="/img/Home/square-small.png"
-              width="110px"
-              height="95px"
-              className={`opacity-${(Math.floor(Math.random() * 5) + 1) * 10}`}
-            />
-          </div>
-        ))}
-        {/* {Array.from({ length: 5 }).map((_, index) => (
-          <div
-            key={index}
-            className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
-            style={{
-              top: `${randomPosition("y")}px`,
-              left: `${randomPosition("x")}px`,
-            }}
-          >
-            <Image
-              src="/img/Home/line-solid.png"
-              width="10px"
-              height="284px"
-              className={`opacity-${(Math.floor(Math.random() * 3) + 1) * 10}`}
-            />
-          </div>
-        ))} */}
-      </div>
-      {/* END: Patterns */}
-      <div className="grid grid-cols-2 h-full">
+    <div className={`w-full h-full p-0 rounded-3xl ${className}`} ref={rootRef}>
+      <div className="grid lg:grid-cols-2 h-full">
         {/* START: Content */}
         <div className="flex flex-col justify-center gap-14 p-10">
           <div className="font-museo text-6xl">
@@ -146,25 +105,63 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
             <span className="brand-text">Security</span>
           </div>
           <div>
-            <Typography variant="h3" className="font-normal">
+            <Typography variant="h4" className="font-normal">
               Make it better place to learn, practice, compete in security field
               in 🇲🇳
             </Typography>
           </div>
           <div className="flex gap-8">
-            <Button variant="contained" size="large">
-              Бүртгүүлэх
-            </Button>
-            <Button variant="outlined" size="large">
-              Санал хүсэлт
-            </Button>
+            <Button variant="contained">Бүртгүүлэх</Button>
+            <Button variant="outlined">Санал хүсэлт</Button>
           </div>
         </div>
         {/* END: Content */}
         {/* START: Components */}
-        <div className="relative">
+        <div className="relative lg:block hidden">
+          {/* BEGIN: Patterns */}
+          {/* <div className="">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <div
+                key={index}
+                className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
+                style={{
+                  top: `${randomPosition("y")}px`,
+                  left: `${randomPosition("x")}px`,
+                }}
+              >
+                <Image
+                  src={`${process.env.STATIC_ROOT}/img/Home/square-small.png`}
+                  width="110px"
+                  height="95px"
+                  className={`opacity-${
+                    (Math.floor(Math.random() * 5) + 1) * 10
+                  }`}
+                />
+              </div>
+            ))}
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div
+                key={index}
+                className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
+                style={{
+                  top: `${randomPosition("y")}px`,
+                  left: `${randomPosition("x")}px`,
+                }}
+              >
+                <Image
+                  src="/img/Home/line-solid.png"
+                  width="10px"
+                  height="284px"
+                  className={`opacity-${
+                    (Math.floor(Math.random() * 3) + 1) * 10
+                  }`}
+                />
+              </div>
+            ))}
+          </div> */}
+          {/* END: Patterns */}
           <DemoChallenge className={`absolute w-2/3 up-down-object`} />
-          <div
+          {/* <div
             className="flex flex-col bg-primary-light1 items-start gap-4 absolute p-4 rounded-xl"
             style={{
               top: `50px`,
@@ -193,8 +190,8 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
                 </Typography>
               </div>
             </div>
-          </div>
-          <div
+          </div> */}
+          {/* <div
             className="flex bg-primary-light1 items-start gap-4 absolute p-4 rounded-xl"
             style={{
               top: `300px`,
@@ -223,7 +220,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
                 </Typography>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* END: Components */}
       </div>

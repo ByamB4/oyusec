@@ -201,17 +201,21 @@
 }
 
 .up-down-object {
-  animation: MoveUpDown 3s linear infinite;
+  animation: MoveUpDown 6s linear infinite;
   position: absolute;
-  left: 0;
+  /* left: 50%; */
+  /* transform: translateY(50%); */
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes MoveUpDown {
   0%,
   100% {
-    bottom: 100px;
+    transform: translateY(-100px);
   }
   50% {
-    bottom: 50px;
+    transform: translateY(50px);
   }
 }

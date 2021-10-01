@@ -14,7 +14,6 @@ const SearchContext = React.createContext<ISearch>({
 
 export const SearchProvider: React.FC<Props> = ({ children }) => {
   const [isSearch, setIsSearch] = React.useState<boolean>(false);
-  // const searchRoot = React.useRef('search-root')
 
   const handleKeyPress = (event: any) => {
     if (event.key === "/") {
@@ -32,18 +31,6 @@ export const SearchProvider: React.FC<Props> = ({ children }) => {
       window.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
-  // React.useEffect(() => {
-  //   const handleKeyPress = (event: KeyboardEvent) => {
-  //     console.log(event.key);
-  //     if (event.key === "/") {
-  //       console.log("toggling", isSearch);
-  //       setIsSearch(false);
-  //       console.log("after update", isSearch);
-  //     }
-  //     console.log("value", isSearch);
-  //   };
-  //   window.addEventListener("keydown", handleKeyPress);
-  // }, []);
 
   return (
     <SearchContext.Provider value={{ setIsSearch, isSearch }}>
@@ -57,7 +44,4 @@ export const useSearch: () => {
   isSearch: boolean;
 } = () => {
   return React.useContext(SearchContext);
-  // const { setSearch, isSearch } = React.useContext(SearchContext);
-
-  // return { setSearch, isSearch };
 };
