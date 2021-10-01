@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "tailwindcss/tailwind.css";
 import "styles/css/globals.css";
 import "styles/sass/index.sass";
@@ -10,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { MuiTheme, createEmotionCache } from "initialize";
 import { APP_NAME } from "configs";
+import { SearchProvider } from "contexts/search";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -22,6 +23,7 @@ export default function _({
   emotionCache = clientSideEmotionCache,
   pageProps,
 }: Props) {
+
   return (
     <>
       <CacheProvider value={emotionCache}>
@@ -31,8 +33,10 @@ export default function _({
         </Head>
         <ThemeProvider theme={MuiTheme}>
           <SnackbarProvider>
-            <CssBaseline />
-            <Component {...pageProps} />
+            <SearchProvider>
+              <CssBaseline />
+              <Component {...pageProps} />
+            </SearchProvider>
           </SnackbarProvider>
         </ThemeProvider>
       </CacheProvider>

@@ -12,11 +12,14 @@
     "next": "^11.1.2",
     "react": "latest",
     "react-dom": "latest",
-    "sass": "^1.39.0"
+    "sass": "^1.39.0",
+    "sharp": "^0.29.1",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
@@ -24,6 +27,7 @@
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.20",
     "@types/react-dom": "latest",
+    "@types/uuid": "^8.3.1",
     "autoprefixer": "^10.3.2",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.7",

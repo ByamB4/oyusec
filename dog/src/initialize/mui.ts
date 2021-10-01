@@ -40,14 +40,14 @@ export const MuiTheme = createTheme({
     h6: {
       fontFamily: "Exo 2, sans-serif",
       fontStyle: "normal",
-      fontWeight: "normal",
+      fontWeight: 500,
       fontSize: "16px",
     },
     body1: {
       fontFamily: "Exo 2, sans-serif",
       fontStyle: "normal",
       fontWeight: "normal",
-      fontSize: "16px",
+      fontSize: "14px",
     },
   },
   components: {
@@ -119,22 +119,22 @@ export const MuiTheme = createTheme({
           fontWeight: "normal",
         },
         sizeSmall: {
-          padding: "10px 14px",
+          padding: "5px 14px",
           fontFamily: "Exo 2 'sans-serif'",
           fontSize: "12px",
           fontWeight: "normal",
         },
         sizeMedium: {
-          padding: "10px 16px",
+          padding: "7px 16px",
           fontFamily: "Exo 2, 'sans-serif'",
-          fontSize: "16px",
-          fontWeight: "normal",
+          fontSize: "14px",
+          fontWeight: 400,
         },
         sizeLarge: {
-          padding: "16px 28px",
+          padding: "10px 20px",
           fontFamily: "Exo 2, 'sans-serif'",
-          fontSize: "18px",
-          fontWeight: "bold",
+          fontSize: "16px",
+          fontWeight: 500,
         },
       },
 

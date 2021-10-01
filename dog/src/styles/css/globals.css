@@ -168,17 +168,48 @@
   font-style: normal;
 }
 
+/* Fira Code */
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url("/fonts/FiraCode/FiraCode-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url("/fonts/FiraCode/FiraCode-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url("/fonts/FiraCode/FiraCode-Medum.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url("/fonts/FiraCode/FiraCode-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code", monospace;
+  src: url("/fonts/FiraCode/FiraCode-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
 .up-down-object {
-  animation: MoveUpDown 5s linear infinite;
+  animation: MoveUpDown 3s linear infinite;
   position: absolute;
   left: 0;
-  bottom: 0;
 }
 
 @keyframes MoveUpDown {
   0%,
   100% {
-    bottom: 0;
+    bottom: 100px;
   }
   50% {
     bottom: 50px;

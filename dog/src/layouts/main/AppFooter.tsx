@@ -4,13 +4,18 @@ import { colors } from "configs";
 import IconSword from "icons/Lined/Sword";
 import IconScript from "icons/Lined/Script";
 import IconFire from "icons/Filled/Fire";
-import { styled, linearProgressClasses, LinearProgress, Typography } from "@mui/material";
+import {
+  styled,
+  linearProgressClasses,
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 
 interface Props {
   className?: string;
 }
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 15,
+  height: 13,
   borderRadius: 50,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: "rgba(33, 150, 243, 0.3)",
@@ -21,18 +26,18 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const AppFooter: React.FC<Props> = ({ className = "" }) => {
+const AppFooter: React.FC<Props> = ({ className = "" }): React.ReactElement => {
   return (
     <div
       className={`bg-primary-dark flex items-center justify-between text-white py-2 px-4 ${className}`}
     >
       <div className="flex gap-10">
         <div className="flex items-center">
-          <IconTrophy width={36} height={36} />
+          <IconTrophy width={32} height={32} />
           <Typography variant="h3">#2</Typography>
         </div>
         <div className="flex flex-col">
-          <Typography variant="h3">
+          <Typography variant="h4">
             <span>Byam</span>
             <span className="text-secondary-red">B4</span>
           </Typography>
@@ -44,27 +49,27 @@ const AppFooter: React.FC<Props> = ({ className = "" }) => {
       <div className="flex gap-10 max-w-3xl w-full">
         <div className="w-full flex flex-col gap-2">
           <div className="flex justify-end">
-            <IconFire fill="#fff" width={32} height={32} />
+            <IconFire fill="#fff" width={28} height={28} />
           </div>
           <div>
-            <BorderLinearProgress variant="determinate" value={50} />
+            <BorderLinearProgress variant="determinate" value={28} />
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
           <div className="flex justify-end">
-            <IconScript fill="#fff" width={32} height={32} />
+            <IconScript fill="#fff" width={28} height={28} />
           </div>
           <div>
-            <BorderLinearProgress variant="determinate" value={50} />
+            <BorderLinearProgress variant="determinate" value={72} />
           </div>
         </div>
 
         <div className="w-full flex flex-col gap-2">
           <div className="flex justify-end">
-            <IconSword fill="#fff" width={32} height={32} />
+            <IconSword fill="#fff" width={28} height={28} />
           </div>
           <div>
-            <BorderLinearProgress variant="determinate" value={50} />
+            <BorderLinearProgress variant="determinate" value={5} />
           </div>
         </div>
       </div>

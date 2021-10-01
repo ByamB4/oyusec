@@ -2,6 +2,7 @@ module.exports = {
   primary: {
     purple: "#6A4BFF",
     dark: "#1A2332",
+    dark1: "#26334E",
     light: "#1C273F",
     light1: "#344261",
     deepBlue: "#283593",
@@ -17,9 +18,10 @@ module.exports = {
     blue: "#2196F3",
     red: "#FF5252",
     darkGrey: "#2f2f2f",
-    yellow: "#F6C949"
+    yellow: "#F6C949",
   },
   text: {
+    black: "#364670",
     white: "#fff",
     grey: "#92929D",
     darkGrey: "#696974",

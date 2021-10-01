@@ -21,7 +21,7 @@ const Chip: React.FC<Props> = ({
   const cNames = `${_colors[color]}`;
 
   return (
-    <div className={`flex items-center rounded-3xl px-4 py-2 ${className} ${cNames}`}>
+    <div className={`flex items-center rounded-3xl px-3 py-1 ${className} ${cNames}`}>
       {children}
     </div>
   );

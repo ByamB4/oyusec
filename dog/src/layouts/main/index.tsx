@@ -21,6 +21,18 @@ const MainLayout: React.FC<Props> = ({
   style,
   NO_PADDING = false,
 }) => {
+  // Globally listen keyboard for search
+  // React.useEffect(() => {
+  //   const handleKeyPress = (event: any) => {
+  //     console.log(event.key);
+  //     if (event.key === "/") {
+  //       setSearch(!isSearch);
+  //       console.log("isSearch", isSearch);
+  //     }
+  //   };
+  //   window.addEventListener("keydown", handleKeyPress);
+  // }, []);
+
   return (
     <>
       <Head>

@@ -141,7 +141,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
       <div className="grid grid-cols-2 h-full">
         {/* START: Content */}
         <div className="flex flex-col justify-center gap-14 p-10">
-          <div className="font-museo text-7xl">
+          <div className="font-museo text-6xl">
             <span className="text-white">Oyu</span>
             <span className="brand-text">Security</span>
           </div>
@@ -152,8 +152,12 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
             </Typography>
           </div>
           <div className="flex gap-8">
-            <Button variant="contained">Бүртгүүлэх</Button>
-            <Button variant="outlined">Санал хүсэлт</Button>
+            <Button variant="contained" size="large">
+              Бүртгүүлэх
+            </Button>
+            <Button variant="outlined" size="large">
+              Санал хүсэлт
+            </Button>
           </div>
         </div>
         {/* END: Content */}
@@ -190,11 +194,11 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
               </div>
             </div>
           </div>
-          {/* <div
+          <div
             className="flex bg-primary-light1 items-start gap-4 absolute p-4 rounded-xl"
             style={{
-              top: `400px`,
-              left: `300px`,
+              top: `300px`,
+              left: `500px`,
             }}
           >
             <div className="p-2 rounded-xl relative">
@@ -219,7 +223,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
                 </Typography>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         {/* END: Components */}
       </div>

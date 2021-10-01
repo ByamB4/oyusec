@@ -1,19 +1,17 @@
-import * as React from "react";
-import IconEye from "icons/Lined/Eye";
-import IconStar from "icons/Lined/Star";
-import { Input } from "components/Input";
+import React from "react";
+import Input from "components/Input";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Button,
-  // Chip,
-  IconButton,
   Typography,
 } from "@mui/material";
 import { useSnackbar } from "contexts/snackbar";
-import { FAIL_SOLVE, SUCCESS_SOLVE } from "constants/Text";
+import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from "constants/Text";
 import Chip from "components/Chip";
+import Note from "components/Note";
+import { handleChallChipColor, handleChallIcon } from "utils/handlers";
 
 interface Props {
   className?: string;
@@ -21,21 +19,9 @@ interface Props {
 }
 
 const Challenge: React.FC<Props> = ({ className = "", style }) => {
-  const [expanded, setExpanded] = React.useState<string | false>("panel1");
+  const [expanded, setExpanded] = React.useState<boolean>(true);
   const [value, setValue] = React.useState<string>("");
   const { addSnackbar } = useSnackbar();
-
-  // Just demo
-  const chall = {
-    name: "Day 4 - Twin towers ",
-    title: "blhfrp{j0j_x33c_t01aT}",
-    solve: "oyusec{w0w_k33p_g01nG}",
-  };
-
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
-      setExpanded(newExpanded ? panel : false);
-    };
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -51,58 +37,49 @@ const Challenge: React.FC<Props> = ({ className = "", style }) => {
       disableGutters
       elevation={0}
       square
-      expanded={expanded === "panel1"}
-      onChange={handleChange("panel1")}
+      expanded={expanded}
+      onChange={() => setExpanded(!expanded)}
       className={`rounded-lg bg-transparent text-white ${className}`}
       style={style}
     >
       <AccordionSummary
-        aria-controls="challenge-header"
         className="rounded-t-lg"
         style={{
           background:
             "linear-gradient(90.01deg, #4E5D7F 0.01%, #6A4BFF 99.99%, #6A4BFF 99.99%)",
         }}
-        onClick={() => console.log("closing")}
+        // onClick={() => console.log("closing")}
       >
         <div className="flex justify-between items-center w-full">
           <div>
-            <Typography variant="h5">{chall.name}</Typography>
+            <Typography variant="h6">{chall.name}</Typography>
           </div>
           <div className="flex gap-4">
-            <Chip color="deepBlue">
-              <Typography variant="h5" className="flex gap-2">
-                <IconEye />
-                <span className="font-medium">Solved</span>
-                <span>7</span>
-              </Typography>
-            </Chip>
-            <Chip color="darkViolet">
-              <Typography variant="h5" className="flex gap-2">
-                <IconStar width={24} height={24} />
-                <span className="font-medium">Score</span>
-                <span>960</span>
-              </Typography>
-            </Chip>
+            {chall.chips.map((it) => (
+              <Chip key={it.id} color={handleChallChipColor(it.type)}>
+                <Typography variant="body1" className="flex gap-1">
+                  {handleChallIcon(it.type)}
+                  <span className="font-medium">{it.label}</span>
+                  <span>{it.value}</span>
+                </Typography>
+              </Chip>
+            ))}
           </div>
         </div>
       </AccordionSummary>
-      <AccordionDetails
-        className="rounded-b-lg py-10 flex flex-col gap-8"
-        style={{ background: "#26334E" }}
-      >
-        <Typography variant="h5">Нууцыг минь тайлж чадах уу 🤔</Typography>
-        <div className="flex h-full bg-secondary-darkGrey ">
-          <div className="h-auto w-2 bg-secondary-yellow" />
-          <Typography variant="h5" className="p-2">
-            {chall.title}
-          </Typography>
-        </div>
+      <AccordionDetails className="rounded-b-lg py-6 flex flex-col gap-6 bg-primary-dark1">
+        <Typography variant="h6">{chall.description}</Typography>
+        {chall.notes.map((it) => (
+          <Note key={it.id} text={it.text} />
+        ))}
         <form className="flex items-center gap-8" onSubmit={onSubmit}>
           <Input
             value={value}
-            onChange={(e: any) => setValue(e.target.value)}
-            className="w-full h-full"
+            placeholder={FLAG_PLACEHOLDER}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setValue(e.target.value)
+            }
+            className="w-full"
           />
           <Button type="submit" variant="contained" size="medium">
             Илгээх
@@ -111,6 +88,36 @@ const Challenge: React.FC<Props> = ({ className = "", style }) => {
       </AccordionDetails>
     </Accordion>
   );
+};
+
+// Development purposes
+import { v4 as uuidv4 } from "uuid";
+
+const chall = {
+  name: "Day 4 - Twin towers ",
+  title: "blhfrp{j0j_x33c_t01aT}",
+  solve: "oyusec{w0w_k33p_g01nG}",
+  description: "Нууцыг минь тайлж чадах уу 🤔",
+  notes: [
+    {
+      id: uuidv4(),
+      text: "blhfrp{j0j_x33c_t01aT}",
+    },
+  ],
+  chips: [
+    {
+      type: "solved",
+      id: uuidv4(),
+      label: "Бодсон",
+      value: "7",
+    },
+    {
+      type: "score",
+      id: uuidv4(),
+      label: "Оноо",
+      value: "960",
+    },
+  ],
 };
 
 export default Challenge;

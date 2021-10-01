@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         primary: {
           dark: colors.primary.dark,
+          dark1: colors.primary.dark1,
           purple: colors.primary.purple,
           light: colors.primary.light,
           light1: colors.primary.light1,
@@ -30,6 +31,7 @@ module.exports = {
           darkGrey: colors.secondary.darkGrey,
         },
         text: {
+          black: colors.text.black,
           grey: colors.text.grey,
           white: colors.text.white,
           darkGrey: colors.text.darkGrey,

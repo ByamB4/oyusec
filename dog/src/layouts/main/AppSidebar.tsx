@@ -1,5 +1,5 @@
-// import IconButton from "components/IconButton";
 import React from "react";
+import IconButton from "components/IconButton";
 import IconHome from "icons/Lined/Home";
 import IconSword from "icons/Lined/Sword";
 import IconTrophy from "icons/Lined/Trophy";
@@ -10,14 +10,14 @@ import IconAccount from "icons/Lined/Account";
 
 import { colors } from "configs";
 import { useRouter } from "next/router";
-import { IconButton } from "@mui/material";
 
 interface Props {
   className?: string;
 }
 
-const AppSidebar: React.FC<Props> = ({ className = "" }) => {
-  const [activePage, setActivePage] = React.useState(0);
+const AppSidebar: React.FC<Props> = ({
+  className = "",
+}): React.ReactElement => {
   const router = useRouter();
 
   const checkActivePage = (link: string) => {
@@ -30,8 +30,8 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
     {
       icon: (
         <IconHome
-          width={36}
-          height={36}
+          width={32}
+          height={32}
           stroke={
             router.pathname === "/"
               ? colors.secondary.orange
@@ -50,8 +50,8 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
     {
       icon: (
         <IconSword
-          width={36}
-          height={36}
+          width={32}
+          height={32}
           fill={
             checkActivePage("/challenges")
               ? colors.secondary.cyan
@@ -70,8 +70,8 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
     {
       icon: (
         <IconTrophy
-          width={36}
-          height={36}
+          width={32}
+          height={32}
           fill={
             checkActivePage("/competitions")
               ? colors.secondary.pink
@@ -90,8 +90,8 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
     {
       icon: (
         <IconSchool
-          width={36}
-          height={36}
+          width={32}
+          height={32}
           fill={
             checkActivePage("/academy")
               ? colors.secondary.neonGreen
@@ -110,8 +110,8 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
     {
       icon: (
         <IconScript
-          width={36}
-          height={36}
+          width={32}
+          height={32}
           fill={
             checkActivePage("/writeups")
               ? colors.secondary.violet
@@ -130,8 +130,8 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
     {
       icon: (
         <IconAccount
-          width={36}
-          height={36}
+          width={32}
+          height={32}
           fill={
             checkActivePage("/user")
               ? colors.secondary.blue
@@ -163,25 +163,24 @@ const AppSidebar: React.FC<Props> = ({ className = "" }) => {
                   : it.passive.className
               }`}
             />
-            <IconButton className="p-1" onClick={() => router.push(it.link)}>
-              {it.icon}
-            </IconButton>
+            <IconButton
+              className="p-1"
+              onClick={() => router.push(it.link)}
+              size="small"
+              icon={it.icon}
+            />
           </div>
         ))}
       </div>
       <div className="flex gap-2">
-        <div
-          className={`h-full w-5px rounded-r-3xl ${
-            activePage === 6 ? "bg-white" : "bg-transparent"
-          }`}
+        <div className={`h-full w-5px rounded-r-3xl ${"bg-transparent"}`} />
+        <IconButton
+          className="p-1"
+          size="small"
+          icon={
+            <IconSettings width={32} height={32} fill={colors.text.darkGrey} />
+          }
         />
-        <IconButton className="p-1" onClick={() => setActivePage(6)}>
-          <IconSettings
-            width={36}
-            height={36}
-            fill={activePage === 6 ? colors.text.white : colors.text.darkGrey}
-          />
-        </IconButton>
       </div>
     </div>
   );

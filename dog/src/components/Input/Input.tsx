@@ -1,11 +1,5 @@
 import React from "react";
-// import InputBase from "@material-ui/core/InputBase";
-// import InputLabel from "@material-ui/core/InputLabel";
-// import Typography from "@material-ui/core/Typography";
-// import InputAdornment from "@material-ui/core/InputAdornment";
-// import IconButton from "components/IconButton";
 import IconClose from "icons/Filled/Close";
-import clsx from "clsx";
 import {
   IconButton,
   InputAdornment,
@@ -14,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-interface InputProps {
+interface Props {
   label?: string;
   className?: string;
   placeholder?: string;
@@ -28,7 +22,7 @@ interface InputProps {
   onBlur?: any;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input: React.FC<Props> = ({
   label,
   className = "",
   placeholder = "",
@@ -42,19 +36,16 @@ const Input: React.FC<InputProps> = ({
   disabled = false,
 }) => {
   const [focused, setFocused] = React.useState(false);
-  const classNames = `w-full border-2 rounded font-medium px-2 py-1`;
   const focusedClassNames = "border-text-white";
   const unfocusedClassNames = "border-text-grey";
 
   return (
-    <div className={className}>
+    <div className={`${className}`}>
       {label && (
         <InputLabel className="mb-2">
           <Typography
             variant="caption"
-            className={clsx(`caption-bold`, {
-              ["text-primary-brand"]: focused,
-            })}
+            className={`${focused && "text-primary-brand"}`}
           >
             {label}
           </Typography>
@@ -70,7 +61,7 @@ const Input: React.FC<InputProps> = ({
         onBlur={() => setFocused(false)}
         placeholder={placeholder}
         disabled={disabled}
-        className={`${classNames} ${
+        className={`w-full border rounded font-medium px-2 py-1 ${
           focused ? focusedClassNames : unfocusedClassNames
         }`}
         startAdornment={
