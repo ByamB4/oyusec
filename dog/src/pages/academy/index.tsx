@@ -1,14 +1,12 @@
 import React from "react";
-import { MainLayout } from 'layouts';
+import { MainLayout } from "layouts";
 
 interface Props {}
 
-const Academy: React.FC<Props> = () => {
+const Academy: React.FC<Props> = ({}): React.ReactElement => {
   return (
     <div>
-      <MainLayout>
-academy
-      </MainLayout>
+      <MainLayout>academy</MainLayout>
     </div>
   );
 };

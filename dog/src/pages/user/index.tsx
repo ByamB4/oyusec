@@ -3,7 +3,7 @@ import { MainLayout } from "layouts";
 
 interface Props {}
 
-const User: React.FC<Props> = () => {
+const User: React.FC<Props> = ({}): React.ReactElement => {
   return (
     <div>
       <MainLayout>user</MainLayout>

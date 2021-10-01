@@ -3,48 +3,48 @@ import { colors } from "configs";
 
 export const MuiTheme = createTheme({
   typography: {
-    fontFamily: "Exo 2, sans-serif",
+    fontFamily: "Exo2",
     allVariants: {
       color: "#fff",
     },
     h1: {
-      fontFamily: "Exo 2, sans-serif",
+      fontFamily: "Exo2",
       fontStyle: "normal",
       fontWeight: 600,
       fontSize: "28px",
     },
     h2: {
-      fontFamily: "Exo 2, sans-serif",
+      fontFamily: "Exo2",
       fontStyle: "normal",
       fontWeight: 600,
       fontSize: "24px",
     },
     h3: {
-      fontFamily: "Exo 2, sans-serif",
+      fontFamily: "Exo2",
       fontStyle: "normal",
       fontWeight: 500,
       fontSize: "22px",
     },
     h4: {
-      fontFamily: "Exo 2, sans-serif",
+      fontFamily: "Exo2",
       fontStyle: "normal",
       fontWeight: 500,
       fontSize: "20px",
     },
     h5: {
-      fontFamily: "Exo 2, sans-serif",
+      fontFamily: "Exo2",
       fontStyle: "normal",
       fontWeight: 500,
       fontSize: "18px",
     },
     h6: {
-      fontFamily: "Exo 2, sans-serif",
+      fontFamily: "Exo2",
       fontStyle: "normal",
       fontWeight: 500,
       fontSize: "16px",
     },
     body1: {
-      fontFamily: "Exo 2, sans-serif",
+      fontFamily: "Exo2",
       fontStyle: "normal",
       fontWeight: "normal",
       fontSize: "14px",
@@ -58,7 +58,7 @@ export const MuiTheme = createTheme({
             variant: "h7",
           },
           style: {
-            fontFamily: "Exo 2, sans-serif",
+            fontFamily: "Exo2",
             fontStyle: "normal",
             fontWeight: "normal",
             fontSize: "14px",

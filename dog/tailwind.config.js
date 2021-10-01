@@ -35,6 +35,7 @@ module.exports = {
           grey: colors.text.grey,
           white: colors.text.white,
           darkGrey: colors.text.darkGrey,
+          lineDark: colors.text.lineDark,
         },
       },
       width: {

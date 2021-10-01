@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { MainLayout } from "layouts";
 import { NextPage, GetServerSideProps } from "next";
 import { DesktopHero } from "ui/Landing";
@@ -6,7 +6,7 @@ import { MAX_SCREEN_MX } from "constants/Layout";
 
 interface Props {}
 
-const Index: NextPage<Props> = ({}) => {
+const Index: NextPage<Props> = ({}): React.ReactElement => {
   return (
     <MainLayout
       NO_PADDING
