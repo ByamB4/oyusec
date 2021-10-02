@@ -12,7 +12,9 @@ import IconStar from "icons/Lined/Star";
 import { IChallengeCategory } from "interfaces";
 import React from "react";
 
-export const handleChallChipColor = (val: string): string | undefined => {
+export const handleChallChipColor = (
+  val: string
+): "primary" | "red" | "deepBlue" | "darkViolet" => {
   switch (val) {
     case "solved": {
       return "deepBlue";
@@ -20,6 +22,8 @@ export const handleChallChipColor = (val: string): string | undefined => {
     case "score": {
       return "darkViolet";
     }
+    default:
+      return "deepBlue";
   }
 };
 

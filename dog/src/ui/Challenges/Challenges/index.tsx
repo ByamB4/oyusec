@@ -3,7 +3,6 @@ import Categories from "./Categories";
 // import { Typography } from "@mui/material";
 // import ArrowLeft from "icons/Lined/ArrowCircleLeft";
 import Challenge from "components/Challenge";
-import { IChallenge } from "interfaces";
 import { categoryList, challengeList } from "utils/fake";
 // import IconFileSearch from "icons/Filled/FileSearch";
 // import IconPuzzle from "icons/Filled/Puzzle";
