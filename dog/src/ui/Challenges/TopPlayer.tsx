@@ -30,8 +30,8 @@ const TopPlayer: React.FC<Props> = ({ className = "" }): React.ReactElement => {
     <div
       className={`flex gap-4 items-center bg-primary-light1 rounded-3xl p-5 ${className}`}
     >
-      <Avatar size="176" src={safeUserAvatar(DEFAULT.user)} />
-      <div className="flex flex-col h-full justify-between py-4">
+      <Avatar size="120" src={safeUserAvatar(DEFAULT.user)} />
+      <div className="flex flex-col h-full justify-between">
         <Typography
           variant="h6"
           className="font-normal uppercase text-text-grey"
@@ -47,7 +47,7 @@ const TopPlayer: React.FC<Props> = ({ className = "" }): React.ReactElement => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col h-full justify-between py-4 ml-6">
+      <div className="flex flex-col h-full justify-between ml-6">
         {rightItems.map((it, _) => (
           <div className="flex gap-12 justify-between" key={_}>
             <Typography

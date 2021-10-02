@@ -4,7 +4,7 @@ import { Avatar } from "@mui/material";
 interface Props {
   className?: string;
   src: string;
-  size?: "32" | "40" | "56" | "80" | "112" | "176";
+  size?: "32" | "40" | "56" | "80" | "112" | "120" | "176";
   alt?: string;
 }
 
@@ -29,6 +29,9 @@ const _Avatar: React.FC<Props> = ({
       break;
     case "112":
       sx = 112;
+      break;
+    case "120":
+      sx = 120;
       break;
     case "176":
       sx = 176;

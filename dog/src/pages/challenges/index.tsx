@@ -1,14 +1,14 @@
 import React from "react";
 import { MainLayout } from "layouts";
-import { MAX_SCREEN_MX } from "constants/Layout";
-import { DesktopLiveFeatures } from "ui/Challenges";
+import { DesktopChallenges, DesktopLiveFeatures } from "ui/Challenges";
 
 interface Props {}
 
 const Challenges: React.FC<Props> = ({}): React.ReactElement => {
   return (
-    <MainLayout>
+    <MainLayout className={`flex flex-col gap-2`}>
       <DesktopLiveFeatures />
+      <DesktopChallenges />
     </MainLayout>
   );
 };

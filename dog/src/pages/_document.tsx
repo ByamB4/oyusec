@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import { MuiTheme, createEmotionCache } from "initialize";
 
-export default class _doc extends Document<unknown> {
+class _doc extends Document<unknown> {
   render(): JSX.Element {
     return (
       <Html lang="en">
@@ -56,3 +56,5 @@ _doc.getInitialProps = async (ctx) => {
     ],
   };
 };
+
+export default _doc;

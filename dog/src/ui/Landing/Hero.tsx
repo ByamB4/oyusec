@@ -1,61 +1,61 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import DemoChallenge from "components/DemoChallenge";
-import { colors } from "configs";
+// import { colors } from "configs";
 import {
-  Box,
+  // Box,
   Button,
-  CircularProgress,
-  CircularProgressProps,
+  // CircularProgress,
+  // CircularProgressProps,
   Typography,
-  circularProgressClasses,
+  // circularProgressClasses,
 } from "@mui/material";
 
-interface ICircularProgressProps extends CircularProgressProps {
-  className?: string;
-  backgroundColor?: string;
-  color?: string | any;
-}
+// interface ICircularProgressProps extends CircularProgressProps {
+//   className?: string;
+//   backgroundColor?: string;
+//   color?: string | any;
+// }
 
-const CusCircularProgress: React.FC<ICircularProgressProps> = (props) => {
-  const {
-    className = "",
-    color = "#6A4BFF",
-    backgroundColor = "#4E556A",
-    ...rest
-  } = props;
+// const CusCircularProgress: React.FC<ICircularProgressProps> = (props) => {
+//   const {
+//     className = "",
+//     color = "#6A4BFF",
+//     backgroundColor = "#4E556A",
+//     ...rest
+//   } = props;
 
-  return (
-    <Box sx={{ position: "relative" }}>
-      <CircularProgress
-        variant="determinate"
-        sx={{
-          color: backgroundColor,
-        }}
-        size={150}
-        thickness={4}
-        {...rest}
-        value={100}
-      />
-      <CircularProgress
-        variant="determinate"
-        value={20}
-        sx={{
-          color: color,
-          animationDuration: "550ms",
-          position: "absolute",
-          left: 0,
-          [`& .${circularProgressClasses.circle}`]: {
-            strokeLinecap: "round",
-          },
-        }}
-        size={150}
-        thickness={4}
-        {...rest}
-      />
-    </Box>
-  );
-};
+//   return (
+//     <Box sx={{ position: "relative" }}>
+//       <CircularProgress
+//         variant="determinate"
+//         sx={{
+//           color: backgroundColor,
+//         }}
+//         size={150}
+//         thickness={4}
+//         {...rest}
+//         value={100}
+//       />
+//       <CircularProgress
+//         variant="determinate"
+//         value={20}
+//         sx={{
+//           color: color,
+//           animationDuration: "550ms",
+//           position: "absolute",
+//           left: 0,
+//           [`& .${circularProgressClasses.circle}`]: {
+//             strokeLinecap: "round",
+//           },
+//         }}
+//         size={150}
+//         thickness={4}
+//         {...rest}
+//       />
+//     </Box>
+//   );
+// };
 
 interface Props {
   className?: string;
@@ -63,37 +63,37 @@ interface Props {
 
 const Hero: React.FC<Props> = ({ className = "" }) => {
   const rootRef = React.useRef<HTMLDivElement>(null);
-  const [dimension, setDimension] = React.useState<{
-    width: number;
-    height: number;
-  }>({
-    width: 0,
-    height: 0,
-  });
+  // const [dimension, setDimension] = React.useState<{
+  //   width: number;
+  //   height: number;
+  // }>({
+  //   width: 0,
+  //   height: 0,
+  // });
 
-  React.useEffect(() => {
-    if (rootRef.current) {
-      setDimension({
-        width: rootRef.current.offsetWidth,
-        height: rootRef.current.offsetHeight,
-      });
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   if (rootRef.current) {
+  //     setDimension({
+  //       width: rootRef.current.offsetWidth,
+  //       height: rootRef.current.offsetHeight,
+  //     });
+  //   }
+  // }, []);
 
-  const randomPosition = (pos: string) => {
-    switch (pos) {
-      case "y":
-        const value = Math.floor(Math.random() * dimension.height);
-        if (value > dimension.height / 2) {
-          return value - 100;
-        }
-        return value;
-      case "x":
-        return 100 + Math.floor(Math.random() * dimension.width);
-      default:
-        return 0;
-    }
-  };
+  // const randomPosition = (pos: string) => {
+  //   switch (pos) {
+  //     case "y":
+  //       const value = Math.floor(Math.random() * dimension.height);
+  //       if (value > dimension.height / 2) {
+  //         return value - 100;
+  //       }
+  //       return value;
+  //     case "x":
+  //       return 100 + Math.floor(Math.random() * dimension.width);
+  //     default:
+  //       return 0;
+  //   }
+  // };
 
   return (
     <div className={`w-full h-full p-0 rounded-3xl ${className}`} ref={rootRef}>

@@ -27,7 +27,7 @@ const UserTitle: React.FC<Props> = ({
         </Typography>
         {!noRank && (
           <Typography variant="body1" className="text-text-darkGrey">
-            Hecker
+            {user.rank}
           </Typography>
         )}
       </div>

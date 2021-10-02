@@ -15,17 +15,20 @@ import UserTitle from "components/UserTitle";
 interface Props {
   className?: string;
 }
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 13,
-  borderRadius: 50,
-  [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: "rgba(33, 150, 243, 0.3)",
-  },
-  [`& .${linearProgressClasses.bar}`]: {
+const BorderLinearProgress = styled(LinearProgress)(() =>
+  // { theme }
+  ({
+    height: 13,
     borderRadius: 50,
-    backgroundColor: colors.secondary.blue,
-  },
-}));
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+      backgroundColor: "rgba(33, 150, 243, 0.3)",
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+      borderRadius: 50,
+      backgroundColor: colors.secondary.blue,
+    },
+  })
+);
 
 const AppFooter: React.FC<Props> = ({ className = "" }): React.ReactElement => {
   return (
