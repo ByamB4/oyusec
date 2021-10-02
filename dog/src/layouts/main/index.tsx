@@ -21,18 +21,6 @@ const MainLayout: React.FC<Props> = ({
   style,
   NO_PADDING = false,
 }) => {
-  // Globally listen keyboard for search
-  // React.useEffect(() => {
-  //   const handleKeyPress = (event: any) => {
-  //     console.log(event.key);
-  //     if (event.key === "/") {
-  //       setSearch(!isSearch);
-  //       console.log("isSearch", isSearch);
-  //     }
-  //   };
-  //   window.addEventListener("keydown", handleKeyPress);
-  // }, []);
-
   return (
     <>
       <Head>
@@ -45,7 +33,7 @@ const MainLayout: React.FC<Props> = ({
         <div className="flex flex-col justify-between w-full h-full">
           <AppNavbar className={`bg-primary-dark text-white`} />
           <AppView
-            className={`h-full bg-primary-light text-white rounded-l-3xl ${
+            className={`overflow-y-hidden h-full bg-primary-light text-white rounded-l-3xl ${
               NO_PADDING ? "" : "p-4"
             } ${className}`}
             style={style}

@@ -1,0 +1,12 @@
+export { default as IconBugFilled } from "./Bug";
+export { default as IconCloseFilled } from "./Close";
+export { default as IconCubeScanFilled } from "./CubeScan";
+export { default as IconFileSearchFilled } from "./FileSearch";
+export { default as IconFireFilled } from "./Fire";
+export { default as IconGoogleFilled } from "./Google";
+export { default as IconLockFilled } from "./Lock";
+export { default as IconPuzzleFilled } from "./Puzzle";
+export { default as IconSearchFilled } from "./Search";
+export { default as IconSkullFilled } from "./Skull";
+export { default as IconVerifiedUserFilled } from "./VerifiedUser";
+export { default as IconWebFilled } from "./Web";
