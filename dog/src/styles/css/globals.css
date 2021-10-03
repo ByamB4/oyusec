@@ -269,3 +269,21 @@
     transform: translateY(50px);
   }
 }
+
+::-webkit-scrollbar {
+  width: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2196f3;
+  border-radius: 100px;
+  border: 10px solid #1c273f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #157fd6;
+}

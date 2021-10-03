@@ -26,14 +26,12 @@ const MainLayout: React.FC<Props> = ({
       <Head>
         <title>{title}</title>
       </Head>
-      <div
-        className={`bg-primary-dark h-full w-full fixed flex overflow-hidden`}
-      >
+      <div className={`flex bg-primary-dark h-full w-full fixed`}>
         <AppSidebar className={``} />
         <div className="flex flex-col justify-between w-full h-full">
           <AppNavbar className={`bg-primary-dark text-white`} />
           <AppView
-            className={`overflow-y-hidden h-full bg-primary-light text-white rounded-l-3xl ${
+            className={`bg-primary-light text-white rounded-l-3xl overflow-auto ${
               NO_PADDING ? "" : "p-4"
             } ${className}`}
             style={style}

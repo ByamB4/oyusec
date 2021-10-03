@@ -6,7 +6,7 @@ interface Props {}
 
 const Challenges: React.FC<Props> = ({}): React.ReactElement => {
   return (
-    <MainLayout className={`flex flex-col gap-2`}>
+    <MainLayout className={`flex flex-col gap-2 h-full`}>
       <DesktopLiveFeatures />
       <DesktopChallenges />
     </MainLayout>

@@ -5,24 +5,26 @@ import { IChallenge } from "interfaces";
 
 interface Props {
   className?: string;
-  curChall: string;
-  sCurChall: any;
-  chall: IChallenge;
+  currentChallenge: string;
+  setCurrentChallenge: any;
+  challenge: IChallenge;
+  style?: React.CSSProperties;
 }
 
 const Challenge: React.FC<Props> = ({
   className = "",
-  curChall,
-  sCurChall,
-  chall,
+  currentChallenge,
+  setCurrentChallenge,
+  challenge,
+  style,
 }): React.ReactElement => {
-  const active = curChall === chall.id;
+  const active = currentChallenge === challenge.id;
 
-  const handleCurChall = (): void => {
+  const handleRootClick = (): void => {
     if (active) {
-      sCurChall("");
+      setCurrentChallenge("");
     } else {
-      sCurChall(chall.id);
+      setCurrentChallenge(challenge.id);
     }
   };
 
@@ -33,9 +35,10 @@ const Challenge: React.FC<Props> = ({
           ? "w-4/5 bg-gradient-to-r from-secondary-blue via-primary-purple to-primary-purple"
           : "w-full bg-primary-light1"
       }`}
-      onClick={() => handleCurChall()}
+      onClick={() => handleRootClick()}
+      style={style}
     >
-      <Typography variant="h4">{chall.name}</Typography>
+      <Typography variant="h4">{challenge.name}</Typography>
       <ArrowLeft
         width={24}
         height={24}

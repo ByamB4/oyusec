@@ -41,7 +41,7 @@ export const categoryList: IChallengeCategory[] = [
   },
 ];
 
-export const challengeList: IChallenge[] = Array.from({ length: 100 }, () => ({
+export const challengeList: IChallenge[] = Array.from({ length: 50 }, () => ({
   id: v4(),
   name: faker.name.findName(),
   tags: [],
