@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useSnackbar } from "contexts/snackbar";
 import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from "constants/Text";
-import Chip from "components/Chip";
+import { Chip } from "components";
 import Note from "components/Note";
 
 interface Props {
@@ -94,10 +94,7 @@ const Challenge: React.FC<Props> = ({
 
 // Development purposes
 import { v4 as uuidv4 } from "uuid";
-import {
-  handleChallengeChipColor,
-  handleChallengeIcon,
-} from "utils/handlers/challenge";
+import { handleChallengeChipColor, handleChallengeIcon } from "utils/handlers";
 
 const chall = {
   name: "Day 4 - Twin towers ",

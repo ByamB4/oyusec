@@ -1,1 +1,2 @@
-export { default } from './DemoChallenge'
+export { default } from "./DemoChallenge";
+export * from "./DemoChallenge";

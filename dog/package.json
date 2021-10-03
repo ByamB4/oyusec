@@ -30,7 +30,7 @@
     "@types/react-dom": "latest",
     "@types/uuid": "^8.3.1",
     "autoprefixer": "^10.3.2",
-    "eslint": "7.32.0",
+    "eslint": "^7.32.0",
     "eslint-config-next": "11.1.2",
     "faker": "^5.5.3",
     "postcss": "^8.3.6",

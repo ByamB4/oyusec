@@ -2,7 +2,7 @@ import React from "react";
 import Tab from "components/Tab";
 import Tabs from "components/Tabs";
 import { IChallengeCategory } from "interfaces";
-import { handleChallengeCategoryIcon } from "utils/handlers/challenge";
+import { handleChallengeCategoryIcon } from "utils/handlers";
 
 interface Props {
   className?: string;

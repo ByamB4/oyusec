@@ -3,8 +3,8 @@ import Avatar from "components/Avatar";
 import { DEFAULT } from "configs";
 import { safeUserAvatar } from "utils/safe";
 import { Typography } from "@mui/material";
-import Chip from "components/Chip";
 import UserTitle from "components/UserTitle";
+import { Chip } from "components";
 
 interface Props {
   className?: string;

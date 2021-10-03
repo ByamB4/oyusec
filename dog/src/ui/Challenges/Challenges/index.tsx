@@ -1,7 +1,7 @@
 import React from "react";
 import Categories from "./Categories";
 import Challenge from "components/Challenge";
-import { categoryList, challengeList } from "utils/fake";
+import { challengeCategoryList, challengeList } from "utils/fake";
 import { IChallenge } from "interfaces";
 import ActiveChallenge from "./ActiveChallenge";
 
@@ -38,7 +38,7 @@ const Challenges: React.FC<Props> = ({
       <Categories
         currentCategory={currentCategory}
         setCurrentCategory={setCurrentCategory}
-        categoryList={categoryList}
+        categoryList={challengeCategoryList}
       />
       <div className="grid grid-cols-2 gap-8 justify-items-center overflow-auto">
         <div
@@ -50,7 +50,7 @@ const Challenges: React.FC<Props> = ({
           {challengeList
             .filter(
               (it: IChallenge) =>
-                it.category.id === categoryList[currentCategory].id
+                it.category.id === challengeCategoryList[currentCategory].id
             )
             .map((it: IChallenge) => (
               <Challenge

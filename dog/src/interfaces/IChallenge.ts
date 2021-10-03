@@ -1,4 +1,9 @@
-import { IChallengeCategory, IChallengeNote, IChallengeTag } from "interfaces";
+import {
+  IChallengeCategory,
+  IChallengeNote,
+  IChallengeTag,
+  IChallengeState,
+} from "interfaces";
 
 export default interface IChallenge {
   id: string;
@@ -6,5 +11,6 @@ export default interface IChallenge {
   tags: IChallengeTag[];
   notes: IChallengeNote[];
   description: string;
+  state: IChallengeState;
   category: IChallengeCategory;
 }
