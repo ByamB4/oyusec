@@ -1,10 +1,8 @@
 import React from "react";
-import Avatar from "components/Avatar";
 import { DEFAULT } from "configs";
 import { safeUserAvatar } from "utils/safe";
 import { Typography } from "@mui/material";
-import UserTitle from "components/UserTitle";
-import { Chip } from "components";
+import { Chip, Avatar, UserTitle } from "components";
 
 interface Props {
   className?: string;

@@ -1,6 +1,6 @@
 import React from "react";
 import Categories from "./Categories";
-import Challenge from "components/Challenge";
+import { Challenge } from "components";
 import { challengeCategoryList, challengeList } from "utils/fake";
 import { IChallenge } from "interfaces";
 import ActiveChallenge from "./ActiveChallenge";

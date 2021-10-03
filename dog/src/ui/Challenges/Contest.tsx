@@ -1,9 +1,8 @@
 import React from "react";
-import Avatar from "components/Avatar";
 import { DEFAULT } from "configs";
 import { safeCompetitionThumbnail } from "utils/safe";
 import { Typography } from "@mui/material";
-import { Chip } from "components";
+import { Chip, Avatar } from "components";
 
 interface Props {
   className?: string;

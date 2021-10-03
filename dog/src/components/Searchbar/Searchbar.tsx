@@ -2,7 +2,7 @@ import React from "react";
 import IconSearch from "icons/Filled/Search";
 import { colors } from "configs";
 import { InputAdornment, InputBase } from "@mui/material";
-import KeyboardShortcut from "components/KeyboardShortcut";
+import { KeyboardShortcut } from "components";
 import { useSearch } from "contexts/search";
 
 interface Props {

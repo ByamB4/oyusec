@@ -1,6 +1,5 @@
 import React from "react";
-import Tab from "components/Tab";
-import Tabs from "components/Tabs";
+import { Tab, Tabs } from "components";
 import { IChallengeCategory } from "interfaces";
 import { handleChallengeCategoryIcon } from "utils/handlers";
 

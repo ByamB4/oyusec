@@ -10,7 +10,7 @@ import {
   LinearProgress,
   Typography,
 } from "@mui/material";
-import UserTitle from "components/UserTitle";
+import { UserTitle } from "components";
 
 interface Props {
   className?: string;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Searchbar } from "components/Searchbar";
+import { Searchbar } from "components";
 import { Button } from "@mui/material";
 import IconGoogle from "icons/Filled/Google";
 

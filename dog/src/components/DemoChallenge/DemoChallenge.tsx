@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "components/Input";
+import { Input, Note, Chip } from "components";
 import {
   Accordion,
   AccordionDetails,
@@ -9,8 +9,6 @@ import {
 } from "@mui/material";
 import { useSnackbar } from "contexts/snackbar";
 import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from "constants/Text";
-import { Chip } from "components";
-import Note from "components/Note";
 
 interface Props {
   className?: string;

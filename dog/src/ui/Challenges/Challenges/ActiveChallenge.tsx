@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
-import Note from "components/Note";
-import Input from "components/Input";
+import { Input, Note } from "components";
 import { FLAG_PLACEHOLDER } from "constants/Text";
 import { IChallenge, IChallengeNote } from "interfaces";
 import { useSnackbar } from "contexts/snackbar";
