@@ -10,7 +10,7 @@ const Index: NextPage<Props> = ({}): React.ReactElement => {
   return (
     <MainLayout
       NO_PADDING
-      className={`bg-contain bg-no-repeat xl:bg-index-pattern `}
+      className={`bg-contain bg-no-repeat xl:bg-index-pattern`}
     >
       <DesktopHero className={`${MAX_SCREEN_MX}`} />
     </MainLayout>

@@ -31,7 +31,7 @@ const MainLayout: React.FC<Props> = ({
         <div className="flex flex-col justify-between w-full h-full">
           <AppNavbar className={`bg-primary-dark text-white`} />
           <AppView
-            className={`bg-primary-light text-white rounded-l-3xl overflow-auto ${
+            className={`bg-primary-light h-full text-white rounded-l-3xl overflow-auto ${
               NO_PADDING ? "" : "p-4"
             } ${className}`}
             style={style}

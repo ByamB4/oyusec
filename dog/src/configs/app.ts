@@ -19,7 +19,7 @@ export const DEFAULT: IDEFAULT = {
     avatar: `${process.env.STATIC_ROOT}/img/users/me.jpg`,
     rank: "Hecker",
     tags: [
-      { label: "Contributer", id: uuidv4() },
+      { label: "Contributor", id: uuidv4() },
       { label: "Core", id: uuidv4() },
       { label: "Developer", id: uuidv4() },
     ],
