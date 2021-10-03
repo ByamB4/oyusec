@@ -11,7 +11,6 @@ import { useSnackbar } from "contexts/snackbar";
 import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from "constants/Text";
 import Chip from "components/Chip";
 import Note from "components/Note";
-import { handleChallChipColor, handleChallIcon } from "utils/handlers";
 
 interface Props {
   className?: string;
@@ -59,9 +58,9 @@ const Challenge: React.FC<Props> = ({
           </div>
           <div className="flex gap-4">
             {chall.chips.map((it) => (
-              <Chip key={it.id} color={handleChallChipColor(it.type)}>
+              <Chip key={it.id} color={handleChallengeChipColor(it.type)}>
                 <Typography variant="body1" className="flex gap-1">
-                  {handleChallIcon(it.type)}
+                  {handleChallengeIcon(it.type)}
                   <span className="font-medium">{it.label}</span>
                   <span>{it.value}</span>
                 </Typography>
@@ -95,6 +94,10 @@ const Challenge: React.FC<Props> = ({
 
 // Development purposes
 import { v4 as uuidv4 } from "uuid";
+import {
+  handleChallengeChipColor,
+  handleChallengeIcon,
+} from "utils/handlers/challenge";
 
 const chall = {
   name: "Day 4 - Twin towers ",

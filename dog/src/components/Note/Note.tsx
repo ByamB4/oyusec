@@ -6,10 +6,13 @@ interface Props {
   text: string;
 }
 
-const Note: React.FC<Props> = ({ className = "", text = "" }):React.ReactElement => {
+const Note: React.FC<Props> = ({
+  className = "",
+  text = "",
+}): React.ReactElement => {
   return (
-    <div className={`flex h-full bg-secondary-darkGrey ${className}`}>
-      <div className="h-auto w-2 bg-secondary-yellow" />
+    <div className={`flex bg-secondary-darkGrey ${className}`}>
+      <div className="w-2 bg-secondary-yellow" />
       <Typography variant="h6" className="px-2 py-1">
         {text}
       </Typography>

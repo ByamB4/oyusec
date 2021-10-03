@@ -2,33 +2,33 @@ import React from "react";
 import Tab from "components/Tab";
 import Tabs from "components/Tabs";
 import { IChallengeCategory } from "interfaces";
-import { challCatIcon } from "utils/handlers";
+import { handleChallengeCategoryIcon } from "utils/handlers/challenge";
 
 interface Props {
   className?: string;
-  curCat: number;
-  catList: IChallengeCategory[];
-  sCurCat: any;
+  currentCategory: number;
+  categoryList: IChallengeCategory[];
+  setCurrentCategory: any;
 }
 
 const Categories: React.FC<Props> = ({
   className = "",
-  curCat,
-  sCurCat,
-  catList,
+  currentCategory,
+  setCurrentCategory,
+  categoryList,
 }): React.ReactElement => {
   return (
     <Tabs
-      value={curCat}
-      onChange={(e: React.SyntheticEvent, _: number) => sCurCat(_)}
+      value={currentCategory}
+      onChange={(e: React.SyntheticEvent, _: number) => setCurrentCategory(_)}
       className={`${className}`}
     >
-      {catList.map((it) => (
+      {categoryList.map((it) => (
         <Tab
           key={it.id}
           label={
             <div className="flex items-center gap-2">
-              {challCatIcon(it)} {it.value}
+              {handleChallengeCategoryIcon(it)} {it.value}
             </div>
           }
         />

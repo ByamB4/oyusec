@@ -41,9 +41,14 @@ export const categoryList: IChallengeCategory[] = [
   },
 ];
 
-export const challengeList: IChallenge[] = Array.from({ length: 50 }, () => ({
+export const challengeList: IChallenge[] = Array.from({ length: 200 }, () => ({
   id: v4(),
   name: faker.name.findName(),
   tags: [],
+  description: faker.lorem.paragraphs(),
+  notes: Array.from({ length: 2 }, () => ({
+    id: v4(),
+    label: faker.lorem.sentence(),
+  })),
   category: categoryList[Math.floor(Math.random() * categoryList.length)],
 }));

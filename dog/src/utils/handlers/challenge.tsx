@@ -1,3 +1,4 @@
+import { IChallengeCategory } from "interfaces";
 import {
   IconBugFilled,
   IconCubeScanFilled,
@@ -7,12 +8,9 @@ import {
   IconSkullFilled,
   IconWebFilled,
 } from "icons/Filled";
-import IconEye from "icons/Lined/Eye";
-import IconStar from "icons/Lined/Star";
-import { IChallengeCategory } from "interfaces";
-import React from "react";
+import { IconEyeLined, IconStarLined } from "icons/Lined";
 
-export const handleChallChipColor = (
+export const handleChallengeChipColor = (
   val: string
 ): "primary" | "red" | "deepBlue" | "darkViolet" => {
   switch (val) {
@@ -27,16 +25,18 @@ export const handleChallChipColor = (
   }
 };
 
-export const handleChallIcon = (val: string): React.ReactChild | undefined => {
+export const handleChallengeIcon = (
+  val: string
+): React.ReactChild | undefined => {
   switch (val) {
     case "solved":
-      return <IconEye width={20} height={20} />;
+      return <IconEyeLined width={20} height={20} />;
     case "score":
-      return <IconStar width={20} height={20} />;
+      return <IconStarLined width={20} height={20} />;
   }
 };
 
-export const challCatIcon = (
+export const handleChallengeCategoryIcon = (
   cat: IChallengeCategory
 ): React.ReactChild | undefined => {
   switch (cat.key) {

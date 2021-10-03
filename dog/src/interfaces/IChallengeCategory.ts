@@ -3,3 +3,4 @@ export default interface IChallengeCategory {
   key: string;
   value: string;
 }
+
