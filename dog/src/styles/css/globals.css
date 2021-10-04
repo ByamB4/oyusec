@@ -255,15 +255,15 @@
   position: absolute;
   /* left: 50%; */
   /* transform: translateY(50%); */
-  top: 50%;
-  left: 30%;
+  top: 60%;
+  left: 10%;
   transform: translate(-50%, -50%);
 }
 
 @keyframes MoveUpDown {
   0%,
   100% {
-    transform: translateY(-100px);
+    transform: translateY(-50px);
   }
   50% {
     transform: translateY(50px);
