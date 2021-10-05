@@ -1,5 +1,6 @@
 import React from "react";
 import About from "./About";
+import Content from "./Content";
 import Tabs from "./Tabs";
 import { ICompetition } from "interfaces";
 import { competitionDetailTabs } from "utils/fake";
@@ -23,6 +24,7 @@ const Competition: React.FC<Props> = ({
         tabsList={competitionDetailTabs}
         setCurrentTab={setCurrentTab}
       />
+      <Content />
     </div>
   );
 };
