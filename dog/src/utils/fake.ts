@@ -137,7 +137,7 @@ export const competitionDetailTabs: any = [
     key: "statistics",
     value: "статистик",
   },
-]
+];
 
 export const competitionList: ICompetition[] = Array.from(
   { length: 200 },
@@ -159,4 +159,3 @@ export const competitionList: ICompetition[] = Array.from(
     updatedAt: faker.date.past(),
   })
 );
-

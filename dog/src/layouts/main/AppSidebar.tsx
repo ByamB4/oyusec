@@ -21,13 +21,9 @@ const AppSidebar: React.FC<Props> = ({
   className = "",
 }): React.ReactElement => {
   const router = useRouter();
+  const checkActivePage = (cur: string) =>
+    cur.split("/")[1] === router.asPath.split("/")[1];
 
-  const checkActivePage = (link: string) => {
-    if (router.pathname === link) {
-      return true;
-    }
-    return false;
-  };
   const middleLinks = [
     {
       icon: (
