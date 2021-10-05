@@ -23,7 +23,7 @@ const _Tab = styled((props: Props, className = "") => (
     opacity: 1,
   },
   "&.Mui-selected": {
-    color: colors.text.white,
+    color: `${colors.text.white} !important`,
   },
   "&.Mui-focusVisible": {
     backgroundColor: "#d1eaff",

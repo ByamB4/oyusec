@@ -38,7 +38,7 @@ const TopPlayer: React.FC<Props> = ({ className = "" }): React.ReactElement => {
         </Typography>
         <UserTitle user={DEFAULT.user} size="h2" noRank />
         <div className="flex gap-2">
-          {DEFAULT.user.tags.map((it) => (
+          {DEFAULT.user.tags?.map((it) => (
             <Chip key={it.id}>
               <Typography variant="h6">{it.label}</Typography>
             </Chip>

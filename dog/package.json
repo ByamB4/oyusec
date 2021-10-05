@@ -9,6 +9,7 @@
     "@emotion/styled": "latest",
     "@mui/material": "^5.0.2",
     "clsx": "latest",
+    "moment": "^2.29.1",
     "next": "^11.1.2",
     "react": "latest",
     "react-dom": "latest",

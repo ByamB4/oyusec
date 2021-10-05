@@ -1,16 +1,15 @@
 import React from "react";
 import { MainLayout } from "layouts";
-import { DesktopCompetitionsCategories } from "ui/Competitions";
+import { DesktopCompetitionsRoot } from "ui/Competitions";
+import { NextPage } from "next";
 
 interface Props {}
 
-const Competitions: React.FC<Props> = ({}): React.ReactElement => {
+const Competitions: NextPage<Props> = ({}): React.ReactElement => {
   return (
-    <div>
-      <MainLayout>
-        <DesktopCompetitionsCategories />
-      </MainLayout>
-    </div>
+    <MainLayout className="flex flex-col">
+      <DesktopCompetitionsRoot />
+    </MainLayout>
   );
 };
 

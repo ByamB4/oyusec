@@ -10,7 +10,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const AntTabs = styled(Tabs)({
+const CusTabs = styled(Tabs)({
   "& .MuiTabs-indicator": {
     backgroundColor: colors.secondary.blue,
     height: "3px",
@@ -25,9 +25,9 @@ const _Tabs: React.FC<Props> = ({
   onChange,
 }): React.ReactElement => {
   return (
-    <AntTabs className={`${className}`} value={value} onChange={onChange}>
+    <CusTabs className={`${className}`} value={value} onChange={onChange}>
       {children}
-    </AntTabs>
+    </CusTabs>
   );
 };
 

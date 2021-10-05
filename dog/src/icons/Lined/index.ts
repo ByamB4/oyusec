@@ -9,3 +9,7 @@ export { default as IconSettings } from "./Settings";
 export { default as IconStar } from "./Star";
 export { default as IconSword } from "./Sword";
 export { default as IconTrophy } from "./Trophy";
+export { default as IconTimeLapse } from "./TimeLapse";
+export { default as IconSwords } from "./Swords";
+export { default as IconChart } from "./Chart";
+export { default as IconBaselineQuery } from "./BaselineQuery";

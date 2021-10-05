@@ -1,0 +1,40 @@
+import { Divider, Typography } from "@mui/material";
+import React from "react";
+import Image from "next/image";
+import { ICompetition } from "interfaces";
+import moment from "moment";
+import { safeCompetitionThumbnail } from "utils/safe";
+import Link from 'next/link';
+
+interface Props {
+  className?: string;
+  competition: ICompetition;
+}
+
+const CompetitionThumbnail: React.FC<Props> = ({
+  className = "",
+  competition,
+}): React.ReactElement => {
+  return (
+    <Link href={`/competitions/${competition.slug}`}>
+      <div
+        className={`flex flex-col bg-primary-light1 rounded-xl hover:cursor-pointer ${className}`}
+      >
+        <Image
+          src={safeCompetitionThumbnail(competition)}
+          height={150}
+          width={300}
+        />
+        <div className="flex flex-col gap-3 p-4">
+          <Typography variant="h4">{competition.name}</Typography>
+          <Divider />
+          <Typography variant="h7" className="text-text-grey text-center">
+            Ends At {moment(competition.endDate).format("YYYY-MMMM-DD HH:MM")}
+          </Typography>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default CompetitionThumbnail;

@@ -5,7 +5,7 @@ import IconVerifiedUser from "icons/Filled/VerifiedUser";
 import { colors } from "configs";
 
 interface Props {
-  user: IUser;
+  user: Partial<IUser>;
   size?: "h4" | "h3" | "h2";
   className?: string;
   noRank?: boolean;

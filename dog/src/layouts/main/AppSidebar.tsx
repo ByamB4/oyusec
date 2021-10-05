@@ -152,7 +152,7 @@ const AppSidebar: React.FC<Props> = ({
   ];
 
   return (
-    <div
+    <nav
       className={`bg-primary-dark h-full py-8 mr-3 flex flex-col items-center ${className}`}
     >
       <div className="flex flex-col flex-grow justify-center gap-8">
@@ -184,7 +184,7 @@ const AppSidebar: React.FC<Props> = ({
           }
         />
       </div>
-    </div>
+    </nav>
   );
 };
 

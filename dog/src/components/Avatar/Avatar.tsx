@@ -37,6 +37,7 @@ const _Avatar: React.FC<Props> = ({
       sx = 176;
       break;
   }
+
   return (
     <Avatar
       className={`border-4 border-primary-purple ${className}`}

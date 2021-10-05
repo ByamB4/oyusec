@@ -1,6 +1,7 @@
 import { IUserTag } from "interfaces";
 
 export default interface IUser {
+  id: string;
   firstName: string;
   lastName: string;
   avatar: string;

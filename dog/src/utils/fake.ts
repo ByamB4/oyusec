@@ -1,4 +1,10 @@
-import { IChallenge, IChallengeCategory, IChallengeState } from "interfaces";
+import {
+  IChallenge,
+  IChallengeCategory,
+  IChallengeState,
+  ICompetition,
+  ICompetitionState,
+} from "interfaces";
 import { v4 } from "uuid";
 
 var faker = require("faker");
@@ -86,3 +92,71 @@ export const featureTopPlayer = {
   competition: 1,
   score: 986,
 };
+
+export const competitionStateList: ICompetitionState[] = [
+  {
+    id: v4(),
+    key: "live",
+    value: "live",
+  },
+  {
+    id: v4(),
+    key: "coming",
+    value: "Coming",
+  },
+  {
+    id: v4(),
+    key: "archive",
+    value: "Archive",
+  },
+  {
+    id: v4(),
+    key: "requested",
+    value: "Requested",
+  },
+];
+
+export const competitionDetailTabs: any = [
+  {
+    id: v4(),
+    key: "about",
+    value: "тухай",
+  },
+  {
+    id: v4(),
+    key: "challenges",
+    value: "бодлогууд",
+  },
+  {
+    id: v4(),
+    key: "scoreboard",
+    value: "онооны самбар",
+  },
+  {
+    id: v4(),
+    key: "statistics",
+    value: "статистик",
+  },
+]
+
+export const competitionList: ICompetition[] = Array.from(
+  { length: 200 },
+  () => ({
+    id: v4(),
+    name: faker.name.findName(),
+    image: faker.image.imageUrl(),
+    thumbnailImage: faker.image.imageUrl(),
+    slug: faker.lorem.slug(),
+    tags: [],
+    state:
+      competitionStateList[
+        Math.floor(Math.random() * competitionStateList.length)
+      ],
+    authors: [],
+    startDate: faker.date.future(),
+    endDate: faker.date.future(),
+    createdAt: faker.date.past(),
+    updatedAt: faker.date.past(),
+  })
+);
+

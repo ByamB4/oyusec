@@ -1,5 +1,7 @@
 module.exports = {
-  images: {},
+  images: {
+    domains: ["placeimg.com"],
+  },
   traillingSlash: true,
   // webpack: (config, { isServer }) => {
   //   if (!isServer) {

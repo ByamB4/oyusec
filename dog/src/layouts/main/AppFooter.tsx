@@ -32,7 +32,7 @@ const BorderLinearProgress = styled(LinearProgress)(() =>
 
 const AppFooter: React.FC<Props> = ({ className = "" }): React.ReactElement => {
   return (
-    <div
+    <footer
       className={`bg-primary-dark flex items-center justify-between text-white py-2 px-4 ${className}`}
     >
       <div className="flex gap-10">
@@ -69,7 +69,7 @@ const AppFooter: React.FC<Props> = ({ className = "" }): React.ReactElement => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

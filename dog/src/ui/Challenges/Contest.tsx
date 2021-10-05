@@ -1,8 +1,9 @@
 import React from "react";
 import { DEFAULT } from "configs";
-import { safeCompetitionThumbnail } from "utils/safe";
+import { safeCompetitionImage } from "utils/safe";
 import { Typography } from "@mui/material";
 import { Chip, Avatar } from "components";
+import { ICompetitionTag } from "interfaces";
 
 interface Props {
   className?: string;
@@ -28,7 +29,7 @@ const Contest: React.FC<Props> = ({ className = "" }): React.ReactElement => {
     <div
       className={`flex gap-4 items-center bg-primary-light1 rounded-3xl p-5 ${className}`}
     >
-      <Avatar size="120" src={safeCompetitionThumbnail(DEFAULT.competition)} />
+      <Avatar size="120" src={safeCompetitionImage(DEFAULT.competition)} />
       <div className="flex flex-col h-full justify-between">
         <Typography
           variant="h6"
@@ -38,7 +39,7 @@ const Contest: React.FC<Props> = ({ className = "" }): React.ReactElement => {
         </Typography>
         <Typography variant="h2">First Blood #2</Typography>
         <div className="flex gap-2">
-          {DEFAULT.competition.tags.map((it) => (
+          {DEFAULT.competition.tags?.map((it: ICompetitionTag) => (
             <Chip key={it.id}>
               <Typography variant="h6">{it.label}</Typography>
             </Chip>
