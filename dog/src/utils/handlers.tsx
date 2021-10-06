@@ -24,7 +24,7 @@ import {
   IconStar,
   IconSwords,
   IconTimeLapse,
-} from "icons/Linedt ";
+} from "icons/Lined";
 
 export const handleChallengeChipColor = (
   val: string
