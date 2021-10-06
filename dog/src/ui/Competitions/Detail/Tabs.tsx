@@ -1,4 +1,5 @@
 import { Tab, Tabs } from "components";
+import { ICompetitionTab } from "interfaces";
 import React from "react";
 import { handleCompetitionTabIcon } from "utils/handlers";
 
@@ -6,7 +7,7 @@ interface Props {
   className?: string;
   currentTab: number;
   setCurrentTab: any;
-  tabsList: any;
+  tabsList: ICompetitionTab[];
 }
 
 const RootTabs: React.FC<Props> = ({
@@ -21,14 +22,13 @@ const RootTabs: React.FC<Props> = ({
       onChange={(e: React.SyntheticEvent, _: number) => setCurrentTab(_)}
       className={`${className}`}
     >
-      {tabsList.map((it: any) => (
+      {tabsList.map((it: ICompetitionTab) => (
         <Tab
           key={it.id}
-          // className="mx-4"
           label={
             <div className="flex items-center gap-2 text-base">
               {handleCompetitionTabIcon(it)}
-              {it.value}
+              {it.name}
             </div>
           }
         />

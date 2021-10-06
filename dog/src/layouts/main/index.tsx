@@ -4,7 +4,7 @@ import AppView from "./AppView";
 import AppNavbar from "./AppNavbar";
 import AppFooter from "./AppFooter";
 import AppSidebar from "./AppSidebar";
-import { DEFAULT } from "configs";
+import { TITLE } from "configs/app";
 
 interface Props {
   className?: string;
@@ -17,7 +17,7 @@ interface Props {
 const MainLayout: React.FC<Props> = ({
   children,
   className = "",
-  title = DEFAULT.title,
+  title = TITLE.DEFAULT,
   style,
   NO_PADDING = false,
 }) => {

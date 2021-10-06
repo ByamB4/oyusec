@@ -8,6 +8,7 @@ interface Props {
   value: number;
   onChange: (event: React.SyntheticEvent, value: any) => void;
   children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 const CusTabs = styled(Tabs)({
@@ -22,10 +23,16 @@ const _Tabs: React.FC<Props> = ({
   className = "",
   children,
   value,
+  style,
   onChange,
 }): React.ReactElement => {
   return (
-    <CusTabs className={`${className}`} value={value} onChange={onChange}>
+    <CusTabs
+      style={style}
+      className={`${className}`}
+      value={value}
+      onChange={onChange}
+    >
       {children}
     </CusTabs>
   );

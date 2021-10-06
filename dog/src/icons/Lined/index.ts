@@ -13,3 +13,4 @@ export { default as IconTimeLapse } from "./TimeLapse";
 export { default as IconSwords } from "./Swords";
 export { default as IconChart } from "./Chart";
 export { default as IconBaselineQuery } from "./BaselineQuery";
+export { default as IconFile } from "./File";

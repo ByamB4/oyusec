@@ -4,6 +4,8 @@ import {
   IChallengeState,
   ICompetition,
   ICompetitionState,
+  ICompetitionTabContentType,
+  ICompetitionTabType,
 } from "interfaces";
 import { v4 } from "uuid";
 
@@ -116,7 +118,7 @@ export const competitionStateList: ICompetitionState[] = [
   },
 ];
 
-export const competitionDetailTabs: any = [
+export const competitionTabTypes: ICompetitionTabType[] = [
   {
     id: v4(),
     key: "about",
@@ -139,6 +141,24 @@ export const competitionDetailTabs: any = [
   },
 ];
 
+export const competitionTabContentTypes: ICompetitionTabContentType[] = [
+  {
+    id: v4(),
+    key: "about",
+    value: "тухай",
+  },
+  {
+    id: v4(),
+    key: "rule",
+    value: "дүрэм",
+  },
+  {
+    id: v4(),
+    key: "prize",
+    value: "Шагнал",
+  },
+];
+
 export const competitionList: ICompetition[] = Array.from(
   { length: 200 },
   () => ({
@@ -157,5 +177,25 @@ export const competitionList: ICompetition[] = Array.from(
     endDate: faker.date.future(),
     createdAt: faker.date.past(),
     updatedAt: faker.date.past(),
+    tabs: Array.from({ length: 10 }, () => ({
+      id: v4(),
+      visible: true,
+      loginRequired: false,
+      participantRequired: false,
+      name: faker.name.findName(),
+      // type: Math.random(  ),
+      type: competitionTabTypes[
+        Math.floor(Math.random() * competitionTabTypes.length)
+      ],
+      contents: Array.from({ length: 10 }, () => ({
+        id: v4(),
+        type: competitionTabContentTypes[
+          Math.floor(Math.random() * competitionTabContentTypes.length)
+        ],
+        title: faker.name.findName(),
+        description: faker.lorem.paragraphs(),
+        rules: Array.from({ length: 4 }, () => faker.lorem.paragraph()),
+      })),
+    })),
   })
 );

@@ -1,6 +1,8 @@
 import { ICompetition, IUser } from "interfaces";
+import { competitionTabContentTypes, competitionTabTypes } from "utils/fake";
 // Development purposes
 import { v4 } from "uuid";
+var faker = require("faker");
 
 export const APP_NAME = "OyuSec";
 
@@ -9,6 +11,19 @@ interface IDEFAULT {
   user: Partial<IUser>;
   competition: Partial<ICompetition>;
 }
+
+export const TITLE = {
+  DEFAULT: "OyuSec",
+  homepage: {
+    index: "Нүүр хуудас",
+  },
+  challenges: {
+    index: "Бодлогууд",
+  },
+  competitions: {
+    index: "Тэмцээн",
+  },
+};
 
 export const DEFAULT: IDEFAULT = {
   title: "OyuSec",
@@ -35,6 +50,26 @@ export const DEFAULT: IDEFAULT = {
       { label: "Шагналтай", id: v4() },
       { label: "Веб", id: v4() },
     ],
+    tabs: Array.from({ length: 10 }, () => ({
+      id: v4(),
+      visible: true,
+      loginRequired: false,
+      participantRequired: false,
+      name: faker.name.findName(),
+      // type: Math.random(  ),
+      type: competitionTabTypes[
+        Math.floor(Math.random() * competitionTabTypes.length)
+      ],
+      contents: Array.from({ length: 10 }, () => ({
+        id: v4(),
+        type: competitionTabContentTypes[
+          Math.floor(Math.random() * competitionTabContentTypes.length)
+        ],
+        rules: Array.from({ length: 4 }, () => faker.lorem.paragraph()),
+        title: faker.name.findName(),
+        description: faker.lorem.paragraphs(),
+      })),
+    })),
     authors: Array.from({ length: 6 }, () => ({
       user: {
         id: v4(),
@@ -60,6 +95,7 @@ export const DEFAULT: IDEFAULT = {
         state: {} as any,
         updatedAt: "" as any,
         tags: [],
+        tabs: [],
       },
     })),
   },

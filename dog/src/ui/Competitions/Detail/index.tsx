@@ -1,9 +1,8 @@
 import React from "react";
 import About from "./About";
-import Content from "./Content";
+import Contents from "./Contents";
 import Tabs from "./Tabs";
 import { ICompetition } from "interfaces";
-import { competitionDetailTabs } from "utils/fake";
 
 interface Props {
   className?: string;
@@ -17,14 +16,14 @@ const Competition: React.FC<Props> = ({
   const [currentTab, setCurrentTab] = React.useState<number>(0);
 
   return (
-    <div className={`${className}`}>
+    <div className={`flex flex-col overflow-auto gap-4 ${className}`}>
       <About competition={competition} />
       <Tabs
         currentTab={currentTab}
-        tabsList={competitionDetailTabs}
+        tabsList={competition.tabs}
         setCurrentTab={setCurrentTab}
       />
-      <Content />
+      <Contents contents={competition.tabs[currentTab].contents} />
     </div>
   );
 };

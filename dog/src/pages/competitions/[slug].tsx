@@ -11,7 +11,7 @@ interface Props {
 
 const Competitions: NextPage<Props> = ({ competition }): React.ReactElement => {
   return (
-    <MainLayout className="flex flex-col">
+    <MainLayout className="flex flex-col" title={competition.name}>
       <DesktopCompetition competition={competition} />
     </MainLayout>
   );

@@ -1,4 +1,10 @@
-import { IChallengeCategory, ICompetitionState } from "interfaces";
+import React from "react";
+import {
+  IChallengeCategory,
+  ICompetitionState,
+  ICompetitionTab,
+  ICompetitionTabContent,
+} from "interfaces";
 import {
   IconBug,
   IconCubeScan,
@@ -13,11 +19,12 @@ import {
   IconBaselineQuery,
   IconChart,
   IconEye,
+  IconFile,
   IconScript,
   IconStar,
   IconSwords,
   IconTimeLapse,
-} from "icons/Lined";
+} from "icons/Linedt ";
 
 export const handleChallengeChipColor = (
   val: string
@@ -86,9 +93,9 @@ export const handleCompetitionsRootTabIcon = (
 };
 
 export const handleCompetitionTabIcon = (
-  state: any
+  tab: ICompetitionTab
 ): React.ReactChild | undefined => {
-  switch (state.key) {
+  switch (tab.type.key) {
     case "about": {
       return <IconScript width={24} height={24} />;
     }
@@ -100,6 +107,22 @@ export const handleCompetitionTabIcon = (
     }
     case "statistics": {
       return <IconBaselineQuery width={24} height={24} />;
+    }
+  }
+};
+
+export const handleCompetitionTabContentIcon = (
+  content: ICompetitionTabContent
+): React.ReactChild | undefined => {
+  switch (content.type.key) {
+    case "about": {
+      return <IconScript width={22} height={22} />;
+    }
+    case "rule": {
+      return <IconFile width={22} height={22} />;
+    }
+    case "prize": {
+      return <IconChart width={22} height={22} />;
     }
   }
 };

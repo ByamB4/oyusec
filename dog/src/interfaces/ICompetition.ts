@@ -1,6 +1,7 @@
 import {
   ICompetitionAuthor,
   ICompetitionState,
+  ICompetitionTab,
   ICompetitionTag,
 } from "interfaces";
 
@@ -14,6 +15,7 @@ export default interface ICompetition {
   endDate: Date;
   updatedAt: Date;
   slug: string;
+  tabs: ICompetitionTab[];
   authors: ICompetitionAuthor[];
   state: ICompetitionState;
   tags: ICompetitionTag[];
