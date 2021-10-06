@@ -4,7 +4,7 @@
     "allowJs": true,
     // "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "esnext", "es5", "es6", "dom.iterable"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -20,7 +20,7 @@
     "isolatedModules": true,
     // START: Ignore
     "noUnusedLocals": true,
-  "noUnusedParameters": false
+    "noUnusedParameters": false
     // END: Ignore
   },
   "exclude": ["node_modules"],
