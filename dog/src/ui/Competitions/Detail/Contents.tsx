@@ -1,6 +1,7 @@
 import React from "react";
 import { ICompetitionTabContent } from "interfaces";
 import { ContentAbout, ContentPrize, ContentRules } from "./Content";
+import { CompLayout } from "layouts";
 
 interface Props {
   className?: string;
@@ -12,9 +13,7 @@ const Content: React.FC<Props> = ({
   contents,
 }): React.ReactElement => {
   return (
-    <div
-      className={`flex flex-col gap-4 bg-primary-light1 rounded-xl p-4 ${className}`}
-    >
+    <CompLayout className={`${className}`}>
       {contents.map((content: ICompetitionTabContent) => (
         <React.Fragment key={content.id}>
           {content.type.key === "about" && <ContentAbout content={content} />}
@@ -22,7 +21,7 @@ const Content: React.FC<Props> = ({
           {content.type.key === "prize" && <ContentPrize content={content} />}
         </React.Fragment>
       ))}
-    </div>
+    </CompLayout>
   );
 };
 

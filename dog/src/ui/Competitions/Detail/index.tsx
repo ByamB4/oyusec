@@ -3,6 +3,9 @@ import About from "./About";
 import Contents from "./Contents";
 import Tabs from "./Tabs";
 import { ICompetition } from "interfaces";
+import { ScoreboardUI } from "./Scoreboard";
+import { ChallengesUI } from "./Challenges";
+import { StatisticsUI } from "./Statistics";
 
 interface Props {
   className?: string;
@@ -23,7 +26,18 @@ const Competition: React.FC<Props> = ({
         tabsList={competition.tabs}
         setCurrentTab={setCurrentTab}
       />
-      <Contents contents={competition.tabs[currentTab].contents} />
+      {competition.tabs[currentTab].type.key === "scoreboard" && (
+        <ScoreboardUI />
+      )}
+      {competition.tabs[currentTab].type.key === "about" && (
+        <Contents contents={competition.tabs[currentTab].contents} />
+      )}
+      {competition.tabs[currentTab].type.key === "challenges" && (
+        <ChallengesUI />
+      )}
+      {competition.tabs[currentTab].type.key === "statistics" && (
+        <StatisticsUI />
+      )}
     </div>
   );
 };
