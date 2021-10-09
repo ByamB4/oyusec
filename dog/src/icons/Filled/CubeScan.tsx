@@ -1,8 +1,8 @@
-import * as React from "react";
+import { SVGProps, ReactElement, FC } from "react";
 
-const SvgCubeScan = (
-  props: React.SVGProps<SVGSVGElement>
-): React.ReactElement => {
+interface Props extends SVGProps<SVGSVGElement> {}
+
+const SvgCubeScan: FC<Props> = (props): ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
