@@ -39,6 +39,7 @@ export const DEFAULT: IDEFAULT = {
       instagramLink: "https://facebook.com/byamb4",
       twitterLink: "https://facebook.com/byamb4",
       linkedinLink: "https://facebook.com/byamb4",
+      githubLink: "https://facebook.com/byamb4",
       youtubeLink: "https://facebook.com/byamb4",
     },
     tags: [

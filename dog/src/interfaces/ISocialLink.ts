@@ -3,5 +3,6 @@ export default interface ISocialLink {
   instagramLink?: string | "";
   twitterLink?: string | "";
   linkedinLink?: string | "";
+  githubLink?: string | "";
   youtubeLink?: string | "";
 }

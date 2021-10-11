@@ -22,12 +22,7 @@ const ButtonStyle: {
   clear: React.CSSProperties;
 } = {
   outlined: {
-    // border: "1px solid rgba(51, 83, 31, 0.08)",
-    // border: "2px solid",
-    // borderImage: "linear-gradient(90deg, #6A4BFF 0%, #2196F3 100%)",
-    // borderImageSlice: 1,
-    // borderRadius: 8,
-    // overflow: "hidden",
+    border: "2px solid #6A4BFF",
   },
   contained: {
     border: "none",
@@ -38,7 +33,7 @@ const ButtonStyle: {
 };
 const ButtonTypes = {
   contained: "bg-primary-brand shadow-brand-primary-base",
-  outlined: "border border-red-200",
+  outlined: "",
   secondary: "bg-button-background-secondary-onSurface",
   clear: "",
 };
