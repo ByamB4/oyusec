@@ -126,3 +126,24 @@ export const handleCompetitionTabContentIcon = (
     }
   }
 };
+
+export const handleIcon = (
+  val: string,
+  size: number = 24,
+  color: string = "white"
+): React.ReactElement => {
+  switch (val) {
+    case "facebook":
+      return <IconBug width={size} height={size} fill={color} />;
+    case "instagram":
+      return <IconCubeScan width={size} height={size} fill={color} />;
+    case "youtube":
+      return <IconFileSearch width={size} height={size} fill={color} />;
+    case "twitter":
+      return <IconFire width={size} height={size} fill={color} />;
+    case "linkedin":
+      return <IconLock width={size} height={size} fill={color} />;
+    default:
+      return <></>;
+  }
+};

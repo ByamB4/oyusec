@@ -33,6 +33,14 @@ export const DEFAULT: IDEFAULT = {
     username: "ByamB4",
     avatar: `${process.env.STATIC_ROOT}/img/users/me.jpg`,
     rank: "Hecker",
+    cover: `${process.env.STATIC_ROOT}/img/users/cover.png`,
+    socialLinks: {
+      facebookLink: "https://facebook.com/byamb4",
+      instagramLink: "https://facebook.com/byamb4",
+      twitterLink: "https://facebook.com/byamb4",
+      linkedinLink: "https://facebook.com/byamb4",
+      youtubeLink: "https://facebook.com/byamb4",
+    },
     tags: [
       { label: "Contributor", id: v4() },
       { label: "Core", id: v4() },
@@ -79,6 +87,7 @@ export const DEFAULT: IDEFAULT = {
         avatar: `${process.env.STATIC_ROOT}/img/users/me.jpg`,
         rank: "Hecker",
         tags: [],
+        cover: "",
       },
       competition: {
         id: v4(),

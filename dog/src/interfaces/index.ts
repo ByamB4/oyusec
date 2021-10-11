@@ -15,3 +15,5 @@ export type { default as ICompetitionTabContentType } from "./ICompetitionTabCon
 
 export type { default as IUser } from "./IUser";
 export type { default as IUserTag } from "./IUserTag";
+
+export type { default as ISocialLink } from "./ISocialLink";

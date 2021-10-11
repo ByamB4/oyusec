@@ -16,14 +16,29 @@ const ButtonSize = {
   large: "px-6 py-6",
 };
 
-// const ButtonStyle: { outlined: React.CSSProperties } = {
-//   outlined: {
-//     border: "1px solid rgba(51, 83, 31, 0.08)",
-//   },
-// };
+const ButtonStyle: {
+  outlined: React.CSSProperties;
+  contained: React.CSSProperties;
+  clear: React.CSSProperties;
+} = {
+  outlined: {
+    // border: "1px solid rgba(51, 83, 31, 0.08)",
+    // border: "2px solid",
+    // borderImage: "linear-gradient(90deg, #6A4BFF 0%, #2196F3 100%)",
+    // borderImageSlice: 1,
+    // borderRadius: 8,
+    // overflow: "hidden",
+  },
+  contained: {
+    border: "none",
+  },
+  clear: {
+    border: "none",
+  },
+};
 const ButtonTypes = {
   contained: "bg-primary-brand shadow-brand-primary-base",
-  outlined: "",
+  outlined: "border border-red-200",
   secondary: "bg-button-background-secondary-onSurface",
   clear: "",
 };
@@ -36,12 +51,10 @@ const _IconButton: React.FC<Props> = ({
   onClick,
 }): React.ReactElement => {
   const classNames: string = `rounded-lg ${ButtonTypes[variant]} ${ButtonSize[size]} ${className}`;
-  // const styles: React.CSSProperties = ButtonStyle[
-  //   variant
-  // ] as React.CSSProperties;
+  const styles = ButtonStyle[variant] as React.CSSProperties;
 
   return (
-    <IconButton className={`${classNames}`} onClick={onClick}>
+    <IconButton className={`${classNames}`} style={styles} onClick={onClick}>
       {icon}
     </IconButton>
   );

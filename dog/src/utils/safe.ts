@@ -8,6 +8,13 @@ export const safeUserAvatar = (user: Partial<IUser>): string => {
   return DEFAULT.user.avatar!;
 };
 
+export const safeUserCover = (user: Partial<IUser>): string => {
+  if (user.cover) {
+    return user.cover;
+  }
+  return DEFAULT.user.cover!;
+};
+
 export const safeCompetitionThumbnail = (
   comp: Partial<ICompetition>
 ): string => {
