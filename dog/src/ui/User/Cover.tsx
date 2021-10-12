@@ -30,7 +30,6 @@ const UserCover: React.FC<Props> = ({ className = "" }): React.ReactElement => {
               variant="outlined"
               icon={handleIcon(link.icon, 24, "white")}
               size="small"
-              className="border-2 border-primary-purple"
             />
           ))}
         </div>
