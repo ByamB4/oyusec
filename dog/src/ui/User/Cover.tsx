@@ -23,8 +23,8 @@ const UserCover: React.FC<Props> = ({ className = "" }): React.ReactElement => {
           size="176"
         />
       </div>
-      <div className="w-full grid grid-cols-2 gap-44 -mt-20 py-2">
-        <div className="flex col-span-1 justify-end gap-4">
+      <div className="w-full grid grid-cols-2 gap-52 -mt-20 py-2">
+        <div className="flex col-span-1 justify-end gap-8">
           {meltSocialLinks(DEFAULT.user.socialLinks!).map((link, index) => (
             <IconButton
               variant="outlined"
@@ -33,7 +33,6 @@ const UserCover: React.FC<Props> = ({ className = "" }): React.ReactElement => {
             />
           ))}
         </div>
-        <div className="flex col-span-1">B</div>
       </div>
     </div>
   );

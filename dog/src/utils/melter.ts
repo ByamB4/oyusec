@@ -39,6 +39,12 @@ export const meltSocialLinks = (
             value,
           });
           break;
+        case "githubLink":
+          res.push({
+            icon: "github",
+            value,
+          });
+          break;
       }
     }
   } catch (err) {

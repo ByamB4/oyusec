@@ -33,7 +33,7 @@ const ButtonStyle: {
 };
 const ButtonTypes = {
   contained: "bg-primary-brand shadow-brand-primary-base",
-  outlined: "border border-red-200",
+  outlined: "",
   secondary: "bg-button-background-secondary-onSurface",
   clear: "",
 };

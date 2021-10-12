@@ -19,11 +19,17 @@ import {
   IconBaselineQuery,
   IconChart,
   IconEye,
+  IconFacebook,
   IconFile,
+  IconGithub,
+  IconInstagram,
+  IconLinkedIn,
   IconScript,
   IconStar,
   IconSwords,
   IconTimeLapse,
+  IconTwitter,
+  IconYoutube,
 } from "icons/Lined";
 
 export const handleChallengeChipColor = (
@@ -134,15 +140,17 @@ export const handleIcon = (
 ): React.ReactElement => {
   switch (val) {
     case "facebook":
-      return <IconBug width={size} height={size} fill={color} />;
+      return <IconFacebook width={size} height={size} fill={color} />;
     case "instagram":
-      return <IconCubeScan width={size} height={size} fill={color} />;
+      return <IconInstagram width={size} height={size} fill={color} />;
     case "youtube":
-      return <IconFileSearch width={size} height={size} fill={color} />;
+      return <IconYoutube width={size} height={size} fill={color} />;
     case "twitter":
-      return <IconFire width={size} height={size} fill={color} />;
+      return <IconTwitter width={size} height={size} fill={color} />;
     case "linkedin":
-      return <IconLock width={size} height={size} fill={color} />;
+      return <IconLinkedIn width={size} height={size} fill={color} />;
+    case "github":
+      return <IconGithub width={size} height={size} fill={color} />;
     default:
       return <></>;
   }
