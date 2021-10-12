@@ -25,13 +25,17 @@ const UserCover: React.FC<Props> = ({ className = "" }): React.ReactElement => {
       </div>
       <div className="w-full grid grid-cols-2 gap-52 -mt-20 py-2">
         <div className="flex col-span-1 justify-end gap-8">
-          {meltSocialLinks(DEFAULT.user.socialLinks!).map((link, index) => (
-            <IconButton
-              variant="outlined"
-              icon={handleIcon(link.icon, 24, "white")}
-              size="small"
-            />
-          ))}
+          {meltSocialLinks(DEFAULT.user.socialLinks!).map(
+            (link: { icon: string; value: string }) => (
+              <IconButton
+                variant="outlined"
+                key={link.value}
+                icon={handleIcon(link.icon, 24, "white")}
+                onClick={() => window.open(link.value, "_blank")}
+                size="small"
+              />
+            )
+          )}
         </div>
       </div>
     </div>
