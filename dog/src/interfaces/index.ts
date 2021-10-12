@@ -1,4 +1,5 @@
 export type { default as IChallenge } from "./IChallenge";
+export type { default as IDynamicChallenge } from "./IDynamicChallenge";
 export type { default as IChallengeTag } from "./IChallengeTag";
 export type { default as IChallengeState } from "./IChallengeState";
 export type { default as IChallengeNote } from "./IChallengeNote";

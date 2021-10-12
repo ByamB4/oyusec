@@ -3,6 +3,7 @@ import {
   IChallengeNote,
   IChallengeTag,
   IChallengeState,
+  IUser,
 } from "interfaces";
 
 export default interface IChallenge {
@@ -13,4 +14,7 @@ export default interface IChallenge {
   description: string;
   state: IChallengeState;
   category: IChallengeCategory;
+  value: number;
+
+  authors: IUser[];
 }

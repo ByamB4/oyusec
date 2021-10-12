@@ -72,7 +72,7 @@ export const challengeStateList: IChallengeState[] = [
   },
 ];
 
-export const challengeList: IChallenge[] = Array.from({ length: 200 }, () => ({
+export const challengeList: IChallenge[] = Array.from({ length: 30 }, () => ({
   id: v4(),
   name: faker.name.findName(),
   tags: [],
@@ -81,6 +81,8 @@ export const challengeList: IChallenge[] = Array.from({ length: 200 }, () => ({
     id: v4(),
     label: faker.lorem.sentence(),
   })),
+  authors: [],
+  value: faker.random.number(),
   state:
     challengeStateList[Math.floor(Math.random() * challengeStateList.length)],
   category:
