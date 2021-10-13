@@ -37,5 +37,8 @@ export * from "./Tabs";
 export { default as UserTitle } from "./UserTitle";
 export * from "./UserTitle";
 
+export { default as CompChallenge } from "./CompChallenge";
+export * from "./CompChallenge";
+
 export { default as CompetitionThumbnail } from "./CompetitionThumbnail";
 export * from "./CompetitionThumbnail";

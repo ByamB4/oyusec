@@ -82,7 +82,7 @@ export const challengeList: IChallenge[] = Array.from({ length: 30 }, () => ({
     label: faker.lorem.sentence(),
   })),
   authors: [],
-  value: faker.random.number(),
+  value: faker.datatype.number(),
   state:
     challengeStateList[Math.floor(Math.random() * challengeStateList.length)],
   category:

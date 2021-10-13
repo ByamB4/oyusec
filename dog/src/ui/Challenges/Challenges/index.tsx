@@ -13,7 +13,9 @@ const Challenges: React.FC<Props> = ({
   className = "",
 }): React.ReactElement => {
   const [currentCategory, setCurrentCategory] = React.useState<number>(0);
-  const [currentChallenge, setCurrentChallenge] = React.useState<string>("");
+  const [currentChallenge, setCurrentChallenge] = React.useState<IChallenge>(
+    {} as IChallenge
+  );
   const [activeChallenge, setActiveChallenge] = React.useState<IChallenge>(
     {} as IChallenge
   );
@@ -25,7 +27,7 @@ const Challenges: React.FC<Props> = ({
     if (currentChallenge) {
       setActiveChallenge(
         challengeList.find(
-          (challenge: IChallenge) => challenge.id === currentChallenge
+          (challenge: IChallenge) => challenge.id === currentChallenge.id
         )!
       );
     } else {
@@ -64,7 +66,8 @@ const Challenges: React.FC<Props> = ({
               />
             ))}
         </div>
-        {JSON.stringify(activeChallenge) !== "{}" && (
+
+        {activeChallenge && (
           <ActiveChallenge
             userInput={userInput}
             setUserInput={setUserInput}
