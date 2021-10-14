@@ -2,28 +2,13 @@ import React from "react";
 import { DEFAULT } from "configs";
 import { safeCompetitionImage } from "utils/safe";
 import { Typography } from "@mui/material";
-import { Chip, Avatar } from "components";
-import { ICompetitionTag } from "interfaces";
+import { Avatar } from "components";
 
 interface Props {
   className?: string;
 }
 
 const Contest: React.FC<Props> = ({ className = "" }): React.ReactElement => {
-  const rightItems = [
-    {
-      label: "Rating",
-      value: "30",
-    },
-    {
-      label: "Enrollment",
-      value: "Team",
-    },
-    {
-      label: "Time left",
-      value: "3d 12h",
-    },
-  ];
 
   return (
     <div
@@ -35,31 +20,12 @@ const Contest: React.FC<Props> = ({ className = "" }): React.ReactElement => {
           variant="h6"
           className="font-normal uppercase text-text-grey"
         >
-          Удахгүй болох тэмцээн
+          Удахгүй нэмэгдэх бодлого
         </Typography>
-        <Typography variant="h2">First Blood #2</Typography>
-        <div className="flex gap-2">
-          {DEFAULT.competition.tags?.map((it: ICompetitionTag) => (
-            <Chip key={it.id}>
-              <Typography variant="h6">{it.label}</Typography>
-            </Chip>
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col h-full justify-between ml-6">
-        {rightItems.map((it, _) => (
-          <div className="flex gap-12 justify-between" key={_}>
-            <Typography
-              variant="h6"
-              className="font-normal uppercase text-text-grey"
-            >
-              {it.label}
-            </Typography>
-            <Typography variant="h6" className="font-bold">
-              {it.value}
-            </Typography>
-          </div>
-        ))}
+        <Typography variant="h2">1nsp3c7</Typography>
+        <Typography variant="h5" className="text-secondary-blue">
+          11D 05H 32M 03S
+        </Typography>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { Challenge } from "components";
 import { challengeCategoryList, challengeList } from "utils/fake";
 import { IChallenge } from "interfaces";
 import ActiveChallenge from "./ActiveChallenge";
+import RequestedChallenge from "./RequestedChallenge";
 
 interface Props {
   className?: string;
@@ -68,11 +69,17 @@ const Challenges: React.FC<Props> = ({
         </div>
 
         {activeChallenge && (
-          <ActiveChallenge
-            userInput={userInput}
-            setUserInput={setUserInput}
-            activeChallenge={activeChallenge}
-          />
+          <>
+            {activeChallenge?.category?.key === "requested" ? (
+              <RequestedChallenge activeChallenge={activeChallenge} />
+            ) : (
+              <ActiveChallenge
+                activeChallenge={activeChallenge}
+                userInput={userInput}
+                setUserInput={setUserInput}
+              />
+            )}
+          </>
         )}
       </div>
     </div>

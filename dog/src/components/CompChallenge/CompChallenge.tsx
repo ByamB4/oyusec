@@ -1,5 +1,5 @@
 import { FC, ReactElement, useState, FormEvent } from "react";
-import { Input, Note, Chip } from "components";
+import { Input, Note } from "components";
 import {
   Accordion,
   AccordionDetails,
@@ -100,7 +100,6 @@ const CompChallenge: FC<Props> = ({
 
 // Development purposes
 import { v4 as uuidv4 } from "uuid";
-import { handleChallengeChipColor, handleChallengeIcon } from "utils/handlers";
 import { IChallenge, IChallengeNote } from "interfaces";
 
 const chall = {

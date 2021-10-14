@@ -9,17 +9,19 @@ interface Props {
 }
 
 const Challenges: FC<Props> = ({ className = "" }): ReactElement => {
-  const [challenges, setChallenges] = useState<IChallenge[]>(challengeList);
+  const [challenges, setChallenges] = useState<IChallenge[]>([]);
   const [currentChallenge, setCurrentChallenge] = useState<IChallenge>(
     {} as IChallenge
   );
   const categories: IChallengeCategory[] = [
     ...new Set(challenges.map((challenge) => challenge.category)),
   ];
-  // console.log([...new Set(categories)]);
 
   useEffect(() => {
-    document.title = "Challenges";
+    const init = async () => {
+      setChallenges(challengeList);
+    };
+    init();
   }, []);
 
   return (
