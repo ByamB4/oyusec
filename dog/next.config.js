@@ -12,7 +12,13 @@ module.exports = {
 
   //   return config;
   // },
+  parserOptions: {
+    project: "tsconfig.json",
+    tsconfigRootDir: __dirname,
+    sourceType: "module",
+  },
   env: {
+    PUBLIC_BACKEND_API_URL: process.env.PUBLIC_BACKEND_API_URL,
     STATIC_ROOT: process.env.STATIC_ROOT,
   },
 };

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useEffect } from "react";
 import { Snackbar } from "components";
 
@@ -27,13 +30,14 @@ export const SnackbarProvider: React.FC<Props> = ({ children }) => {
         () => setToasts((toasts) => toasts.slice(1)),
         3000
       );
+
       return () => clearTimeout(timer);
     }
   }, [toasts]);
 
   const addSnackbar = React.useCallback(
     (value, variant) => {
-      setToasts((toasts) => [...toasts, { value: value, variant: variant }]);
+      setToasts((toasts) => [...toasts, { value, variant }]);
     },
     [setToasts]
   );
@@ -48,9 +52,9 @@ export const SnackbarProvider: React.FC<Props> = ({ children }) => {
     <SnackbarContext.Provider value={{ addSnackbar }}>
       {children}
       <div className="fixed bottom-0 left-0 ml-5 mb-5 space-y-2">
-        {toasts.map((it, _) => (
+        {toasts.map((it, _: number) => (
           <Snackbar
-            key={_}
+            key={it.value}
             value={it.value || ""}
             onClose={() => removeSnackbar(_)}
             variant={it.variant}
