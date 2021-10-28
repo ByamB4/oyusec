@@ -1,8 +1,8 @@
+import { ICompetition } from "interfaces";
 import React from "react";
 import About from "./About";
 import Contents from "./Contents";
 import Tabs from "./Tabs";
-import { ICompetition } from "interfaces";
 import { ScoreboardUI } from "./Scoreboard";
 import { ChallengesUI } from "./Challenges";
 import { StatisticsUI } from "./Statistics";

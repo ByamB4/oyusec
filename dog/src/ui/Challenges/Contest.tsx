@@ -9,12 +9,11 @@ interface Props {
 }
 
 const Contest: React.FC<Props> = ({ className = "" }): React.ReactElement => {
-
   return (
     <div
       className={`flex gap-4 items-center bg-primary-light1 rounded-3xl p-5 ${className}`}
     >
-      <Avatar size="120" src={safeCompetitionImage(DEFAULT.competition)} />
+      <Avatar size={120} src={safeCompetitionImage(DEFAULT.competition)} />
       <div className="flex flex-col h-full justify-between">
         <Typography
           variant="h6"

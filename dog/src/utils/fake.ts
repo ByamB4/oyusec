@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-extraneous-dependencies */
 import {
   IChallenge,
   IChallengeCategory,
@@ -9,7 +11,7 @@ import {
 } from "interfaces";
 import { v4 } from "uuid";
 
-var faker = require("faker");
+const faker = require("faker");
 
 export const challengeCategoryList: IChallengeCategory[] = [
   {

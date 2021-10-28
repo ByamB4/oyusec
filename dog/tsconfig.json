@@ -19,7 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     // START: Ignore
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": false
     // END: Ignore
   },

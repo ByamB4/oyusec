@@ -1,11 +1,5 @@
 module.exports = {
   traillingSlash: true,
-  swcMinify: true,
-  future: {
-    poweredByHeader: false,
-    reactStrictMode: true,
-    strictPostcssConfiguration: true,
-  },
   images: {
     domains: ["placeimg.com"],
   },

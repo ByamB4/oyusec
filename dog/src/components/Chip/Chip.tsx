@@ -1,6 +1,11 @@
 import React from "react";
 
-const _colors: any = {
+const colors: {
+  primary: string;
+  red: string;
+  deepBlue: string;
+  darkViolet: string;
+} = {
   primary: "bg-primary-purple",
   red: "bg-secondary-red",
   deepBlue: "bg-primary-deepBlue",
@@ -20,7 +25,7 @@ const Chip: React.FC<Props> = ({
   children,
   color = "primary",
 }): React.ReactElement => {
-  const classNames = `${_colors[color]}`;
+  const classNames = `${colors[color]}`;
 
   return (
     <div

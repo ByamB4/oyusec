@@ -16,11 +16,12 @@ const UserCover: React.FC<Props> = ({ className = "" }): React.ReactElement => {
         <img
           src={safeUserCover(DEFAULT.user)}
           className="object-cover w-full h-48"
+          alt="user-profile"
         />
         <Avatar
           src={safeUserAvatar(DEFAULT.user)}
           className="bg-blue-200 -mt-24 border-8 border-primary-light"
-          size="176"
+          size={176}
         />
       </div>
       <div className="w-full grid grid-cols-2 gap-52 -mt-20 py-2">

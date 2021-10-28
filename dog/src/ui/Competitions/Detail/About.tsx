@@ -32,7 +32,7 @@ const Detail: React.FC<Props> = ({
         <div className="flex flex-wrap gap-4">
           {competition.authors.map((author: ICompetitionAuthor) => (
             <Avatar
-              size="80"
+              size={80}
               className="border-2 rounded-xl"
               src={author.user.avatar}
               key={author.user.id}
@@ -47,7 +47,7 @@ const Detail: React.FC<Props> = ({
         <div className="flex flex-wrap gap-4">
           {competition.authors.map((author: ICompetitionAuthor) => (
             <Avatar
-              size="80"
+              size={80}
               className="border-2 rounded-xl"
               src={author.user.avatar}
               key={author.user.id}

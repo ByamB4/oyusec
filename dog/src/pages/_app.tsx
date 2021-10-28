@@ -1,5 +1,5 @@
-import React from "react";
-import "tailwindcss/tailwind.css";
+import React, { ReactElement } from "react";
+// import "tailwindcss/tailwind.css";
 import "styles/css/globals.css";
 import "styles/sass/index.sass";
 import Head from "next/head";
@@ -18,12 +18,11 @@ interface Props extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-export default function _({
+const _ = ({
   Component,
   emotionCache = clientSideEmotionCache,
   pageProps,
-}: Props) {
-
+}: Props): ReactElement => {
   return (
     <>
       <CacheProvider value={emotionCache}>
@@ -42,4 +41,6 @@ export default function _({
       </CacheProvider>
     </>
   );
-}
+};
+
+export default _;

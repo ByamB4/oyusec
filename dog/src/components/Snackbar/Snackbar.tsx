@@ -22,7 +22,7 @@ const SnackBar: React.FC<Props> = ({
   const classes = `rounded-lg flex items-center py-2 px-4 justify-between h-14 ${variants[variant]}`;
 
   return (
-    <Slide direction="right" in={true} mountOnEnter unmountOnExit>
+    <Slide direction="right" in mountOnEnter unmountOnExit>
       <Alert
         className={classes}
         icon={false}

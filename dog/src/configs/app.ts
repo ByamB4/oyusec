@@ -1,8 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { ICompetition, IUser } from "interfaces";
 import { competitionTabContentTypes, competitionTabTypes } from "utils/fake";
-// Development purposes
 import { v4 } from "uuid";
-var faker = require("faker");
+const faker = require("faker");
 
 export const APP_NAME = "OyuSec";
 

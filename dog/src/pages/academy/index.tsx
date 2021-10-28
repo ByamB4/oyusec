@@ -1,9 +1,7 @@
 import React from "react";
 import { MainLayout } from "layouts";
 
-interface Props {}
-
-const Academy: React.FC<Props> = ({}): React.ReactElement => {
+const Academy: React.FC = (): React.ReactElement => {
   return (
     <div>
       <MainLayout>academy</MainLayout>

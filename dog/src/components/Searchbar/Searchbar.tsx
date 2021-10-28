@@ -1,3 +1,5 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-unused-expressions */
 import React from "react";
 import IconSearch from "icons/Filled/Search";
 import { colors } from "configs";
@@ -35,7 +37,7 @@ const SearchBar: React.FC<Props> = ({
       className={`border-2 bg-primary-light px-2 py-1 rounded-xl transition-width transition-slowest duration-500 ease ${
         focused ? focusedClassNames : unfocusedClassNames
       } ${className}`}
-      placeholder={"Хайх"}
+      placeholder="Хайх"
       onFocus={() => setFocused(true)}
       onBlur={() => {
         setFocused(false), setIsSearch(false);

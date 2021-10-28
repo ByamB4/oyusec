@@ -71,7 +71,7 @@ const Input: React.FC<Props> = ({
         }
         endAdornment={
           onDelete &&
-          ("" + value).length >= 1 && (
+          `${value}`.length >= 1 && (
             <InputAdornment position="end">
               <IconButton size="small" onClick={onDelete}>
                 <IconClose fill="#000" />

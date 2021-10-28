@@ -1,10 +1,8 @@
-import React from "react";
+import { ReactElement } from "react";
 import { MainLayout } from "layouts";
 import { NextPage } from "next";
 
-interface Props {}
-
-const Writeups: NextPage<Props> = ({}): React.ReactElement => {
+const Writeups: NextPage = (): ReactElement => {
   return (
     <div>
       <MainLayout>Writeups</MainLayout>

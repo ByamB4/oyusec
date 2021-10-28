@@ -1,3 +1,5 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-unused-expressions */
 import { FC, ReactElement, useState, FormEvent } from "react";
 import { Input, Note } from "components";
 import {
@@ -9,6 +11,9 @@ import {
 } from "@mui/material";
 import { useSnackbar } from "contexts/snackbar";
 import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from "constants/Text";
+// Development purposes
+import { v4 as uuidv4 } from "uuid";
+import { IChallenge, IChallengeNote } from "interfaces";
 
 interface Props {
   className?: string;
@@ -97,10 +102,6 @@ const CompChallenge: FC<Props> = ({
     </Accordion>
   );
 };
-
-// Development purposes
-import { v4 as uuidv4 } from "uuid";
-import { IChallenge, IChallengeNote } from "interfaces";
 
 const chall = {
   name: "Day 4 - Twin towers ",

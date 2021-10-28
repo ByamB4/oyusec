@@ -1,2 +1,1 @@
-export { default } from './KeyboardShortcut';
-export * from './KeyboardShortcut';
+export { default } from "./KeyboardShortcut";

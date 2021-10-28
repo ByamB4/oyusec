@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable no-underscore-dangle */
 import React from "react";
 import { IconButton } from "@mui/material";
 
@@ -6,7 +9,7 @@ interface Props {
   size?: "small" | "medium" | "large";
   variant?: "contained" | "outlined" | "clear";
   className?: string;
-  disabled?: Boolean;
+  disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -44,12 +47,18 @@ const _IconButton: React.FC<Props> = ({
   className = "",
   size = "medium",
   onClick,
+  disabled = false,
 }): React.ReactElement => {
   const classNames: string = `rounded-lg ${ButtonTypes[variant]} ${ButtonSize[size]} ${className}`;
   const styles = ButtonStyle[variant] as React.CSSProperties;
 
   return (
-    <IconButton className={`${classNames}`} style={styles} onClick={onClick}>
+    <IconButton
+      className={`${classNames}`}
+      style={styles}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {icon}
     </IconButton>
   );
