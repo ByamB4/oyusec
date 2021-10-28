@@ -20,7 +20,6 @@ class AuthController {
       next(new HttpException(500, error.message));
     }
   }
-
   public async googleCallback(req: Request, res: Response, next: NextFunction) {
     try {
       const user = req.user as any;
@@ -32,11 +31,10 @@ class AuthController {
       const token = jwt.sign(payload, process.env.JWT_SECRET, {
         expiresIn: JWTExpire,
       });
-      const redirectUrl = `${
-        user.isAdmin
-          ? new URL(`${process.env.FRONTEND_URL}?token=${token}`)
-          : new URL(`${process.env.FRONTEND_URL}?login=fail`)
-      }`;
+
+      const redirectUrl = new URL(
+        `${process.env.FRONTEND_URL}?token=${token}&googleAccessToken=${user.googleAccessToken}&googleRefreshToken=${user.googleRefreshToken}`,
+      );
       res.redirect(redirectUrl.toString());
     } catch (error) {
       next(new HttpException(500, error.message));

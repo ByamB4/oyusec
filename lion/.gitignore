@@ -13,3 +13,4 @@ dist
 # environment configs
 .env
 .env.production
+.env.development

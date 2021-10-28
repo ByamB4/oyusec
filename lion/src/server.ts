@@ -1,4 +1,5 @@
 require('dotenv').config({ silent: false });
+import { APP_NAME } from './configs';
 import * as cors from 'cors';
 import * as express from 'express';
 import { createServer, Server } from 'http';
@@ -24,7 +25,7 @@ class MainServer {
     this._app.use(morgan('dev'));
     this._app.options('*', cors());
     this._app.get('/', (_req, res) => {
-      res.send('Success');
+      res.send(APP_NAME);
     });
     this._app.use('/api/v1', Routes());
     this.app.use(ErrorResponse);
