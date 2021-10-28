@@ -1,0 +1,44 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String            @id @unique @default(uuid())
+  firstName            String?           @default("") @db.VarChar(255)
+  lastName             String?           @default("") @db.VarChar(255)
+  dob                  DateTime?         @db.Date
+  gender               String?           @db.VarChar(255)
+  education            String?           @db.VarChar(255)
+  website              String?           @default("") @db.VarChar(255)
+  address              String?           @default("") @db.VarChar(255)
+  industryId           String?
+  age                  String?           @db.VarChar(255)
+  avatar               String?           @default("default.png") @db.VarChar(255)
+  email                String            @unique @db.VarChar(255)
+  password             String?           @db.VarChar(255)
+  remember_token       String?           @db.VarChar(100)
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @default(now()) @updatedAt
+  phoneNumber          String?           @db.VarChar(50)
+  user_type            String?           @db.VarChar(100)
+  user_type_value      String?           @db.VarChar(100)
+  description          String            @default("") @db.VarChar(1000)
+  isMentor             Boolean           @default(false)
+  isInvestor           Boolean           @default(false)
+  isAdmin              Boolean           @default(false)
+  isModerator          Boolean           @default(false)
+  isUser               Boolean           @default(true)
+  title                String?           @default("") @db.VarChar(255)
+  facebookAccessToken  String?           @db.VarChar(255)
+  facebookRefreshToken String?           @db.VarChar(255)
+  googleId             String?           @db.VarChar(255)
+  googleAccessToken    String?           @db.VarChar(255)
+  googleRefreshToken   String?           @db.VarChar(255)
+  verified             Boolean           @default(false)
+}

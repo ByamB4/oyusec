@@ -1,0 +1,15 @@
+# editor
+vscode
+
+# packages
+node_modules
+yarn.lock
+package.lock.json
+npm-debug.log
+
+# build
+dist
+
+# environment configs
+.env
+.env.production
