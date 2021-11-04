@@ -21,3 +21,4 @@ export { default as IconTwitter } from "./Twitter";
 export { default as IconYoutube } from "./Youtube";
 export { default as IconLinkedIn } from "./Linkedin";
 export { default as IconCheck } from "./Check";
+export { default as IconShutdown } from "./Shutdown";

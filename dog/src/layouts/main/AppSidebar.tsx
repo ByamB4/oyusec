@@ -12,6 +12,8 @@ import {
   IconScript,
   IconAccount,
 } from "icons/Lined";
+import { useUser } from "contexts/user";
+import { v4 } from "uuid";
 
 interface Props {
   className?: string;
@@ -21,11 +23,14 @@ const AppSidebar: React.FC<Props> = ({
   className = "",
 }): React.ReactElement => {
   const router = useRouter();
+  const { user } = useUser();
+
   const checkActivePage = (cur: string) =>
     cur.split("/")[1] === router.asPath.split("/")[1];
 
   const middleLinks = [
     {
+      id: v4(),
       icon: (
         <IconHome
           width={32}
@@ -46,6 +51,7 @@ const AppSidebar: React.FC<Props> = ({
       },
     },
     {
+      id: v4(),
       icon: (
         <IconSword
           width={32}
@@ -66,6 +72,7 @@ const AppSidebar: React.FC<Props> = ({
       },
     },
     {
+      id: v4(),
       icon: (
         <IconTrophy
           width={32}
@@ -86,6 +93,7 @@ const AppSidebar: React.FC<Props> = ({
       },
     },
     {
+      id: v4(),
       icon: (
         <IconSchool
           width={32}
@@ -106,6 +114,7 @@ const AppSidebar: React.FC<Props> = ({
       },
     },
     {
+      id: v4(),
       icon: (
         <IconScript
           width={32}
@@ -125,7 +134,11 @@ const AppSidebar: React.FC<Props> = ({
         className: "bg-transparent",
       },
     },
+  ];
+
+  const authorizedLinks = [
     {
+      id: v4(),
       icon: (
         <IconAccount
           width={32}
@@ -152,8 +165,8 @@ const AppSidebar: React.FC<Props> = ({
       className={`bg-primary-dark h-full py-8 mr-3 flex flex-col items-center ${className}`}
     >
       <div className="flex flex-col flex-grow justify-center gap-8">
-        {middleLinks.map((it, _) => (
-          <div className="flex gap-2" key={_}>
+        {middleLinks.map((it) => (
+          <div className="flex gap-2" key={it.id}>
             <div
               className={`h-full w-5px rounded-r-3xl ${
                 checkActivePage(it.link)
@@ -169,6 +182,27 @@ const AppSidebar: React.FC<Props> = ({
             />
           </div>
         ))}
+        {user && (
+          <>
+            {authorizedLinks.map((it) => (
+              <div className="flex gap-2" key={it.id}>
+                <div
+                  className={`h-full w-5px rounded-r-3xl ${
+                    checkActivePage(it.link)
+                      ? it.active.className
+                      : it.passive.className
+                  }`}
+                />
+                <IconButton
+                  className="p-1"
+                  onClick={() => router.push(it.link)}
+                  size="small"
+                  icon={it.icon}
+                />
+              </div>
+            ))}
+          </>
+        )}
       </div>
       <div className="flex gap-2">
         <div className={`h-full w-5px rounded-r-3xl ${"bg-transparent"}`} />

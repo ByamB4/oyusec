@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import React from "react";
-import { Searchbar } from "components";
+import { Searchbar, IconButton } from "components";
 import { Button } from "@mui/material";
-import IconGoogle from "icons/Filled/Google";
 import Link from "next/link";
-import { useUser } from "contexts/user";
+import { useToken, useUser } from "contexts/user";
+import { IconBell, IconGoogle } from "icons/Filled";
+import { IconShutdown } from "icons/Lined";
+import { useRouter } from "next/router";
 
 interface Props {
   className?: string;
@@ -12,6 +15,13 @@ interface Props {
 const AppNavbar: React.FC<Props> = ({ className = "" }) => {
   const [searchValue, setSearchValue] = React.useState<string>("");
   const { user } = useUser();
+  const { setToken } = useToken();
+  const router = useRouter();
+
+  const logout = () => {
+    setToken(null);
+    router.push("/");
+  };
 
   return (
     <div
@@ -26,7 +36,13 @@ const AppNavbar: React.FC<Props> = ({ className = "" }) => {
       <div>
         {user ? (
           <>
-            <h1>hey</h1>
+            <IconButton
+              icon={<IconBell width={20} height={20} stroke="#fff" />}
+            />
+            <IconButton
+              icon={<IconShutdown width={20} height={20} fill="#fff" />}
+              onClick={() => logout()}
+            />
           </>
         ) : (
           <>
