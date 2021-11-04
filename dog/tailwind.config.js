@@ -1,5 +1,4 @@
-// import colors from "./src/configs/colors";
-let colors = require("./src/configs/colors");
+const colors = require("./src/configs/colors");
 
 module.exports = {
   mode: "jit",

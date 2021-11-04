@@ -3,6 +3,7 @@ import { Searchbar } from "components";
 import { Button } from "@mui/material";
 import IconGoogle from "icons/Filled/Google";
 import Link from "next/link";
+import { useUser } from "contexts/user";
 
 interface Props {
   className?: string;
@@ -10,6 +11,7 @@ interface Props {
 
 const AppNavbar: React.FC<Props> = ({ className = "" }) => {
   const [searchValue, setSearchValue] = React.useState<string>("");
+  const { user } = useUser();
 
   return (
     <div
@@ -22,13 +24,21 @@ const AppNavbar: React.FC<Props> = ({ className = "" }) => {
         }
       />
       <div>
-        <Link href={`${process.env.PUBLIC_BACKEND_API_URL}auth/google`}>
-          <a style={{ all: "inherit" }}>
-            <Button variant="contained" startIcon={<IconGoogle />}>
-              Нэвтрэх
-            </Button>
-          </a>
-        </Link>
+        {user ? (
+          <>
+            <h1>hey</h1>
+          </>
+        ) : (
+          <>
+            <Link href={`${process.env.PUBLIC_BACKEND_API_URL}auth/google`}>
+              <a style={{ all: "inherit" }}>
+                <Button variant="contained" startIcon={<IconGoogle />}>
+                  Нэвтрэх
+                </Button>
+              </a>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

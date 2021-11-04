@@ -11,6 +11,7 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import { MuiTheme, createEmotionCache } from "initialize";
 import { APP_NAME } from "configs";
 import { SearchProvider } from "contexts/search";
+import { UserProvider } from "contexts/user";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -30,14 +31,16 @@ const _ = ({
           <title>{APP_NAME}</title>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <ThemeProvider theme={MuiTheme}>
-          <SnackbarProvider>
-            <SearchProvider>
-              <CssBaseline />
-              <Component {...pageProps} />
-            </SearchProvider>
-          </SnackbarProvider>
-        </ThemeProvider>
+        <UserProvider>
+          <ThemeProvider theme={MuiTheme}>
+            <SnackbarProvider>
+              <SearchProvider>
+                <CssBaseline />
+                <Component {...pageProps} />
+              </SearchProvider>
+            </SnackbarProvider>
+          </ThemeProvider>
+        </UserProvider>
       </CacheProvider>
     </>
   );
