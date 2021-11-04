@@ -32,9 +32,7 @@ class AuthController {
         expiresIn: JWTExpire,
       });
 
-      const redirectUrl = new URL(
-        `${process.env.FRONTEND_URL}?token=${token}&googleAccessToken=${user.googleAccessToken}&googleRefreshToken=${user.googleRefreshToken}`,
-      );
+      const redirectUrl = new URL(`${process.env.FRONTEND_URL}?token=${token}`);
       res.redirect(redirectUrl.toString());
     } catch (error) {
       next(new HttpException(500, error.message));
