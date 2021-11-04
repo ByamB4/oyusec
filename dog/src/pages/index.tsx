@@ -17,7 +17,7 @@ const Index: NextPage = (): ReactElement => {
   useEffect(() => {
     if (token) {
       setToken(token as string);
-      router.replace("/user/profile");
+      // router.replace("/user/profile");
     }
   }, [token, router]);
 

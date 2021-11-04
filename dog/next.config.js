@@ -1,5 +1,6 @@
 module.exports = {
   traillingSlash: true,
+  swcMinify: true,
   images: {
     domains: ["placeimg.com"],
   },
