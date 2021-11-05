@@ -1,6 +1,5 @@
-/* eslint-disable no-underscore-dangle */
-import React from "react";
-import { Avatar } from "@mui/material";
+import { FC, ReactElement } from "react";
+import { Avatar as MuiAvatar } from "@mui/material";
 
 interface Props {
   className?: string;
@@ -9,15 +8,42 @@ interface Props {
   alt?: string;
 }
 
-const _Avatar: React.FC<Props> = ({
+const Avatar: FC<Props> = ({
   className = "",
   src,
   size = 40,
   alt = "",
-}): React.ReactElement => {
+}): ReactElement => {
+  let classNames: string = className;
+  switch (size) {
+    case 32:
+      classNames += " border";
+      break;
+    case 40:
+      classNames += " border-2";
+      break;
+    case 56:
+      classNames += " border-2";
+      break;
+    case 80:
+      classNames += " border-2";
+      break;
+    case 112:
+      classNames += " border-4";
+      break;
+    case 120:
+      classNames += " border-4";
+      break;
+    case 176:
+      classNames += " border-8";
+      break;
+    default:
+      classNames += " border";
+  }
+
   return (
-    <Avatar
-      className={`border-4 border-primary-purple ${className}`}
+    <MuiAvatar
+      className={`border-primary-purple ${classNames}`}
       src={src}
       alt={alt}
       sx={{
@@ -28,4 +54,4 @@ const _Avatar: React.FC<Props> = ({
   );
 };
 
-export default _Avatar;
+export default Avatar;

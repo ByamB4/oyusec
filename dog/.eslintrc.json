@@ -22,6 +22,7 @@
     },
     "ecmaVersion": 12,
     "project": "./tsconfig.json",
+    // "project": "dog/tsconfig.json",
     "sourceType": "module"
   },
   "plugins": [
@@ -35,6 +36,7 @@
   "root": true,
   "rules": {
     "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-return": "off",
     "import/prefer-default-export": "off",
@@ -44,7 +46,6 @@
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
     "no-use-before-define": "off",
-    // "no-multi-assign": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-call": "off",
     "no-shadow": "off",

@@ -12,3 +12,5 @@ export { default as IconVerifiedUser } from "./VerifiedUser";
 export { default as IconWeb } from "./Web";
 export { default as IconContentCopy } from "./ContentCopy";
 export { default as IconBell } from "./Bell";
+export { default as IconArrowDown } from "./ArrowDown";
+export { default as IconAccountCircle } from "./AccountCircle";

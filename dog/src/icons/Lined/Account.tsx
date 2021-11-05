@@ -1,8 +1,6 @@
 import { FC, ReactElement, SVGProps } from "react";
 
-interface Props extends SVGProps<SVGSVGElement> {}
-
-const SvgAccount: FC<Props> = (props): ReactElement => {
+const SvgAccount: FC<SVGProps<SVGSVGElement>> = (props): ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

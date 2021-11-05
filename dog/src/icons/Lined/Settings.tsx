@@ -1,8 +1,6 @@
 import { FC, ReactElement, SVGProps } from "react";
 
-interface Props extends SVGProps<SVGSVGElement> {}
-
-const SvgHome: FC<Props> = (props): ReactElement => {
+const SvgHome: FC<SVGProps<SVGSVGElement>> = (props): ReactElement => {
   // const { stroke } = props;
 
   return (

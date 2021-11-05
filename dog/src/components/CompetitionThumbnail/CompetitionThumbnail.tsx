@@ -1,5 +1,5 @@
 import { Divider, Typography } from "@mui/material";
-import React from "react";
+import {FC,ReactElement} from "react";
 import Image from "next/image";
 import { ICompetition } from "interfaces";
 import moment from "moment";
@@ -11,10 +11,10 @@ interface Props {
   competition: ICompetition;
 }
 
-const CompetitionThumbnail: React.FC<Props> = ({
+const CompetitionThumbnail: FC<Props> = ({
   className = "",
   competition,
-}): React.ReactElement => {
+}): ReactElement => {
   return (
     <Link href={`/competitions/${competition.slug}`}>
       <div

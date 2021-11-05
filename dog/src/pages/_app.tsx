@@ -1,5 +1,4 @@
-import React, { ReactElement } from "react";
-// import "tailwindcss/tailwind.css";
+import { ReactElement } from "react";
 import "styles/css/globals.css";
 import "styles/sass/index.sass";
 import Head from "next/head";

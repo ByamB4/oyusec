@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactElement } from "react";
 import {
   IChallengeCategory,
   ICompetitionState,
@@ -6,6 +6,7 @@ import {
   ICompetitionTabContent,
 } from "interfaces";
 import {
+  IconAccountCircle,
   IconBug,
   IconCubeScan,
   IconFileSearch,
@@ -16,6 +17,7 @@ import {
   IconWeb,
 } from "icons/Filled";
 import {
+  IconAccount,
   IconBaselineQuery,
   IconChart,
   IconEye,
@@ -25,6 +27,7 @@ import {
   IconInstagram,
   IconLinkedIn,
   IconScript,
+  IconShutdown,
   IconStar,
   IconSwords,
   IconTimeLapse,
@@ -47,20 +50,20 @@ export const handleChallengeChipColor = (
   }
 };
 
-export const handleChallengeIcon = (
-  val: string
-): React.ReactChild | undefined => {
+export const handleChallengeIcon = (val: string): ReactElement | undefined => {
   switch (val) {
     case "solved":
       return <IconEye width={20} height={20} />;
     case "score":
       return <IconStar width={20} height={20} />;
+    default:
+      return <></>;
   }
 };
 
 export const handleChallengeCategoryIcon = (
   cat: IChallengeCategory
-): React.ReactChild | undefined => {
+): ReactElement | undefined => {
   switch (cat.key) {
     case "forensics":
       return <IconFileSearch width={20} height={20} />;
@@ -76,68 +79,70 @@ export const handleChallengeCategoryIcon = (
       return <IconBug width={20} height={20} />;
     case "requested":
       return <IconCubeScan width={20} height={20} />;
+    default:
+      return <></>;
   }
 };
 
 export const handleCompetitionsRootTabIcon = (
   state: ICompetitionState
-): React.ReactChild | undefined => {
+): ReactElement | undefined => {
   switch (state.key) {
-    case "live": {
+    case "live":
       return <IconFire width={24} height={24} />;
-    }
-    case "coming": {
+    case "coming":
       return <IconTimeLapse width={24} height={24} />;
-    }
-    case "archive": {
+    case "archive":
       return <IconLock width={24} height={24} />;
-    }
-    case "requested": {
+    case "requested":
       return <IconCubeScan width={24} height={24} />;
-    }
+    default:
+      return <></>;
   }
 };
 
 export const handleCompetitionTabIcon = (
   tab: ICompetitionTab
-): React.ReactChild | undefined => {
+): ReactElement | undefined => {
   switch (tab.type.key) {
-    case "about": {
+    case "about":
       return <IconScript width={24} height={24} />;
-    }
-    case "challenges": {
+
+    case "challenges":
       return <IconSwords width={24} height={24} />;
-    }
-    case "scoreboard": {
+
+    case "scoreboard":
       return <IconChart width={24} height={24} />;
-    }
-    case "statistics": {
+
+    case "statistics":
       return <IconBaselineQuery width={24} height={24} />;
-    }
+    default:
+      return <></>;
   }
 };
 
 export const handleCompetitionTabContentIcon = (
   content: ICompetitionTabContent
-): React.ReactChild | undefined => {
+): ReactElement | undefined => {
   switch (content.type.key) {
-    case "about": {
+    case "about":
       return <IconScript width={22} height={22} />;
-    }
-    case "rule": {
+
+    case "rule":
       return <IconFile width={22} height={22} />;
-    }
-    case "prize": {
+
+    case "prize":
       return <IconChart width={22} height={22} />;
-    }
+    default:
+      return <></>;
   }
 };
 
 export const handleIcon = (
   val: string,
-  size: number = 24,
-  color: string = "white"
-): React.ReactElement => {
+  size = 24,
+  color = "white"
+): ReactElement => {
   switch (val) {
     case "facebook":
       return <IconFacebook width={size} height={size} fill={color} />;
@@ -151,6 +156,12 @@ export const handleIcon = (
       return <IconLinkedIn width={size} height={size} fill={color} />;
     case "github":
       return <IconGithub width={size} height={size} fill={color} />;
+    case "account":
+      return <IconAccount width={size} height={size} fill={color} />;
+      case "account-circle":
+        return <IconAccountCircle width={size} height={size} fill={color} />;
+    case "shutdown":
+      return <IconShutdown width={size} height={size} stroke={color} />;
     default:
       return <></>;
   }

@@ -1,6 +1,5 @@
-import React from "react";
+import { FC, ReactElement } from "react";
 import { IconButton } from "components";
-
 import { colors } from "configs";
 import { useRouter } from "next/router";
 import {
@@ -10,25 +9,26 @@ import {
   IconSettings,
   IconSchool,
   IconScript,
-  IconAccount,
 } from "icons/Lined";
-import { useUser } from "contexts/user";
 import { v4 } from "uuid";
 
 interface Props {
   className?: string;
 }
 
-const AppSidebar: React.FC<Props> = ({
-  className = "",
-}): React.ReactElement => {
+const AppSidebar: FC<Props> = ({ className = "" }): ReactElement => {
   const router = useRouter();
-  const { user } = useUser();
 
   const checkActivePage = (cur: string) =>
     cur.split("/")[1] === router.asPath.split("/")[1];
 
-  const middleLinks = [
+  const middleLinks: {
+    id: string;
+    icon: ReactElement;
+    link: string;
+    active: { className: string };
+    passive: { className: string };
+  }[] = [
     {
       id: v4(),
       icon: (
@@ -136,30 +136,6 @@ const AppSidebar: React.FC<Props> = ({
     },
   ];
 
-  const authorizedLinks = [
-    {
-      id: v4(),
-      icon: (
-        <IconAccount
-          width={32}
-          height={32}
-          fill={
-            checkActivePage("/user")
-              ? colors.secondary.blue
-              : colors.text.darkGrey
-          }
-        />
-      ),
-      link: "/user",
-      active: {
-        className: "bg-secondary-blue",
-      },
-      passive: {
-        className: "bg-transparent",
-      },
-    },
-  ];
-
   return (
     <nav
       className={`bg-primary-dark h-full py-8 mr-3 flex flex-col items-center ${className}`}
@@ -182,27 +158,6 @@ const AppSidebar: React.FC<Props> = ({
             />
           </div>
         ))}
-        {user && (
-          <>
-            {authorizedLinks.map((it) => (
-              <div className="flex gap-2" key={it.id}>
-                <div
-                  className={`h-full w-5px rounded-r-3xl ${
-                    checkActivePage(it.link)
-                      ? it.active.className
-                      : it.passive.className
-                  }`}
-                />
-                <IconButton
-                  className="p-1"
-                  onClick={() => router.push(it.link)}
-                  size="small"
-                  icon={it.icon}
-                />
-              </div>
-            ))}
-          </>
-        )}
       </div>
       <div className="flex gap-2">
         <div className={`h-full w-5px rounded-r-3xl ${"bg-transparent"}`} />

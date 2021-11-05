@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 import { ReactElement, useEffect } from "react";
 import { MainLayout } from "layouts";
 import { NextPage } from "next";
@@ -16,12 +14,10 @@ const Index: NextPage = (): ReactElement => {
 
   useEffect(() => {
     if (token) {
-      console.log('setting token')
       setToken(token as string);
-      console.log(token);
-      // router.replace("/challenges");
+      router.replace("/challenges");
     }
-  }, [token, router]);
+  }, [token, router, setToken]);
 
   return (
     <MainLayout
