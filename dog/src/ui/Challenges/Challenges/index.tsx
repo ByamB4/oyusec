@@ -1,49 +1,65 @@
-import React from "react";
+import { FC, ReactElement, useState, useEffect } from "react";
 import Categories from "./Categories";
 import { Challenge } from "components";
-import { challengeCategoryList, challengeList } from "utils/fake";
-import { IChallenge } from "interfaces";
+import { challengeList } from "utils/fake";
+import { IChallenge, IChallengeCategory } from "interfaces";
 import ActiveChallenge from "./ActiveChallenge";
 import RequestedChallenge from "./RequestedChallenge";
+import { ChallengeAPI } from "api";
 
 interface Props {
   className?: string;
 }
 
-const Challenges: React.FC<Props> = ({
-  className = "",
-}): React.ReactElement => {
-  const [currentCategory, setCurrentCategory] = React.useState<number>(0);
-  const [currentChallenge, setCurrentChallenge] = React.useState<IChallenge>(
+const Challenges: FC<Props> = ({ className = "" }): ReactElement => {
+  const [currentCategory, setCurrentCategory] = useState<number>(0);
+  const [currentChallenge, setCurrentChallenge] = useState<IChallenge>(
     {} as IChallenge
   );
-  const [activeChallenge, setActiveChallenge] = React.useState<IChallenge>(
+  const [activeChallenge, setActiveChallenge] = useState<IChallenge>(
     {} as IChallenge
   );
-  const [userInput, setUserInput] = React.useState<string>("");
+  const [userInput, setUserInput] = useState<string>("");
+  const [loadingCategories, setLoadingCategories] = useState<boolean>(true);
+  const [categories, setCategories] = useState<IChallengeCategory[]>([]);
 
-  React.useEffect(() => {
-    // ? Fetch challenge from backend
-    setUserInput("");
-    if (currentChallenge) {
-      setActiveChallenge(
-        challengeList.find(
-          (challenge: IChallenge) => challenge.id === currentChallenge.id
-        )!
-      );
-    } else {
-      setActiveChallenge({} as IChallenge);
-    }
-  }, [currentChallenge]);
+  // useEffect(() => {
+  //   setUserInput("");
+  //   if (currentChallenge) {
+  //     setActiveChallenge(
+  //       challengeList.find(
+  //         (challenge: IChallenge) => challenge.id === currentChallenge.id
+  //       )!
+  //     );
+  //   } else {
+  //     setActiveChallenge({} as IChallenge);
+  //   }
+  // }, [currentChallenge]);
+  useEffect(() => {
+    const init = () =>
+      ChallengeAPI.getCategories().then((data) => {
+        console.log(data);
+        if (data.status) {
+          setCategories(data.record);
+        }
+        setLoadingCategories(false);
+      });
+
+    init();
+  }, []);
 
   return (
     <div className={`flex flex-col gap-4 overflow-auto ${className}`}>
-      <Categories
-        currentCategory={currentCategory}
-        setCurrentCategory={setCurrentCategory}
-        categoryList={challengeCategoryList}
-      />
-      <div className="grid grid-cols-2 gap-8 justify-items-center overflow-auto">
+      {JSON.stringify(categories) === JSON.stringify({}) ? (
+        <Categories
+          currentCategory={currentCategory}
+          setCurrentCategory={setCurrentCategory}
+          categoryList={categories}
+        />
+      ) : (
+        <h1>Loading categories</h1>
+      )}
+      {/* <div className="grid grid-cols-2 gap-8 justify-items-center overflow-auto">
         <div
           className="flex flex-col items-center gap-4 w-full overflow-auto"
           style={{
@@ -81,7 +97,7 @@ const Challenges: React.FC<Props> = ({
             )}
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

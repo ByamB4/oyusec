@@ -1,14 +1,30 @@
 export const challengeCategories = [
   {
-    key: 'reverse-engineering',
-    value: 'reverse-engineering',
-  },
-  {
-    key: 'visible',
-    value: 'visible',
+    key: 'forensics',
+    value: 'Forensics',
   },
   {
     key: 'misc',
-    value: 'misc',
+    value: 'Misc',
+  },
+  {
+    value: 'Crypto',
+    key: 'crypto',
+  },
+  {
+    value: 'Web',
+    key: 'web',
+  },
+  {
+    value: 'Pwn',
+    key: 'pwn',
+  },
+  {
+    value: 'Reversing',
+    key: 'reversing',
+  },
+  {
+    key: 'requested',
+    value: 'Requested',
   },
 ];

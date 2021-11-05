@@ -21,8 +21,8 @@
       "jsx": true
     },
     "ecmaVersion": 12,
-    "project": "./tsconfig.json",
-    // "project": "dog/tsconfig.json",
+    // "project": "./tsconfig.json",
+    "project": "dog/tsconfig.json",
     "sourceType": "module"
   },
   "plugins": [

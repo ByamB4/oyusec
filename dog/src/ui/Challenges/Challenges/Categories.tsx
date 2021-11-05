@@ -1,4 +1,4 @@
-import React from "react";
+import { SyntheticEvent, FC, ReactElement } from "react";
 import { Tab, Tabs } from "components";
 import { IChallengeCategory } from "interfaces";
 import { handleChallengeCategoryIcon } from "utils/handlers";
@@ -10,16 +10,16 @@ interface Props {
   setCurrentCategory: any;
 }
 
-const Categories: React.FC<Props> = ({
+const Categories: FC<Props> = ({
   className = "",
   currentCategory,
   setCurrentCategory,
   categoryList,
-}): React.ReactElement => {
+}): ReactElement => {
   return (
     <Tabs
       value={currentCategory}
-      onChange={(e: React.SyntheticEvent, _: number) => setCurrentCategory(_)}
+      onChange={(e: SyntheticEvent, _: number) => setCurrentCategory(_)}
       className={`${className}`}
     >
       {categoryList.map((it) => (
