@@ -9,36 +9,67 @@ datasource db {
 }
 
 model User {
-  id                   String            @id @unique @default(uuid())
-  firstName            String?           @default("") @db.VarChar(255)
-  lastName             String?           @default("") @db.VarChar(255)
-  dob                  DateTime?         @db.Date
-  gender               String?           @db.VarChar(255)
-  education            String?           @db.VarChar(255)
-  website              String?           @default("") @db.VarChar(255)
-  address              String?           @default("") @db.VarChar(255)
-  industryId           String?
-  age                  String?           @db.VarChar(255)
-  avatar               String?           @default("default.png") @db.VarChar(255)
-  email                String            @unique @db.VarChar(255)
-  password             String?           @db.VarChar(255)
-  remember_token       String?           @db.VarChar(100)
-  createdAt            DateTime          @default(now())
-  updatedAt            DateTime          @default(now()) @updatedAt
-  phoneNumber          String?           @db.VarChar(50)
-  user_type            String?           @db.VarChar(100)
-  user_type_value      String?           @db.VarChar(100)
-  description          String            @default("") @db.VarChar(1000)
-  isMentor             Boolean           @default(false)
-  isInvestor           Boolean           @default(false)
-  isAdmin              Boolean           @default(false)
-  isModerator          Boolean           @default(false)
-  isUser               Boolean           @default(true)
-  title                String?           @default("") @db.VarChar(255)
-  facebookAccessToken  String?           @db.VarChar(255)
-  facebookRefreshToken String?           @db.VarChar(255)
-  googleId             String?           @db.VarChar(255)
-  googleAccessToken    String?           @db.VarChar(255)
-  googleRefreshToken   String?           @db.VarChar(255)
-  verified             Boolean           @default(false)
+  id                 String          @id @unique @default(uuid())
+  firstName          String?         @default("") @db.VarChar(255)
+  lastName           String?         @default("") @db.VarChar(255)
+  avatar             String?         @default("default.png") @db.VarChar(255)
+  email              String          @unique @db.VarChar(255)
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @default(now()) @updatedAt
+  googleAccessToken  String?         @db.VarChar(255)
+  googleRefreshToken String?         @db.VarChar(255)
+  verified           Boolean         @default(false)
+  challenges         UserChallenge[]
+}
+
+model UserChallenge {
+  id          String     @id @default(uuid())
+  Challenge   Challenge? @relation(fields: [challengeId], references: [id])
+  challengeId String?
+  User        User?      @relation(fields: [userId], references: [id])
+  userId      String?
+}
+
+model Challenge {
+  id                  String            @id @unique @default(uuid())
+  name                String            @db.VarChar(255)
+  tags                ChallengeTag[]
+  notes               ChallengeNote[]
+  state               ChallengeState    @relation(fields: [challengeStateId], references: [id])
+  category            ChallengeCategory @relation(fields: [challengeCategoryId], references: [id])
+  description         String            @db.VarChar(1000)
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @default(now()) @updatedAt
+  value               Int               @db.Integer
+  authors             UserChallenge[]
+  challengeStateId    String
+  challengeCategoryId String
+}
+
+model ChallengeTag {
+  id          String     @id @unique @default(uuid())
+  label       String     @db.VarChar(255)
+  Challenge   Challenge? @relation(fields: [challengeId], references: [id])
+  challengeId String?
+}
+
+model ChallengeNote {
+  id          String     @id @unique @default(uuid())
+  label       String     @db.VarChar(255)
+  Challenge   Challenge? @relation(fields: [challengeId], references: [id])
+  challengeId String?
+}
+
+model ChallengeState {
+  id        String      @id @unique @default(uuid())
+  key       String      @db.VarChar(255)
+  value     String      @db.VarChar(255)
+  Challenge Challenge[]
+}
+
+model ChallengeCategory {
+  id        String      @id @unique @default(uuid())
+  key       String      @db.VarChar(255)
+  value     String      @db.VarChar(255)
+  Challenge Challenge[]
 }

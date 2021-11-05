@@ -1,0 +1,1 @@
+export { initialize as initializeFake } from './initialize';

@@ -15,14 +15,9 @@ class UserController {
         select: {
           firstName: true,
           lastName: true,
-          description: true,
           avatar: true,
-          website: true,
-          phoneNumber: true,
-          address: true,
         },
       });
-      // console.log(req.user.id);
       return res.status(200).json({ status: true, data: user });
     } catch (error) {
       next(new HttpException(500, error.message));
