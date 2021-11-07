@@ -1,11 +1,10 @@
 import { FC, ReactElement, useState, useEffect } from "react";
-import Categories from "./Categories";
 import { Challenge } from "components";
-import { challengeList } from "utils/fake";
 import { IChallenge, IChallengeCategory } from "interfaces";
+import { ChallengeAPI } from "api";
+import Categories from "./Categories";
 import ActiveChallenge from "./ActiveChallenge";
 import RequestedChallenge from "./RequestedChallenge";
-import { ChallengeAPI } from "api";
 
 interface Props {
   className?: string;
@@ -20,84 +19,95 @@ const Challenges: FC<Props> = ({ className = "" }): ReactElement => {
     {} as IChallenge
   );
   const [userInput, setUserInput] = useState<string>("");
-  const [loadingCategories, setLoadingCategories] = useState<boolean>(true);
   const [categories, setCategories] = useState<IChallengeCategory[]>([]);
+  const [challenges, setChallenges] = useState<IChallenge[]>([]);
+  const [fetching, setFetching] = useState<boolean>(true);
 
-  // useEffect(() => {
-  //   setUserInput("");
-  //   if (currentChallenge) {
-  //     setActiveChallenge(
-  //       challengeList.find(
-  //         (challenge: IChallenge) => challenge.id === currentChallenge.id
-  //       )!
-  //     );
-  //   } else {
-  //     setActiveChallenge({} as IChallenge);
-  //   }
-  // }, [currentChallenge]);
   useEffect(() => {
-    const init = () =>
+    const init = () => {
       ChallengeAPI.getCategories().then((data) => {
-        console.log(data);
         if (data.status) {
-          setCategories(data.record);
+          setCategories(data.data);
         }
-        setLoadingCategories(false);
       });
+      ChallengeAPI.getChallenges().then((data) => {
+        if (data.status) {
+          setChallenges(data.data);
+        }
+      });
+      setFetching(false);
+    };
 
     init();
   }, []);
 
+  useEffect(() => {
+    setUserInput("");
+    if (currentChallenge) {
+      setActiveChallenge(
+        challenges.find(
+          (challenge: IChallenge) => challenge.id === currentChallenge.id
+        ) || ({} as IChallenge)
+      );
+    } else {
+      setActiveChallenge({} as IChallenge);
+    }
+  }, [challenges, currentChallenge]);
+
   return (
     <div className={`flex flex-col gap-4 overflow-auto ${className}`}>
-      {JSON.stringify(categories) === JSON.stringify({}) ? (
+      {fetching ? (
+        <h1>Loading categories</h1>
+      ) : (
         <Categories
           currentCategory={currentCategory}
           setCurrentCategory={setCurrentCategory}
           categoryList={categories}
         />
-      ) : (
-        <h1>Loading categories</h1>
       )}
-      {/* <div className="grid grid-cols-2 gap-8 justify-items-center overflow-auto">
-        <div
-          className="flex flex-col items-center gap-4 w-full overflow-auto"
-          style={{
-            direction: "rtl",
-          }}
-        >
-          {challengeList
-            .filter(
-              (it: IChallenge) =>
-                it.category.id === challengeCategoryList[currentCategory].id
-            )
-            .map((it: IChallenge) => (
-              <Challenge
-                key={it.id}
-                challenge={it}
-                currentChallenge={currentChallenge}
-                setCurrentChallenge={setCurrentChallenge}
-                style={{
-                  direction: "ltr",
-                }}
-              />
-            ))}
-        </div>
+      {fetching ? (
+        <h1>Loading challenges</h1>
+      ) : (
+        <div className="grid grid-cols-2 gap-8 justify-items-center overflow-auto">
+          <div
+            className="flex flex-col items-center gap-4 w-full overflow-auto"
+            style={{
+              direction: "rtl",
+            }}
+          >
+            {challenges
+              .filter(
+                (it: IChallenge) =>
+                  it.category.id === categories[currentCategory].id
+              )
+              .map((it: IChallenge) => (
+                <Challenge
+                  key={it.id}
+                  challenge={it}
+                  currentChallenge={currentChallenge}
+                  setCurrentChallenge={setCurrentChallenge}
+                  style={{
+                    direction: "ltr",
+                  }}
+                />
+              ))}
+          </div>
 
-        {activeChallenge && (
-          <>
-            {activeChallenge?.category?.key === "requested" ? (
-              <RequestedChallenge activeChallenge={activeChallenge} />
-            ) : (
-              <ActiveChallenge
-                activeChallenge={activeChallenge}
-                userInput={userInput}
-                setUserInput={setUserInput}
-              />
-            )}
-          </>
-        )}
-      </div> */}
+          {activeChallenge && (
+            <>
+              {activeChallenge?.category?.key === "requested" ? (
+                <RequestedChallenge activeChallenge={activeChallenge} />
+              ) : (
+                <ActiveChallenge
+                  activeChallenge={activeChallenge}
+                  userInput={userInput}
+                  setUserInput={setUserInput}
+                />
+              )}
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };
