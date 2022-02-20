@@ -6,7 +6,7 @@
     "@emotion/cache": "^11.5.0",
     "@emotion/react": "^11.5.0",
     "@emotion/server": "latest",
-    "@emotion/styled": "latest",
+    "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.0.2",
     "axios": "^0.24.0",
     "clsx": "latest",
