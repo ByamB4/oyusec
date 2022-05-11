@@ -5,6 +5,8 @@
     "node": true
   },
   "extends": [
+    "eslint:recommended",
+    "next",
     "plugin:react/recommended",
     "airbnb",
     "airbnb/hooks",
@@ -18,29 +20,34 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": false
     },
     "ecmaVersion": 12,
-    // "project": "./tsconfig.json",
-    "project": "dog/tsconfig.json",
+    "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "import",
-    "jsx-a11y",
-    "prefer-arrow",
-    "react",
-    "react-hooks"
-  ],
+  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "prefer-arrow", "react", "react-hooks"],
   "root": true,
+  "ignorePatterns": ["node_modules/", "dist/"],
   "rules": {
+    "@typescript-eslint/no-misused-promises": [
+      "off",
+      {
+        "checksConditionals": false
+      }
+    ],
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/restrict-plus-operands": "off",
+    "react/no-array-index-key": "off",
     "import/prefer-default-export": "off",
+    "no-nested-ternary": "off",
     "arrow-body-style": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/require-default-props": "off",
@@ -50,8 +57,17 @@
     "@typescript-eslint/no-unsafe-call": "off",
     "no-shadow": "off",
     "import/no-unresolved": "off",
+    "no-var": "off",
     "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/no-shadow": ["error"],
+    "react/no-unused-state": "off",
+    "jsx-a11y/no-static-element-interactions": [
+      "error",
+      {
+        "handlers": ["onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+      }
+    ],
+    "@next/next/no-img-element": "off",
+    // "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/restrict-template-expressions": ["off"],
     "react/button-has-type": "off",
     "lines-between-class-members": [
@@ -106,7 +122,10 @@
   },
   "overrides": [
     {
-      "files": ["*.tsx"],
+      "files": ["*.tsx", "*.ts"],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
       "rules": {
         "react/prop-types": "off"
       }

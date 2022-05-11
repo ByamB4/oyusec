@@ -1,7 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import DemoChallenge from "components/DemoChallenge";
-import { colors } from "configs";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react'
+import Image from 'next/image'
+import DemoChallenge from 'components/DemoChallenge'
+import { colors } from 'configs'
 import {
   Box,
   Button,
@@ -9,24 +10,19 @@ import {
   CircularProgressProps,
   Typography,
   circularProgressClasses,
-} from "@mui/material";
+} from '@mui/material'
 
 interface ICircularProgressProps extends CircularProgressProps {
-  className?: string;
-  backgroundColor?: string;
-  color?: string | any;
+  className?: string
+  backgroundColor?: string
+  color?: string | any
 }
 
 const CusCircularProgress: React.FC<ICircularProgressProps> = (props) => {
-  const {
-    className = "",
-    color = "#6A4BFF",
-    backgroundColor = "#4E556A",
-    ...rest
-  } = props;
+  const { className = '', color = '#6A4BFF', backgroundColor = '#4E556A', ...rest } = props
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: 'relative' }}>
       <CircularProgress
         variant="determinate"
         sx={{
@@ -41,12 +37,12 @@ const CusCircularProgress: React.FC<ICircularProgressProps> = (props) => {
         variant="determinate"
         value={20}
         sx={{
-          color: color,
-          animationDuration: "550ms",
-          position: "absolute",
+          color,
+          animationDuration: '550ms',
+          position: 'absolute',
           left: 0,
           [`& .${circularProgressClasses.circle}`]: {
-            strokeLinecap: "round",
+            strokeLinecap: 'round',
           },
         }}
         size={150}
@@ -54,60 +50,57 @@ const CusCircularProgress: React.FC<ICircularProgressProps> = (props) => {
         {...rest}
       />
     </Box>
-  );
-};
-
-interface Props {
-  className?: string;
+  )
 }
 
-const Hero: React.FC<Props> = ({ className = "" }) => {
-  const rootRef = React.useRef<HTMLDivElement>(null);
+interface Props {
+  className?: string
+}
+
+const Hero: React.FC<Props> = ({ className = '' }) => {
+  const rootRef = React.useRef<HTMLDivElement>(null)
   const [dimension, setDimension] = React.useState<{
-    width: number;
-    height: number;
+    width: number
+    height: number
   }>({
     width: 0,
     height: 0,
-  });
+  })
 
   React.useEffect(() => {
     if (rootRef.current) {
       setDimension({
         width: rootRef.current.offsetWidth,
         height: rootRef.current.offsetHeight,
-      });
+      })
     }
-  }, []);
+  }, [])
 
   const randomPosition = (pos: string) => {
     switch (pos) {
-      case "y":
-        const value = Math.floor(Math.random() * dimension.height);
+      case 'y':
+        const value = Math.floor(Math.random() * dimension.height)
         if (value > dimension.height / 2) {
-          return value - 100;
+          return value - 100
         }
-        return value;
-      case "x":
-        return 100 + Math.floor(Math.random() * dimension.width);
+        return value
+      case 'x':
+        return 100 + Math.floor(Math.random() * dimension.width)
       default:
-        return 0;
+        return 0
     }
-  };
+  }
 
   return (
-    <div
-      className={`w-full h-full p-0 rounded-3xl overflow-hidden ${className}`}
-      ref={rootRef}
-    >
+    <div className={`w-full h-full p-0 rounded-3xl overflow-hidden ${className}`} ref={rootRef}>
       <div className="">
         {Array.from({ length: 3 }).map((_, index) => (
           <div
             key={index}
-            className={`absolute ${Math.random() < 0.5 && "animate-pulse"}`}
+            className={`absolute ${Math.random() < 0.5 && 'animate-pulse'}`}
             style={{
-              top: `${randomPosition("y")}px`,
-              left: `${randomPosition("x")}px`,
+              top: `${randomPosition('y')}px`,
+              left: `${randomPosition('x')}px`,
             }}
           >
             <Image
@@ -145,8 +138,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
           </div>
           <div>
             <Typography variant="h4" className="font-normal">
-              Make it better place to learn, practice, compete in security field
-              in 🇲🇳
+              Make it better place to learn, practice, compete in security field in 🇲🇳
             </Typography>
           </div>
           <div className="flex gap-8">
@@ -176,10 +168,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
                   хэрэглэгч
                 </Typography>
               </div>
-              <CusCircularProgress
-                backgroundColor={`rgba(33, 150, 243, 0.2)`}
-                color={colors.secondary.blue}
-              />
+              <CusCircularProgress backgroundColor={`rgba(33, 150, 243, 0.2)`} color={colors.secondary.blue} />
             </div>
             <div className="flex gap-9">
               <div className="flex flex-col gap-2">
@@ -206,10 +195,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
                   зөв илгээлт
                 </Typography>
               </div>
-              <CusCircularProgress
-                backgroundColor={colors.secondary.red}
-                color={colors.secondary.neonGreen}
-              />
+              <CusCircularProgress backgroundColor={colors.secondary.red} color={colors.secondary.neonGreen} />
             </div>
             <div className="flex gap-9">
               <div className="flex flex-col gap-2">
@@ -224,7 +210,7 @@ const Hero: React.FC<Props> = ({ className = "" }) => {
         {/* END: Components */}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
