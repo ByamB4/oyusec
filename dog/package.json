@@ -21,7 +21,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && next",
     "build": "next build",
     "export": "next export",
     "lint": "yarn lint:tsc && yarn lint:eslint && yarn lint:prettier",
