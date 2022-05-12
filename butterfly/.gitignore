@@ -1,0 +1,7 @@
+main
+go.sum
+log/
+conf.dev.yml
+config.yml
+config*.yml
+*.pem

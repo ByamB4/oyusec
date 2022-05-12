@@ -1,0 +1,22 @@
+version: "3.6"
+
+services:
+  postgres_db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=oyusec_butterfly_db
+      - POSTGRES_USER=oyusec_butterfly_user
+      - POSTGRES_PASSWORD=oyusec_butterfly_password
+    ports:
+      - 5432:5432
+    networks:
+      - db-tier
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
+
+networks:
+  db-tier:

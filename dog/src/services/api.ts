@@ -1,8 +1,8 @@
 import { BaseResponse } from 'types'
 import axios, { AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios'
 
-const baseURL = process.env.NEXT_PUBLIC_BACK_URL
-const baseLocalURL = process.env.NEXT_PUBLIC_LOCAL_URL
+const baseURL = process.env.BACKEND_API_LOCAL_URL
+const baseLocalURL = process.env.BACKEND_API_LOCAL_URL
 
 export interface IBody {
   [key: string]: any
