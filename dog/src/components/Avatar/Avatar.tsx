@@ -1,57 +1,31 @@
-import { FC, ReactElement } from "react";
-import { Avatar as MuiAvatar } from "@mui/material";
+import { FC, ReactElement } from 'react'
+import { Avatar as MAvatar } from '@mui/material'
+import { plhUserFullName, plhUserAvatar } from 'utils'
 
 interface Props {
-  className?: string;
-  src: string;
-  size?: 32 | 40 | 56 | 80 | 112 | 120 | 176;
-  alt?: string;
+  className?: string
+  src?: string
+  size?: number
+  alt?: string
 }
 
 const Avatar: FC<Props> = ({
-  className = "",
-  src,
+  className = '',
   size = 40,
-  alt = "",
+  src = plhUserAvatar(),
+  alt = plhUserFullName(),
 }): ReactElement => {
-  let classNames: string = className;
-  switch (size) {
-    case 32:
-      classNames += " border";
-      break;
-    case 40:
-      classNames += " border-2";
-      break;
-    case 56:
-      classNames += " border-2";
-      break;
-    case 80:
-      classNames += " border-2";
-      break;
-    case 112:
-      classNames += " border-4";
-      break;
-    case 120:
-      classNames += " border-4";
-      break;
-    case 176:
-      classNames += " border-8";
-      break;
-    default:
-      classNames += " border";
-  }
-
   return (
-    <MuiAvatar
-      className={`border-primary-purple ${classNames}`}
-      src={src}
+    <MAvatar
+      className={`${className} border border-primary-purple`}
       alt={alt}
+      src={src}
       sx={{
         width: size,
         height: size,
       }}
     />
-  );
-};
+  )
+}
 
-export default Avatar;
+export default Avatar
