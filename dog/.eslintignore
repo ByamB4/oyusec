@@ -1,0 +1,5 @@
+node_modules/
+**/*.js
+**/*.jsx
+.next
+dist

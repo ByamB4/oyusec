@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Exo 2 */
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-ThinItalic.ttf');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-ExtraLight.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-ExtraLightItalic.ttf');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-LightItalic.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-MediumItalic.ttf');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-SemiBoldItalic.ttf');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-ExtraBold.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-ExtraBoldItalic.ttf');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Exo2';
+  src: url('/fonts/Exo_2/Exo2-BlackItalic.ttf');
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Ubuntu */
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-LightItalic.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-MediumItalic.ttf');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('/fonts/Ubuntu/Ubuntu-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Museo */
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-ExtraLight.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-ExtraBold.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/Museo/MuseoModerno-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Fira Code */
+@font-face {
+  font-family: 'Fira Code', monospace;
+  src: url('/fonts/FiraCode/FiraCode-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fira Code', monospace;
+  src: url('/fonts/FiraCode/FiraCode-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fira Code', monospace;
+  src: url('/fonts/FiraCode/FiraCode-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fira Code', monospace;
+  src: url('/fonts/FiraCode/FiraCode-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fira Code', monospace;
+  src: url('/fonts/FiraCode/FiraCode-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.up-down-object {
+  animation: MoveUpDown 6s linear infinite;
+  position: absolute;
+  /* left: 50%; */
+  /* transform: translateY(50%); */
+  top: 60%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    transform: translateY(-50px);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2196f3;
+  border-radius: 100px;
+  border: 7px solid #1c273f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #157fd6;
+}
+
+/* React toastify */
+.Toastify__toast-container {
+  min-height: 0 !important;
+  max-height: 10000px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.Toastify__toast {
+  box-shadow: none !important;
+  max-height: 100% !important;
+
+  margin-bottom: 1rem;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.Toastify__toast-theme--light {
+  background: transparent !important;
+  padding: 0 !important;
+  color: transparent !important;
+  margin: 0 !important;
+}
+
+.Toastify__toast-body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.Toastify__close-button {
+  display: hidden !important;
+}
+.Toastify__toast-icon {
+  display: hidden !important;
+  width: 0 !important;
+}
+
+.scrolling-element {
+  overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+  -webkit-overflow-scrolling: touch;
+}
