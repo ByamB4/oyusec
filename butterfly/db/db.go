@@ -1,6 +1,8 @@
 package db
 
 import (
+	"butterfly/pkg/model"
+
 	gocache "github.com/patrickmn/go-cache"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -19,7 +21,6 @@ func New(url string, log bool) (*Instance, error) {
 	}
 
 	cfg := &gorm.Config{Logger: logger.Default.LogMode(logMode), SkipDefaultTransaction: true}
-	
 
 	db, err := gorm.Open(postgres.Open(url), cfg)
 	if err != nil {
@@ -30,4 +31,10 @@ func New(url string, log bool) (*Instance, error) {
 	i := &Instance{Gorm: db, MemoryCache: mc}
 
 	return i, nil
+}
+
+func SetupFromBegin(db *gorm.DB) error {
+	return db.AutoMigrate(
+		model.Account{},
+	)
 }

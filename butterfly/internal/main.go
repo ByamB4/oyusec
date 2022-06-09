@@ -1,12 +1,17 @@
 package internal
 
 import (
+	"context"
 	"flag"
-	"log"
-	"path/filepath"
 	"net/http"
+	"os"
+	"os/signal"
+	"path/filepath"
+	"syscall"
 	"time"
+
 	"github.com/gin-gonic/gin"
+	log "github.com/sirupsen/logrus"
 )
 
 var (
@@ -35,7 +40,7 @@ func InitConfig(confPath string) {
 	Init(confPath)
 }
 
-func CORS (c *gin.Context) {
+func CORS(c *gin.Context) {
 	c.Header("Content-Type", "application/json")
 	c.Header("Access-Control-Allow-Origin", "*")
 	c.Header("Access-Control-Allow-Headers", "*")
@@ -53,4 +58,35 @@ func InitEngine(ginMode string) *gin.Engine {
 	engine := gin.Default()
 	engine.Use(CORS)
 	return engine
+}
+
+func SetupGracefulShutdown(ctx context.Context, port string, engine *gin.Engine) {
+	server := &http.Server{
+		Addr:    ":" + port,
+		Handler: engine,
+	}
+
+	defer func() {
+		if err := server.Shutdown(ctx); err != nil {
+			log.Info("Server Shutdown: ", err)
+		}
+	}()
+
+	signalForExit := make(chan os.Signal, 1)
+	signal.Notify(signalForExit,
+		syscall.SIGHUP,
+		syscall.SIGINT,
+		syscall.SIGTERM,
+		syscall.SIGQUIT)
+
+	go func() {
+		if err := server.ListenAndServe(); err != nil {
+			log.Fatal("Application failed", err)
+		}
+	}()
+	log.WithFields(log.Fields{"bind": port}).Info("Running application")
+
+	stop := <-signalForExit
+	log.Info("Stop signal Received", stop)
+	log.Info("Waiting for all jobs to stop")
 }
