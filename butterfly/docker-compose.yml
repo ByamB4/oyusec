@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: butterfly-database
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=butterfly_db
+      - POSTGRES_USER=butterfly_user
+      - POSTGRES_PASSWORD=butterfly_password
+    ports:
+      - 5432:5432
+    volumes:
+      - butterfly-data:/var/lib/postgresql/data
+
+volumes:
+  butterfly-data:
