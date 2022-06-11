@@ -4,12 +4,16 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/byamb4/oyusec/butterfly/pkg/models"
+	"butterfly/pkg/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-func Init() *gorm.DB {
+type Instance struct {
+	Gorm *gorm.DB
+}
+
+func Init() (*Instance, error) {
 	dbURL := "postgres://butterfly_user:butterfly_password@localhost:5432/butterfly_db?sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dbURL), &gorm.Config{})
 
@@ -20,7 +24,7 @@ func Init() *gorm.DB {
 
 	fmt.Println("DB connection established")
 
-	db.AutoMigrate(&models.Book{})
+	db.AutoMigrate(&model.Book{})
 
-	return db
+	return &Instance{Gorm: db}, nil
 }
