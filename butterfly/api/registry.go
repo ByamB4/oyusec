@@ -4,6 +4,11 @@ func (s *Server) RegisterBasicAPI() {
 	s.router.GET("ping", GetStatus)
 }
 
+func (s *Server) RegisterAccountAPI() {
+	accountGroup := s.router.Group("account")
+	accountGroup.GET("", s.GetAllAccounts)
+}
+
 func (s *Server) RegisterBookAPI() {
 	bookGroup := s.router.Group("books")
 	bookGroup.GET("", s.GetAllBooks)

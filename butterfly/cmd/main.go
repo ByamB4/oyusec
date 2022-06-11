@@ -54,6 +54,7 @@ func main() {
 
 	server.RegisterBasicAPI()
 	server.RegisterBookAPI()
+	server.RegisterAccountAPI()
 
 	internal.SetupGracefulShutdown(ctx, port, engine)
 

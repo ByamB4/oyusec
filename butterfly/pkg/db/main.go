@@ -26,7 +26,7 @@ func Init() (*Instance, error) {
 	fmt.Println("DB connection established")
 
 	// DeleteTable(&Instance{Gorm: db})
-	// DeleteAllData(&Instance{Gorm: db})
+	DeleteAllData(&Instance{Gorm: db})
 	db.AutoMigrate(&model.Book{}, &model.Account{})
 	Seed(&Instance{Gorm: db})
 
@@ -42,6 +42,15 @@ func Seed(db *Instance) {
 			Desc:   faker.Paragraph(),
 		}
 		db.Gorm.Create(&book)
+	}
+	for i := 0; i < 10; i++ {
+		account := model.Account{
+			Id:       faker.UUIDHyphenated(),
+			Name:     faker.Name(),
+			Email:    faker.Email(),
+			Username: faker.Username(),
+		}
+		db.Gorm.Create(&account)
 	}
 
 	log.Info("DB seeded")
