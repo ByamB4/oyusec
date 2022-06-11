@@ -25,8 +25,9 @@ func Init() (*Instance, error) {
 
 	fmt.Println("DB connection established")
 
-	db.AutoMigrate(&model.Book{})
-	DeleteAllData(&Instance{Gorm: db})
+	// DeleteTable(&Instance{Gorm: db})
+	// DeleteAllData(&Instance{Gorm: db})
+	db.AutoMigrate(&model.Book{}, &model.Account{})
 	Seed(&Instance{Gorm: db})
 
 	return &Instance{Gorm: db}, nil
@@ -35,6 +36,7 @@ func Init() (*Instance, error) {
 func Seed(db *Instance) {
 	for i := 0; i < 10; i++ {
 		book := model.Book{
+			Id:     faker.UUIDHyphenated(),
 			Title:  faker.Sentence(),
 			Author: faker.Name(),
 			Desc:   faker.Paragraph(),
@@ -46,6 +48,17 @@ func Seed(db *Instance) {
 }
 
 func DeleteAllData(db *Instance) {
-	db.Gorm.Exec("DELETE FROM books")
+	query := "DELETE FROM "
+	for _, table := range []string{"accounts", "books"} {
+		db.Gorm.Exec(query + table)
+	}
 	log.Info("DB deleted")
+}
+
+func DeleteTable(db *Instance) {
+	query := "DROP TABLE "
+	for _, table := range []string{"accounts", "books"} {
+		db.Gorm.Exec(query + table)
+	}
+	log.Info("DB table deleted")
 }
