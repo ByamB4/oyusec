@@ -1,26 +1,61 @@
 package main
 
 import (
-	"log"
-	"net/http"
+	"butterfly/api"
+	"butterfly/internal"
+	"butterfly/pkg/db"
+	"context"
 
-	"github.com/byamb4/oyusec/butterfly/pkg/db"
-	"github.com/byamb4/oyusec/butterfly/pkg/handlers"
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
+
+	log "github.com/sirupsen/logrus"
 )
 
+const (
+	defaultPort       = "8080"
+	defaultConfigPath = "./config.yml"
+)
+
+var (
+	ctx            context.Context
+	cancel         context.CancelFunc
+	database       *db.Instance
+	server         *api.Server
+	engine         *gin.Engine
+	port, confPath string
+)
+
+func init() {
+	port, confPath = internal.ParseArgs(defaultPort, defaultConfigPath)
+
+	var err error
+	database, err := db.Init()
+	if err != nil {
+		log.Fatal("Error initializing database: ", err)
+	}
+
+	log.Info("Database connection established")
+
+	engine = internal.InitEngine(internal.Default.Gin.Mode)
+	log.Info("Gin engine initialized")
+
+	server, err = api.NewServer(engine, database, "salt")
+
+	if err != nil {
+		log.Fatal("Error initializing server: ", err)
+	}
+
+	log.Info("API server initialized")
+
+	// h := handlers.New(database.Gorm)
+
+}
 func main() {
-	DB := db.Init()
-	h := handlers.New(DB)
 
-	router := mux.NewRouter()
+	server.RegisterBasicAPI()
+	server.RegisterBookAPI()
 
-	router.HandleFunc("/books", h.GetAllBooks).Methods(http.MethodGet)
-	router.HandleFunc("/books", h.AddBook).Methods(http.MethodPost)
-	router.HandleFunc("/books/{id}", h.GetBook).Methods(http.MethodGet)
-	router.HandleFunc("/books/{id}", h.UpdateBook).Methods(http.MethodPut)
-	router.HandleFunc("/books/{id}", h.DeleteBook).Methods(http.MethodDelete)
+	internal.SetupGracefulShutdown(ctx, port, engine)
 
-	log.Println("API is running")
-	http.ListenAndServe(":4000", router)
+	cancel()
 }
