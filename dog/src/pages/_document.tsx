@@ -13,6 +13,7 @@ class _ extends Document<unknown> {
           <meta name="twitter:creator" content={`@${APP.author}`} />
           <meta name="fb:page_id" content="" />
           <meta property="og:locale" content="mn_MN" />
+          <meta property="og:type" content="website" />
           <meta property="og:site_name" content={APP.name} />
           <meta name="category" content={APP.category} />
           <meta name="subject" content={APP.subject.en} />

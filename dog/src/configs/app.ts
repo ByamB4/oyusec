@@ -13,8 +13,8 @@ export const APP = {
   version: '1.0.0',
   // description: 'OyuSec is a platform for the management of the competitions of the University of Oyu.',
   description: {
-    mn: 'OyuSec is a platform for the management of the competitions of the University of Oyu.',
-    en: 'OyuSec is a platform for the management of the competitions of the University of Oyu.',
+    mn: 'OyuSec - Make it better place to learn, practice, compete in security field in 🇲🇳',
+    en: 'OyuSec - Make it better place to learn, practice, compete in security field in 🇲🇳',
   },
   category: 'ctf,oyu,security,oyusec,hz,haruulzangi,writeup,byamb4',
   subject: {
@@ -34,7 +34,7 @@ interface IDEFAULT {
 }
 
 export const TITLE = {
-  DEFAULT: 'OyuSec',
+  DEFAULT: 'OyuSec - Compete, Rank, Learn',
   homepage: {
     index: 'Нүүр хуудас',
   },
