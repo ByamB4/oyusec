@@ -19,39 +19,37 @@ interface Props extends AppProps {
   emotionCache?: EmotionCache
 }
 
-const _ = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: Props): ReactElement => {
-  return (
-    <>
-      <CacheProvider value={emotionCache}>
-        <Head>
-          <title>{APP_NAME}</title>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <ThemeProvider theme={MuiTheme}>
-          <AuthProvider>
-            <SnackbarProvider>
-              <SearchProvider>
-                <CssBaseline />
-                <Component {...pageProps} />
-              </SearchProvider>
-            </SnackbarProvider>
-          </AuthProvider>
-          <ToastContainer
-            position="bottom-right"
-            autoClose={3000}
-            icon={false}
-            newestOnTop={false}
-            hideProgressBar
-            closeButton={<></>}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-        </ThemeProvider>
-      </CacheProvider>
-    </>
-  )
-}
+const _ = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: Props): ReactElement => (
+  <>
+    <CacheProvider value={emotionCache}>
+      <Head>
+        <title>{APP_NAME}</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      <ThemeProvider theme={MuiTheme}>
+        <AuthProvider>
+          <SnackbarProvider>
+            <SearchProvider>
+              <CssBaseline />
+              <Component {...pageProps} />
+            </SearchProvider>
+          </SnackbarProvider>
+        </AuthProvider>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000}
+          icon={false}
+          newestOnTop={false}
+          hideProgressBar
+          closeButton={<></>}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </ThemeProvider>
+    </CacheProvider>
+  </>
+)
 
 export default _

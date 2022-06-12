@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"syscall"
 	"time"
 
@@ -37,6 +38,15 @@ func InitEngine(ginMode string) *gin.Engine {
 	engine := gin.Default()
 	engine.Use(CORS)
 	return engine
+}
+
+func InitConfig(confPath string) {
+	confPath, err := filepath.Abs(confPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	Init(confPath)
 }
 
 func SetupGracefulShutdown(ctx context.Context, port string, engine *gin.Engine) {

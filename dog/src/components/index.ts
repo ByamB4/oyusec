@@ -30,3 +30,5 @@ export { default as CompChallenge } from './CompChallenge'
 export { default as CompetitionThumbnail } from './CompetitionThumbnail'
 
 export { default as Toast } from './Toast'
+
+export { default as NextHead } from './NextHead'
