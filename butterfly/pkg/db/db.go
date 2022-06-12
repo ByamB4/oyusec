@@ -4,7 +4,10 @@ import (
 	"butterfly/pkg/model"
 	"fmt"
 
+	// "time"
+
 	"github.com/bxcodec/faker/v3"
+	// "github.com/google/uuid"
 	log "github.com/sirupsen/logrus"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -14,21 +17,18 @@ type Instance struct {
 	Gorm *gorm.DB
 }
 
-func Init() (*Instance, error) {
-	dbURL := "postgres://butterfly_user:butterfly_password@localhost:5432/butterfly_db?sslmode=disable"
-	db, err := gorm.Open(postgres.Open(dbURL), &gorm.Config{})
+func Init(url string) (*Instance, error) {
+	db, err := gorm.Open(postgres.Open(url), &gorm.Config{})
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		log.Fatalln(err)
 	}
 
-	fmt.Println("DB connection established")
-
 	// DeleteTable(&Instance{Gorm: db})
-	DeleteAllData(&Instance{Gorm: db})
-	db.AutoMigrate(&model.Book{}, &model.Account{})
-	Seed(&Instance{Gorm: db})
+	// DeleteAllData(&Instance{Gorm: db})
+	// db.AutoMigrate(&model.Book{}, &model.Account{})
+	// Seed(&Instance{Gorm: db})
 
 	return &Instance{Gorm: db}, nil
 }
@@ -42,15 +42,6 @@ func Seed(db *Instance) {
 			Desc:   faker.Paragraph(),
 		}
 		db.Gorm.Create(&book)
-	}
-	for i := 0; i < 10; i++ {
-		account := model.Account{
-			Id:       faker.UUIDHyphenated(),
-			Name:     faker.Name(),
-			Email:    faker.Email(),
-			Username: faker.Username(),
-		}
-		db.Gorm.Create(&account)
 	}
 
 	log.Info("DB seeded")
@@ -70,4 +61,16 @@ func DeleteTable(db *Instance) {
 		db.Gorm.Exec(query + table)
 	}
 	log.Info("DB table deleted")
+}
+
+type InvalidNilValue struct{}
+
+func (*InvalidNilValue) Error() string {
+	return "invalid nil value"
+}
+
+type ErrorNotFound struct{}
+
+func (*ErrorNotFound) Error() string {
+	return "data not found"
 }

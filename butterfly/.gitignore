@@ -1,1 +1,4 @@
 .vscode
+config.yml
+privateKey.pem
+publicKey.pem
