@@ -1,33 +1,25 @@
-import { FC, ReactElement } from "react";
-import { IconButton } from "components";
-import { colors } from "configs";
-import { useRouter } from "next/router";
-import {
-  IconHome,
-  IconSword,
-  IconTrophy,
-  IconSettings,
-  IconSchool,
-  IconScript,
-} from "icons/Lined";
-import { v4 } from "uuid";
+import { FC, ReactElement } from 'react'
+import { IconButton } from 'components'
+import { colors } from 'configs'
+import { useRouter } from 'next/router'
+import { IconHome, IconSword, IconTrophy, IconSettings, IconSchool, IconScript } from 'icons/Lined'
+import { v4 } from 'uuid'
 
 interface Props {
-  className?: string;
+  className?: string
 }
 
-const AppSidebar: FC<Props> = ({ className = "" }): ReactElement => {
-  const router = useRouter();
+const AppSidebar: FC<Props> = ({ className = '' }): ReactElement => {
+  const router = useRouter()
 
-  const checkActivePage = (cur: string) =>
-    cur.split("/")[1] === router.asPath.split("/")[1];
+  const checkActivePage = (cur: string) => cur.split('/')[1] === router.asPath.split('/')[1]
 
   const middleLinks: {
-    id: string;
-    icon: ReactElement;
-    link: string;
-    active: { className: string };
-    passive: { className: string };
+    id: string
+    icon: ReactElement
+    link: string
+    active: { className: string }
+    passive: { className: string }
   }[] = [
     {
       id: v4(),
@@ -35,19 +27,15 @@ const AppSidebar: FC<Props> = ({ className = "" }): ReactElement => {
         <IconHome
           width={32}
           height={32}
-          stroke={
-            router.pathname === "/"
-              ? colors.secondary.orange
-              : colors.text.darkGrey
-          }
+          stroke={router.pathname === '/' ? colors.secondary.orange : colors.text.darkGrey}
         />
       ),
-      link: "/",
+      link: '/',
       active: {
-        className: "bg-secondary-orange",
+        className: 'bg-secondary-orange',
       },
       passive: {
-        className: "bg-transparent",
+        className: 'bg-transparent',
       },
     },
     {
@@ -56,19 +44,15 @@ const AppSidebar: FC<Props> = ({ className = "" }): ReactElement => {
         <IconSword
           width={32}
           height={32}
-          fill={
-            checkActivePage("/challenges")
-              ? colors.secondary.cyan
-              : colors.text.darkGrey
-          }
+          fill={checkActivePage('/challenges') ? colors.secondary.cyan : colors.text.darkGrey}
         />
       ),
-      link: "/challenges",
+      link: '/challenges',
       active: {
-        className: "bg-secondary-cyan",
+        className: 'bg-secondary-cyan',
       },
       passive: {
-        className: "bg-transparent",
+        className: 'bg-transparent',
       },
     },
     {
@@ -77,19 +61,15 @@ const AppSidebar: FC<Props> = ({ className = "" }): ReactElement => {
         <IconTrophy
           width={32}
           height={32}
-          fill={
-            checkActivePage("/competitions")
-              ? colors.secondary.pink
-              : colors.text.darkGrey
-          }
+          fill={checkActivePage('/competitions') ? colors.secondary.pink : colors.text.darkGrey}
         />
       ),
-      link: "/competitions",
+      link: '/competitions',
       active: {
-        className: "bg-secondary-pink",
+        className: 'bg-secondary-pink',
       },
       passive: {
-        className: "bg-transparent",
+        className: 'bg-transparent',
       },
     },
     {
@@ -98,19 +78,15 @@ const AppSidebar: FC<Props> = ({ className = "" }): ReactElement => {
         <IconSchool
           width={32}
           height={32}
-          fill={
-            checkActivePage("/academy")
-              ? colors.secondary.neonGreen
-              : colors.text.darkGrey
-          }
+          fill={checkActivePage('/academy') ? colors.secondary.neonGreen : colors.text.darkGrey}
         />
       ),
-      link: "/academy",
+      link: '/academy',
       active: {
-        className: "bg-secondary-neonGreen",
+        className: 'bg-secondary-neonGreen',
       },
       passive: {
-        className: "bg-transparent",
+        className: 'bg-transparent',
       },
     },
     {
@@ -119,58 +95,43 @@ const AppSidebar: FC<Props> = ({ className = "" }): ReactElement => {
         <IconScript
           width={32}
           height={32}
-          fill={
-            checkActivePage("/writeups")
-              ? colors.secondary.violet
-              : colors.text.darkGrey
-          }
+          fill={checkActivePage('/writeups') ? colors.secondary.violet : colors.text.darkGrey}
         />
       ),
-      link: "/writeups",
+      link: '/writeups',
       active: {
-        className: "bg-secondary-violet",
+        className: 'bg-secondary-violet',
       },
       passive: {
-        className: "bg-transparent",
+        className: 'bg-transparent',
       },
     },
-  ];
+  ]
 
   return (
-    <nav
-      className={`bg-primary-dark h-full py-8 mr-3 flex flex-col items-center ${className}`}
-    >
+    <nav className={`bg-primary-dark h-full py-8 mr-3 flex flex-col items-center ${className}`}>
       <div className="flex flex-col flex-grow justify-center gap-8">
         {middleLinks.map((it) => (
           <div className="flex gap-2" key={it.id}>
             <div
               className={`h-full w-5px rounded-r-3xl ${
-                checkActivePage(it.link)
-                  ? it.active.className
-                  : it.passive.className
+                checkActivePage(it.link) ? it.active.className : it.passive.className
               }`}
             />
-            <IconButton
-              className="p-1"
-              onClick={() => router.push(it.link)}
-              size="small"
-              icon={it.icon}
-            />
+            <IconButton className="p-1" onClick={() => router.push(it.link)} size="small" icon={it.icon} />
           </div>
         ))}
       </div>
       <div className="flex gap-2">
-        <div className={`h-full w-5px rounded-r-3xl ${"bg-transparent"}`} />
+        <div className={`h-full w-5px rounded-r-3xl ${'bg-transparent'}`} />
         <IconButton
           className="p-1"
           size="small"
-          icon={
-            <IconSettings width={32} height={32} fill={colors.text.darkGrey} />
-          }
+          icon={<IconSettings width={32} height={32} fill={colors.text.darkGrey} />}
         />
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default AppSidebar;
+export default AppSidebar

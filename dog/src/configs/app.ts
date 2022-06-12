@@ -45,6 +45,9 @@ export const TITLE = {
   competitions: {
     index: 'Тэмцээн',
   },
+  account: {
+    profile: 'Профайл',
+  },
 }
 
 export const DEFAULT: IDEFAULT = {
@@ -127,11 +130,4 @@ export const DEFAULT: IDEFAULT = {
       },
     })),
   },
-}
-
-export interface IProfileMenuItem {
-  id: string
-  icon: string
-  label: string
-  action: any
 }

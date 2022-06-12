@@ -14,7 +14,7 @@ const NextHead: FC<Props> = ({ url, title, description, image, imageAlt }): Reac
   return (
     <>
       <Head>
-        <title>{title || TITLE.DEFAULT}</title>
+        <title>{`${title} | ${APP.name}`}</title>
         <meta name="description" content={description || APP.description.en} />
         <meta property="og:url" content={url || 'https://oyusec.vercel.app'} />
         <meta property="og:title" content={title || TITLE.DEFAULT} key="title" />
