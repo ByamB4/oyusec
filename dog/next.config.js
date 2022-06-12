@@ -9,7 +9,7 @@ const nextConfig = {
   },
   trailingSlash: true,
   env: {
-    BACKEND_API_LOCAL_URL: process.env.BACKEND_API_LOCAL_URL,
+    PUBLIC_BACKEND_API_URL: process.env.PUBLIC_BACKEND_API_URL,
   },
 }
 

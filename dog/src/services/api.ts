@@ -1,8 +1,7 @@
 import { BaseResponse } from 'types'
 import axios, { AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios'
 
-const baseURL = process.env.BACKEND_API_LOCAL_URL
-const baseLocalURL = process.env.BACKEND_API_LOCAL_URL
+const baseURL = process.env.PUBLIC_BACKEND_API_URL
 
 export interface IBody {
   [key: string]: any
@@ -58,11 +57,11 @@ const handleResponse = (options: AxiosRequestConfig, resp: AxiosResponse<BaseRes
   }
 }
 const handleError = (err: any, reject: any) => reject(new Error('Something went wrong'))
-const request = async <T>(options: AxiosRequestConfig, isLocal = false) => {
+const request = async <T>(options: AxiosRequestConfig) => {
   return new Promise<BaseResponse<T>>((resolve, reject) => {
     axios
       .request<BaseResponse<T>>({
-        baseURL: isLocal ? baseLocalURL : baseURL,
+        baseURL,
         ...options,
       })
       .then((resp) => {
@@ -82,7 +81,7 @@ const rest = {
         params: options?.params,
         cancelToken: options?.cancelToken,
       },
-      options?.isLocal || false,
+      // options?.isLocal || false,
     ).then((data) => data.result)
   },
   post: async <T>(url: string, options?: IOption): Promise<T> => {

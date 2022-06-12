@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, ReactElement, useState, MouseEvent } from 'react'
 import { Searchbar, Avatar, Toast } from 'components'
 import { Button, Typography } from '@mui/material'

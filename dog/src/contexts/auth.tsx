@@ -141,14 +141,15 @@ export const AuthProvider: FC = ({ children }) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const signature = await signer.signMessage(result.nonce)
-    const { jwtToken } = await AuthService.login({
-      address,
-      signature,
-    })
-    AuthService.setToken(jwtToken)
-    const authUser = await AuthService.getAccount()
-    setUser(authUser)
-    registerDevices()
+    console.log(signature)
+    // const { jwtToken } = await AuthService.login({
+    //   address,
+    //   signature,
+    // })
+    // AuthService.setToken(jwtToken)
+    // const authUser = await AuthService.getAccount()
+    // setUser(authUser)
+    // registerDevices()
   }
 
   const registerDevices = () => {
