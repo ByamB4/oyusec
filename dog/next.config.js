@@ -10,6 +10,7 @@ const nextConfig = {
   trailingSlash: true,
   env: {
     PUBLIC_BACKEND_API_URL: process.env.PUBLIC_BACKEND_API_URL,
+    NEXT_PUBLIC_STORAGE_URL: process.env.NEXT_PUBLIC_STORAGE_URL,
   },
 }
 

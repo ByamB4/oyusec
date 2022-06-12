@@ -4,8 +4,10 @@ import { Button, Typography } from '@mui/material'
 // import { useToken, useUser } from 'contexts/user'
 import { useAuth } from 'contexts/auth'
 import { useRouter } from 'next/router'
-import { IProfileMenuItem, PROFILE_MENU_ITEMS } from 'configs/app'
-import { handleIcon, plhUserFullName } from 'utils'
+import { IProfileMenuItem } from 'configs/app'
+import { handleIcon } from 'utils'
+import { PathFormatter } from 'utils/pathFormatter'
+import { v4 } from 'uuid'
 import { AccountMenu } from './accountMenu'
 
 interface Props {
@@ -17,8 +19,10 @@ const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
   const router = useRouter()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
+  const { getImagePath } = PathFormatter
   const {
     user,
+    logOut,
     connectWallet,
     metamask: { isMetaMaskInstalled },
   } = useAuth()
@@ -29,10 +33,6 @@ const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
   const loginMetaMask = () => {
     if (isMetaMaskInstalled) {
       connectWallet()
-        .then(() => {
-          console.log('welcome')
-        })
-        .catch((err) => console.log(err))
     } else {
       Toast({
         message: 'Please install MetaMask',
@@ -40,6 +40,38 @@ const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
       })
     }
   }
+
+  const fomUsrn = (text: string): string => {
+    if (text.length >= 42) {
+      return `${text.substring(0, 6)}...${text.substring(text.length - 6)}`
+    }
+
+    return text
+  }
+
+  const PROFILE_MENU_ITEMS: IProfileMenuItem[] = [
+    {
+      id: v4(),
+      icon: 'account-circle',
+      label: 'Профайл',
+      action: {
+        type: 'link',
+        href: '/profile',
+      },
+    },
+    {
+      id: v4(),
+      icon: 'shutdown',
+      label: 'Гарах',
+      action: {
+        type: 'function',
+        action: () => {
+          logOut()
+          handleClose()
+        },
+      },
+    },
+  ]
 
   return (
     <div className={`w-full flex justify-between items-center py-3 px-5 ${className}`}>
@@ -52,8 +84,8 @@ const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
           <>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <Avatar size={40} />
-                <Typography variant="h6">{plhUserFullName()}</Typography>
+                <Avatar size={40} src={getImagePath(user.imageURL, '/img/placeholder/user_placeholder.png')} />
+                <Typography variant="h6">{fomUsrn(user.username)}</Typography>
               </div>
               <div
                 className={`rounded-full p-2 hover:cursor-pointer ${open ? 'bg-primary-purple' : 'bg-primary-light1'}`}

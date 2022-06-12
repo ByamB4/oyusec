@@ -19,6 +19,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "tsconfigRootDir": "dog",
     "ecmaFeatures": {
       "jsx": false
     },

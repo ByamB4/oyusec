@@ -12,11 +12,11 @@ import {
 } from 'react'
 import MetaMaskOnboarding from '@metamask/onboarding'
 import { authTokenKey } from 'services/auth'
-import { IUser } from 'services/types'
 import { AuthService } from 'services'
 import { ethers } from 'ethers'
 // import { useMessaging } from 'hooks/useFirebase'
 import { ApiErrResp } from 'services/api'
+import { IUser } from 'services/types'
 
 export type ChainType = '0x89' | '0x13881'
 export const TARGET_NETWORK_ID_HEX_STRING: ChainType = process.env.NEXT_PUBLIC_CHAIN_ID as ChainType
@@ -141,15 +141,13 @@ export const AuthProvider: FC = ({ children }) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const signature = await signer.signMessage(result.nonce)
-    console.log(signature)
-    // const { jwtToken } = await AuthService.login({
-    //   address,
-    //   signature,
-    // })
-    // AuthService.setToken(jwtToken)
-    // const authUser = await AuthService.getAccount()
-    // setUser(authUser)
-    // registerDevices()
+    const { jwtToken } = await AuthService.login({
+      address,
+      signature,
+    })
+    AuthService.setToken(jwtToken)
+    const authUser = await AuthService.getAccount()
+    setUser(authUser)
   }
 
   const registerDevices = () => {

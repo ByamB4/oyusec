@@ -1,9 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { ICompetition, IUser } from 'interfaces'
+import { ICompetition } from 'interfaces'
 import { competitionTabContentTypes, competitionTabTypes } from 'utils/fake'
 import { v4 } from 'uuid'
 import { faker } from '@faker-js/faker'
+import { IUser } from 'services/types'
 
 export const APP_NAME = 'OyuSec'
 
@@ -49,25 +50,25 @@ export const TITLE = {
 export const DEFAULT: IDEFAULT = {
   title: 'OyuSec',
   user: {
-    firstName: 'Byambadalai',
-    lastName: 'Sumiya',
-    username: 'ByamB4',
-    avatar: '/img/users/me.jpg',
-    rank: 'Hecker',
-    cover: '/img/users/cover.png',
-    socialLinks: {
-      facebookLink: 'https://facebook.com/byamb4',
-      instagramLink: 'https://facebook.com/byamb4',
-      twitterLink: 'https://facebook.com/byamb4',
-      linkedinLink: 'https://facebook.com/byamb4',
-      githubLink: 'https://facebook.com/byamb4',
-      youtubeLink: 'https://facebook.com/byamb4',
-    },
-    tags: [
-      { label: 'Contributor', id: v4() },
-      { label: 'Core', id: v4() },
-      { label: 'Developer', id: v4() },
-    ],
+    // firstName: 'Byambadalai',
+    // lastName: 'Sumiya',
+    // username: 'ByamB4',
+    // avatar: '/img/users/me.jpg',
+    // rank: 'Hecker',
+    // cover: '/img/users/cover.png',
+    // socialLinks: {
+    //   facebookLink: 'https://facebook.com/byamb4',
+    //   instagramLink: 'https://facebook.com/byamb4',
+    //   twitterLink: 'https://facebook.com/byamb4',
+    //   linkedinLink: 'https://facebook.com/byamb4',
+    //   githubLink: 'https://facebook.com/byamb4',
+    //   youtubeLink: 'https://facebook.com/byamb4',
+    // },
+    // tags: [
+    //   { label: 'Contributor', id: v4() },
+    //   { label: 'Core', id: v4() },
+    //   { label: 'Developer', id: v4() },
+    // ],
   },
   competition: {
     id: v4(),
@@ -134,27 +135,3 @@ export interface IProfileMenuItem {
   label: string
   action: any
 }
-
-export const PROFILE_MENU_ITEMS: IProfileMenuItem[] = [
-  {
-    id: v4(),
-    icon: 'account-circle',
-    label: 'Профайл',
-    action: {
-      type: 'link',
-      href: '/profile',
-    },
-  },
-  {
-    id: v4(),
-    icon: 'shutdown',
-    label: 'Гарах',
-    action: {
-      type: 'function',
-      // action: () => {
-      //   setToken(null)
-      //   router.push('/')
-      // },
-    },
-  },
-]
