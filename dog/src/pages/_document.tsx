@@ -1,7 +1,7 @@
-import * as React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import createEmotionServer from "@emotion/server/create-instance";
-import { MuiTheme, createEmotionCache } from "initialize";
+import * as React from 'react'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import createEmotionServer from '@emotion/server/create-instance'
+import { MuiTheme, createEmotionCache } from 'initialize'
 
 class _doc extends Document<unknown> {
   render(): JSX.Element {
@@ -9,52 +9,43 @@ class _doc extends Document<unknown> {
       <Html lang="en">
         <Head>
           <meta name="theme-color" content={MuiTheme.palette.primary.main} />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href={`${process.env.STATIC_ROOT}/img/logo.png`}
-          />
+          <link rel="icon" type="image/png" sizes="32x32" href="/img/logo.png" />
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
 _doc.getInitialProps = async (ctx) => {
-  const originalRenderPage = ctx.renderPage;
+  const originalRenderPage = ctx.renderPage
 
-  const cache = createEmotionCache();
-  const { extractCriticalToChunks } = createEmotionServer(cache);
+  const cache = createEmotionCache()
+  const { extractCriticalToChunks } = createEmotionServer(cache)
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App: any) => (props) =>
-        <App emotionCache={cache} {...props} />,
-    });
+      enhanceApp: (App: any) => (props) => <App emotionCache={cache} {...props} />,
+    })
 
-  const initialProps = await Document.getInitialProps(ctx);
-  const emotionStyles = extractCriticalToChunks(initialProps.html);
+  const initialProps = await Document.getInitialProps(ctx)
+  const emotionStyles = extractCriticalToChunks(initialProps.html)
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(" ")}`}
+      data-emotion={`${style.key} ${style.ids.join(' ')}`}
       key={style.key}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: style.css }}
     />
-  ));
+  ))
 
   return {
     ...initialProps,
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-      ...emotionStyleTags,
-    ],
-  };
-};
+    styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags],
+  }
+}
 
-export default _doc;
+export default _doc

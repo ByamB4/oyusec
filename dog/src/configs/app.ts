@@ -32,9 +32,9 @@ export const DEFAULT: IDEFAULT = {
     firstName: 'Byambadalai',
     lastName: 'Sumiya',
     username: 'ByamB4',
-    avatar: `${process.env.STATIC_ROOT}/img/users/me.jpg`,
+    avatar: "/img/users/me.jpg",
     rank: 'Hecker',
-    cover: `${process.env.STATIC_ROOT}/img/users/cover.png`,
+    cover: "/img/users/cover.png",
     socialLinks: {
       facebookLink: 'https://facebook.com/byamb4',
       instagramLink: 'https://facebook.com/byamb4',
@@ -52,8 +52,8 @@ export const DEFAULT: IDEFAULT = {
   competition: {
     id: v4(),
     name: 'First Blood #2',
-    image: `${process.env.STATIC_ROOT}/img/competitions/default.png`,
-    thumbnailImage: `${process.env.STATIC_ROOT}/img/competitions/thumbnail.png`,
+    image: "/img/competitions/default.png",
+    thumbnailImage: "/img/competitions/thumbnail.png",
     // state: {},
     slug: 'first-blood-2',
     tags: [
@@ -82,7 +82,7 @@ export const DEFAULT: IDEFAULT = {
         firstName: 'Byambadalai',
         lastName: 'Sumiya',
         username: 'ByamB4',
-        avatar: `${process.env.STATIC_ROOT}/img/users/me.jpg`,
+        avatar: "/img/users/me.jpg",
         rank: 'Hecker',
         tags: [],
         cover: '',
@@ -90,8 +90,8 @@ export const DEFAULT: IDEFAULT = {
       competition: {
         id: v4(),
         name: 'First Blood #2',
-        image: `${process.env.STATIC_ROOT}/img/competitions/default.png`,
-        thumbnailImage: `${process.env.STATIC_ROOT}/img/competitions/thumbnail.png`,
+        image: "/img/competitions/default.png",
+        thumbnailImage: "/img/competitions/thumbnail.png",
         // state: {},
         slug: 'first-blood-2',
         // createdAt: ,

@@ -16,7 +16,7 @@ export const handleIcon: FC<IHandleIcon> = ({ icon, size = 24, className = '', o
     case 'metamask':
       return (
         <img
-          src={`${process.env.STATIC_ROOT}/svgs/logos/metamask.svg`}
+          src="/svgs/logos/metamask.svg"
           className={className}
           style={{ width: size, height: size }}
           alt="metamask-logo"
