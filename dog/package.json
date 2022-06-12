@@ -17,8 +17,7 @@
     "fix:prettier": "prettier --write .",
     "lint:conflict": "eslint-config-prettier .eslintrc.json",
     "postinstall": "typesync",
-    "check": "typesync && npm outdated && npm audit && yarn lint:conflict && yarn lint && yarn dev",
-    "prepare": "husky install"
+    "check": "typesync && npm outdated && npm audit && yarn lint:conflict && yarn lint && yarn dev"
   },
   "lint-staged": {
     "*.{js,ts,tsx, jsx}": [
