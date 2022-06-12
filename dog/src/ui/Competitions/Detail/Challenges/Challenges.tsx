@@ -1,28 +1,20 @@
-import { FC, ReactElement, useEffect, useState } from "react";
-import { IChallenge, IChallengeCategory } from "interfaces";
-import { challengeList } from "utils/fake";
-import { CompChallenge } from "components";
-import { Typography } from "@mui/material";
+import { FC, ReactElement, useEffect, useState } from 'react'
+import { IChallenge, IChallengeCategory } from 'interfaces'
+import { challengeList } from 'utils/fake'
+import { CompChallenge } from 'components'
+import { Typography } from '@mui/material'
 
-interface Props {
-  className?: string;
-}
-
-const Challenges: FC<Props> = ({ className = "" }): ReactElement => {
-  const [challenges, setChallenges] = useState<IChallenge[]>([]);
-  const [currentChallenge, setCurrentChallenge] = useState<IChallenge>(
-    {} as IChallenge
-  );
-  const categories: IChallengeCategory[] = [
-    ...new Set(challenges.map((challenge) => challenge.category)),
-  ];
+const Challenges: FC = (): ReactElement => {
+  const [challenges, setChallenges] = useState<IChallenge[]>([])
+  const [currentChallenge, setCurrentChallenge] = useState<IChallenge>({} as IChallenge)
+  const categories: IChallengeCategory[] = [...new Set(challenges.map((challenge) => challenge.category))]
 
   useEffect(() => {
-    const init = async () => {
-      setChallenges(challengeList);
-    };
-    init();
-  }, []);
+    const init = () => {
+      setChallenges(challengeList)
+    }
+    init()
+  }, [])
 
   return (
     <>
@@ -45,7 +37,7 @@ const Challenges: FC<Props> = ({ className = "" }): ReactElement => {
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default Challenges;
+export default Challenges
