@@ -7,6 +7,26 @@ import { faker } from '@faker-js/faker'
 
 export const APP_NAME = 'OyuSec'
 
+// TODO
+export const APP = {
+  name: APP_NAME,
+  version: '1.0.0',
+  // description: 'OyuSec is a platform for the management of the competitions of the University of Oyu.',
+  description: {
+    mn: 'OyuSec is a platform for the management of the competitions of the University of Oyu.',
+    en: 'OyuSec is a platform for the management of the competitions of the University of Oyu.',
+  },
+  category: 'ctf,oyu,security,oyusec,hz,haruulzangi,writeup,byamb4',
+  subject: {
+    mn: 'CTF Competition Management',
+    en: 'CTF Competition Management',
+  },
+  author: 'ByamB4',
+  creator: 'ByamB4',
+  publisher: 'ByamB4',
+  keywords: 'ctf,oyu,security,oyusec,hz,haruulzangi,writeup,byamb4',
+}
+
 interface IDEFAULT {
   title: string
   user: Partial<IUser>
@@ -32,9 +52,9 @@ export const DEFAULT: IDEFAULT = {
     firstName: 'Byambadalai',
     lastName: 'Sumiya',
     username: 'ByamB4',
-    avatar: "/img/users/me.jpg",
+    avatar: '/img/users/me.jpg',
     rank: 'Hecker',
-    cover: "/img/users/cover.png",
+    cover: '/img/users/cover.png',
     socialLinks: {
       facebookLink: 'https://facebook.com/byamb4',
       instagramLink: 'https://facebook.com/byamb4',
@@ -52,8 +72,8 @@ export const DEFAULT: IDEFAULT = {
   competition: {
     id: v4(),
     name: 'First Blood #2',
-    image: "/img/competitions/default.png",
-    thumbnailImage: "/img/competitions/thumbnail.png",
+    image: '/img/competitions/default.png',
+    thumbnailImage: '/img/competitions/thumbnail.png',
     // state: {},
     slug: 'first-blood-2',
     tags: [
@@ -82,7 +102,7 @@ export const DEFAULT: IDEFAULT = {
         firstName: 'Byambadalai',
         lastName: 'Sumiya',
         username: 'ByamB4',
-        avatar: "/img/users/me.jpg",
+        avatar: '/img/users/me.jpg',
         rank: 'Hecker',
         tags: [],
         cover: '',
@@ -90,8 +110,8 @@ export const DEFAULT: IDEFAULT = {
       competition: {
         id: v4(),
         name: 'First Blood #2',
-        image: "/img/competitions/default.png",
-        thumbnailImage: "/img/competitions/thumbnail.png",
+        image: '/img/competitions/default.png',
+        thumbnailImage: '/img/competitions/thumbnail.png',
         // state: {},
         slug: 'first-blood-2',
         // createdAt: ,
