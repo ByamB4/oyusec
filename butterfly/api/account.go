@@ -97,7 +97,8 @@ func (s *Server) GetNonce(c *gin.Context) {
 	address := c.Param("address")
 	account, err := s.database.GetAccount(&address, nil)
 
-	defaultAvatar := "https://avatar.ctflearn.com/3a0394ad706fd978ec9edd880273da56.png"
+	defaultAvatar := "https://storage.ard.art/public/Fh/133826ce-4ff4-4fa4-aa6d-fcc561a9a00b"
+	defaultCover := "https://storage.ard.art/public/68/0e944bf9-fdf5-4ab3-bfa8-d8b3c870e60b"
 
 	if err != nil {
 		account = &model.Account{
@@ -106,6 +107,7 @@ func (s *Server) GetNonce(c *gin.Context) {
 			PublicKey:  &address,
 			Nonce:      helper.PointerString(helper.RandomString(20)),
 			ImageURL:   &defaultAvatar,
+			CoverURL:   &defaultCover,
 			IsActive:   helper.PointerTrue(true),
 			Bio:        helper.PointerString(""),
 			WalletType: model.WALLET_ONCHAIN,
