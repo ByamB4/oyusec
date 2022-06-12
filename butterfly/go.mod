@@ -9,6 +9,7 @@ require (
 
 require (
 	github.com/bxcodec/faker/v3 v3.8.0 // indirect
+	github.com/ethereum/go-ethereum v1.10.18
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.8.1 // indirect

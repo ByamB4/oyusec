@@ -3,14 +3,16 @@ package api
 import (
 	"butterfly/pkg/helper"
 	"butterfly/pkg/model"
-	"fmt"
+	"butterfly/pkg/types"
+	"errors"
 
 	"github.com/gin-gonic/gin"
 )
 
 const (
-	LOGIN     = "login"
-	GET_NONCE = "get_nonce"
+	LOGIN       = "login"
+	GET_NONCE   = "get_nonce"
+	GET_ACCOUNT = "get_account"
 )
 
 type AuthRequest struct {
@@ -18,13 +20,31 @@ type AuthRequest struct {
 	Signature *string `json:"signature"`
 }
 
-func (s *Server) GetAllAccounts(c *gin.Context) {
-	var account []model.Account
-	if err := s.database.Gorm.Find(&account).Error; err != nil {
-		c.JSON(500, gin.H{"error": err.Error()})
+func (s *Server) GetAccount(c *gin.Context) {
+
+	var result *Response
+	defer func() { resolve(c, nil, result, GET_ACCOUNT) }()
+
+	acc, err := getAccount(c)
+	if err != nil {
+		result = Error(err)
 		return
 	}
-	c.JSON(200, account)
+
+	acc, err = s.database.GetAccountWithFields(nil, acc.Id)
+	if err != nil {
+		result = NotFound(err)
+		return
+	}
+	// additionalInfo, err := s.database.GetAccountAdditionalInfo(acc.ID)
+	// if err != nil {
+	// 	result = Error(err)
+	// 	return
+	// }
+	var res types.AccountInfo
+	res.Account = *acc
+	// res.AdditionalInfo = *additionalInfo
+	result = SuccessWithParams(res)
 }
 
 func (s *Server) Login(c *gin.Context) {
@@ -50,11 +70,23 @@ func (s *Server) Login(c *gin.Context) {
 			result = NotFound(err)
 			return
 		}
-		fmt.Printf("account: %+v\n", account)
+		if _, err = verifySignature(*req.Signature, NoncePrefix+*account.Nonce, *req.Address); err != nil {
+			result = ErrorWithMessage("Bad signature", err)
+			return
+		}
+	} else {
+		result = BadRequestMessage("Bad request", errors.New("invlid login request"))
+		return
+	}
+
+	token, err := s.gjwt.Generate(account)
+	if err != nil {
+		result = Error(err)
+		return
 	}
 
 	result = SuccessWithParams(map[string]interface{}{
-		"jwtToken": "jwt",
+		"jwtToken": token,
 	})
 }
 
@@ -64,12 +96,16 @@ func (s *Server) GetNonce(c *gin.Context) {
 
 	address := c.Param("address")
 	account, err := s.database.GetAccount(&address, nil)
+
+	defaultAvatar := "https://avatar.ctflearn.com/3a0394ad706fd978ec9edd880273da56.png"
+
 	if err != nil {
 		account = &model.Account{
 			Address:    &address,
 			Username:   &address,
 			PublicKey:  &address,
 			Nonce:      helper.PointerString(helper.RandomString(20)),
+			ImageURL:   &defaultAvatar,
 			IsActive:   helper.PointerTrue(true),
 			Bio:        helper.PointerString(""),
 			WalletType: model.WALLET_ONCHAIN,

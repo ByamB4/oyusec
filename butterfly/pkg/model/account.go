@@ -17,6 +17,10 @@ type Account struct {
 	FirstName      *string    `gorm:"type:varchar(100)" json:"firstName,omitempty"`
 	LastName       *string    `gorm:"type:varchar(200)" json:"lastName,omitempty"`
 	Address        *string    `gorm:"type:varchar(100); unique" json:"address,omitempty"`
+	ImageID        *string    `gorm:"type:varchar(200)" json:"imageId,omitempty"`
+	ImageURL       *string    `gorm:"type:varchar(200)" json:"imageURL,omitempty"`
+	CoverID        *string    `gorm:"type:varchar(200)" json:"coverId,omitempty"`
+	CoverURL       *string    `gorm:"type:varchar(200)" json:"coverURL,omitempty"`
 	Name           string     `json:"name"`
 	Bio            *string    `gorm:"type:text" json:"bio,omitempty"`
 	Email          *string    `gorm:"type:varchar(100)" json:"email,omitempty"`

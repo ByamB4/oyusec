@@ -6,7 +6,7 @@ func (s *Server) RegisterBasicAPI() {
 
 func (s *Server) RegisterAccountAPI() {
 	accountGroup := s.router.Group("account")
-	accountGroup.GET("", s.GetAllAccounts)
+	accountGroup.GET("", s.Auth(), s.GetAccount)
 	accountGroup.POST("login", s.Login)
 	accountGroup.GET("nonce/:address", s.GetNonce)
 }

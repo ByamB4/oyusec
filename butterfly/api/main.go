@@ -77,3 +77,21 @@ func Error(err error) *Response {
 		Err:     err,
 	}
 }
+
+func ErrorWithMessage(message string, err error) *Response {
+	return &Response{
+		Code:    500,
+		Status:  ERROR,
+		Message: message,
+		Err:     err,
+	}
+}
+
+func ErrorWithUnauthorized(err error) *Response {
+	return &Response{
+		Code:    401,
+		Status:  ERROR,
+		Message: UNAUTHORIZED,
+		Err:     err,
+	}
+}
