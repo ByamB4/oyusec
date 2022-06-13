@@ -1,1 +1,1 @@
-export { default as SecurePage } from './securepage'
+export { default as SecurePage } from './securePage'
