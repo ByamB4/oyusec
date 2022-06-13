@@ -186,7 +186,7 @@ export const AuthProvider: FC = ({ children }) => {
         logOut,
       }}
     >
-      {ready ? children : <></>}
+      {children}
     </AuthContext.Provider>
   )
 }
