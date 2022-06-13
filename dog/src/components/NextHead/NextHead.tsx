@@ -11,6 +11,7 @@ interface Props {
 }
 
 const NextHead: FC<Props> = ({ url, title, description, image, imageAlt }): ReactElement => {
+  // Yes
   return (
     <>
       <Head>
