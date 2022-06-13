@@ -9,15 +9,25 @@ import AppSidebar from './AppSidebar'
 interface Props {
   className?: string
   title?: string
+  description?: string
+  image?: string
   style?: CSSProperties
   children: ReactNode
   NO_PADDING?: boolean
 }
 
-const MainLayout: FC<Props> = ({ children, className = '', title = TITLE.DEFAULT, style, NO_PADDING = false }) => {
+const MainLayout: FC<Props> = ({
+  children,
+  className = '',
+  title = TITLE.DEFAULT,
+  description,
+  image,
+  style,
+  NO_PADDING = false,
+}) => {
   return (
     <>
-      <NextHead title={title} />
+      <NextHead title={title} description={description} image={image} />
       <div className="flex bg-primary-dark h-full w-full fixed">
         <AppSidebar />
         <main className="flex flex-col justify-between w-full h-full">
