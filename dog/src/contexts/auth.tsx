@@ -4,6 +4,7 @@ import {
   Dispatch,
   FC,
   MutableRefObject,
+  ReactElement,
   SetStateAction,
   useContext,
   useEffect,
@@ -46,6 +47,7 @@ export interface Metamask {
 export interface AuthState {
   user?: IUser
   setUser: Dispatch<SetStateAction<IUser>>
+  ready: boolean
   metamask: Metamask
   updateUser: (val: IUser) => void
   logOut: () => void
@@ -54,7 +56,7 @@ export interface AuthState {
 
 const AuthContext = createContext<AuthState>({} as AuthState)
 
-export const AuthProvider: FC = ({ children }) => {
+export const AuthProvider: FC = ({ children }): ReactElement => {
   const [ready, setReady] = useState<boolean>(false)
   const [user, setUser] = useState<IUser>(null)
   const [isMetaMaskInstalled, setMetaMaskInstalled] = useState<boolean>(false)
@@ -71,7 +73,6 @@ export const AuthProvider: FC = ({ children }) => {
       if (token) {
         const authUser = await AuthService.getAccount()
         setUser(authUser)
-        console.log('welcome')
       }
     } catch (err) {
       if (err instanceof ApiErrResp) {
@@ -180,6 +181,7 @@ export const AuthProvider: FC = ({ children }) => {
           onBoarding,
         },
         connectWallet,
+        ready,
         user,
         setUser,
         updateUser,

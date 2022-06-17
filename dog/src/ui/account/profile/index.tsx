@@ -1,24 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ReactElement, FC } from 'react'
-import { Avatar } from 'components'
+// import { Avatar } from 'components'
 // import { meltSocialLinks } from 'utils/melter'
 // import { handleIcon } from 'utils'
-import { useAuth } from 'contexts/auth'
-import { PathFormatter } from 'utils/pathFormatter'
+import { IUser } from 'services/types'
+import Header from './header'
 
 interface Props {
   className?: string
+  user: IUser
+  isProfile?: boolean
 }
 
-const UserCover: FC<Props> = ({ className = '' }): ReactElement => {
-  const { user } = useAuth()
-  const { getImagePath } = PathFormatter
-
+const UserProfile: FC<Props> = ({ className = '', user, isProfile = false }): ReactElement => {
   return (
-    <div className={`${className}`}>
-      <div className="flex flex-col items-center">
-        <img src={getImagePath(user.coverURL)} className="object-cover w-full h-64 rounded-tl-3xl" alt="user-profile" />
-        <Avatar src={getImagePath(user.imageURL)} className="border-primary-light -mt-28 border-[8px]" size={176} />
-      </div>
+    <section className={`${className}`}>
+      <Header user={user} isProfile={isProfile} />
       <div className="w-full grid grid-cols-2 gap-52 -mt-20 py-2">
         {/* <div className="flex col-span-1 justify-end gap-8">
           {meltSocialLinks(DEFAULT.user.socialLinks).map((link: { icon: string; value: string }) => (
@@ -32,8 +29,8 @@ const UserCover: FC<Props> = ({ className = '' }): ReactElement => {
           ))}
         </div> */}
       </div>
-    </div>
+    </section>
   )
 }
 
-export default UserCover
+export default UserProfile

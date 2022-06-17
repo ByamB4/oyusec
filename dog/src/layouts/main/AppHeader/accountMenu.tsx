@@ -1,5 +1,5 @@
-import { colors } from 'configs'
 import { Menu, MenuProps, styled } from '@mui/material'
+import colors from 'theme/colors'
 
 export const AccountMenu = styled((props: MenuProps) => (
   <Menu

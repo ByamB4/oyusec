@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { AppProps } from 'next/app'
 import { ReactElement } from 'react'
 import Head from 'next/head'
-import { SnackbarProvider } from 'contexts/snackbar'
 import { CacheProvider, EmotionCache } from '@emotion/react'
-import { MuiTheme, createEmotionCache } from 'initialize'
-import { SearchProvider } from 'contexts/search'
+import { MuiTheme, createEmotionCache } from 'theme'
 import { AuthProvider } from 'contexts/auth'
 import { CssBaseline, ThemeProvider } from '@mui/material'
+import { PreferenceProvider, SearchContext } from 'contexts/preference'
 import { ToastContainer } from 'react-toastify'
 import 'styles/css/globals.css'
 import 'styles/sass/index.sass'
@@ -31,28 +31,30 @@ const _ = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: Prop
       <link rel="manifest" href="site.webmanifest" />
     </Head>
     <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={MuiTheme}>
-        <AuthProvider>
-          <SnackbarProvider>
-            <SearchProvider>
-              <CssBaseline />
-              <Component {...pageProps} />
-            </SearchProvider>
-          </SnackbarProvider>
-        </AuthProvider>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={3000}
-          icon={false}
-          newestOnTop={false}
-          hideProgressBar
-          closeButton={<></>}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </ThemeProvider>
+      <PreferenceProvider>
+        <SearchContext.Consumer>
+          {({ theme }) => (
+            <ThemeProvider theme={MuiTheme}>
+              <AuthProvider>
+                <CssBaseline />
+                <Component {...pageProps} />
+              </AuthProvider>
+            </ThemeProvider>
+          )}
+        </SearchContext.Consumer>
+      </PreferenceProvider>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        icon={false}
+        newestOnTop={false}
+        hideProgressBar
+        closeButton={<></>}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </CacheProvider>
   </>
 )

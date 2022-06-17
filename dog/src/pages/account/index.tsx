@@ -1,19 +1,22 @@
-import { ReactElement } from 'react'
+import { ReactElement, useEffect } from 'react'
 import { MainLayout } from 'layouts'
 import { NextPage } from 'next'
-import { DesktopUserCover } from 'ui/User'
+import { UserProfile } from 'ui/account'
 import { useAuth } from 'contexts/auth'
-import { TITLE } from 'configs/app'
-import { SecurePage } from 'ui/navigation'
+import router from 'next/router'
 
 const UserProfilePage: NextPage<unknown> = (): ReactElement => {
-  const { user } = useAuth()
+  const { user, ready } = useAuth()
+
+  useEffect(() => {
+    if (ready && !user) {
+      router.push('/')
+    }
+  }, [user, ready])
 
   return (
-    <MainLayout NO_PADDING title={user?.username || TITLE.account.profile}>
-      <SecurePage>
-        <DesktopUserCover />
-      </SecurePage>
+    <MainLayout NO_PADDING title={user?.username}>
+      {ready && user && <UserProfile user={user} isProfile />}
     </MainLayout>
   )
 }

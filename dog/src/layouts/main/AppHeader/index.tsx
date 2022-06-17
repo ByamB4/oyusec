@@ -1,8 +1,8 @@
 import { FC, ReactElement, useState, MouseEvent, ChangeEvent } from 'react'
-import { Searchbar, Avatar, Toast } from 'components'
+import { Searchbar, Toast, Avatar } from 'components'
 import { Button, Typography } from '@mui/material'
 import { useAuth } from 'contexts/auth'
-import { handleIcon } from 'utils'
+import { fomUsrn, handleIcon } from 'utils'
 import { PathFormatter } from 'utils/pathFormatter'
 import Link from 'next/link'
 import { AccountMenu } from './accountMenu'
@@ -37,14 +37,6 @@ const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
     }
   }
 
-  const fomUsrn = (text: string): string => {
-    if (text.length >= 42) {
-      return `${text.substring(0, 6)}...${text.substring(text.length - 6)}`
-    }
-
-    return text
-  }
-
   return (
     <div className={`w-full flex justify-between items-center py-3 px-5 ${className}`}>
       <Searchbar value={searchValue} onChange={(_: ChangeEvent<HTMLInputElement>) => setSearchValue(_.target.value)} />
@@ -55,7 +47,7 @@ const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
               <Link href="/account">
                 <a>
                   <div className="flex items-center gap-2 cursor-pointer">
-                    <Avatar size={40} src={getImagePath(user.imageURL)} />
+                    <Avatar size={40} className="border-2 border-primary-purple" src={getImagePath(user.imageURL)} />
                     <Typography variant="h6">{fomUsrn(user.username)}</Typography>
                   </div>
                 </a>

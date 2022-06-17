@@ -1,22 +1,17 @@
-import { Typography } from "@mui/material";
-import { IUser } from "interfaces";
-import React from "react";
-import IconVerifiedUser from "icons/Filled/VerifiedUser";
-import { colors } from "configs";
+import { Typography } from '@mui/material'
+import { IUser } from 'interfaces'
+import React from 'react'
+import IconVerifiedUser from 'icons/Filled/VerifiedUser'
+import colors from 'theme/colors'
 
 interface Props {
-  user: Partial<IUser>;
-  size?: "h4" | "h3" | "h2";
-  className?: string;
-  noRank?: boolean;
+  user: Partial<IUser>
+  size?: 'h4' | 'h3' | 'h2'
+  className?: string
+  noRank?: boolean
 }
 
-const UserTitle: React.FC<Props> = ({
-  user,
-  noRank = false,
-  className = "",
-  size = "h4",
-}): React.ReactElement => {
+const UserTitle: React.FC<Props> = ({ user, noRank = false, className = '', size = 'h4' }): React.ReactElement => {
   return (
     // TODO: Add logic to show rank
     <div className="flex items-center gap-2">
@@ -33,7 +28,7 @@ const UserTitle: React.FC<Props> = ({
       </div>
       <IconVerifiedUser width={22} height={22} fill={colors.secondary.blue} />
     </div>
-  );
-};
+  )
+}
 
-export default UserTitle;
+export default UserTitle

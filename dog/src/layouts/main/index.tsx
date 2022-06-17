@@ -31,7 +31,7 @@ const MainLayout: FC<Props> = ({
       <div className="flex bg-primary-dark h-full w-full fixed">
         <AppSidebar />
         <main className="flex flex-col justify-between w-full h-full">
-          <AppHeader className="bg-primary-dark text-white" />
+          <AppHeader />
           <AppView
             className={`bg-primary-light h-full text-white rounded-l-3xl ${NO_PADDING ? '' : 'p-4'} ${className}`}
             style={style}

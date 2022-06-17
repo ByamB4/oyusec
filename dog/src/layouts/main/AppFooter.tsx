@@ -1,19 +1,15 @@
-import React from "react";
-import IconTrophy from "icons/Lined/Trophy";
-import { colors, DEFAULT } from "configs";
-import IconSword from "icons/Lined/Sword";
-import IconScript from "icons/Lined/Script";
-import IconFire from "icons/Filled/Fire";
-import {
-  styled,
-  linearProgressClasses,
-  LinearProgress,
-  Typography,
-} from "@mui/material";
-import { UserTitle } from "components";
+import React from 'react'
+import IconTrophy from 'icons/Lined/Trophy'
+import { DEFAULT } from 'configs'
+import IconSword from 'icons/Lined/Sword'
+import IconScript from 'icons/Lined/Script'
+import IconFire from 'icons/Filled/Fire'
+import { styled, linearProgressClasses, LinearProgress, Typography } from '@mui/material'
+import { UserTitle } from 'components'
+import colors from 'theme/colors'
 
 interface Props {
-  className?: string;
+  className?: string
 }
 const BorderLinearProgress = styled(LinearProgress)(() =>
   // { theme }
@@ -21,20 +17,18 @@ const BorderLinearProgress = styled(LinearProgress)(() =>
     height: 13,
     borderRadius: 50,
     [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor: "rgba(33, 150, 243, 0.3)",
+      backgroundColor: 'rgba(33, 150, 243, 0.3)',
     },
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 50,
       backgroundColor: colors.secondary.blue,
     },
-  })
-);
+  }),
+)
 
-const AppFooter: React.FC<Props> = ({ className = "" }): React.ReactElement => {
+const AppFooter: React.FC<Props> = ({ className = '' }): React.ReactElement => {
   return (
-    <footer
-      className={`bg-primary-dark flex items-center justify-between text-white py-2 px-4 ${className}`}
-    >
+    <footer className={`bg-primary-dark flex items-center justify-between text-white py-2 px-4 ${className}`}>
       <div className="flex gap-10">
         <div className="flex items-center">
           <IconTrophy width={32} height={32} />
@@ -70,7 +64,7 @@ const AppFooter: React.FC<Props> = ({ className = "" }): React.ReactElement => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default AppFooter;
+export default AppFooter

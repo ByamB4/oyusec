@@ -1,19 +1,16 @@
-import React from "react";
-import Image from "next/image";
-import { ICompetition, ICompetitionAuthor } from "interfaces";
-import { safeCompetitionThumbnail } from "utils/safe";
-import { Typography } from "@mui/material";
-import { Avatar } from "components";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react'
+import Image from 'next/image'
+import { ICompetition, ICompetitionAuthor } from 'interfaces'
+import { safeCompetitionThumbnail } from 'utils/safe'
+import { Typography } from '@mui/material'
 
 interface Props {
-  className?: string;
-  competition: ICompetition;
+  className?: string
+  competition: ICompetition
 }
 
-const Detail: React.FC<Props> = ({
-  className = "",
-  competition,
-}): React.ReactElement => {
+const Detail: React.FC<Props> = ({ className = '', competition }): React.ReactElement => {
   return (
     <div className={`grid grid-cols-4 gap-1 ${className}`}>
       <div className="flex col-span-1 justify-center">
@@ -29,7 +26,7 @@ const Detail: React.FC<Props> = ({
         <Typography variant="h3" className="text-center">
           {competition.name}
         </Typography>
-        <div className="flex flex-wrap gap-4">
+        {/* <div className="flex flex-wrap gap-4">
           {competition.authors.map((author: ICompetitionAuthor) => (
             <Avatar
               size={80}
@@ -38,13 +35,13 @@ const Detail: React.FC<Props> = ({
               key={author.user.id}
             />
           ))}
-        </div>
+        </div> */}
       </div>
       <div className="flex flex-col flex-wrap gap-4">
         <Typography variant="h3" className="text-center">
           Ивээн тэтгэгч
         </Typography>
-        <div className="flex flex-wrap gap-4">
+        {/* <div className="flex flex-wrap gap-4">
           {competition.authors.map((author: ICompetitionAuthor) => (
             <Avatar
               size={80}
@@ -53,10 +50,10 @@ const Detail: React.FC<Props> = ({
               key={author.user.id}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Detail;
+export default Detail

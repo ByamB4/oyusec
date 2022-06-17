@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import Tab from "@mui/material/Tab";
 import { styled } from "@mui/material/styles";
-import { colors } from "configs";
+import colors from "theme/colors";
 
 interface Props {
   className?: string;

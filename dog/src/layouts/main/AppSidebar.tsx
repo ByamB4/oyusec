@@ -1,9 +1,9 @@
 import { FC, ReactElement } from 'react'
 import { IconButton } from 'components'
-import { colors } from 'configs'
 import { useRouter } from 'next/router'
 import { IconHome, IconSword, IconTrophy, IconSettings, IconSchool, IconScript } from 'icons/Lined'
 import { v4 } from 'uuid'
+import colors from 'theme/colors'
 
 interface Props {
   className?: string

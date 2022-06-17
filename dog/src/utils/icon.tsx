@@ -3,6 +3,7 @@ import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { RiAccountCircleFill, RiShutDownLine } from 'react-icons/ri'
 import { IoClose } from 'react-icons/io5'
 import { HiCheck } from 'react-icons/hi'
+import { MdModeEditOutline } from 'react-icons/md'
 
 interface IHandleIcon {
   icon: string
@@ -13,6 +14,8 @@ interface IHandleIcon {
 
 export const handleIcon: FC<IHandleIcon> = ({ icon, size = 24, className = '', onClick }): ReactElement | undefined => {
   switch (icon) {
+    case 'edit':
+      return <MdModeEditOutline className={className} style={{ width: size, height: size }} onClick={onClick} />
     case 'metamask':
       return (
         <img

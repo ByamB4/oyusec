@@ -1,5 +1,3 @@
-export { default as Avatar } from './Avatar'
-
 export { default as Challenge } from './Challenge'
 
 export { default as Chip } from './Chip'
@@ -15,7 +13,7 @@ export { default as KeyboardShortcut } from './KeyboardShortcut'
 
 export { default as Note } from './Note'
 
-export { default as Searchbar } from './Searchbar'
+export { default as Searchbar } from './SearchModal'
 
 export { default as Snackbar } from './Snackbar'
 
@@ -32,3 +30,7 @@ export { default as CompetitionThumbnail } from './CompetitionThumbnail'
 export { default as Toast } from './Toast'
 
 export { default as NextHead } from './NextHead'
+
+export { default as UserPicture } from './UserPicture'
+
+export { default as Avatar } from './Avatar'

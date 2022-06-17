@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from 'react'
 import { getMessaging, Messaging, getToken, onMessage, MessagePayload, isSupported } from 'firebase/messaging'
-import { firebase } from 'initialize'
+import { firebase } from 'theme'
 
 const initMessaging = async () => {
   const supported = await isSupported()
