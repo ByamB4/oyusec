@@ -113,6 +113,9 @@ export const MuiTheme = createTheme({
       ],
     },
     MuiButton: {
+      defaultProps: {
+        variant: 'contained',
+      },
       styleOverrides: {
         root: {
           textTransform: 'none',

@@ -1,49 +1,39 @@
 /* eslint-disable no-sequences */
 /* eslint-disable no-unused-expressions */
-import { FC, ReactElement, useState, FormEvent } from "react";
-import { Input, Note } from "components";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Button,
-  Typography,
-} from "@mui/material";
-import { useSnackbar } from "contexts/snackbar";
-import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from "constants/Text";
+import { FC, ReactElement, useState, FormEvent } from 'react'
+import { Input, Note } from 'components'
+import { Accordion, AccordionDetails, AccordionSummary, Button, Typography } from '@mui/material'
+import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from 'constants/Text'
 // Development purposes
-import { v4 as uuidv4 } from "uuid";
-import { IChallenge, IChallengeNote } from "interfaces";
+import { v4 as uuidv4 } from 'uuid'
+import { IChallenge, IChallengeNote } from 'interfaces'
 
 interface Props {
-  className?: string;
-  style?: React.CSSProperties;
-  challenge: IChallenge;
-  currentChallenge: IChallenge;
-  setCurrentChallenge: any;
+  className?: string
+  style?: React.CSSProperties
+  challenge: IChallenge
+  currentChallenge: IChallenge
+  setCurrentChallenge: any
 }
 
 const CompChallenge: FC<Props> = ({
-  className = "",
+  className = '',
   style,
   challenge,
   currentChallenge,
   setCurrentChallenge,
 }): ReactElement => {
-  const [expanded, setExpanded] = useState<boolean>(
-    challenge.id === currentChallenge.id
-  );
-  const [value, setValue] = useState<string>("");
-  const { addSnackbar } = useSnackbar();
+  const [expanded, setExpanded] = useState<boolean>(challenge.id === currentChallenge.id)
+  const [value, setValue] = useState<string>('')
 
   const onSubmit = (event: FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
     if (value === chall.solve) {
-      addSnackbar(SUCCESS_SOLVE, "success");
+      alert(1)
     } else {
-      addSnackbar(FAIL_SOLVE, "error");
+      alert(0)
     }
-  };
+  }
 
   return (
     <Accordion
@@ -52,15 +42,13 @@ const CompChallenge: FC<Props> = ({
       square
       expanded={expanded}
       onChange={() => {
-        setExpanded(!expanded), setCurrentChallenge(challenge);
+        setExpanded(!expanded), setCurrentChallenge(challenge)
       }}
       className={`rounded-lg bg-transparent text-white transition ease-in-out duration-500 ${className}`}
       style={style}
     >
       <AccordionSummary
-        className={`rounded-t-lg  bg-primary-light1 ${
-          !expanded && "rounded-b-lg"
-        }`}
+        className={`rounded-t-lg  bg-primary-light1 ${!expanded && 'rounded-b-lg'}`}
         // onClick={() => console.log("closing")}
       >
         <div className="flex justify-between items-center w-full">
@@ -89,9 +77,7 @@ const CompChallenge: FC<Props> = ({
           <Input
             value={value}
             placeholder={FLAG_PLACEHOLDER}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setValue(e.target.value)
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
             className="w-full"
           />
           <Button type="submit" variant="contained" size="medium">
@@ -100,34 +86,34 @@ const CompChallenge: FC<Props> = ({
         </form>
       </AccordionDetails>
     </Accordion>
-  );
-};
+  )
+}
 
 const chall = {
-  name: "Day 4 - Twin towers ",
-  title: "blhfrp{j0j_x33c_t01aT}",
-  solve: "oyusec{w0w_k33p_g01nG}",
-  description: "Нууцыг минь тайлж чадах уу 🤔",
+  name: 'Day 4 - Twin towers ',
+  title: 'blhfrp{j0j_x33c_t01aT}',
+  solve: 'oyusec{w0w_k33p_g01nG}',
+  description: 'Нууцыг минь тайлж чадах уу 🤔',
   notes: [
     {
       id: uuidv4(),
-      text: "blhfrp{j0j_x33c_t01aT}",
+      text: 'blhfrp{j0j_x33c_t01aT}',
     },
   ],
   chips: [
     {
-      type: "solved",
+      type: 'solved',
       id: uuidv4(),
-      label: "Бодсон",
-      value: "7",
+      label: 'Бодсон',
+      value: '7',
     },
     {
-      type: "score",
+      type: 'score',
       id: uuidv4(),
-      label: "Оноо",
-      value: "960",
+      label: 'Оноо',
+      value: '960',
     },
   ],
-};
+}
 
-export default CompChallenge;
+export default CompChallenge

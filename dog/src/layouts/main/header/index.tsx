@@ -5,7 +5,7 @@ import { useAuth } from 'contexts/auth'
 import { fomUsrn, handleIcon } from 'utils'
 import { PathFormatter } from 'utils/pathFormatter'
 import Link from 'next/link'
-import { AccountMenu } from './accountMenu'
+import AccountMenu from './menu'
 
 interface Props {
   className?: string

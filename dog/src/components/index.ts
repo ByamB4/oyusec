@@ -3,7 +3,7 @@ export { default as Challenge } from './Challenge'
 export { default as Chip } from './Chip'
 export * from './Chip'
 
-export { default as DemoChallenge } from './DemoChallenge'
+export { default as DemoChallenge } from './demo-challenge'
 
 export { default as IconButton } from './IconButton'
 
@@ -14,8 +14,6 @@ export { default as KeyboardShortcut } from './KeyboardShortcut'
 export { default as Note } from './Note'
 
 export { default as Searchbar } from './SearchModal'
-
-export { default as Snackbar } from './Snackbar'
 
 export { default as Tab } from './Tab'
 

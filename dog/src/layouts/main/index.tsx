@@ -2,7 +2,7 @@ import { FC, CSSProperties, ReactNode } from 'react'
 import { NextHead } from 'components'
 import { TITLE } from 'configs/app'
 import AppView from './AppView'
-import AppHeader from './AppHeader'
+import AppHeader from './header'
 import AppFooter from './AppFooter'
 import AppSidebar from './AppSidebar'
 

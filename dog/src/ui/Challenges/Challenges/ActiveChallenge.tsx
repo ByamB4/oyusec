@@ -1,35 +1,33 @@
-import React from "react";
-import { Button, Typography } from "@mui/material";
-import { Input, Note } from "components";
-import { FLAG_PLACEHOLDER } from "constants/Text";
-import { IChallenge, IChallengeNote } from "interfaces";
-import { useSnackbar } from "contexts/snackbar";
+import React from 'react'
+import { Button, Typography } from '@mui/material'
+import { Input, Note } from 'components'
+import { FLAG_PLACEHOLDER } from 'constants/Text'
+import { IChallenge, IChallengeNote } from 'interfaces'
 
 interface Props {
-  className?: string;
-  activeChallenge: IChallenge;
-  userInput: string;
-  setUserInput: any;
+  className?: string
+  activeChallenge: IChallenge
+  userInput: string
+  setUserInput: any
 }
 
 const ActiveChallenge: React.FC<Props> = ({
-  className = "",
+  className = '',
   activeChallenge,
   userInput,
   setUserInput,
 }): React.ReactElement => {
-  const { addSnackbar } = useSnackbar();
   const onSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    addSnackbar("Удахгүй заснаа :')", "success");
+    event.preventDefault()
+    alert('Удахгүй заснаа :')
     // if (userInput === activeChallenge.flag) {
     // } else {
     //   addSnackbar(FAIL_SOLVE, "error");
     // }
-  };
+  }
 
-  if (JSON.stringify(activeChallenge) === "{}") {
-    return <></>;
+  if (JSON.stringify(activeChallenge) === '{}') {
+    return <></>
   }
 
   return (
@@ -38,7 +36,7 @@ const ActiveChallenge: React.FC<Props> = ({
         variant="h2"
         className="text-center"
         style={{
-          color: "#F9EAE1",
+          color: '#F9EAE1',
         }}
       >
         {activeChallenge.name}
@@ -54,9 +52,7 @@ const ActiveChallenge: React.FC<Props> = ({
           <Input
             value={userInput}
             placeholder={FLAG_PLACEHOLDER}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setUserInput(e.target.value)
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserInput(e.target.value)}
             className="w-full"
           />
           <Button type="submit" variant="contained" size="medium">
@@ -65,7 +61,7 @@ const ActiveChallenge: React.FC<Props> = ({
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ActiveChallenge;
+export default ActiveChallenge

@@ -1,7 +1,7 @@
 import { Menu, MenuProps, styled } from '@mui/material'
 import colors from 'theme/colors'
 
-export const AccountMenu = styled((props: MenuProps) => (
+const AccountMenu = styled((props: MenuProps) => (
   <Menu
     elevation={0}
     anchorOrigin={{
@@ -21,3 +21,5 @@ export const AccountMenu = styled((props: MenuProps) => (
     backgroundColor: colors.primary.light1,
   },
 }))
+
+export default AccountMenu
