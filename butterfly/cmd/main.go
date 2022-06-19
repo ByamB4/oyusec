@@ -61,6 +61,7 @@ func main() {
 	server.RegisterBasicAPI()
 	server.RegisterBookAPI()
 	server.RegisterAccountAPI()
+	server.RegisterChallengeAPI()
 
 	internal.SetupGracefulShutdown(ctx, port, engine)
 

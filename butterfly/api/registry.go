@@ -19,3 +19,12 @@ func (s *Server) RegisterBookAPI() {
 	bookGroup.PUT("/:id", s.UpdateBook)
 	bookGroup.DELETE("/:id", s.DeleteBook)
 }
+
+func (s *Server) RegisterChallengeAPI() {
+	challengeGroup := s.router.Group("challenge")
+	challengeGroup.GET("get", s.GetChallenges)
+	// challengeGroup.POST("", s.AddChallenge)
+	// challengeGroup.GET("/:id", s.GetChallenge)
+	// challengeGroup.PUT("/:id", s.UpdateChallenge)
+	// challengeGroup.DELETE("/:id", s.DeleteChallenge)
+}
