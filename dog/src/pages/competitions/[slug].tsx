@@ -1,5 +1,5 @@
 import { MainLayout } from "layouts";
-import { DesktopCompetition } from "ui/Competitions";
+import { DesktopCompetition } from "ui/competitions";
 import { NextPage } from "next";
 import { ICompetition } from "interfaces";
 import { DEFAULT } from "configs";

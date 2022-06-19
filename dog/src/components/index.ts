@@ -1,34 +1,34 @@
-export { default as Challenge } from './Challenge'
+export { default as Challenge } from './challenge'
 
-export { default as Chip } from './Chip'
-export * from './Chip'
+export { default as Chip } from './chip'
+export * from './chip'
 
 export { default as DemoChallenge } from './demo-challenge'
 
-export { default as IconButton } from './IconButton'
+export { default as IconButton } from './icon-button'
 
-export { default as Input } from './Input'
+export { default as Input } from './input'
 
-export { default as KeyboardShortcut } from './KeyboardShortcut'
+export { default as KeyboardShortcut } from './keyboard-shortcut'
 
-export { default as Note } from './Note'
+export { default as Note } from './note'
 
-export { default as Searchbar } from './SearchModal'
+export { default as Searchbar } from './search-modal'
 
-export { default as Tab } from './Tab'
+export { default as Tab } from './tab'
 
-export { default as Tabs } from './Tabs'
+export { default as Tabs } from './tabs'
 
-export { default as UserTitle } from './UserTitle'
+export { default as UserTitle } from './user-title'
 
-export { default as CompChallenge } from './CompChallenge'
+export { default as CompChallenge } from './comp-challenge'
 
-export { default as CompetitionThumbnail } from './CompetitionThumbnail'
+export { default as CompetitionThumbnail } from './comp-thumbnail'
 
-export { default as Toast } from './Toast'
+export { default as Toast } from './toast'
 
-export { default as NextHead } from './NextHead'
+export { default as NextHead } from './next-head'
 
-export { default as UserPicture } from './UserPicture'
+export { default as UserPicture } from './user-picture'
 
-export { default as Avatar } from './Avatar'
+export { default as Avatar } from './avatar'

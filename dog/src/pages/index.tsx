@@ -1,14 +1,14 @@
 import { ReactElement } from 'react'
 import { MainLayout } from 'layouts'
 import { NextPage } from 'next'
-import { DesktopHero } from 'ui/Landing'
-import { MAX_SCREEN_MX } from 'constants/Layout'
+import { LandingHero } from 'ui/landing'
+import { MAX_SCREEN_MX } from 'constants/layout'
 import { TITLE } from 'configs/app'
 
 const LandingPage: NextPage<unknown> = (): ReactElement => {
   return (
     <MainLayout NO_PADDING className="bg-contain bg-no-repeat xl:bg-index-pattern" title={TITLE.homepage.index}>
-      <DesktopHero className={`${MAX_SCREEN_MX}`} />
+      <LandingHero className={`${MAX_SCREEN_MX}`} />
     </MainLayout>
   )
 }

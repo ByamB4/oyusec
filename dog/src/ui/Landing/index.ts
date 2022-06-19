@@ -1,1 +1,1 @@
-export { default as DesktopHero } from "./Hero";
+export { default as LandingHero } from './hero'

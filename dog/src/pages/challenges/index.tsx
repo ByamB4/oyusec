@@ -1,16 +1,15 @@
-import { MainLayout } from "layouts";
-import { ReactElement } from "react";
-import { DesktopChallenges, DesktopLiveFeatures } from "ui/Challenges";
-import { NextPage } from "next";
-import { TITLE } from "configs/app";
+import { MainLayout } from 'layouts'
+import { LiveFeatures } from 'ui/challenges'
+import { NextPage } from 'next'
+import { TITLE } from 'configs/app'
 
-const Challenges: NextPage = (): ReactElement => {
+const ChallengesPage: NextPage = (): React.ReactElement => {
   return (
     <MainLayout className="flex flex-col gap-2" title={TITLE.challenges.index}>
-      <DesktopLiveFeatures />
-      <DesktopChallenges />
+      <LiveFeatures />
+      {/* <Challenges /> */}
     </MainLayout>
-  );
-};
+  )
+}
 
-export default Challenges;
+export default ChallengesPage

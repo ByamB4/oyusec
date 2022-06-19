@@ -1,7 +1,7 @@
 import { useState, CSSProperties, FC, ReactElement, FormEvent, ChangeEvent } from 'react'
 import { Input, Note, Chip } from 'components'
 import { Accordion, AccordionDetails, AccordionSummary, Button, Typography } from '@mui/material'
-import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from 'constants/Text'
+import { FAIL_SOLVE, FLAG_PLACEHOLDER, SUCCESS_SOLVE } from 'constants/text'
 // Development purposes
 import { v4 as uuidv4 } from 'uuid'
 import { handleChallengeChipColor, handleChallengeIcon } from 'utils/handlers'

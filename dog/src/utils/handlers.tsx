@@ -1,33 +1,15 @@
 import { ReactElement } from 'react'
 import { IChallengeCategory, ICompetitionState, ICompetitionTab, ICompetitionTabContent } from 'interfaces'
+import { IconBug, IconCubeScan, IconFileSearch, IconFire, IconLock, IconPuzzle, IconSkull, IconWeb } from 'icons/Filled'
 import {
-  IconAccountCircle,
-  IconBug,
-  IconCubeScan,
-  IconFileSearch,
-  IconFire,
-  IconLock,
-  IconPuzzle,
-  IconSkull,
-  IconWeb,
-} from 'icons/Filled'
-import {
-  IconAccount,
   IconBaselineQuery,
   IconChart,
   IconEye,
-  IconFacebook,
   IconFile,
-  IconGithub,
-  IconInstagram,
-  IconLinkedIn,
   IconScript,
-  IconShutdown,
   IconStar,
   IconSwords,
   IconTimeLapse,
-  IconTwitter,
-  IconYoutube,
 } from 'icons/Lined'
 
 export const handleChallengeChipColor = (val: string): 'primary' | 'red' | 'deepBlue' | 'darkViolet' => {

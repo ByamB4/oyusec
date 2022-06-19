@@ -1,5 +1,5 @@
-export { default as DesktopTopPlayer } from "./TopPlayer";
-export { default as DesktopLiveFeatures } from "./LiveFeatures";
-export { default as DesktopContest } from "./Contest";
-export { default as DesktopChallenges } from "./Challenges";
-export { default as DesktopAddChallenge } from "./Add";
+export { default as TopPlayer } from './top-player'
+export { default as LiveFeatures } from './live-features'
+export { default as Contest } from './contest'
+export { default as ChallengesView } from './challenges-view'
+export { default as AddChallenge } from './add'

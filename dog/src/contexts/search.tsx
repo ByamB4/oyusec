@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react'
+
+import { createContext, useState, useContext, useEffect } from 'react'
 
 interface ISearch {
   setIsSearch: (val: boolean) => void
   isSearch: boolean
 }
 
-const SearchContext = React.createContext<ISearch>({
+const SearchContext = createContext<ISearch>({
   setIsSearch: () => {},
   isSearch: false,
 })
 
-export const SearchProvider: React.FC = ({ children }) => {
-  const [isSearch, setIsSearch] = React.useState<boolean>(false)
+export const SearchProvider: React.FC = ({ children }): React.ReactElement => {
+  const [isSearch, setIsSearch] = useState<boolean>(false)
 
   const handleKeyPress = (event: any) => {
     if (event.key === '/') {
@@ -23,7 +24,7 @@ export const SearchProvider: React.FC = ({ children }) => {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('keydown', handleKeyPress)
 
     return () => {
@@ -38,5 +39,5 @@ export const useSearch: () => {
   setIsSearch: (val: boolean) => void
   isSearch: boolean
 } = () => {
-  return React.useContext(SearchContext)
+  return useContext(SearchContext)
 }

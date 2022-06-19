@@ -5,7 +5,7 @@ interface Props {
   className?: string
 }
 
-const LandingHero: React.FC<Props> = ({ className = '' }) => {
+const LandingHero: React.FC<Props> = ({ className = '' }): React.ReactElement => {
   return (
     <div className={`w-full h-full p-0 rounded-3xl overflow-hidden ${className}`}>
       <div className="grid lg:grid-cols-2 h-full">
@@ -20,7 +20,7 @@ const LandingHero: React.FC<Props> = ({ className = '' }) => {
             </Typography>
           </div>
           <div className="flex gap-8">
-            <Button variant="contained">Бүртгүүлэх</Button>
+            <Button>Бүртгүүлэх</Button>
             <Button variant="outlined">Санал хүсэлт</Button>
           </div>
         </div>

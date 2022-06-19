@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { MainLayout } from "layouts";
-import { DesktopCompetitionsRoot } from "ui/Competitions";
+import { DesktopCompetitionsRoot } from "ui/competitions";
 import { NextPage } from "next";
 import { TITLE } from "configs/app";
 

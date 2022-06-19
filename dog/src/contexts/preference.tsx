@@ -1,4 +1,4 @@
-import { FC, createContext, useState, useEffect, useContext, Dispatch, SetStateAction } from 'react'
+import { createContext, useState, useEffect, useContext } from 'react'
 
 type ThemeMode = 'dark' | 'light'
 
@@ -10,7 +10,7 @@ type ContextType = {
   theme: {
     isDark: boolean
     theme: ThemeMode
-    setThemeMode: Dispatch<SetStateAction<ThemeMode>>
+    setThemeMode: React.Dispatch<React.SetStateAction<ThemeMode>>
   }
 }
 
@@ -27,7 +27,7 @@ const getThemeMode = (): ThemeMode => {
 
 export const SearchContext = createContext<ContextType>({} as ContextType)
 
-export const PreferenceProvider: FC = ({ children }) => {
+export const PreferenceProvider: React.FC = ({ children }): React.ReactElement => {
   const [isSearch, setIsSearch] = useState<boolean>(false)
   const [theme, setThemeMode] = useState<ThemeMode>(getThemeMode())
 
