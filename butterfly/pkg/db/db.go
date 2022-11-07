@@ -4,6 +4,8 @@ import (
 	"fmt"
 
 	// "github.com/bxcodec/faker/v3"
+	"butterfly/pkg/model"
+
 	log "github.com/sirupsen/logrus"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -21,9 +23,9 @@ func Init(url string) (*Instance, error) {
 		log.Fatalln(err)
 	}
 
-	// DeleteTable(&Instance{Gorm: db})
-	// DeleteAllData(&Instance{Gorm: db})
-	// db.AutoMigrate(&model.ChallengeNote{}, &model.ChallengeState{}, &model.ChallengeCategory{}, &model.Challenge{})
+	DeleteTable(&Instance{Gorm: db})
+	DeleteAllData(&Instance{Gorm: db})
+	db.AutoMigrate(&model.Note{}, &model.ChallengeState{}, &model.ChallengeCategory{}, &model.Challenge{})
 
 	Seed(&Instance{Gorm: db})
 

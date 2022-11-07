@@ -22,7 +22,7 @@ func (s *Server) RegisterBookAPI() {
 
 func (s *Server) RegisterChallengeAPI() {
 	challengeGroup := s.router.Group("challenge")
-	challengeGroup.GET("get", s.GetChallenges)
+	challengeGroup.GET("list", s.GetChallenges)
 	// challengeGroup.POST("", s.AddChallenge)
 	// challengeGroup.GET("/:id", s.GetChallenge)
 	// challengeGroup.PUT("/:id", s.UpdateChallenge)

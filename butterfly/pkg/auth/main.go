@@ -65,6 +65,7 @@ func New(private, public string, timeout int) (*GJWT, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("priv key done")
 	key, err = ioutil.ReadFile(public)
 	if err != nil {
 		return nil, err

@@ -2,6 +2,7 @@ package db
 
 import (
 	"butterfly/pkg/model"
+	"fmt"
 	"math/rand"
 
 	"github.com/google/uuid"
@@ -11,9 +12,9 @@ import (
 func Seed(db *Instance) {
 	ChallengeCategories(db)
 	ChallengeStates(db)
-	ChallengeNotes(db)
 	Challenges(db)
-	ChallengesNotes(db)
+	// ChallengeNotes(db)
+	// ChallengesNotes(db)
 
 	log.Info("DB seeded")
 }
@@ -74,11 +75,14 @@ func ChallengeNotes(db *Instance) {
 		{Label: "git revert e975d678f209da09fff763cd297a6ed8dd77bb35"},
 		{Label: "Theming the CTF event makes each challenge a fun story that includes a goal"},
 	}
+
+	var challenges []model.Challenge
+	db.Gorm.Find(&challenges)
 	for _, i := range notes {
-		id := uuid.New().String()
-		challengeNote := model.ChallengeNote{
-			Id:    &id,
-			Label: &i.Label,
+		// id := uuid.New().String()
+		challengeNote := model.Note{
+			ChallengeId: challenges[rand.Intn(len(challenges))].Id,
+			Label:       &i.Label,
 		}
 		db.Gorm.Create(&challengeNote)
 	}
@@ -103,6 +107,8 @@ func Challenges(db *Instance) {
 		{Name: "Future", Description: "Found a strange file on our server. We tried to launch it, but it doesn't seem to work... yet. We suspect this is a virus that will be executed in the future. Can you figure out what it is?", Value: rand.Intn(1000 - 800 + 1)},
 	}
 
+	fmt.Printf("yo: %d", len(states))
+
 	for _, i := range challenges {
 		id := uuid.New().String()
 		challenge := model.Challenge{
@@ -117,13 +123,13 @@ func Challenges(db *Instance) {
 	}
 }
 
-func ChallengesNotes(db *Instance) {
-	var notes []model.ChallengeNote
-	var challenges []model.Challenge
-	db.Gorm.Find(&notes)
-	db.Gorm.Find(&challenges)
+// func ChallengesNotes(db *Instance) {
+// 	var notes []model.Note
+// 	var challenges []model.Challenge
+// 	db.Gorm.Find(&notes)
+// 	db.Gorm.Find(&challenges)
 
-	for _, i := range challenges {
-		db.Gorm.Model(&i).Association("ChallengeNote").Append(notes[rand.Intn(len(notes))])
-	}
-}
+// 	for _, i := range challenges {
+// 		db.Gorm.Model(&i).Association("ChallengeNote").Append(notes[rand.Intn(len(notes))])
+// 	}
+// }
