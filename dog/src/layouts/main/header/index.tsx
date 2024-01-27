@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState, MouseEvent, ChangeEvent } from 'react'
+import { useState, MouseEvent, ChangeEvent } from 'react'
 import { Searchbar, Toast, Avatar } from 'components'
 import { Button, Typography } from '@mui/material'
 import { useAuth } from 'contexts/auth'
@@ -11,7 +11,7 @@ interface Props {
   className?: string
 }
 
-const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
+const AppNavbar: React.FC<Props> = ({ className = '' }): React.ReactElement => {
   const [searchValue, setSearchValue] = useState<string>('')
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
@@ -96,7 +96,7 @@ const AppNavbar: FC<Props> = ({ className = '' }): ReactElement => {
               startIcon={handleIcon({ icon: 'metamask', size: 20 })}
               onClick={() => loginMetaMask()}
             >
-              Нэвтрэх
+              Login / Join
             </Button>
           </>
         )}
